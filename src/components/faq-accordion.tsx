@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { ChevronDown, ChevronUp } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
 import { clsx } from 'clsx'
 
 interface FAQItem {
@@ -41,29 +41,33 @@ export function FAQAccordion({ items = defaultFAQs, title }: FAQAccordionProps) 
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <div className="space-y-6">
-      {title && (
-        <h2 className="text-2xl font-bold text-gray-950 mb-8">{title}</h2>
-      )}
+    <div className="mx-auto max-w-3xl">
+      <div className="text-center mb-12">
+        <p className="font-mono text-xs font-medium uppercase tracking-[0.1em] text-ash mb-3">FAQ</p>
+        <h2 className="font-heading text-[28px] font-semibold tracking-tight text-ink sm:text-[40px]">
+          {title || 'Frequently asked questions'}
+        </h2>
+      </div>
 
-      <div className="space-y-4">
+      <div>
         {items.map((item, index) => (
           <div
             key={index}
-            className="border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm hover:shadow-md transition-all duration-200"
+            className="border-b border-border-strong"
           >
             <button
               onClick={() => setOpenIndex(openIndex === index ? null : index)}
-              className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50/50 transition-colors"
+              className="flex w-full items-center justify-between py-5 text-left transition-colors"
             >
-              <span className="text-lg font-semibold text-gray-950 pr-4">
+              <span className="font-heading text-[17px] font-semibold text-ink pr-4">
                 {item.question}
               </span>
-              {openIndex === index ? (
-                <ChevronUp className="size-5 text-gray-600 flex-shrink-0 transition-transform" />
-              ) : (
-                <ChevronDown className="size-5 text-gray-600 flex-shrink-0 transition-transform" />
-              )}
+              <ChevronDown
+                className={clsx(
+                  'size-5 flex-shrink-0 transition-all duration-200',
+                  openIndex === index ? 'rotate-180 text-accent' : 'text-ash'
+                )}
+              />
             </button>
             <div
               className={clsx(
@@ -71,7 +75,7 @@ export function FAQAccordion({ items = defaultFAQs, title }: FAQAccordionProps) 
                 openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
               )}
             >
-              <div className="px-6 pb-6 text-gray-600 leading-relaxed">
+              <div className="pb-5 text-[15px] leading-relaxed text-slate">
                 {item.answer}
               </div>
             </div>

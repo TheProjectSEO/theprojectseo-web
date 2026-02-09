@@ -1,10 +1,10 @@
 import { clsx } from 'clsx'
 
 type HeadingProps = {
-  as?: 'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+  as?: 'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span'
   dark?: boolean
 } & React.ComponentPropsWithoutRef<
-  'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+  'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span'
 >
 
 export function Heading({
@@ -19,7 +19,7 @@ export function Heading({
       data-dark={dark ? 'true' : undefined}
       className={clsx(
         className,
-        'text-4xl font-medium tracking-tighter text-pretty text-gray-950 data-dark:text-white sm:text-6xl',
+        'font-heading text-[28px] font-semibold tracking-tight text-ink data-dark:text-white sm:text-[40px]',
       )}
     />
   )
@@ -37,7 +37,7 @@ export function Subheading({
       data-dark={dark ? 'true' : undefined}
       className={clsx(
         className,
-        'font-mono text-xs/5 font-semibold tracking-widest text-gray-500 uppercase data-dark:text-gray-400',
+        'font-mono text-xs font-medium tracking-[0.1em] text-ash uppercase data-dark:text-white/50',
       )}
     />
   )
@@ -49,7 +49,7 @@ export function Lead({
 }: React.ComponentPropsWithoutRef<'p'>) {
   return (
     <p
-      className={clsx(className, 'text-2xl font-medium text-gray-500')}
+      className={clsx(className, 'font-sans text-lg leading-[1.65] text-slate')}
       {...props}
     />
   )

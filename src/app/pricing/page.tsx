@@ -1,10 +1,9 @@
 import { Button } from '@/components/button'
+import { JsonLd } from '@/components/json-ld'
 import { Container } from '@/components/container'
 import { Footer } from '@/components/footer'
-import { Gradient } from '@/components/gradient'
 import { Link } from '@/components/link'
 import { Navbar } from '@/components/navbar'
-import UnicornBackground from '@/components/unicorn-background'
 import { Heading, Lead, Subheading } from '@/components/text'
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import {
@@ -18,6 +17,9 @@ export const metadata: Metadata = {
   title: 'SEO Pricing | TheProjectSEO',
   description:
     'Transparent SEO pricing that delivers results. Choose from Starter, Growth, or Enterprise SEO packages designed to boost your rankings.',
+  alternates: {
+    canonical: '/pricing',
+  },
 }
 
 const tiers = [
@@ -120,7 +122,7 @@ function Header() {
     <Container className="mt-16">
       <Heading as="h1">SEO pricing that delivers results.</Heading>
       <Lead className="mt-6 max-w-3xl">
-        Transparent SEO pricing with no hidden fees. Choose the plan that fits 
+        Transparent SEO pricing with no hidden fees. Choose the plan that fits
         your business goals and start dominating search rankings today.
       </Lead>
     </Container>
@@ -130,7 +132,7 @@ function Header() {
 function PricingCards() {
   return (
     <div className="relative py-24">
-      <Gradient className="absolute inset-x-2 top-48 bottom-0 rounded-4xl ring-1 ring-black/5 ring-inset" />
+      <div className="absolute inset-x-2 top-48 bottom-0 rounded-none border border-border-strong bg-cream" />
       <Container className="relative">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           {tiers.map((tier, tierIndex) => (
@@ -138,12 +140,12 @@ function PricingCards() {
           ))}
         </div>
         <div className="mt-24 text-center">
-          <p className="text-sm text-gray-500 mb-4">All plans include:</p>
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-gray-600">
-            <span>✓ No setup fees</span>
-            <span>✓ Cancel anytime</span>
-            <span>✓ 30-day money-back guarantee</span>
-            <span>✓ Free consultation</span>
+          <p className="text-sm text-ash mb-4">All plans include:</p>
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-slate">
+            <span>&#10003; No setup fees</span>
+            <span>&#10003; Cancel anytime</span>
+            <span>&#10003; 30-day money-back guarantee</span>
+            <span>&#10003; Free consultation</span>
           </div>
         </div>
       </Container>
@@ -153,42 +155,52 @@ function PricingCards() {
 
 function PricingCard({ tier }: { tier: (typeof tiers)[number] }) {
   return (
-    <div className={`-m-2 grid grid-cols-1 rounded-4xl shadow-[inset_0_0_2px_1px_#ffffff4d] ring-1 ring-black/5 max-lg:mx-auto max-lg:w-full max-lg:max-w-md ${
-      tier.featured ? 'relative transform scale-105 ring-2 ring-gray-900' : ''
-    }`}>
+    <div
+      className={`grid grid-cols-1 rounded-none border border-border-strong bg-white max-lg:mx-auto max-lg:w-full max-lg:max-w-md ${
+        tier.featured
+          ? 'relative transform lg:scale-105 border-t-[3px] border-t-accent shadow-lg'
+          : ''
+      }`}
+    >
       {tier.featured && (
         <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-          <span className="bg-gray-900 text-white px-4 py-2 rounded-full text-xs font-medium">
-            Most Popular
+          <span className="font-mono text-xs font-medium tracking-[0.1em] uppercase bg-accent text-white px-4 py-1.5">
+            Popular
           </span>
         </div>
       )}
-      <div className="grid grid-cols-1 rounded-4xl p-2 shadow-md shadow-black/5">
-        <div className="rounded-3xl bg-white p-10 pb-9 shadow-2xl ring-1 ring-black/5">
-          <Subheading>{tier.name}</Subheading>
-          <p className="mt-2 text-sm/6 text-gray-950/75">{tier.description}</p>
-          <div className="mt-8 flex items-center gap-4">
-            <div className="text-5xl font-medium text-gray-950">
-              ${tier.priceMonthly}
-            </div>
-            <div className="text-sm/5 text-gray-950/75">
-              <p>USD</p>
-              <p>per month</p>
-            </div>
+      <div className="p-10 pb-9">
+        <Subheading>{tier.name}</Subheading>
+        <p className="mt-2 text-sm/6 text-stone">{tier.description}</p>
+        <div className="mt-8 flex items-center gap-4">
+          <div className="font-mono text-[40px] font-medium text-ink">
+            ${tier.priceMonthly}
           </div>
-          <div className="mt-8">
-            <Button href={tier.href}>Get started</Button>
+          <div className="text-sm/5 text-stone">
+            <p>USD</p>
+            <p>per month</p>
           </div>
-          <div className="mt-8">
-            <h3 className="text-sm/6 font-medium text-gray-950">
-              What&apos;s included:
-            </h3>
-            <ul className="mt-3 space-y-3">
-              {tier.highlights.map((props, featureIndex) => (
-                <FeatureItem key={featureIndex} {...props} />
-              ))}
-            </ul>
-          </div>
+        </div>
+        <div className="mt-8">
+          {tier.featured ? (
+            <Button variant="solid" href={tier.href}>
+              Get started
+            </Button>
+          ) : (
+            <Button variant="ghost" href={tier.href}>
+              Get started
+            </Button>
+          )}
+        </div>
+        <div className="mt-8">
+          <h3 className="text-sm/6 font-medium text-ink">
+            What&apos;s included:
+          </h3>
+          <ul className="mt-3 space-y-3">
+            {tier.highlights.map((props, featureIndex) => (
+              <FeatureItem key={featureIndex} {...props} />
+            ))}
+          </ul>
         </div>
       </div>
     </div>
@@ -239,11 +251,11 @@ function PricingTable({
                 <Menu>
                   <MenuButton className="flex items-center justify-between gap-2 font-medium">
                     {selectedTier.name}
-                    <ChevronUpDownIcon className="size-4 fill-gray-900" />
+                    <ChevronUpDownIcon className="size-4 fill-ink" />
                   </MenuButton>
                   <MenuItems
                     anchor="bottom start"
-                    className="min-w-(--button-width) rounded-lg bg-white p-1 shadow-lg ring-1 ring-gray-200 [--anchor-gap:6px] [--anchor-offset:-4px] [--anchor-padding:10px]"
+                    className="min-w-(--button-width) rounded-none bg-white p-1 shadow-lg border border-border-strong [--anchor-gap:6px] [--anchor-offset:-4px] [--anchor-padding:10px]"
                   >
                     {tiers.map((tier) => (
                       <MenuItem key={tier.slug}>
@@ -253,7 +265,7 @@ function PricingTable({
                           data-selected={
                             tier === selectedTier ? true : undefined
                           }
-                          className="group flex items-center gap-2 rounded-md px-2 py-1 data-focus:bg-gray-200"
+                          className="group flex items-center gap-2 px-2 py-1 data-focus:bg-cream"
                         >
                           {tier.name}
                           <CheckIcon className="hidden size-4 group-data-selected:block" />
@@ -296,7 +308,7 @@ function PricingTable({
                   colSpan={4}
                   className="px-0 pt-10 pb-0 group-first-of-type:pt-5"
                 >
-                  <div className="-mx-4 rounded-lg bg-gray-50 px-4 py-3 text-sm/6 font-semibold">
+                  <div className="-mx-4 bg-cream px-4 py-3 text-sm/6 font-semibold font-heading">
                     {section}
                   </div>
                 </th>
@@ -306,11 +318,11 @@ function PricingTable({
                 .map(({ name }) => (
                   <tr
                     key={name}
-                    className="border-b border-gray-100 last:border-none"
+                    className="border-b border-border last:border-none"
                   >
                     <th
                       scope="row"
-                      className="px-0 py-4 text-sm/6 font-normal text-gray-600"
+                      className="px-0 py-4 text-sm/6 font-normal text-slate"
                     >
                       {name}
                     </th>
@@ -330,20 +342,20 @@ function PricingTable({
                         >
                           {value === true ? (
                             <>
-                              <CheckIcon className="size-4 fill-gray-600" />
+                              <CheckIcon className="size-4 fill-accent" />
                               <span className="sr-only">
                                 Included in {tier.name}
                               </span>
                             </>
                           ) : value === false || value === undefined ? (
                             <>
-                              <MinusIcon className="size-4 fill-gray-400" />
+                              <MinusIcon className="size-4 fill-ash" />
                               <span className="sr-only">
                                 Not included in {tier.name}
                               </span>
                             </>
                           ) : (
-                            <div className="text-sm/6">{value}</div>
+                            <div className="text-sm/6 font-sans">{value}</div>
                           )}
                         </td>
                       )
@@ -368,10 +380,12 @@ function FeatureItem({
   return (
     <li
       data-disabled={disabled ? true : undefined}
-      className="flex items-start gap-4 text-sm/6 text-gray-950/75 data-disabled:text-gray-950/25"
+      className="flex items-start gap-4 text-sm/6 text-stone data-disabled:text-ash/50"
     >
       <span className="inline-flex h-6 items-center">
-        <PlusIcon className="size-3.75 shrink-0 fill-gray-950/25" />
+        <CheckIcon
+          className={`size-4 shrink-0 ${disabled ? 'fill-ash/30' : 'fill-accent'}`}
+        />
       </span>
       {disabled && <span className="sr-only">Not included:</span>}
       {description}
@@ -379,25 +393,17 @@ function FeatureItem({
   )
 }
 
-function PlusIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
-  return (
-    <svg viewBox="0 0 15 15" aria-hidden="true" {...props}>
-      <path clipRule="evenodd" d="M8 0H7v7H0v1h7v7h1V8h7V7H8V0z" />
-    </svg>
-  )
-}
-
 function Testimonial() {
   return (
-    <div className="mx-2 my-24 rounded-4xl bg-gray-900 bg-[url(/dot-texture.svg)] pt-72 pb-24 lg:pt-36">
+    <div className="mx-2 my-24 bg-ink bg-[url(/dot-texture.svg)] pt-72 pb-24 lg:pt-36">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-[384px_1fr_1fr]">
           <div className="-mt-96 lg:-mt-52">
-            <div className="-m-2 rounded-4xl bg-white/15 shadow-[inset_0_0_2px_1px_#ffffff4d] ring-1 ring-black/5 max-lg:mx-auto max-lg:max-w-xs">
-              <div className="rounded-4xl p-2 shadow-md shadow-black/5">
-                <div className="overflow-hidden rounded-3xl shadow-2xl outline outline-1 -outline-offset-1 outline-black/10">
-                  <div className="aspect-3/4 w-full bg-gray-300 flex items-center justify-center">
-                    <span className="text-gray-500">Client Photo</span>
+            <div className="-m-2 border border-white/20 bg-white/10 max-lg:mx-auto max-lg:max-w-xs">
+              <div className="p-2">
+                <div className="overflow-hidden outline outline-1 -outline-offset-1 outline-white/10">
+                  <div className="aspect-3/4 w-full bg-ink/80 flex items-center justify-center">
+                    <span className="text-white/40 font-sans">Client Photo</span>
                   </div>
                 </div>
               </div>
@@ -406,17 +412,15 @@ function Testimonial() {
           <div className="flex max-lg:mt-16 lg:col-span-2 lg:px-16">
             <figure className="mx-auto flex max-w-xl flex-col gap-16 max-lg:text-center">
               <blockquote>
-                <p className="relative text-3xl tracking-tight text-white lg:text-4xl">
-                  TheProjectSEO increased our organic traffic by 340% in just 8 months. 
+                <p className="relative font-display text-3xl tracking-tight text-white lg:text-4xl">
+                  TheProjectSEO increased our organic traffic by 340% in just 8 months.
                   The ROI has been incredible.
                 </p>
               </blockquote>
               <figcaption className="mt-auto">
                 <p className="text-sm/6 font-medium text-white">David Thompson</p>
-                <p className="text-sm/6 font-medium">
-                  <span className="bg-linear-to-r from-[#e8f0e0] from-28% via-[#7a9471] via-70% to-[#4a5e42] bg-clip-text text-transparent">
-                    CEO, GrowthTech Solutions
-                  </span>
+                <p className="text-sm/6 font-medium text-white/60">
+                  CEO, GrowthTech Solutions
                 </p>
               </figcaption>
             </figure>
@@ -439,52 +443,52 @@ function FrequentlyAskedQuestions() {
         </Heading>
         <div className="mx-auto mt-16 mb-32 max-w-xl space-y-12">
           <dl>
-            <dt className="text-sm font-semibold">
+            <dt className="text-sm font-semibold font-heading text-ink">
               How long does it take to see SEO results?
             </dt>
-            <dd className="mt-4 text-sm/6 text-gray-600">
-              Most clients start seeing improvements within 30-60 days, with significant 
-              ranking improvements typically occurring within 3-6 months. SEO is a 
+            <dd className="mt-4 text-sm/6 text-slate font-sans">
+              Most clients start seeing improvements within 30-60 days, with significant
+              ranking improvements typically occurring within 3-6 months. SEO is a
               long-term strategy that builds momentum over time.
             </dd>
           </dl>
           <dl>
-            <dt className="text-sm font-semibold">
+            <dt className="text-sm font-semibold font-heading text-ink">
               Do you guarantee first page rankings?
             </dt>
-            <dd className="mt-4 text-sm/6 text-gray-600">
-              While we cannot guarantee specific rankings due to Google's ever-changing 
-              algorithm, we do guarantee significant improvements in your organic visibility 
+            <dd className="mt-4 text-sm/6 text-slate font-sans">
+              While we cannot guarantee specific rankings due to Google&apos;s ever-changing
+              algorithm, we do guarantee significant improvements in your organic visibility
               and traffic when you follow our strategy.
             </dd>
           </dl>
           <dl>
-            <dt className="text-sm font-semibold">
+            <dt className="text-sm font-semibold font-heading text-ink">
               What makes TheProjectSEO different from other agencies?
             </dt>
-            <dd className="mt-4 text-sm/6 text-gray-600">
-              We focus on data-driven strategies that deliver measurable ROI. Our team 
-              stays ahead of algorithm updates, uses cutting-edge tools, and provides 
-              transparent reporting so you always know what we're working on.
+            <dd className="mt-4 text-sm/6 text-slate font-sans">
+              We focus on data-driven strategies that deliver measurable ROI. Our team
+              stays ahead of algorithm updates, uses cutting-edge tools, and provides
+              transparent reporting so you always know what we&apos;re working on.
             </dd>
           </dl>
           <dl>
-            <dt className="text-sm font-semibold">
+            <dt className="text-sm font-semibold font-heading text-ink">
               Can I cancel my SEO service anytime?
             </dt>
-            <dd className="mt-4 text-sm/6 text-gray-600">
-              Yes, all our plans are month-to-month with no long-term contracts. 
-              We believe in earning your business every month through results, 
+            <dd className="mt-4 text-sm/6 text-slate font-sans">
+              Yes, all our plans are month-to-month with no long-term contracts.
+              We believe in earning your business every month through results,
               not locking you into lengthy agreements.
             </dd>
           </dl>
           <dl>
-            <dt className="text-sm font-semibold">
+            <dt className="text-sm font-semibold font-heading text-ink">
               Do you work with businesses in my industry?
             </dt>
-            <dd className="mt-4 text-sm/6 text-gray-600">
-              We have experience across virtually every industry, from B2B SaaS and 
-              e-commerce to healthcare and professional services. Our strategies are 
+            <dd className="mt-4 text-sm/6 text-slate font-sans">
+              We have experience across virtually every industry, from B2B SaaS and
+              e-commerce to healthcare and professional services. Our strategies are
               customized based on your specific industry and target audience.
             </dd>
           </dl>
@@ -507,7 +511,15 @@ export default async function Pricing({
 
   return (
     <main className="overflow-hidden">
-      <UnicornBackground />
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'WebPage',
+          name: 'SEO Pricing',
+          description: 'Transparent SEO pricing plans...',
+          url: 'https://theprojectseo.com/pricing',
+        }}
+      />
       <Container>
         <Navbar />
       </Container>

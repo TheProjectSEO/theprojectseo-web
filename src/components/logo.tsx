@@ -2,26 +2,33 @@ import { clsx } from 'clsx'
 
 export function Logo({
   className,
+  variant = 'default',
   ...props
-}: React.ComponentPropsWithoutRef<'svg'>) {
+}: React.ComponentPropsWithoutRef<'div'> & {
+  variant?: 'default' | 'reversed'
+}) {
+  const isReversed = variant === 'reversed'
+
   return (
-    <svg
-      viewBox="0 0 200 40"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={clsx(className)}
-      {...props}
-    >
-      <text
-        x="10"
-        y="28"
-        fontSize="16"
-        fontWeight="bold"
-        fill="currentColor"
-        className="font-sans"
+    <div className={clsx('flex items-center gap-1.5', className)} {...props}>
+      <span
+        className={clsx(
+          'font-heading text-base font-bold tracking-tight',
+          isReversed ? 'text-white' : 'text-ink'
+        )}
       >
-        TheProjectSEO
-      </text>
-    </svg>
+        The Project
+      </span>
+      <span
+        className={clsx(
+          'h-5 w-px',
+          isReversed ? 'bg-white/30' : 'bg-ink/30'
+        )}
+        aria-hidden="true"
+      />
+      <span className="font-display text-base font-semibold tracking-tight text-accent">
+        SEO
+      </span>
+    </div>
   )
 }

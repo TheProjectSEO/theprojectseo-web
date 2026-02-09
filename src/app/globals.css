@@ -1,26 +1,71 @@
 @import 'tailwindcss';
 
 @theme {
-  --font-sans: Switzer, system-ui, sans-serif;
+  /* Fonts */
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-heading: var(--font-archivo), system-ui, sans-serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), monospace;
 
-  --radius-4xl: 2rem;
-}
+  /* Brand */
+  --color-accent: #C45A3C; /* Adjusted for WCAG AA compliance (4.5:1 on paper) - primary brand color */
+  --color-accent-hover: #A84D31;
+  --color-accent-bright: #D16847; /* Original terracotta for visual elements where contrast isn't critical */
+  --color-accent-soft: rgba(196, 90, 60, 0.08);
+  --color-accent-border: rgba(196, 90, 60, 0.2);
 
-@keyframes move-x {
-  0% {
-    transform: translateX(var(--move-x-from));
-  }
-  100% {
-    transform: translateX(var(--move-x-to));
-  }
+  /* Neutrals */
+  --color-ink: #0A0A0A;
+  --color-stone: #2A2A2A;
+  --color-slate: #4A4A4A;
+  --color-ash: #6B7280; /* Darkened from #9CA3AF for WCAG AA compliance (4.5:1 on paper) */
+  --color-paper: #FAFAF9;
+  --color-cream: #F5F5F0;
+
+  /* Borders */
+  --color-border: rgba(42, 42, 42, 0.08);
+  --color-border-strong: rgba(42, 42, 42, 0.12);
+  --color-border-emphasis: rgba(42, 42, 42, 0.16);
+
+  /* Semantic */
+  --color-success: #059669;
+  --color-success-soft: rgba(5, 150, 105, 0.08);
+  --color-warning: #D97706;
+  --color-warning-soft: rgba(217, 119, 6, 0.08);
+  --color-danger: #DC2626;
+  --color-danger-soft: rgba(220, 38, 38, 0.08);
+  --color-info: #0284C7;
+  --color-info-soft: rgba(2, 132, 199, 0.08);
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(10,10,10,0.04), 0 1px 3px rgba(10,10,10,0.03);
+  --shadow-md: 0 4px 8px rgba(10,10,10,0.06), 0 2px 4px rgba(10,10,10,0.04);
+  --shadow-lg: 0 12px 24px rgba(10,10,10,0.08), 0 4px 8px rgba(10,10,10,0.04);
+  --shadow-xl: 0 24px 48px rgba(10,10,10,0.10), 0 8px 16px rgba(10,10,10,0.04);
+  --shadow-float: 0 24px 48px rgba(10,10,10,0.10), 0 2px 8px rgba(10,10,10,0.04);
 }
 
 @keyframes fadeIn {
-  from { 
-    opacity: 0; 
+  from {
+    opacity: 0;
   }
-  to { 
-    opacity: 1; 
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
   }
 }
 

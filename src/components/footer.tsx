@@ -1,95 +1,7 @@
-import { PlusGrid, PlusGridItem, PlusGridRow } from '@/components/plus-grid'
-import { Button } from './button'
-import { Container } from './container'
-import { Gradient } from './gradient'
+'use client'
+
 import { Link } from './link'
 import { Logo } from './logo'
-import { Subheading } from './text'
-
-function CallToAction() {
-  return (
-    <div className="relative pt-20 pb-16 text-center sm:py-24">
-      <hgroup>
-        <Subheading>Get started</Subheading>
-        <p className="mt-6 text-3xl font-medium tracking-tight text-gray-950 sm:text-5xl">
-          Ready to dominate search?
-          <br />
-          Start your SEO audit today.
-        </p>
-      </hgroup>
-      <p className="mx-auto mt-6 max-w-xs text-sm/6 text-gray-500">
-        Get proven SEO strategies and unlock your website&apos;s ranking potential.
-      </p>
-      <div className="mt-6">
-        <Button className="w-full sm:w-auto" href="/contact">
-          Get started
-        </Button>
-      </div>
-    </div>
-  )
-}
-
-function SitemapHeading({ children }: { children: React.ReactNode }) {
-  return <h3 className="text-sm/6 font-medium text-gray-950/50">{children}</h3>
-}
-
-function SitemapLinks({ children }: { children: React.ReactNode }) {
-  return <ul className="mt-6 space-y-4 text-sm/6">{children}</ul>
-}
-
-function SitemapLink(props: React.ComponentPropsWithoutRef<typeof Link>) {
-  return (
-    <li>
-      <Link
-        {...props}
-        className="font-medium text-gray-950 data-hover:text-gray-950/75"
-      />
-    </li>
-  )
-}
-
-function Sitemap() {
-  return (
-    <>
-      <div>
-        <SitemapHeading>Services</SitemapHeading>
-        <SitemapLinks>
-          <SitemapLink href="/services/aeo">AEO Services</SitemapLink>
-          <SitemapLink href="/services/seo">SEO Services</SitemapLink>
-          <SitemapLink href="/services/content">Content Services</SitemapLink>
-          <SitemapLink href="/services/web">Web Services</SitemapLink>
-        </SitemapLinks>
-      </div>
-      <div>
-        <SitemapHeading>Industries</SitemapHeading>
-        <SitemapLinks>
-          <SitemapLink href="/industries/ai">AI & Machine Learning</SitemapLink>
-          <SitemapLink href="/industries/ecommerce">E-commerce</SitemapLink>
-          <SitemapLink href="/industries/healthcare">Healthcare</SitemapLink>
-          <SitemapLink href="/industries/finance">Finance</SitemapLink>
-        </SitemapLinks>
-      </div>
-      <div>
-        <SitemapHeading>Locations</SitemapHeading>
-        <SitemapLinks>
-          <SitemapLink href="/locations/usa">United States</SitemapLink>
-          <SitemapLink href="/locations/philippines">Philippines</SitemapLink>
-          <SitemapLink href="/locations/hongkong">Hong Kong</SitemapLink>
-          <SitemapLink href="/locations/singapore">Singapore</SitemapLink>
-        </SitemapLinks>
-      </div>
-      <div>
-        <SitemapHeading>Company</SitemapHeading>
-        <SitemapLinks>
-          <SitemapLink href="/company">About</SitemapLink>
-          <SitemapLink href="/blog">Blog</SitemapLink>
-          <SitemapLink href="/pricing">Pricing</SitemapLink>
-          <SitemapLink href="/contact">Contact</SitemapLink>
-        </SitemapLinks>
-      </div>
-    </>
-  )
-}
 
 function SocialIconX(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -119,80 +31,142 @@ function SocialIconLinkedIn(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
-function SocialLinks() {
-  return (
-    <>
-      <Link
-        href="https://facebook.com/theprojectseo"
-        target="_blank"
-        aria-label="Visit us on Facebook"
-        className="text-gray-950 data-hover:text-gray-950/75"
-      >
-        <SocialIconFacebook className="size-4" />
-      </Link>
-      <Link
-        href="https://x.com/theprojectseo"
-        target="_blank"
-        aria-label="Visit us on X"
-        className="text-gray-950 data-hover:text-gray-950/75"
-      >
-        <SocialIconX className="size-4" />
-      </Link>
-      <Link
-        href="https://linkedin.com/company/theprojectseo"
-        target="_blank"
-        aria-label="Visit us on LinkedIn"
-        className="text-gray-950 data-hover:text-gray-950/75"
-      >
-        <SocialIconLinkedIn className="size-4" />
-      </Link>
-    </>
-  )
-}
-
-function Copyright() {
-  return (
-    <div className="text-sm/6 text-gray-950">
-      &copy; {new Date().getFullYear()} TheProjectSEO Inc.
-    </div>
-  )
-}
-
 export function Footer() {
   return (
-    <footer>
-      <Gradient className="relative">
-        <div className="absolute inset-2 rounded-4xl bg-white/80" />
-        <Container>
-          <CallToAction />
-          <PlusGrid className="pb-16">
-            <PlusGridRow>
-              <div className="grid grid-cols-2 gap-y-10 pb-6 lg:grid-cols-6 lg:gap-8">
-                <div className="col-span-2 flex">
-                  <PlusGridItem className="pt-6 lg:pb-6">
-                    <Logo className="h-9" />
-                  </PlusGridItem>
-                </div>
-                <div className="col-span-2 grid grid-cols-2 gap-x-8 gap-y-12 lg:col-span-4 lg:grid-cols-subgrid lg:pt-6">
-                  <Sitemap />
-                </div>
-              </div>
-            </PlusGridRow>
-            <PlusGridRow className="flex justify-between">
-              <div>
-                <PlusGridItem className="py-3">
-                  <Copyright />
-                </PlusGridItem>
-              </div>
-              <div className="flex">
-                <PlusGridItem className="flex items-center gap-8 py-3">
-                  <SocialLinks />
-                </PlusGridItem>
-              </div>
-            </PlusGridRow>
-          </PlusGrid>
-        </Container>
-      </Gradient>
+    <footer className="bg-ink">
+      <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
+        {/* Main grid */}
+        <div className="grid grid-cols-2 gap-8 py-16 lg:grid-cols-6 lg:gap-10 lg:py-20">
+          {/* Brand + Social */}
+          <div className="col-span-2 lg:col-span-1">
+            <Logo variant="reversed" className="mb-4" />
+            <p className="text-sm leading-relaxed text-white/50 mb-6">
+              Data-driven SEO strategies that deliver measurable growth.
+            </p>
+            <div className="flex items-center gap-4">
+              <Link
+                href="https://facebook.com/theprojectseo"
+                target="_blank"
+                aria-label="Visit us on Facebook"
+                className="text-white/40 transition-colors hover:text-white/70"
+              >
+                <SocialIconFacebook className="size-4" />
+              </Link>
+              <Link
+                href="https://x.com/theprojectseo"
+                target="_blank"
+                aria-label="Visit us on X"
+                className="text-white/40 transition-colors hover:text-white/70"
+              >
+                <SocialIconX className="size-4" />
+              </Link>
+              <Link
+                href="https://linkedin.com/company/theprojectseo"
+                target="_blank"
+                aria-label="Visit us on LinkedIn"
+                className="text-white/40 transition-colors hover:text-white/70"
+              >
+                <SocialIconLinkedIn className="size-4" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h3 className="mb-4 font-heading text-xs font-semibold uppercase tracking-[0.08em] text-white/90">
+              Services
+            </h3>
+            <ul className="space-y-3">
+              <li><Link href="/services/aeo" className="text-sm text-white/50 transition-colors hover:text-white/70">AEO Services</Link></li>
+              <li><Link href="/services/seo" className="text-sm text-white/50 transition-colors hover:text-white/70">SEO Services</Link></li>
+              <li><Link href="/services/content" className="text-sm text-white/50 transition-colors hover:text-white/70">Content Services</Link></li>
+              <li><Link href="/services/web" className="text-sm text-white/50 transition-colors hover:text-white/70">Web Services</Link></li>
+              <li><Link href="/services/seo-consulting" className="text-sm text-white/50 transition-colors hover:text-white/70">SEO Consulting</Link></li>
+            </ul>
+          </div>
+
+          {/* Industries */}
+          <div>
+            <h3 className="mb-4 font-heading text-xs font-semibold uppercase tracking-[0.08em] text-white/90">
+              Industries
+            </h3>
+            <ul className="space-y-3">
+              <li><Link href="/industries/ai" className="text-sm text-white/50 transition-colors hover:text-white/70">AI & Machine Learning</Link></li>
+              <li><Link href="/industries/ecommerce" className="text-sm text-white/50 transition-colors hover:text-white/70">E-commerce</Link></li>
+              <li><Link href="/industries/healthcare" className="text-sm text-white/50 transition-colors hover:text-white/70">Healthcare</Link></li>
+              <li><Link href="/industries/finance" className="text-sm text-white/50 transition-colors hover:text-white/70">Finance</Link></li>
+            </ul>
+          </div>
+
+          {/* Locations */}
+          <div>
+            <h3 className="mb-4 font-heading text-xs font-semibold uppercase tracking-[0.08em] text-white/90">
+              Locations
+            </h3>
+            <ul className="space-y-3">
+              <li><Link href="/locations/usa" className="text-sm text-white/50 transition-colors hover:text-white/70">United States</Link></li>
+              <li><Link href="/locations/philippines" className="text-sm text-white/50 transition-colors hover:text-white/70">Philippines</Link></li>
+              <li><Link href="/locations/hongkong" className="text-sm text-white/50 transition-colors hover:text-white/70">Hong Kong</Link></li>
+              <li><Link href="/locations/singapore" className="text-sm text-white/50 transition-colors hover:text-white/70">Singapore</Link></li>
+              <li><Link href="/locations/australia" className="text-sm text-white/50 transition-colors hover:text-white/70">Australia</Link></li>
+              <li><Link href="/locations/germany" className="text-sm text-white/50 transition-colors hover:text-white/70">Germany</Link></li>
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div>
+            <h3 className="mb-4 font-heading text-xs font-semibold uppercase tracking-[0.08em] text-white/90">
+              Company
+            </h3>
+            <ul className="space-y-3">
+              <li><Link href="/company" className="text-sm text-white/50 transition-colors hover:text-white/70">About</Link></li>
+              <li><Link href="/blog" className="text-sm text-white/50 transition-colors hover:text-white/70">Blog</Link></li>
+              <li><Link href="/pricing" className="text-sm text-white/50 transition-colors hover:text-white/70">Pricing</Link></li>
+              <li><Link href="/contact" className="text-sm text-white/50 transition-colors hover:text-white/70">Contact</Link></li>
+            </ul>
+          </div>
+
+          {/* Newsletter */}
+          <div className="col-span-2 lg:col-span-1">
+            <h3 className="mb-4 font-heading text-xs font-semibold uppercase tracking-[0.08em] text-white/90">
+              Newsletter
+            </h3>
+            <p className="text-sm text-white/50 mb-4">
+              Get SEO insights delivered to your inbox.
+            </p>
+            <form onSubmit={(e) => e.preventDefault()} className="flex gap-2">
+              <input
+                type="email"
+                placeholder="Email address"
+                className="flex-1 rounded-md border border-white/10 bg-white/5 px-3 py-2 text-sm text-white placeholder:text-white/30 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent/30"
+              />
+              <button
+                type="submit"
+                className="flex items-center justify-center rounded-md bg-accent px-3 py-2 text-white transition-colors hover:bg-accent-hover"
+              >
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        {/* Legal bar */}
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-white/[0.08] py-6 sm:flex-row">
+          <p className="text-xs text-white/40">
+            &copy; {new Date().getFullYear()} TheProjectSEO Inc. All rights reserved.
+          </p>
+          <div className="flex items-center gap-6">
+            <Link href="/privacy" className="text-xs text-white/40 transition-colors hover:text-white/60">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="text-xs text-white/40 transition-colors hover:text-white/60">
+              Terms of Service
+            </Link>
+          </div>
+        </div>
+      </div>
     </footer>
   )
 }
