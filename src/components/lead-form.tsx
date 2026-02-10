@@ -1,6 +1,6 @@
 'use client'
 
-import { useActionState, useEffect, useRef } from 'react'
+import { Suspense, useActionState, useEffect, useRef } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { submitLead, type LeadFormState } from '@/app/actions/submit-lead'
 import { Button } from '@/components/button'
@@ -21,7 +21,15 @@ interface LeadFormProps {
   className?: string
 }
 
-export function LeadForm({
+export function LeadForm(props: LeadFormProps) {
+  return (
+    <Suspense fallback={<div className={clsx('rounded-lg bg-paper p-8 border border-border-strong animate-pulse h-96', props.className)} />}>
+      <LeadFormInner {...props} />
+    </Suspense>
+  )
+}
+
+function LeadFormInner({
   variant = 'compact',
   submitText = 'Get Your Free SEO Audit',
   className,
