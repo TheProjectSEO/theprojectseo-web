@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { ChevronDownIcon } from '@heroicons/react/24/solid'
 import { Link } from './link'
 import { Logo } from './logo'
@@ -233,75 +234,84 @@ function DesktopNav() {
 }
 
 export function Navbar({ banner }: { banner?: React.ReactNode }) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  const closeMenu = () => setMobileMenuOpen(false)
+
   return (
-    <header className="sticky top-0 z-50 h-[72px] bg-paper/85 backdrop-blur-[20px] border-b border-border">
-      {/* Mobile Menu Toggle - CSS Only */}
-      <input
-        type="checkbox"
-        id="mobile-menu-toggle"
-        className="peer sr-only"
+    <>
+      <header className="sticky top-0 z-50 h-[72px] bg-paper/85 backdrop-blur-[20px] border-b border-border">
+        <div className="mx-auto flex h-full max-w-[1200px] items-center justify-between px-6 lg:px-12">
+          <div className="flex items-center gap-6">
+            <Link href="/" title="Home">
+              <Logo />
+            </Link>
+            {banner && (
+              <div className="hidden items-center lg:flex">
+                {banner}
+              </div>
+            )}
+          </div>
+
+          <DesktopNav />
+
+          <button
+            onClick={() => setMobileMenuOpen(true)}
+            className="flex size-10 items-center justify-center rounded-md transition-colors hover:bg-cream lg:hidden"
+            aria-label="Open mobile menu"
+          >
+            <svg className="size-5 text-ink" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16" />
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      {/* Mobile Menu Backdrop - outside header to avoid backdrop-filter containing block */}
+      <div
+        className={`fixed inset-0 z-[90] bg-ink/20 transition-opacity duration-300 lg:hidden ${
+          mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
+        }`}
+        onClick={closeMenu}
       />
 
-      <div className="mx-auto flex h-full max-w-[1200px] items-center justify-between px-6 lg:px-12">
-        <div className="flex items-center gap-6">
-          <Link href="/" title="Home">
-            <Logo />
-          </Link>
-          {banner && (
-            <div className="hidden items-center lg:flex">
-              {banner}
-            </div>
-          )}
-        </div>
-
-        <DesktopNav />
-
-        <label
-          htmlFor="mobile-menu-toggle"
-          className="flex size-10 items-center justify-center rounded-md transition-colors hover:bg-cream lg:hidden cursor-pointer"
-          aria-label="Toggle mobile menu"
-        >
-          <svg className="size-5 text-ink peer-checked:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16" />
-          </svg>
-          <svg className="hidden size-5 text-ink peer-checked:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </label>
-      </div>
-
-      {/* Mobile Menu Backdrop */}
-      <div id="mobile-menu-backdrop" className="fixed inset-0 z-[90] bg-ink/20 opacity-0 invisible transition-opacity duration-300 lg:hidden" />
-
-      {/* Mobile Menu Panel - CSS Only */}
-      <div id="mobile-menu-panel" className="fixed inset-0 z-[100] translate-x-full transition-transform duration-300 lg:hidden" style={{ backgroundColor: '#ffffff' }}>
+      {/* Mobile Menu Panel - outside header to avoid backdrop-filter containing block */}
+      <div
+        className={`fixed inset-0 z-[100] transition-transform duration-300 lg:hidden ${
+          mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+        style={{ backgroundColor: '#ffffff' }}
+      >
         <div className="flex h-[72px] items-center justify-between px-6 border-b border-border">
           <Logo />
-          <label
-            htmlFor="mobile-menu-toggle"
-            className="flex size-10 items-center justify-center rounded-md hover:bg-cream cursor-pointer"
+          <button
+            onClick={closeMenu}
+            className="flex size-10 items-center justify-center rounded-md hover:bg-cream"
             aria-label="Close mobile menu"
           >
             <svg className="size-5 text-ink" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
-          </label>
+          </button>
         </div>
 
-        <div className="overflow-y-auto px-6 py-4" style={{ maxHeight: 'calc(100vh - 72px)' }}>
+        <div className="overflow-y-auto px-6 py-4" style={{ maxHeight: 'calc(100vh - 72px)', backgroundColor: '#ffffff' }}>
           {/* Services Accordion */}
-          <details className="border-b border-border">
+          <details className="group border-b border-border">
             <summary className="flex w-full items-center justify-between py-4 font-sans text-base font-medium text-ink cursor-pointer list-none">
               Services
-              <ChevronDownIcon className="h-4 w-4 text-ash transition-transform" />
+              <ChevronDownIcon className="h-4 w-4 text-ash transition-transform group-open:rotate-180" />
             </summary>
             <div className="pb-4 pl-4 space-y-4">
               {/* Development Services */}
-              <details>
-                <summary className="text-sm font-medium text-ink py-2 cursor-pointer">Development Services</summary>
+              <details className="group/sub">
+                <summary className="text-sm font-medium text-ink py-2 cursor-pointer list-none flex items-center justify-between">
+                  Development Services
+                  <ChevronDownIcon className="h-3.5 w-3.5 text-ash transition-transform group-open/sub:rotate-180" />
+                </summary>
                 <div className="pl-4 space-y-2 mt-2">
                   {developmentServices.map(({ href, label }) => (
-                    <Link key={href} href={href} className="block text-sm text-slate hover:text-ink py-1">
+                    <Link key={href} href={href} onClick={closeMenu} className="block text-sm text-slate hover:text-ink py-1">
                       {label}
                     </Link>
                   ))}
@@ -309,11 +319,14 @@ export function Navbar({ banner }: { banner?: React.ReactNode }) {
               </details>
 
               {/* SEO Services */}
-              <details>
-                <summary className="text-sm font-medium text-ink py-2 cursor-pointer">SEO Services</summary>
+              <details className="group/sub">
+                <summary className="text-sm font-medium text-ink py-2 cursor-pointer list-none flex items-center justify-between">
+                  SEO Services
+                  <ChevronDownIcon className="h-3.5 w-3.5 text-ash transition-transform group-open/sub:rotate-180" />
+                </summary>
                 <div className="pl-4 space-y-2 mt-2">
                   {seoServices.map(({ href, label }) => (
-                    <Link key={href} href={href} className="block text-sm text-slate hover:text-ink py-1">
+                    <Link key={href} href={href} onClick={closeMenu} className="block text-sm text-slate hover:text-ink py-1">
                       {label}
                     </Link>
                   ))}
@@ -321,11 +334,14 @@ export function Navbar({ banner }: { banner?: React.ReactNode }) {
               </details>
 
               {/* Automation & AI */}
-              <details>
-                <summary className="text-sm font-medium text-ink py-2 cursor-pointer">Automation & AI</summary>
+              <details className="group/sub">
+                <summary className="text-sm font-medium text-ink py-2 cursor-pointer list-none flex items-center justify-between">
+                  Automation & AI
+                  <ChevronDownIcon className="h-3.5 w-3.5 text-ash transition-transform group-open/sub:rotate-180" />
+                </summary>
                 <div className="pl-4 space-y-2 mt-2">
                   {automationServices.map(({ href, label }) => (
-                    <Link key={href} href={href} className="block text-sm text-slate hover:text-ink py-1">
+                    <Link key={href} href={href} onClick={closeMenu} className="block text-sm text-slate hover:text-ink py-1">
                       {label}
                     </Link>
                   ))}
@@ -333,11 +349,14 @@ export function Navbar({ banner }: { banner?: React.ReactNode }) {
               </details>
 
               {/* Specialized Services */}
-              <details>
-                <summary className="text-sm font-medium text-ink py-2 cursor-pointer">Specialized Services</summary>
+              <details className="group/sub">
+                <summary className="text-sm font-medium text-ink py-2 cursor-pointer list-none flex items-center justify-between">
+                  Specialized Services
+                  <ChevronDownIcon className="h-3.5 w-3.5 text-ash transition-transform group-open/sub:rotate-180" />
+                </summary>
                 <div className="pl-4 space-y-2 mt-2">
                   {specializedServices.map(({ href, label }) => (
-                    <Link key={href} href={href} className="block text-sm text-slate hover:text-ink py-1">
+                    <Link key={href} href={href} onClick={closeMenu} className="block text-sm text-slate hover:text-ink py-1">
                       {label}
                     </Link>
                   ))}
@@ -347,16 +366,17 @@ export function Navbar({ banner }: { banner?: React.ReactNode }) {
           </details>
 
           {/* Industries Accordion */}
-          <details className="border-b border-border">
+          <details className="group border-b border-border">
             <summary className="flex w-full items-center justify-between py-4 font-sans text-base font-medium text-ink cursor-pointer list-none">
               Industries
-              <ChevronDownIcon className="h-4 w-4 text-ash transition-transform" />
+              <ChevronDownIcon className="h-4 w-4 text-ash transition-transform group-open:rotate-180" />
             </summary>
             <div className="pb-4 pl-4 space-y-3">
               {industryLinks.map(({ href, label }) => (
                 <Link
                   key={href}
                   href={href}
+                  onClick={closeMenu}
                   className="block text-sm text-slate hover:text-ink"
                 >
                   {label}
@@ -366,16 +386,17 @@ export function Navbar({ banner }: { banner?: React.ReactNode }) {
           </details>
 
           {/* Locations Accordion */}
-          <details className="border-b border-border">
+          <details className="group border-b border-border">
             <summary className="flex w-full items-center justify-between py-4 font-sans text-base font-medium text-ink cursor-pointer list-none">
               Locations
-              <ChevronDownIcon className="h-4 w-4 text-ash transition-transform" />
+              <ChevronDownIcon className="h-4 w-4 text-ash transition-transform group-open:rotate-180" />
             </summary>
             <div className="pb-4 pl-4 space-y-3">
               {locationLinks.map(({ href, label }) => (
                 <Link
                   key={href}
                   href={href}
+                  onClick={closeMenu}
                   className="block text-sm text-slate hover:text-ink"
                 >
                   {label}
@@ -389,6 +410,7 @@ export function Navbar({ banner }: { banner?: React.ReactNode }) {
             <Link
               key={href}
               href={href}
+              onClick={closeMenu}
               className="block border-b border-border py-4 font-sans text-base font-medium text-ink"
             >
               {label}
@@ -399,6 +421,7 @@ export function Navbar({ banner }: { banner?: React.ReactNode }) {
           <div className="mt-6">
             <Link
               href="/contact"
+              onClick={closeMenu}
               className="block w-full rounded-md bg-accent px-5 py-3 text-center font-heading text-sm font-semibold text-white transition-colors hover:bg-accent-hover"
             >
               Contact Us
@@ -406,24 +429,6 @@ export function Navbar({ banner }: { banner?: React.ReactNode }) {
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        /* Rotate chevron when details is open */
-        details[open] summary svg {
-          transform: rotate(180deg);
-        }
-
-        /* Show mobile menu when checkbox is checked */
-        #mobile-menu-toggle:checked ~ #mobile-menu-panel {
-          transform: translateX(0) !important;
-        }
-
-        /* Show backdrop when checked */
-        #mobile-menu-toggle:checked ~ #mobile-menu-backdrop {
-          opacity: 1;
-          visibility: visible;
-        }
-      `}</style>
-    </header>
+    </>
   )
 }
