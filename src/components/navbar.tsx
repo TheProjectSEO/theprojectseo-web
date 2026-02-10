@@ -271,10 +271,10 @@ export function Navbar({ banner }: { banner?: React.ReactNode }) {
       </div>
 
       {/* Mobile Menu Backdrop */}
-      <div className="fixed inset-0 z-[90] bg-ink/20 opacity-0 invisible peer-checked:opacity-100 peer-checked:visible transition-opacity duration-300 lg:hidden" />
+      <div id="mobile-menu-backdrop" className="fixed inset-0 z-[90] bg-ink/20 opacity-0 invisible transition-opacity duration-300 lg:hidden" />
 
       {/* Mobile Menu Panel - CSS Only */}
-      <div className="fixed inset-0 z-[100] bg-white translate-x-full peer-checked:translate-x-0 transition-transform duration-300 lg:hidden">
+      <div id="mobile-menu-panel" className="fixed inset-0 z-[100] translate-x-full transition-transform duration-300 lg:hidden" style={{ backgroundColor: '#ffffff' }}>
         <div className="flex h-[72px] items-center justify-between px-6 border-b border-border">
           <Logo />
           <label
@@ -413,17 +413,15 @@ export function Navbar({ banner }: { banner?: React.ReactNode }) {
           transform: rotate(180deg);
         }
 
-        /* Hide the label's X icon by default, show when checked */
-        #mobile-menu-toggle:checked ~ div label svg:first-child {
-          display: none;
-        }
-        #mobile-menu-toggle:checked ~ div label svg:last-child {
-          display: block;
+        /* Show mobile menu when checkbox is checked */
+        #mobile-menu-toggle:checked ~ #mobile-menu-panel {
+          transform: translateX(0) !important;
         }
 
-        /* Show mobile menu when checkbox is checked */
-        #mobile-menu-toggle:checked ~ div {
-          transform: translateX(0);
+        /* Show backdrop when checked */
+        #mobile-menu-toggle:checked ~ #mobile-menu-backdrop {
+          opacity: 1;
+          visibility: visible;
         }
       `}</style>
     </header>
