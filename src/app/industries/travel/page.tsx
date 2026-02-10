@@ -4,7 +4,11 @@ import { Footer } from '@/components/footer'
 import { Navbar } from '@/components/navbar'
 import { Heading, Lead, Subheading } from '@/components/text'
 import { CheckIcon } from '@/components/check-icon'
-import { FAQAccordion } from '@/components/faq-accordion'
+import { FAQDarkSection } from '@/components/faq-dark-section'
+import { TestimonialQuoteSection } from '@/components/testimonial-quote-section'
+import { HeroAnimation } from '@/components/hero-animation'
+import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { CTAFormSection } from '@/components/service-page-sections'
 import {
   GlobeAltIcon,
   MagnifyingGlassIcon,
@@ -315,13 +319,13 @@ function HeroSection() {
         <Navbar />
         <div className="pt-16 pb-20 sm:pt-24 sm:pb-28 md:pt-32 md:pb-40">
           <div className="max-w-4xl">
-            <p className="font-mono text-xs font-medium uppercase tracking-[0.1em] text-ash mb-6">
+            <p className="font-mono text-sm font-semibold uppercase tracking-[0.15em] text-accent mb-6">
               Travel & Hospitality
             </p>
-            <h1 className="font-display text-[clamp(36px,5vw,56px)] font-light leading-[1.1] tracking-tight text-ink">
+            <h1 className="font-display text-[clamp(48px,6vw,96px)] font-medium leading-[0.95] tracking-[-0.02em] text-ink">
               Travel SEO that inspires wanderlust and fills bookings
             </h1>
-            <p className="mt-8 max-w-2xl text-lg leading-[1.65] text-slate">
+            <p className="mt-8 max-w-2xl text-xl leading-relaxed text-stone">
               Specialized SEO strategies for hotels, resorts, tour operators, and travel brands that turn
               search traffic into direct bookings and reduce OTA dependency.
             </p>
@@ -344,11 +348,11 @@ function StatsSection() {
   return (
     <div className="bg-cream border-y border-border py-14">
       <Container>
-        <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           {stats.map((stat, index) => (
             <div key={index} className="text-center">
-              <div className="font-mono text-[28px] font-semibold text-ink">{stat.value}</div>
-              <div className="mt-1 text-sm text-slate">{stat.label}</div>
+              <div className="font-mono text-[clamp(36px,5vw,56px)] font-black text-accent">{stat.value}</div>
+              <div className="font-mono text-xs uppercase tracking-[0.15em] text-stone mt-3">{stat.label}</div>
             </div>
           ))}
         </div>
@@ -750,11 +754,17 @@ function PricingSection() {
 
 /* ─────────────────── 11. FAQ ─────────────────── */
 
-function FAQSection() {
+function TestimonialAndFAQSection() {
   return (
-    <Container className="py-24">
-      <FAQAccordion items={faqs} title="Travel SEO frequently asked questions" />
-    </Container>
+    <>
+      <TestimonialQuoteSection
+        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
+        author="David Thompson"
+        role="CEO"
+        company="GrowthTech Solutions"
+      />
+      <FAQDarkSection title="Travel SEO frequently asked questions" items={faqs} />
+    </>
   )
 }
 
@@ -789,35 +799,6 @@ function RelatedIndustriesSection() {
 
 /* ─────────────────── 13. CTA ─────────────────── */
 
-function CTASection() {
-  return (
-    <div className="bg-cream border-t border-border">
-      <Container className="py-16">
-        <div className="flex flex-col items-center gap-8 text-center lg:flex-row lg:justify-between lg:text-left">
-          <div className="max-w-xl">
-            <Subheading>Ready to fill your rooms and tours with organic traffic?</Subheading>
-            <Heading as="h2" className="mt-2">
-              Let&apos;s build your travel SEO strategy.
-            </Heading>
-            <Lead className="mt-6">
-              Partner with SEO experts who understand the travel industry. We&apos;ll help you capture
-              destination search demand, increase direct bookings, and reduce OTA dependency.
-            </Lead>
-          </div>
-          <div className="flex flex-col gap-4 sm:flex-row shrink-0">
-            <Button href="/contact">Get Travel SEO Audit</Button>
-            <Button variant="outline" href="/pricing">
-              View Pricing
-            </Button>
-          </div>
-        </div>
-        <p className="mt-6 text-xs text-ash text-center lg:text-left">
-          Free consultation includes destination keyword research and competitor analysis.
-        </p>
-      </Container>
-    </div>
-  )
-}
 
 export default function TravelSEO() {
   return (
@@ -871,15 +852,19 @@ export default function TravelSEO() {
       <StatsSection />
       <ChallengesSection />
       <ServicesSection />
-      <ProcessSection />
+      <ProcessTabbedSection
+        subheading="Our Process"
+        heading="How we drive organic bookings for travel brands"
+        steps={processSteps}
+      />
       <TechnicalSEOSection />
       <CaseStudySection />
       <KeywordsSection />
       <TestimonialSection />
       <PricingSection />
-      <FAQSection />
+      <TestimonialAndFAQSection />
       <RelatedIndustriesSection />
-      <CTASection />
+      <CTAFormSection subheading="Ready to fill your rooms and tours with organic traffic?" heading="Let's build your travel SEO strategy." lead="Partner with SEO experts who understand the travel industry. We'll help you capture destination search demand, increase direct bookings, and reduce OTA dependency." submitText="Get Travel SEO Audit" />
       <Footer />
     </main>
   )

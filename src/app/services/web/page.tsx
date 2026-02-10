@@ -4,15 +4,18 @@ import { Footer } from '@/components/footer'
 import { Navbar } from '@/components/navbar'
 import { Heading, Lead, Subheading } from '@/components/text'
 import { CheckIcon } from '@/components/check-icon'
+import { CTAFormSection } from '@/components/service-page-sections'
 import { FAQAccordion } from '@/components/faq-accordion'
+import { HeroAnimation } from '@/components/hero-animation'
+import { ProcessTabbedSection } from '@/components/process-tabbed-section'
 import {
-  CodeBracketIcon,
-  DevicePhoneMobileIcon,
-  BoltIcon,
-  ShieldCheckIcon,
-  ChartBarIcon,
-  Cog6ToothIcon,
-} from '@heroicons/react/24/outline'
+  Code,
+  Smartphone,
+  Zap,
+  ShieldCheck,
+  BarChart3,
+  Settings,
+} from 'lucide-react'
 import { JsonLd } from '@/components/json-ld'
 import type { Metadata } from 'next'
 import Link from 'next/link'
@@ -31,7 +34,7 @@ const services = [
     name: 'SEO-Optimized Web Development',
     description:
       'Custom websites built with SEO best practices from the ground up for maximum search visibility.',
-    icon: CodeBracketIcon,
+    icon: Code,
     features: [
       'SEO-friendly site architecture',
       'Clean, semantic HTML code',
@@ -46,7 +49,7 @@ const services = [
     name: 'Core Web Vitals Optimization',
     description:
       'Optimize your website performance for Google&apos;s Core Web Vitals and better user experience.',
-    icon: BoltIcon,
+    icon: Zap,
     features: [
       'Page speed optimization',
       'Largest Contentful Paint (LCP)',
@@ -61,7 +64,7 @@ const services = [
     name: 'Mobile Optimization',
     description:
       'Ensure your website performs perfectly on all mobile devices with responsive design.',
-    icon: DevicePhoneMobileIcon,
+    icon: Smartphone,
     features: [
       'Mobile-first design approach',
       'Touch-friendly navigation',
@@ -76,7 +79,7 @@ const services = [
     name: 'Website Security & SSL',
     description:
       'Secure your website with SSL certificates and security measures that improve SEO rankings.',
-    icon: ShieldCheckIcon,
+    icon: ShieldCheck,
     features: [
       'SSL certificate installation',
       'Security plugin setup',
@@ -91,7 +94,7 @@ const services = [
     name: 'Analytics & Tracking Setup',
     description:
       'Comprehensive analytics setup to track your website performance and SEO progress.',
-    icon: ChartBarIcon,
+    icon: BarChart3,
     features: [
       'Google Analytics 4 setup',
       'Google Search Console',
@@ -106,7 +109,7 @@ const services = [
     name: 'Website Maintenance & Updates',
     description:
       'Ongoing website maintenance to keep your site secure, fast, and SEO-optimized.',
-    icon: Cog6ToothIcon,
+    icon: Settings,
     features: [
       'Regular software updates',
       'Security monitoring',
@@ -227,18 +230,19 @@ const relatedServices = [
 
 function Header() {
   return (
-    <div className="relative">
+    <div className="relative overflow-hidden">
+      <HeroAnimation />
       <Container className="relative">
         <Navbar />
         <div className="pt-16 pb-20 sm:pt-24 sm:pb-28">
-          <p className="font-mono text-xs font-medium uppercase tracking-[0.1em] text-ash mb-6">
+          <p className="font-mono text-sm font-semibold uppercase tracking-[0.15em] text-accent mb-6">
             Web Development
           </p>
-          <h1 className="font-display text-[clamp(36px,5vw,56px)] font-light leading-[1.1] tracking-tight text-ink max-w-3xl">
+          <h1 className="font-display text-[clamp(48px,6vw,96px)] font-medium leading-[0.95] tracking-[-0.02em] text-ink">
             Websites engineered for{' '}
             <em className="text-accent italic">search performance</em>
           </h1>
-          <p className="mt-6 max-w-lg text-lg leading-[1.65] text-slate">
+          <p className="mt-6 max-w-2xl text-xl leading-relaxed text-stone">
             Create websites that rank higher, load faster, and convert better.
             We build with SEO as a first-class requirement, not an afterthought.
           </p>
@@ -539,36 +543,6 @@ function RelatedServicesSection() {
 /*  Section 10: CTA Section                                                    */
 /* -------------------------------------------------------------------------- */
 
-function CTASection() {
-  return (
-    <div className="bg-paper py-16 border-t border-border">
-      <Container>
-        <div className="flex flex-col items-center gap-8 text-center lg:flex-row lg:justify-between lg:text-left">
-          <div className="max-w-xl">
-            <Subheading>Ready to Build a High-Performance Website?</Subheading>
-            <Heading as="h2" className="mt-2">
-              Start your web development project.
-            </Heading>
-            <Lead className="mt-6">
-              Create a website that drives results with our SEO-optimized web development
-              services. From design to launch, we build websites that rank higher and
-              convert better.
-            </Lead>
-          </div>
-          <div className="flex flex-col gap-4 sm:flex-row shrink-0">
-            <Button href="/contact">Get Web Consultation</Button>
-            <Button variant="outline" href="/pricing">
-              View Packages
-            </Button>
-          </div>
-        </div>
-        <p className="mt-6 text-xs text-ash text-center lg:text-left">
-          Free consultation includes technical assessment, SEO audit, and project planning.
-        </p>
-      </Container>
-    </div>
-  )
-}
 
 /* -------------------------------------------------------------------------- */
 /*  Page Export                                                                 */
@@ -613,13 +587,22 @@ export default function WebServices() {
       <Header />
       <StatsBar />
       <ServicesSection />
-      <ProcessSection />
+      <ProcessTabbedSection
+        subheading="Our Process"
+        heading="How we build websites that perform"
+        steps={processSteps}
+      />
       <CaseStudySection />
       <TechnologiesSection />
       <TestimonialSection />
       <FAQSection />
       <RelatedServicesSection />
-      <CTASection />
+      <CTAFormSection
+        subheading="Ready to Build a High-Performance Website?"
+        heading="Start your web development project."
+        lead="Create a website that drives results with our SEO-optimized web development services. From design to launch, we build websites that rank higher and convert better."
+        submitText="Get Web Consultation"
+      />
       <Footer />
     </main>
   )

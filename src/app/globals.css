@@ -69,6 +69,36 @@
   }
 }
 
+@keyframes drawLine {
+  from {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes drawPath {
+  from {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 0;
+  }
+}
+
 .fade-in {
   animation: fadeIn 1s ease-in-out;
+}
+
+.animate-draw-line {
+  animation: drawLine 2s ease-out forwards;
+}
+
+.animate-draw-path {
+  animation: drawPath 2s ease-out forwards;
 }

@@ -19,7 +19,7 @@ export function Heading({
       data-dark={dark ? 'true' : undefined}
       className={clsx(
         className,
-        'font-heading text-[28px] font-semibold tracking-tight text-ink data-dark:text-white sm:text-[40px]',
+        'font-heading text-[clamp(32px,4vw,56px)] font-semibold leading-[1.15] tracking-tight text-ink data-dark:text-white',
       )}
     />
   )
@@ -37,7 +37,7 @@ export function Subheading({
       data-dark={dark ? 'true' : undefined}
       className={clsx(
         className,
-        'font-mono text-xs font-medium tracking-[0.1em] text-ash uppercase data-dark:text-white/50',
+        'font-mono text-sm font-semibold tracking-[0.15em] text-accent uppercase data-dark:text-accent',
       )}
     />
   )
@@ -49,7 +49,7 @@ export function Lead({
 }: React.ComponentPropsWithoutRef<'p'>) {
   return (
     <p
-      className={clsx(className, 'font-sans text-lg leading-[1.65] text-slate')}
+      className={clsx(className, 'font-sans text-xl leading-relaxed text-stone max-w-2xl')}
       {...props}
     />
   )

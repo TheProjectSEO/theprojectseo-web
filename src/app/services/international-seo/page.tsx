@@ -12,7 +12,7 @@ import {
   FeatureCardsSection,
   PricingSection,
   TestimonialSection,
-  CTASection,
+  CTAFormSection,
 } from '@/components/service-page-sections'
 import {
   Globe,
@@ -401,10 +401,7 @@ const ctaData = {
   subheading: 'Ready to Expand Globally?',
   heading: 'Get your international SEO strategy.',
   lead: 'Discover which markets offer the strongest opportunity for your business. Our international SEO audit includes market analysis, technical recommendations, and a roadmap for global expansion.',
-  ctaPrimaryText: 'Get Your Strategy',
-  ctaPrimaryHref: '/contact',
-  ctaSecondaryText: 'View All Pricing',
-  ctaSecondaryHref: '/pricing',
+  submitText: 'Get Your Strategy',
 }
 
 export default function InternationalSEOPage() {
@@ -436,7 +433,7 @@ export default function InternationalSEOPage() {
       <Container className="py-24">
         <FAQAccordion title="International SEO frequently asked questions" items={faqData} />
       </Container>
-      <CTASection {...ctaData} />
+      <CTAFormSection {...ctaData} />
       <Footer />
     </main>
   )

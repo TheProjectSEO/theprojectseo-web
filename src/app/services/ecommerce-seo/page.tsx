@@ -1,21 +1,22 @@
 import type { Metadata } from 'next'
 import { Container } from '@/components/container'
-import { FAQAccordion } from '@/components/faq-accordion'
+import { FAQDarkSection } from '@/components/faq-dark-section'
 import { JsonLd } from '@/components/json-ld'
 import { Footer } from '@/components/footer'
 import {
   ServiceHero,
   StatsBar,
   ServicesGrid,
-  ProcessSection,
   CaseStudyDark,
   FeatureCardsSection,
   PricingSection,
   TestimonialSection,
+  TestimonialQuoteSection,
   RelatedServicesSection,
-  CTASection,
+  CTAFormSection,
   TextContentSection,
 } from '@/components/service-page-sections'
+import { ProcessTabbedSection } from '@/components/process-tabbed-section'
 import {
   ShoppingCart,
   Search,
@@ -190,31 +191,25 @@ const processData = {
   steps: [
     {
       number: '01',
-      title: 'E-commerce SEO Audit & Product Catalog Analysis',
+      title: 'Discovery & Audit',
       description:
-        'We begin with a comprehensive e-commerce technical SEO audit analyzing your entire product catalog, category structure, faceted navigation, internal linking, and Core Web Vitals. We crawl every product and category page, identify duplicate content from product variations and URL parameters, assess schema implementation gaps, and benchmark against top-ranking competitors in your vertical.',
+        'Comprehensive e-commerce technical SEO audit analyzing your entire product catalog, category structure, faceted navigation, internal linking, and Core Web Vitals. We crawl every product and category page, identify duplicate content from product variations and URL parameters, assess schema implementation gaps, and benchmark against top-ranking competitors in your vertical.',
     },
     {
       number: '02',
-      title: 'Keyword Strategy & Site Architecture Optimization',
+      title: 'Strategy & Architecture',
       description:
-        'We develop a comprehensive e-commerce keyword research strategy mapping commercial intent keywords, long-tail product queries, and informational content opportunities to your catalog structure. We optimize site architecture to ensure logical category hierarchies, implement breadcrumb navigation for both users and search engines, and restructure internal linking to distribute authority to your most important revenue-generating pages.',
+        'Comprehensive e-commerce keyword research strategy mapping commercial intent keywords, long-tail product queries, and informational content opportunities to your catalog structure. We optimize site architecture to ensure logical category hierarchies, implement breadcrumb navigation for both users and search engines, and restructure internal linking to distribute authority to your most important revenue-generating pages.',
     },
     {
       number: '03',
-      title: 'Product & Category Page Optimization',
+      title: 'Implementation & Optimization',
       description:
-        'We optimize priority product pages with unique content, compelling descriptions targeting product search queries, image optimization with descriptive alt text, and comprehensive Product schema with review schema. Category pages receive optimized content, breadcrumb schema, strategic internal linking, and faceted navigation management using canonical tags and robots directives to control crawl budget.',
+        'Optimize priority product pages with unique content, compelling descriptions, image optimization, and comprehensive Product schema with review schema. Category pages receive optimized content, breadcrumb schema, and faceted navigation management using canonical tags. We optimize your Google Merchant Center product feed with product title optimization, accurate categorization, image quality improvement, supplemental feed creation, and ongoing feed health monitoring.',
     },
     {
       number: '04',
-      title: 'Google Shopping & Feed Optimization',
-      description:
-        'We optimize your Google Merchant Center product feed to maximize visibility in free product listings and Shopping results. This includes product title optimization, accurate categorization, image quality improvement, supplemental feed creation for custom attributes, and ongoing feed health monitoring to catch disapprovals and data quality issues before they impact visibility.',
-    },
-    {
-      number: '05',
-      title: 'Monitoring, Seasonal Optimization & Revenue Scaling',
+      title: 'Monitoring & Scaling',
       description:
         'Continuous monitoring of product page rankings, organic revenue attribution, Core Web Vitals performance, and crawl health. We implement seasonal SEO strategies for peak shopping periods, manage out-of-stock page handling to preserve rankings, and scale optimization across your expanding product catalog. Every optimization ties directly to revenue impact measurement.',
     },
@@ -396,10 +391,7 @@ const ctaData = {
   subheading: 'Ready to Grow E-commerce Revenue?',
   heading: 'Let&apos;s drive sustainable organic growth for your online store',
   lead: 'Get a free e-commerce SEO audit. Discover how to optimize product pages, fix Core Web Vitals issues, implement Product schema, and drive sustainable revenue growth through organic search.',
-  ctaPrimaryText: 'Get E-commerce SEO Audit',
-  ctaPrimaryHref: '/contact',
-  ctaSecondaryText: 'View All Pricing',
-  ctaSecondaryHref: '/pricing',
+  submitText: 'Get E-commerce SEO Audit',
 }
 
 /* -------------------------------------------------------------------------- */
@@ -467,7 +459,7 @@ export default function EcommerceSEOPage() {
 
       <TextContentSection {...toolsData} />
 
-      <ProcessSection {...processData} />
+      <ProcessTabbedSection {...processData} />
 
       <CaseStudyDark {...caseStudyData} />
 
@@ -501,13 +493,18 @@ export default function EcommerceSEOPage() {
         </Container>
       </div>
 
-      <Container className="py-24 bg-paper">
-        <FAQAccordion title="E-commerce SEO questions answered" items={faqData} />
-      </Container>
+      <TestimonialQuoteSection
+        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
+        author="David Thompson"
+        role="CEO"
+        company="GrowthTech Solutions"
+      />
+
+      <FAQDarkSection title="E-commerce SEO questions answered" items={faqData} />
 
       <RelatedServicesSection {...relatedServicesData} />
 
-      <CTASection {...ctaData} />
+      <CTAFormSection {...ctaData} />
 
       <Footer />
     </main>

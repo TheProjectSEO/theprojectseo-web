@@ -17,9 +17,15 @@ import { Button } from '@/components/button'
 import { CheckIcon } from '@/components/check-icon'
 import { Container } from '@/components/container'
 import { HeroAnimation } from '@/components/hero-animation'
+import { LeadForm } from '@/components/lead-form'
 import { Navbar } from '@/components/navbar'
+import { ScrollReveal, ScrollRevealGrid } from '@/components/scroll-reveal'
+import { TestimonialQuoteSection } from '@/components/testimonial-quote-section'
 import { Heading, Lead, Subheading } from '@/components/text'
 import type { ReactNode } from 'react'
+
+// Re-export TestimonialQuoteSection for convenience
+export { TestimonialQuoteSection } from '@/components/testimonial-quote-section'
 
 /* -------------------------------------------------------------------------- */
 /*  1. Hero Section (Light background, always first)                         */
@@ -54,14 +60,14 @@ export function ServiceHero({
       <Container className="relative">
         <Navbar />
         <div className="pt-16 pb-20 sm:pt-24 sm:pb-28">
-          <p className="font-mono text-xs font-medium uppercase tracking-[0.1em] text-ash mb-6">
+          <p className="font-mono text-sm font-semibold uppercase tracking-[0.15em] text-accent mb-6">
             {label}
           </p>
-          <h1 className="font-display text-[clamp(36px,5vw,56px)] font-light leading-[1.1] tracking-tight text-ink max-w-3xl">
+          <h1 className="font-display text-[clamp(48px,6vw,96px)] font-medium leading-[0.95] tracking-[-0.02em] text-ink">
             {title} <em className="text-accent italic">{accentWord}</em>
             {titleAfterAccent && ` ${titleAfterAccent}`}
           </h1>
-          <p className="mt-6 max-w-lg text-lg leading-[1.65] text-slate">
+          <p className="mt-6 max-w-2xl text-xl leading-relaxed text-stone">
             {description}
           </p>
           <div className="mt-8 flex flex-col gap-x-6 gap-y-4 sm:flex-row">
@@ -96,10 +102,10 @@ export function StatsBar({ stats }: StatsBarProps) {
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           {stats.map((stat, index) => (
             <div key={index} className="text-center">
-              <div className="font-mono text-[32px] font-semibold text-ink">
+              <div className="font-mono text-[clamp(36px,5vw,56px)] font-black text-accent">
                 {stat.value}
               </div>
-              <div className="font-mono text-xs uppercase tracking-[0.1em] text-ash mt-2">
+              <div className="font-mono text-xs uppercase tracking-[0.15em] text-stone mt-3">
                 {stat.label}
               </div>
             </div>
@@ -144,7 +150,11 @@ export function ServicesGrid({ subheading, heading, lead, services }: ServicesGr
           )}
         </div>
 
-        <div className="grid grid-cols-1 gap-px bg-border-strong lg:grid-cols-2 xl:grid-cols-3">
+        <ScrollRevealGrid
+          gridCols="grid-cols-1 lg:grid-cols-2 xl:grid-cols-3"
+          stagger={120}
+          duration={700}
+        >
           {services.map((service, index) => {
             const Icon = service.icon
             return (
@@ -172,7 +182,7 @@ export function ServicesGrid({ subheading, heading, lead, services }: ServicesGr
               </div>
             )
           })}
-        </div>
+        </ScrollRevealGrid>
       </Container>
     </div>
   )
@@ -206,22 +216,24 @@ export function ProcessSection({ subheading, heading, steps }: ProcessSectionPro
         </div>
 
         <div className="max-w-3xl mx-auto">
-          {steps.map((step, index) => (
-            <div
-              key={step.number}
-              className={`py-8 ${index < steps.length - 1 ? 'border-b border-border' : ''}`}
-            >
-              <p className="font-mono text-xs uppercase tracking-[0.1em] text-accent font-medium mb-3">
-                Step {step.number}
-              </p>
-              <h3 className="font-heading text-xl font-semibold text-ink mb-3">
-                {step.title}
-              </h3>
-              <p className="text-sm leading-relaxed text-slate">
-                {step.description}
-              </p>
-            </div>
-          ))}
+          <ScrollReveal stagger={180} duration={800}>
+            {steps.map((step, index) => (
+              <div
+                key={step.number}
+                className={`py-8 ${index < steps.length - 1 ? 'border-b border-border' : ''}`}
+              >
+                <p className="font-mono text-xs uppercase tracking-[0.1em] text-accent font-medium mb-3">
+                  Step {step.number}
+                </p>
+                <h3 className="font-heading text-xl font-semibold text-ink mb-3">
+                  {step.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-slate">
+                  {step.description}
+                </p>
+              </div>
+            ))}
+          </ScrollReveal>
         </div>
       </Container>
     </div>
@@ -654,6 +666,117 @@ export function CTASection({
             {note}
           </p>
         )}
+      </Container>
+    </div>
+  )
+}
+
+/* -------------------------------------------------------------------------- */
+/*  12. CTA Accent Section (Vibrant accent background variant)               */
+/* -------------------------------------------------------------------------- */
+
+export function CTAAccentSection({
+  subheading,
+  heading,
+  lead,
+  ctaPrimaryText,
+  ctaPrimaryHref,
+  ctaSecondaryText,
+  ctaSecondaryHref,
+  note,
+}: CTASectionProps) {
+  return (
+    <div className="bg-accent py-24">
+      <Container>
+        <div className="flex flex-col items-center gap-10 text-center lg:flex-row lg:justify-between lg:text-left">
+          <div className="max-w-2xl">
+            <p className="font-mono text-sm font-semibold uppercase tracking-[0.15em] text-white mb-4">
+              {subheading}
+            </p>
+            <h2 className="font-heading text-[clamp(36px,5vw,64px)] font-bold leading-[1.1] tracking-tight text-white">
+              {heading}
+            </h2>
+            <p className="mt-6 text-xl leading-relaxed text-white/90 max-w-xl">
+              {lead}
+            </p>
+          </div>
+          <div className="flex flex-col gap-4 sm:flex-row shrink-0">
+            <Button
+              href={ctaPrimaryHref}
+              className="!bg-white !text-accent hover:!bg-white/90 shadow-lg"
+            >
+              {ctaPrimaryText}
+            </Button>
+            <Button
+              variant="outline"
+              href={ctaSecondaryHref}
+              className="border-white text-white hover:bg-white/10"
+            >
+              {ctaSecondaryText}
+            </Button>
+          </div>
+        </div>
+        {note && (
+          <p className="mt-8 text-sm text-white/70 text-center lg:text-left">
+            {note}
+          </p>
+        )}
+      </Container>
+    </div>
+  )
+}
+
+/* -------------------------------------------------------------------------- */
+/*  13. CTA Form Section (Split layout: text left, lead form right)           */
+/* -------------------------------------------------------------------------- */
+
+interface CTAFormSectionProps {
+  subheading?: string
+  heading: string
+  lead?: string
+  benefits?: string[]
+  submitText?: string
+  formVariant?: 'compact' | 'full'
+}
+
+export function CTAFormSection({
+  subheading = 'Ready to Get Started?',
+  heading = "Let\u2019s work with your most profitable channel.",
+  lead,
+  benefits = [
+    'Free comprehensive SEO audit',
+    'Custom strategy roadmap',
+    'Competitive analysis report',
+  ],
+  submitText = 'Get Your Free SEO Audit',
+  formVariant = 'compact',
+}: CTAFormSectionProps) {
+  return (
+    <div className="bg-cream py-24">
+      <Container>
+        <div className="grid grid-cols-1 items-start gap-16 lg:grid-cols-2">
+          {/* Left: Text + Benefits */}
+          <div className="lg:sticky lg:top-8">
+            <Subheading>{subheading}</Subheading>
+            <Heading as="h2" className="mt-2">
+              {heading}
+            </Heading>
+            {lead && <Lead className="mt-6">{lead}</Lead>}
+            {benefits.length > 0 && (
+              <ul className="mt-8 space-y-4">
+                {benefits.map((benefit) => (
+                  <li key={benefit} className="flex items-center gap-3">
+                    <CheckIcon className="size-5 flex-shrink-0 fill-accent" />
+                    <span className="font-sans text-base text-stone">{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+
+          {/* Right: Lead Form */}
+          <LeadForm variant={formVariant} submitText={submitText} />
+        </div>
       </Container>
     </div>
   )

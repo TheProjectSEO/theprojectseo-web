@@ -4,15 +4,18 @@ import { Footer } from '@/components/footer'
 import { Navbar } from '@/components/navbar'
 import { Heading, Lead, Subheading } from '@/components/text'
 import { CheckIcon } from '@/components/check-icon'
+import { CTAFormSection } from '@/components/service-page-sections'
 import { FAQAccordion } from '@/components/faq-accordion'
+import { HeroAnimation } from '@/components/hero-animation'
+import { ProcessTabbedSection } from '@/components/process-tabbed-section'
 import {
-  DocumentTextIcon,
-  PencilSquareIcon,
-  MagnifyingGlassIcon,
-  ChartBarIcon,
-  BoltIcon,
-  TagIcon,
-} from '@heroicons/react/24/outline'
+  FileText,
+  SquarePen,
+  Search,
+  BarChart3,
+  Zap,
+  Tag,
+} from 'lucide-react'
 import { JsonLd } from '@/components/json-ld'
 import type { Metadata } from 'next'
 import Link from 'next/link'
@@ -31,7 +34,7 @@ const services = [
     name: 'Content Strategy Development',
     description:
       'Comprehensive content strategies aligned with your business goals and target audience search behavior.',
-    icon: ChartBarIcon,
+    icon: BarChart3,
     features: [
       'Content audit & gap analysis',
       'Topic cluster planning',
@@ -45,7 +48,7 @@ const services = [
     name: 'SEO Content Creation',
     description:
       'High-quality, SEO-optimized content that ranks well and converts visitors into customers.',
-    icon: PencilSquareIcon,
+    icon: SquarePen,
     features: [
       'Blog posts & articles',
       'Landing page copy',
@@ -59,7 +62,7 @@ const services = [
     name: 'Content Optimization',
     description:
       'Optimize existing content for better search rankings and user engagement.',
-    icon: BoltIcon,
+    icon: Zap,
     features: [
       'On-page SEO optimization',
       'Keyword integration',
@@ -73,7 +76,7 @@ const services = [
     name: 'Keyword Research for Content',
     description:
       'Advanced keyword research to identify content opportunities and search demand.',
-    icon: MagnifyingGlassIcon,
+    icon: Search,
     features: [
       'Topic-based keyword research',
       'Search intent analysis',
@@ -87,7 +90,7 @@ const services = [
     name: 'Content Performance Tracking',
     description:
       'Monitor and analyze your content performance to optimize for better results.',
-    icon: DocumentTextIcon,
+    icon: FileText,
     features: [
       'Content analytics setup',
       'Traffic & engagement tracking',
@@ -101,7 +104,7 @@ const services = [
     name: 'Content Refresh & Updates',
     description:
       'Keep your content fresh and relevant with regular updates and improvements.',
-    icon: TagIcon,
+    icon: Tag,
     features: [
       'Content freshness audits',
       'Outdated content updates',
@@ -247,18 +250,19 @@ const relatedServices = [
 
 function Header() {
   return (
-    <div className="relative">
+    <div className="relative overflow-hidden">
+      <HeroAnimation />
       <Container className="relative">
         <Navbar />
         <div className="pt-16 pb-20 sm:pt-24 sm:pb-28">
-          <p className="font-mono text-xs font-medium uppercase tracking-[0.1em] text-ash mb-6">
+          <p className="font-mono text-sm font-semibold uppercase tracking-[0.15em] text-accent mb-6">
             Content Marketing
           </p>
-          <h1 className="font-display text-[clamp(36px,5vw,56px)] font-light leading-[1.1] tracking-tight text-ink max-w-3xl">
+          <h1 className="font-display text-[clamp(48px,6vw,96px)] font-medium leading-[0.95] tracking-[-0.02em] text-ink">
             Content that ranks, engages, and{' '}
             <em className="text-accent italic">drives growth</em>
           </h1>
-          <p className="mt-6 max-w-lg text-lg leading-[1.65] text-slate">
+          <p className="mt-6 max-w-2xl text-xl leading-relaxed text-stone">
             Strategic, SEO-optimized content marketing that builds topical authority, captures
             high-intent search traffic, and converts readers into customers.
           </p>
@@ -580,36 +584,6 @@ function RelatedServicesSection() {
 /*  Section 10: CTA                                                            */
 /* -------------------------------------------------------------------------- */
 
-function CTASection() {
-  return (
-    <div className="bg-paper py-16 border-t border-border">
-      <Container>
-        <div className="flex flex-col items-center gap-8 text-center lg:flex-row lg:justify-between lg:text-left">
-          <div className="max-w-xl">
-            <Subheading>Ready to Transform Your Content?</Subheading>
-            <Heading as="h2" className="mt-2">
-              Let&apos;s build a content engine that drives growth.
-            </Heading>
-            <Lead className="mt-6">
-              Partner with content marketing experts who combine SEO expertise with
-              compelling storytelling. We&apos;ll turn your content into your most efficient
-              and scalable acquisition channel.
-            </Lead>
-          </div>
-          <div className="flex flex-col gap-4 sm:flex-row shrink-0">
-            <Button href="/contact">Get Content Strategy</Button>
-            <Button variant="outline" href="/pricing">
-              View Packages
-            </Button>
-          </div>
-        </div>
-        <p className="mt-6 text-xs text-ash text-center lg:text-left">
-          Free consultation includes a content audit, keyword opportunity analysis, and strategic roadmap.
-        </p>
-      </Container>
-    </div>
-  )
-}
 
 /* -------------------------------------------------------------------------- */
 /*  Page Export                                                                 */
@@ -654,13 +628,22 @@ export default function ContentServices() {
       <Header />
       <StatsBar />
       <ServicesSection />
-      <ProcessSection />
+      <ProcessTabbedSection
+        subheading="Our Process"
+        heading="How we create content that ranks and converts"
+        steps={processSteps}
+      />
       <CaseStudySection />
       <PackagesSection />
       <TestimonialSection />
       <FAQSection />
       <RelatedServicesSection />
-      <CTASection />
+      <CTAFormSection
+        subheading="Ready to Transform Your Content?"
+        heading="Let's build a content engine that drives growth."
+        lead="Partner with content marketing experts who combine SEO expertise with compelling storytelling. We'll turn your content into your most efficient and scalable acquisition channel."
+        submitText="Get Content Strategy"
+      />
       <Footer />
     </main>
   )

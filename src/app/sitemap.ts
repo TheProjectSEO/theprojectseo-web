@@ -32,44 +32,50 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]
 
   // Service pages
-  const servicePages = [
-    {
-      url: `${baseUrl}/services`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/services/aeo`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/services/seo`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/services/content`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/services/web`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/services/seo-consulting`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    },
+  const services = [
+    'services', // Index page
+    // Development Services
+    'services/web-app-development',
+    'services/ai-development',
+    'services/mvp-development',
+    'services/ecommerce-development',
+    'services/n8n-automation',
+    // N8n Automation Subpages
+    'services/n8n-automation/marketing-automation',
+    'services/n8n-automation/sales-automation',
+    'services/n8n-automation/crm-automation',
+    'services/n8n-automation/reporting-automation',
+    'services/n8n-automation/data-pipeline-automation',
+    'services/n8n-automation/customer-service-automation',
+    // Core SEO Services
+    'services/seo',
+    'services/seo-consulting',
+    'services/local-seo',
+    'services/link-building',
+    'services/seo-audit',
+    'services/technical-seo',
+    'services/on-page-seo',
+    'services/off-page-seo',
+    'services/ecommerce-seo',
+    'services/enterprise-seo',
+    'services/international-seo',
+    // Automation & AI
+    'services/seo-automation',
+    'services/ai-seo-agent',
+    // Specialized Services
+    'services/data-visualization',
+    'services/data-engineering',
+    'services/aeo',
+    'services/content',
+    'services/web',
   ]
+
+  const servicePages = services.map((service) => ({
+    url: `${baseUrl}/${service}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: service === 'services' ? 0.9 : 0.8,
+  }))
 
   // Industry pages
   const industries = [

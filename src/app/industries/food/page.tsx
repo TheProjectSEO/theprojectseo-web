@@ -4,7 +4,11 @@ import { Footer } from '@/components/footer'
 import { Navbar } from '@/components/navbar'
 import { Heading, Lead, Subheading } from '@/components/text'
 import { CheckIcon } from '@/components/check-icon'
-import { FAQAccordion } from '@/components/faq-accordion'
+import { FAQDarkSection } from '@/components/faq-dark-section'
+import { TestimonialQuoteSection } from '@/components/testimonial-quote-section'
+import { HeroAnimation } from '@/components/hero-animation'
+import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { CTAFormSection } from '@/components/service-page-sections'
 import {
   MapPinIcon,
   StarIcon,
@@ -236,17 +240,18 @@ const relatedIndustries = [
 
 function Header() {
   return (
-    <div className="relative">
+    <div className="relative overflow-hidden">
+      <HeroAnimation />
       <Container className="relative">
         <Navbar />
         <div className="pt-16 pb-20 sm:pt-24 sm:pb-28">
-          <p className="font-mono text-xs font-medium uppercase tracking-[0.1em] text-ash mb-6">
+          <p className="font-mono text-sm font-semibold uppercase tracking-[0.15em] text-accent mb-6">
             Food &amp; Beverage
           </p>
-          <h1 className="font-display text-[clamp(36px,5vw,56px)] font-light leading-[1.1] tracking-tight text-ink max-w-3xl">
+          <h1 className="font-display text-[clamp(48px,6vw,96px)] font-medium leading-[0.95] tracking-[-0.02em] text-ink">
             Restaurant SEO that puts you on the map and fills every table
           </h1>
-          <p className="mt-6 max-w-lg text-lg leading-[1.65] text-slate">
+          <p className="mt-6 max-w-2xl text-xl leading-relaxed text-stone">
             Specialized SEO strategies for restaurants and food brands that drive local visibility, online reservations, and delivery orders.
           </p>
           <div className="mt-8 flex flex-col gap-x-6 gap-y-4 sm:flex-row">
@@ -263,24 +268,24 @@ function Header() {
 
 function StatsSection() {
   return (
-    <div className="border-t border-border border-b border-border">
-      <Container className="py-16">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="bg-cream border-y border-border py-14">
+      <Container>
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           <div className="text-center">
-            <div className="font-mono text-[36px] font-bold text-ink">$898B</div>
-            <div className="text-sm text-slate mt-2">US food service industry revenue</div>
+            <div className="font-mono text-[clamp(36px,5vw,56px)] font-black text-accent">$898B</div>
+            <div className="font-mono text-xs uppercase tracking-[0.15em] text-stone mt-3">US FOOD SERVICE INDUSTRY REVENUE</div>
           </div>
           <div className="text-center">
-            <div className="font-mono text-[36px] font-bold text-ink">90%</div>
-            <div className="text-sm text-slate mt-2">of consumers search for restaurants nearby</div>
+            <div className="font-mono text-[clamp(36px,5vw,56px)] font-black text-accent">90%</div>
+            <div className="font-mono text-xs uppercase tracking-[0.15em] text-stone mt-3">OF CONSUMERS SEARCH FOR RESTAURANTS NEARBY</div>
           </div>
           <div className="text-center">
-            <div className="font-mono text-[36px] font-bold text-ink">3.6K</div>
-            <div className="text-sm text-slate mt-2">avg monthly searches per restaurant keyword</div>
+            <div className="font-mono text-[clamp(36px,5vw,56px)] font-black text-accent">3.6K</div>
+            <div className="font-mono text-xs uppercase tracking-[0.15em] text-stone mt-3">AVG MONTHLY SEARCHES PER RESTAURANT KEYWORD</div>
           </div>
           <div className="text-center">
-            <div className="font-mono text-[36px] font-bold text-ink">5.2%</div>
-            <div className="text-sm text-slate mt-2">average search-to-visit conversion rate</div>
+            <div className="font-mono text-[clamp(36px,5vw,56px)] font-black text-accent">5.2%</div>
+            <div className="font-mono text-xs uppercase tracking-[0.15em] text-stone mt-3">AVERAGE SEARCH-TO-VISIT CONVERSION RATE</div>
           </div>
         </div>
       </Container>
@@ -649,16 +654,17 @@ function PricingSection() {
   )
 }
 
-function FAQSection() {
+function TestimonialAndFAQSection() {
   return (
-    <div className="bg-cream py-24">
-      <Container>
-        <FAQAccordion
-          items={faqItems}
-          title="Restaurant SEO questions answered"
-        />
-      </Container>
-    </div>
+    <>
+      <TestimonialQuoteSection
+        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
+        author="David Thompson"
+        role="CEO"
+        company="GrowthTech Solutions"
+      />
+      <FAQDarkSection title="Restaurant SEO questions answered" items={faqItems} />
+    </>
   )
 }
 
@@ -688,35 +694,6 @@ function RelatedIndustriesSection() {
   )
 }
 
-function CTASection() {
-  return (
-    <div className="bg-cream border-t border-border border-b border-border">
-      <Container className="py-16">
-        <div className="flex flex-col items-center gap-8 text-center lg:flex-row lg:justify-between lg:text-left">
-          <div className="max-w-xl">
-            <Subheading>Ready to Fill Every Seat with SEO?</Subheading>
-            <Heading as="h2" className="mt-2">
-              Let&apos;s put your restaurant on the map.
-            </Heading>
-            <Lead className="mt-6">
-              Partner with SEO experts who understand the food &amp; beverage industry. We&apos;ll help you
-              dominate local search, drive more reservations, and grow your delivery orders.
-            </Lead>
-          </div>
-          <div className="flex flex-col gap-4 sm:flex-row shrink-0">
-            <Button href="/contact">Get Restaurant SEO Strategy</Button>
-            <Button variant="outline" href="/pricing">
-              View Pricing
-            </Button>
-          </div>
-        </div>
-        <p className="mt-6 text-xs text-ash text-center lg:text-left">
-          Free consultation includes local SEO audit, competitor analysis, and review profile assessment.
-        </p>
-      </Container>
-    </div>
-  )
-}
 
 export default function FoodBeverageSEO() {
   return (
@@ -775,7 +752,11 @@ export default function FoodBeverageSEO() {
       {/* Section 4: Services */}
       <ServicesSection />
       {/* Section 5: Process */}
-      <ProcessSection />
+      <ProcessTabbedSection
+        subheading="Our Process"
+        heading="How we grow your restaurant's online presence"
+        steps={processSteps}
+      />
       {/* Section 6: Technical SEO */}
       <TechnicalSEOSection />
       {/* Section 7: Case Study (dark) */}
@@ -787,11 +768,11 @@ export default function FoodBeverageSEO() {
       {/* Section 10: Pricing */}
       <PricingSection />
       {/* Section 11: FAQ */}
-      <FAQSection />
+      <TestimonialAndFAQSection />
       {/* Section 12: Related Industries */}
       <RelatedIndustriesSection />
       {/* Section 13: CTA */}
-      <CTASection />
+      <CTAFormSection subheading="Ready to Fill Every Seat with SEO?" heading="Let's put your restaurant on the map." lead="Partner with SEO experts who understand the food & beverage industry. We'll help you dominate local search, drive more reservations, and grow your delivery orders." submitText="Get Restaurant SEO Strategy" />
       <Footer />
     </main>
   )

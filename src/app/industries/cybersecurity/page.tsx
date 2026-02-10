@@ -4,7 +4,11 @@ import { Footer } from '@/components/footer'
 import { Navbar } from '@/components/navbar'
 import { Heading, Lead, Subheading } from '@/components/text'
 import { CheckIcon } from '@/components/check-icon'
-import { FAQAccordion } from '@/components/faq-accordion'
+import { FAQDarkSection } from '@/components/faq-dark-section'
+import { TestimonialQuoteSection } from '@/components/testimonial-quote-section'
+import { HeroAnimation } from '@/components/hero-animation'
+import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { CTAFormSection } from '@/components/service-page-sections'
 import {
   ShieldCheckIcon,
   LockClosedIcon,
@@ -262,18 +266,19 @@ const relatedIndustries = [
 
 function Header() {
   return (
-    <div className="relative">
+    <div className="relative overflow-hidden">
+      <HeroAnimation />
       <Container className="relative">
         <Navbar />
         <div className="pt-16 pb-20 sm:pt-24 sm:pb-28">
-          <p className="font-mono text-xs font-medium uppercase tracking-[0.1em] text-ash mb-6">
+          <p className="font-mono text-sm font-semibold uppercase tracking-[0.15em] text-accent mb-6">
             Cybersecurity Industry
           </p>
-          <h1 className="font-display text-[clamp(36px,5vw,56px)] font-light leading-[1.1] tracking-tight text-ink max-w-3xl">
+          <h1 className="font-display text-[clamp(48px,6vw,96px)] font-medium leading-[0.95] tracking-[-0.02em] text-ink">
             SEO that builds authority for{' '}
             <em className="text-accent italic">cybersecurity companies</em>
           </h1>
-          <p className="mt-6 max-w-lg text-lg leading-[1.65] text-slate">
+          <p className="mt-6 max-w-2xl text-xl leading-relaxed text-stone">
             Establish thought leadership, outrank enterprise competitors, and generate qualified leads through organic search. We help cybersecurity firms turn expertise into search visibility.
           </p>
           <div className="mt-8 flex flex-col gap-x-6 gap-y-4 sm:flex-row">
@@ -306,8 +311,8 @@ function StatsBar() {
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           {stats.map((stat, index) => (
             <div key={index} className="text-center">
-              <div className="font-mono text-[32px] font-semibold text-ink">{stat.value}</div>
-              <div className="font-mono text-xs uppercase tracking-[0.1em] text-ash mt-2">
+              <div className="font-mono text-[clamp(36px,5vw,56px)] font-black text-accent">{stat.value}</div>
+              <div className="font-mono text-xs uppercase tracking-[0.15em] text-stone mt-3">
                 {stat.label}
               </div>
             </div>
@@ -516,35 +521,7 @@ function TechnicalSEOSection() {
 /*  Section 6: Process Steps                                                   */
 /* -------------------------------------------------------------------------- */
 
-function ProcessSection() {
-  return (
-    <div className="bg-paper py-24">
-      <Container>
-        <div className="text-center mb-16">
-          <Subheading>Our Process</Subheading>
-          <Heading as="h2" className="mt-2">
-            How we drive cybersecurity SEO results.
-          </Heading>
-        </div>
-
-        <div className="mx-auto max-w-3xl">
-          {processSteps.map((step, index) => (
-            <div
-              key={index}
-              className={`py-8 ${index < processSteps.length - 1 ? 'border-b border-border' : ''}`}
-            >
-              <p className="font-mono text-xs uppercase tracking-[0.1em] text-accent font-medium mb-3">
-                Step {step.number}
-              </p>
-              <h3 className="font-heading text-xl font-semibold text-ink mb-3">{step.title}</h3>
-              <p className="text-sm leading-relaxed text-slate">{step.description}</p>
-            </div>
-          ))}
-        </div>
-      </Container>
-    </div>
-  )
-}
+// Process section now uses ProcessSectionAnimated component with slide-from-left animation
 
 /* -------------------------------------------------------------------------- */
 /*  Section 7: Case Study + Results (Dark Section)                             */
@@ -725,16 +702,17 @@ function PricingContextSection() {
 /*  Section 11: FAQ                                                            */
 /* -------------------------------------------------------------------------- */
 
-function FAQSection() {
+function TestimonialAndFAQSection() {
   return (
-    <div className="bg-paper py-24">
-      <Container>
-        <FAQAccordion
-          title="Cybersecurity SEO frequently asked questions"
-          items={faqItems}
-        />
-      </Container>
-    </div>
+    <>
+      <TestimonialQuoteSection
+        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
+        author="David Thompson"
+        role="CEO"
+        company="GrowthTech Solutions"
+      />
+      <FAQDarkSection title="Cybersecurity SEO frequently asked questions" items={faqItems} />
+    </>
   )
 }
 
@@ -774,36 +752,6 @@ function RelatedIndustriesSection() {
 /*  Section 13: Industry-Specific CTA                                          */
 /* -------------------------------------------------------------------------- */
 
-function CTASection() {
-  return (
-    <div className="bg-paper py-16 border-t border-border">
-      <Container>
-        <div className="flex flex-col items-center gap-8 text-center lg:flex-row lg:justify-between lg:text-left">
-          <div className="max-w-xl">
-            <Subheading>Ready to Dominate Cybersecurity Search?</Subheading>
-            <Heading as="h2" className="mt-2">
-              Let&apos;s build your cybersecurity SEO authority.
-            </Heading>
-            <Lead className="mt-6">
-              Partner with SEO experts who understand threat landscapes, compliance frameworks, and the
-              cybersecurity buyer journey. We&apos;ll help you turn organic search into your most
-              efficient and defensible lead generation channel.
-            </Lead>
-          </div>
-          <div className="flex flex-col gap-4 sm:flex-row shrink-0">
-            <Button href="/contact">Get Cybersecurity SEO Strategy</Button>
-            <Button variant="outline" href="/pricing">
-              View Pricing
-            </Button>
-          </div>
-        </div>
-        <p className="mt-6 text-xs text-ash text-center lg:text-left">
-          Free consultation includes cybersecurity keyword research, competitor analysis, and E-E-A-T assessment.
-        </p>
-      </Container>
-    </div>
-  )
-}
 
 /* -------------------------------------------------------------------------- */
 /*  Page Export                                                                 */
@@ -862,14 +810,23 @@ export default function CybersecurityIndustrySEO() {
       <ChallengesSection />
       <ServicesSection />
       <TechnicalSEOSection />
-      <ProcessSection />
+      <ProcessTabbedSection
+        subheading="Our Process"
+        heading="How we drive cybersecurity SEO results"
+        steps={processSteps}
+      />
       <CaseStudySection />
       <KeywordsSection />
       <TestimonialSection />
       <PricingContextSection />
-      <FAQSection />
+      <TestimonialAndFAQSection />
       <RelatedIndustriesSection />
-      <CTASection />
+      <CTAFormSection
+        subheading="Ready to Dominate Cybersecurity Search?"
+        heading="Let's build your cybersecurity SEO authority."
+        lead="Partner with SEO experts who understand threat landscapes, compliance frameworks, and the cybersecurity buyer journey. We'll help you turn organic search into your most efficient and defensible lead generation channel."
+        submitText="Get Cybersecurity SEO Strategy"
+      />
       <Footer />
     </main>
   )

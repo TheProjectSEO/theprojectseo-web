@@ -3,7 +3,10 @@ import { Container } from '@/components/container'
 import { Footer } from '@/components/footer'
 import { Navbar } from '@/components/navbar'
 import { Heading, Lead, Subheading } from '@/components/text'
-import { FAQAccordion } from '@/components/faq-accordion'
+import { CTAFormSection } from '@/components/service-page-sections'
+import { FAQDarkSection } from '@/components/faq-dark-section'
+import { TestimonialQuoteSection } from '@/components/testimonial-quote-section'
+import { HeroAnimation } from '@/components/hero-animation'
 import {
   ChartBarIcon,
   GlobeAltIcon,
@@ -239,17 +242,15 @@ function Hero() {
   return (
     <Container className="mt-24 lg:mt-32">
       <div className="pt-16 pb-24 sm:pt-24 sm:pb-32 md:pt-32 md:pb-48">
-        <div className="flex items-center gap-2 mb-6">
-          <span className="font-mono text-xs font-medium tracking-[0.1em] text-accent uppercase">
-            #1 SEO Agency in USA
-          </span>
-        </div>
+        <p className="font-mono text-sm font-semibold uppercase tracking-[0.15em] text-accent mb-6">
+          #1 SEO Agency in USA
+        </p>
 
-        <h1 className="font-display text-[clamp(36px,5vw,56px)] font-light leading-[1.1] tracking-tight text-ink">
+        <h1 className="font-display text-[clamp(48px,6vw,96px)] font-medium leading-[0.95] tracking-[-0.02em] text-ink">
           USA SEO Services That Dominate Competition
         </h1>
 
-        <p className="mt-8 max-w-lg text-xl/7 font-medium text-ink/75 sm:text-2xl/8">
+        <p className="mt-6 max-w-2xl text-xl leading-relaxed text-stone">
           Help your American business outrank competitors and dominate Google search results nationwide.
           From coast to coast - we drive revenue through search.
         </p>
@@ -554,19 +555,23 @@ function LocationsSection() {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  Section 9: FAQ (NEW)                                                       */
+/*  Section 9: Testimonial Quote & FAQ (UPDATED)                              */
 /* -------------------------------------------------------------------------- */
 
-function FAQSection() {
+function TestimonialAndFAQSection() {
   return (
-    <div className="bg-paper py-24">
-      <Container>
-        <FAQAccordion
-          title="USA SEO frequently asked questions"
-          items={faqItems}
-        />
-      </Container>
-    </div>
+    <>
+      <TestimonialQuoteSection
+        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
+        author="David Thompson"
+        role="CEO"
+        company="GrowthTech Solutions"
+      />
+      <FAQDarkSection
+        title="USA SEO frequently asked questions"
+        items={faqItems}
+      />
+    </>
   )
 }
 
@@ -605,46 +610,6 @@ function RelatedLocationsSection() {
 /*  Section 11: CTA                                                            */
 /* -------------------------------------------------------------------------- */
 
-function CTASection() {
-  return (
-    <div className="bg-cream">
-      <Container className="py-24">
-        <div className="mx-auto max-w-2xl text-center">
-          <Subheading>Ready to dominate US search results?</Subheading>
-          <Heading as="h2" className="mt-2">
-            Get your free USA SEO audit today.
-          </Heading>
-          <Lead className="mt-6">
-            Discover exactly what it takes to outrank your toughest competitors and dominate
-            Google search results in the highly competitive US market.
-          </Lead>
-
-          <div className="mt-12 flex flex-col gap-4 sm:flex-row sm:justify-center">
-            <Button href="/contact">Get Free SEO Audit</Button>
-            <Button variant="outline" href="/pricing">
-              View Enterprise Pricing
-            </Button>
-          </div>
-
-          <div className="mt-8 flex items-center justify-center gap-6 text-sm text-ash">
-            <span className="flex items-center gap-2">
-              <span className="w-2 h-2 bg-success rounded-none"></span>
-              Enterprise-grade solutions
-            </span>
-            <span className="flex items-center gap-2">
-              <span className="w-2 h-2 bg-success rounded-none"></span>
-              Fortune 500 experience
-            </span>
-            <span className="flex items-center gap-2">
-              <span className="w-2 h-2 bg-success rounded-none"></span>
-              Results within 30 days
-            </span>
-          </div>
-        </div>
-      </Container>
-    </div>
-  )
-}
 
 /* -------------------------------------------------------------------------- */
 /*  Page Export                                                                 */
@@ -712,9 +677,14 @@ export default function USASEO() {
       <TestimonialsSection />
       <CaseStudiesSection />
       <LocationsSection />
-      <FAQSection />
+      <TestimonialAndFAQSection />
       <RelatedLocationsSection />
-      <CTASection />
+      <CTAFormSection
+        subheading="Ready to dominate US search results?"
+        heading="Get your free USA SEO audit today."
+        lead="Discover exactly what it takes to outrank your toughest competitors and dominate Google search results in the highly competitive US market."
+        submitText="Get Free SEO Audit"
+      />
       <Footer />
     </main>
   )

@@ -4,17 +4,20 @@ import { Footer } from '@/components/footer'
 import { Navbar } from '@/components/navbar'
 import { Heading, Lead, Subheading } from '@/components/text'
 import { CheckIcon } from '@/components/check-icon'
+import { CTAFormSection } from '@/components/service-page-sections'
 import { FAQAccordion } from '@/components/faq-accordion'
+import { HeroAnimation } from '@/components/hero-animation'
+import { ProcessTabbedSection } from '@/components/process-tabbed-section'
 import Link from 'next/link'
 import {
-  ChatBubbleLeftRightIcon,
-  SparklesIcon,
-  CpuChipIcon,
-  DocumentTextIcon,
-  ChartBarIcon,
-  CheckCircleIcon,
-  RocketLaunchIcon,
-} from '@heroicons/react/24/outline'
+  MessageSquare,
+  Sparkles,
+  Cpu,
+  FileText,
+  BarChart3,
+  CheckCircle,
+  Rocket,
+} from 'lucide-react'
 import { JsonLd } from '@/components/json-ld'
 import type { Metadata } from 'next'
 
@@ -57,7 +60,7 @@ const aeoFeatures = [
     name: 'AI Search Optimization',
     description:
       'Optimize your content to appear in AI-generated answers across ChatGPT, Gemini, Claude, and other AI search engines.',
-    icon: SparklesIcon,
+    icon: Sparkles,
     benefits: [
       'AI answer snippet optimization',
       'Conversational query targeting',
@@ -69,7 +72,7 @@ const aeoFeatures = [
     name: 'Conversational Content Strategy',
     description:
       'Create content that excels in natural language queries and conversational AI interactions.',
-    icon: ChatBubbleLeftRightIcon,
+    icon: MessageSquare,
     benefits: [
       'Natural language processing optimization',
       'Question-answer content formats',
@@ -81,7 +84,7 @@ const aeoFeatures = [
     name: 'Knowledge Graph Enhancement',
     description:
       'Structure your content to feed AI knowledge bases and appear in authoritative AI responses.',
-    icon: CpuChipIcon,
+    icon: Cpu,
     benefits: [
       'Structured data implementation',
       'Entity relationship mapping',
@@ -93,7 +96,7 @@ const aeoFeatures = [
     name: 'Semantic Content Optimization',
     description:
       'Advanced semantic SEO that helps AI engines understand and recommend your content.',
-    icon: DocumentTextIcon,
+    icon: FileText,
     benefits: [
       'Semantic keyword clustering',
       'Topic authority building',
@@ -105,7 +108,7 @@ const aeoFeatures = [
     name: 'Answer Engine Analytics',
     description:
       'Track your performance across AI search platforms with specialized AEO analytics and reporting.',
-    icon: ChartBarIcon,
+    icon: BarChart3,
     benefits: [
       'AI search performance tracking',
       'Answer position monitoring',
@@ -117,7 +120,7 @@ const aeoFeatures = [
     name: 'Future-Proof Strategy',
     description:
       'Stay ahead of the AI search evolution with strategies that adapt to new AI engines and features.',
-    icon: RocketLaunchIcon,
+    icon: Rocket,
     benefits: [
       'Emerging AI platform preparation',
       'Algorithm update adaptation',
@@ -264,18 +267,19 @@ const relatedServices = [
 
 function Header() {
   return (
-    <div className="relative">
+    <div className="relative overflow-hidden">
+      <HeroAnimation />
       <Container className="relative">
         <Navbar />
         <div className="pt-16 pb-24 sm:pt-24 sm:pb-32 md:pt-32 md:pb-48">
           <div className="max-w-4xl">
-            <p className="font-mono text-xs uppercase tracking-[0.1em] text-ash mb-6">
+            <p className="font-mono text-sm font-semibold uppercase tracking-[0.15em] text-accent mb-6">
               Answer Engine Optimization
             </p>
-            <h1 className="font-display text-[clamp(36px,5vw,56px)] font-light leading-[1.1] tracking-tight text-ink">
+            <h1 className="font-display text-[clamp(48px,6vw,96px)] font-medium leading-[0.95] tracking-[-0.02em] text-ink">
               Get your brand featured in <em className="text-accent italic">every AI answer</em>
             </h1>
-            <p className="mt-8 max-w-2xl text-lg leading-[1.65] text-slate">
+            <p className="mt-8 max-w-2xl text-xl leading-relaxed text-stone">
               Dominate AI search results with Answer Engine Optimization (AEO).
               Get your content featured in ChatGPT, Google Gemini, Claude, and
               other AI-powered search engines.
@@ -658,37 +662,6 @@ function RelatedServicesSection() {
 /*  Section 11: CTA                                                            */
 /* -------------------------------------------------------------------------- */
 
-function CTASection() {
-  return (
-    <div className="bg-paper py-16 border-t border-border">
-      <Container>
-        <div className="flex flex-col items-center gap-8 text-center lg:flex-row lg:justify-between lg:text-left">
-          <div className="max-w-xl">
-            <Subheading>Ready for AI Search?</Subheading>
-            <Heading as="h2" className="mt-2">
-              Dominate answer engines before your competitors do.
-            </Heading>
-            <Lead className="mt-6">
-              AI search is growing 340% year-over-year. The businesses that
-              optimize for answer engines now will dominate the future of search.
-              Don&apos;t get left behind.
-            </Lead>
-          </div>
-          <div className="flex flex-col gap-4 sm:flex-row shrink-0">
-            <Button href="/contact">Start AEO Strategy</Button>
-            <Button variant="outline" href="/services/seo-consulting">
-              Expert Consultation
-            </Button>
-          </div>
-        </div>
-        <p className="mt-6 text-xs text-ash text-center lg:text-left">
-          Free consultation includes AI search audit and custom AEO strategy
-          recommendations.
-        </p>
-      </Container>
-    </div>
-  )
-}
 
 /* -------------------------------------------------------------------------- */
 /*  Page Export                                                                 */
@@ -734,13 +707,22 @@ export default function AEOServices() {
       <StatsBar />
       <AIEnginesSection />
       <FeaturesSection />
-      <ProcessSection />
+      <ProcessTabbedSection
+        subheading="Our Process"
+        heading="How we optimize for answer engines"
+        steps={processSteps}
+      />
       <CaseStudySection />
       <PackagesSection />
       <TestimonialSection />
       <FAQSection />
       <RelatedServicesSection />
-      <CTASection />
+      <CTAFormSection
+        subheading="Ready for AI Search?"
+        heading="Dominate answer engines before your competitors do."
+        lead="AI search is growing 340% year-over-year. The businesses that optimize for answer engines now will dominate the future of search. Don't get left behind."
+        submitText="Start AEO Strategy"
+      />
       <Footer />
     </main>
   )

@@ -1,4 +1,5 @@
 import { Container } from '@/components/container'
+import { HeroAnimation } from '@/components/hero-animation'
 import { JsonLd } from '@/components/json-ld'
 import { Footer } from '@/components/footer'
 import { Navbar } from '@/components/navbar'
@@ -31,6 +32,7 @@ export default function PrivacyPolicy() {
 
       {/* Page Header */}
       <div className="relative py-16">
+        <HeroAnimation />
         <Container>
           <div className="mx-auto max-w-4xl">
             <Subheading>Legal</Subheading>
@@ -65,7 +67,8 @@ export default function PrivacyPolicy() {
             <h2>1. Introduction</h2>
 
             <p>
-              TheProjectSEO (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your
+              TheProjectSEO Digital (OPC) Private Limited (CIN: U73100JH2025OPC026020),
+              operating as &quot;TheProjectSEO&quot; (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;), is committed to protecting your
               privacy. This Privacy Policy describes the types of information we may collect from you or
               that you may provide when you visit our website and our practices for collecting, using,
               maintaining, protecting, and disclosing that information.
@@ -389,6 +392,15 @@ export default function PrivacyPolicy() {
             </p>
 
             <ul>
+              <li>
+                <strong>Legal Entity:</strong> TheProjectSEO Digital (OPC) Private Limited
+              </li>
+              <li>
+                <strong>CIN:</strong> U73100JH2025OPC026020
+              </li>
+              <li>
+                <strong>Registered Address:</strong> No. 808, Mahabir Tower, Main Road, P.S. Hindpiri, Ranchi, Jharkhand &ndash; 834001, India
+              </li>
               <li>
                 <strong>Email:</strong>{' '}
                 <a href="mailto:privacy@theprojectseo.com">privacy@theprojectseo.com</a>

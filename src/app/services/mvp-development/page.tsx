@@ -1,20 +1,21 @@
 import type { Metadata} from 'next'
 import { Container } from '@/components/container'
-import { FAQAccordion } from '@/components/faq-accordion'
+import { FAQDarkSection } from '@/components/faq-dark-section'
 import { Footer } from '@/components/footer'
 import { JsonLd } from '@/components/json-ld'
 import {
   ServiceHero,
   StatsBar,
   ServicesGrid,
-  ProcessSection,
   CaseStudyDark,
   FeatureCardsSection,
   PricingSection,
   TestimonialSection,
+  TestimonialQuoteSection,
   RelatedServicesSection,
-  CTASection,
+  CTAFormSection,
 } from '@/components/service-page-sections'
+import { ProcessTabbedSection } from '@/components/process-tabbed-section'
 import {
   Rocket,
   Code,
@@ -456,10 +457,7 @@ const ctaData = {
   subheading: 'Ready to Launch?',
   heading: 'Ship your MVP in 8 weeks',
   lead: 'Let&apos;s discuss your product idea and create a roadmap to launch. From strategy to paying customers, we handle everything.',
-  ctaPrimaryText: 'Start Your MVP',
-  ctaPrimaryHref: '/contact',
-  ctaSecondaryText: 'View All Services',
-  ctaSecondaryHref: '/services',
+  submitText: 'Start Your MVP',
 }
 
 export default function MVPDevelopmentPage() {
@@ -485,20 +483,24 @@ export default function MVPDevelopmentPage() {
       <StatsBar stats={statsData} />
       <FeatureCardsSection {...challengesData} />
       <ServicesGrid {...servicesData} />
-      <ProcessSection {...processData} />
+      <ProcessTabbedSection {...processData} />
       <CaseStudyDark {...caseStudyData} />
       <FeatureCardsSection {...toolsData} />
       <PricingSection {...pricingData} />
       <TestimonialSection {...testimonialsData} />
-      <Container className="py-24">
-        <FAQAccordion title="MVP development FAQ" items={faqData} />
-      </Container>
+      <TestimonialQuoteSection
+        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
+        author="David Thompson"
+        role="CEO"
+        company="GrowthTech Solutions"
+      />
+      <FAQDarkSection title="MVP development FAQ" items={faqData} />
       <RelatedServicesSection
         subheading="Related Services"
         heading="Explore more development services"
         services={relatedServicesData}
       />
-      <CTASection {...ctaData} />
+      <CTAFormSection {...ctaData} />
       <Footer />
     </main>
   )

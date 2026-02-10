@@ -4,11 +4,48 @@ import { ChevronDownIcon } from '@heroicons/react/24/solid'
 import { Link } from './link'
 import { Logo } from './logo'
 
-const serviceLinks = [
+// Development Services
+const developmentServices = [
+  { href: '/services/web-app-development', label: 'Web Application Development', desc: 'Custom web apps & PWAs' },
+  { href: '/services/ai-development', label: 'AI Development', desc: 'LLM apps & ML models' },
+  { href: '/services/mvp-development', label: 'MVP Development', desc: 'Rapid product validation' },
+  { href: '/services/ecommerce-development', label: 'E-commerce Development', desc: 'Custom online stores' },
+  { href: '/services/n8n-automation', label: 'N8n Automation', desc: 'Workflow automation' },
+]
+
+// Core SEO Services
+const seoServices = [
+  { href: '/services/seo-consulting', label: 'SEO Consulting', desc: 'Strategic SEO guidance' },
+  { href: '/services/local-seo', label: 'Local SEO', desc: 'Google Business optimization' },
+  { href: '/services/link-building', label: 'Link Building', desc: 'White-hat link acquisition' },
+  { href: '/services/seo-audit', label: 'SEO Audit', desc: 'Comprehensive site analysis' },
+  { href: '/services/technical-seo', label: 'Technical SEO', desc: 'Speed & crawlability' },
+  { href: '/services/on-page-seo', label: 'On-Page SEO', desc: 'Content optimization' },
+  { href: '/services/off-page-seo', label: 'Off-Page SEO', desc: 'Link building & PR' },
+  { href: '/services/ecommerce-seo', label: 'E-commerce SEO', desc: 'Product page optimization' },
+  { href: '/services/enterprise-seo', label: 'Enterprise SEO', desc: 'Large-scale SEO solutions' },
+  { href: '/services/international-seo', label: 'International SEO', desc: 'Multi-country optimization' },
+]
+
+// Automation & AI Services
+const automationServices = [
+  { href: '/services/seo-automation', label: 'SEO Automation', desc: 'Automated tracking & reporting' },
+  { href: '/services/ai-seo-agent', label: 'AI SEO Agent', desc: 'AI-powered optimization' },
+  { href: '/services/n8n-automation/marketing-automation', label: 'Marketing Automation', desc: 'Lead gen workflows' },
+  { href: '/services/n8n-automation/sales-automation', label: 'Sales Automation', desc: 'Pipeline management' },
+  { href: '/services/n8n-automation/crm-automation', label: 'CRM Automation', desc: 'Data sync & updates' },
+  { href: '/services/n8n-automation/reporting-automation', label: 'Reporting Automation', desc: 'Automated dashboards' },
+  { href: '/services/n8n-automation/data-pipeline-automation', label: 'Data Pipeline Automation', desc: 'ETL workflows' },
+  { href: '/services/n8n-automation/customer-service-automation', label: 'Customer Service', desc: 'Ticket routing' },
+]
+
+// Specialized Services
+const specializedServices = [
+  { href: '/services/data-visualization', label: 'Data Visualization', desc: 'Custom dashboards & BI' },
+  { href: '/services/data-engineering', label: 'Data Engineering', desc: 'ETL & data pipelines' },
   { href: '/services/aeo', label: 'AEO Services', desc: 'Answer Engine Optimization' },
-  { href: '/services/seo', label: 'SEO Services', desc: 'Search Engine Optimization' },
   { href: '/services/content', label: 'Content Services', desc: 'Strategic content creation' },
-  { href: '/services/web', label: 'Web Services', desc: 'Web design & development' },
+  { href: '/services/web', label: 'Web Design', desc: 'Website design & development' },
 ]
 
 const industryLinks = [
@@ -54,18 +91,77 @@ function DesktopNav() {
           Services
           <ChevronDownIcon className="h-3.5 w-3.5" />
         </button>
-        <div className="invisible absolute left-0 mt-2 w-64 origin-top-left border border-border-strong rounded-lg bg-white shadow-lg opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 z-50">
-          <div className="p-2">
-            {serviceLinks.map(({ href, label, desc }) => (
-              <Link
-                key={href}
-                href={href}
-                className="flex flex-col gap-0.5 rounded-md px-3 py-2.5 transition-colors hover:bg-cream"
-              >
-                <span className="text-sm font-medium text-ink">{label}</span>
-                {desc && <span className="text-xs text-ash">{desc}</span>}
-              </Link>
-            ))}
+        <div className="invisible absolute left-0 mt-2 w-[840px] origin-top-left border border-border-strong rounded-lg bg-white shadow-lg opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 z-50">
+          <div className="p-4">
+            <div className="grid grid-cols-4 gap-6">
+              {/* Development Services */}
+              <div>
+                <h3 className="mb-3 text-xs font-mono uppercase tracking-wider text-ash">Development</h3>
+                <div className="space-y-1">
+                  {developmentServices.map(({ href, label, desc }) => (
+                    <Link
+                      key={href}
+                      href={href}
+                      className="block rounded-md px-2 py-2 group/item hover:bg-cream"
+                    >
+                      <div className="text-sm font-medium text-ink group-hover/item:text-accent">{label}</div>
+                      <div className="text-xs text-slate mt-0.5">{desc}</div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* SEO Services */}
+              <div>
+                <h3 className="mb-3 text-xs font-mono uppercase tracking-wider text-ash">SEO Services</h3>
+                <div className="space-y-1">
+                  {seoServices.map(({ href, label, desc }) => (
+                    <Link
+                      key={href}
+                      href={href}
+                      className="block rounded-md px-2 py-2 group/item hover:bg-cream"
+                    >
+                      <div className="text-sm font-medium text-ink group-hover/item:text-accent">{label}</div>
+                      <div className="text-xs text-slate mt-0.5">{desc}</div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* Automation & AI */}
+              <div>
+                <h3 className="mb-3 text-xs font-mono uppercase tracking-wider text-ash">Automation & AI</h3>
+                <div className="space-y-1">
+                  {automationServices.map(({ href, label, desc }) => (
+                    <Link
+                      key={href}
+                      href={href}
+                      className="block rounded-md px-2 py-2 group/item hover:bg-cream"
+                    >
+                      <div className="text-sm font-medium text-ink group-hover/item:text-accent">{label}</div>
+                      <div className="text-xs text-slate mt-0.5">{desc}</div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* Specialized Services */}
+              <div>
+                <h3 className="mb-3 text-xs font-mono uppercase tracking-wider text-ash">Specialized</h3>
+                <div className="space-y-1">
+                  {specializedServices.map(({ href, label, desc }) => (
+                    <Link
+                      key={href}
+                      href={href}
+                      className="block rounded-md px-2 py-2 group/item hover:bg-cream"
+                    >
+                      <div className="text-sm font-medium text-ink group-hover/item:text-accent">{label}</div>
+                      <div className="text-xs text-slate mt-0.5">{desc}</div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -199,16 +295,54 @@ export function Navbar({ banner }: { banner?: React.ReactNode }) {
               Services
               <ChevronDownIcon className="h-4 w-4 text-ash transition-transform" />
             </summary>
-            <div className="pb-4 pl-4 space-y-3">
-              {serviceLinks.map(({ href, label }) => (
-                <Link
-                  key={href}
-                  href={href}
-                  className="block text-sm text-slate hover:text-ink"
-                >
-                  {label}
-                </Link>
-              ))}
+            <div className="pb-4 pl-4 space-y-4">
+              {/* Development Services */}
+              <details>
+                <summary className="text-sm font-medium text-ink py-2 cursor-pointer">Development Services</summary>
+                <div className="pl-4 space-y-2 mt-2">
+                  {developmentServices.map(({ href, label }) => (
+                    <Link key={href} href={href} className="block text-sm text-slate hover:text-ink py-1">
+                      {label}
+                    </Link>
+                  ))}
+                </div>
+              </details>
+
+              {/* SEO Services */}
+              <details>
+                <summary className="text-sm font-medium text-ink py-2 cursor-pointer">SEO Services</summary>
+                <div className="pl-4 space-y-2 mt-2">
+                  {seoServices.map(({ href, label }) => (
+                    <Link key={href} href={href} className="block text-sm text-slate hover:text-ink py-1">
+                      {label}
+                    </Link>
+                  ))}
+                </div>
+              </details>
+
+              {/* Automation & AI */}
+              <details>
+                <summary className="text-sm font-medium text-ink py-2 cursor-pointer">Automation & AI</summary>
+                <div className="pl-4 space-y-2 mt-2">
+                  {automationServices.map(({ href, label }) => (
+                    <Link key={href} href={href} className="block text-sm text-slate hover:text-ink py-1">
+                      {label}
+                    </Link>
+                  ))}
+                </div>
+              </details>
+
+              {/* Specialized Services */}
+              <details>
+                <summary className="text-sm font-medium text-ink py-2 cursor-pointer">Specialized Services</summary>
+                <div className="pl-4 space-y-2 mt-2">
+                  {specializedServices.map(({ href, label }) => (
+                    <Link key={href} href={href} className="block text-sm text-slate hover:text-ink py-1">
+                      {label}
+                    </Link>
+                  ))}
+                </div>
+              </details>
             </div>
           </details>
 

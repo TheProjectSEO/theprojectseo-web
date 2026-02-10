@@ -1,20 +1,21 @@
 import type { Metadata } from 'next'
 import { Container } from '@/components/container'
-import { FAQAccordion } from '@/components/faq-accordion'
+import { FAQDarkSection } from '@/components/faq-dark-section'
 import { Footer } from '@/components/footer'
 import { JsonLd } from '@/components/json-ld'
 import {
   ServiceHero,
   StatsBar,
   ServicesGrid,
-  ProcessSection,
   CaseStudyDark,
   FeatureCardsSection,
   PricingSection,
   TestimonialSection,
+  TestimonialQuoteSection,
   RelatedServicesSection,
-  CTASection,
+  CTAFormSection,
 } from '@/components/service-page-sections'
+import { ProcessTabbedSection } from '@/components/process-tabbed-section'
 import {
   Mail,
   Users,
@@ -463,10 +464,7 @@ const ctaData = {
   subheading: 'Ready to Automate?',
   heading: 'Transform your marketing operations',
   lead: 'Let&apos;s discuss your marketing automation needs and design N8n workflows that eliminate manual work and improve ROI.',
-  ctaPrimaryText: 'Automate Your Marketing',
-  ctaPrimaryHref: '/contact',
-  ctaSecondaryText: 'All Automation Services',
-  ctaSecondaryHref: '/services/n8n-automation',
+  submitText: 'Automate Your Marketing',
 }
 
 /* -------------------------------------------------------------------------- */
@@ -496,20 +494,24 @@ export default function MarketingAutomationPage() {
       <StatsBar stats={statsData} />
       <FeatureCardsSection {...challengesData} />
       <ServicesGrid {...servicesData} />
-      <ProcessSection {...processData} />
+      <ProcessTabbedSection {...processData} />
       <CaseStudyDark {...caseStudyData} />
       <FeatureCardsSection {...toolsData} />
       <PricingSection {...pricingData} />
       <TestimonialSection {...testimonialsData} />
-      <Container className="py-24">
-        <FAQAccordion title="Marketing automation FAQ" items={faqData} />
-      </Container>
+      <TestimonialQuoteSection
+        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
+        author="David Thompson"
+        role="CEO"
+        company="GrowthTech Solutions"
+      />
+      <FAQDarkSection title="Marketing automation FAQ" items={faqData} />
       <RelatedServicesSection
         subheading="Related Services"
         heading="Explore more automation solutions"
         services={relatedServicesData}
       />
-      <CTASection {...ctaData} />
+      <CTAFormSection {...ctaData} />
       <Footer />
     </main>
   )

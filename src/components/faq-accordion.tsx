@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 import { clsx } from 'clsx'
 
-interface FAQItem {
+export interface FAQItem {
   question: string
   answer: string
 }

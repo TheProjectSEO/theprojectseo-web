@@ -64,18 +64,27 @@ export function HeroAnimation() {
 
       {/* Accent Dots Pattern */}
       <div className="absolute inset-0">
-        {Array.from({ length: 30 }).map((_, i) => (
-          <div
-            key={`dot-${i}`}
-            className="absolute size-1 rounded-full bg-accent/20 animate-pulse"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${3 + Math.random() * 2}s`,
-            }}
-          />
-        ))}
+        {Array.from({ length: 30 }).map((_, i) => {
+          // Use index-based deterministic values to avoid hydration mismatch
+          const seed = (i * 2654435761) % 2147483648 // Simple hash function
+          const left = (seed % 10000) / 100
+          const top = ((seed * 7919) % 10000) / 100
+          const delay = ((seed * 3571) % 3000) / 1000
+          const duration = 3 + ((seed * 2459) % 2000) / 1000
+
+          return (
+            <div
+              key={`dot-${i}`}
+              className="absolute size-1 rounded-full bg-accent/20 animate-pulse"
+              style={{
+                left: `${left}%`,
+                top: `${top}%`,
+                animationDelay: `${delay}s`,
+                animationDuration: `${duration}s`,
+              }}
+            />
+          )
+        })}
       </div>
 
       {/* Grid Pattern Overlay (subtle) */}

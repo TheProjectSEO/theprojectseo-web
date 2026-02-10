@@ -12,7 +12,7 @@ import {
   FeatureCardsSection,
   PricingSection,
   TestimonialSection,
-  CTASection,
+  CTAFormSection,
 } from '@/components/service-page-sections'
 import {
   MapPin,
@@ -420,10 +420,7 @@ const ctaData = {
   subheading: 'Ready to Dominate Local Search?',
   heading: 'Get your free local SEO audit.',
   lead: 'Discover exactly what is holding back your local search visibility. Our audit covers Google Business Profile optimization, NAP consistency issues, review profile gaps, and local pack ranking opportunities.',
-  ctaPrimaryText: 'Get Your Free Audit',
-  ctaPrimaryHref: '/contact',
-  ctaSecondaryText: 'View All Pricing',
-  ctaSecondaryHref: '/pricing',
+  submitText: 'Get Your Free Audit',
 }
 
 /* -------------------------------------------------------------------------- */
@@ -459,7 +456,7 @@ export default function LocalSEOPage() {
       <Container className="py-24">
         <FAQAccordion title="Local SEO frequently asked questions" items={faqData} />
       </Container>
-      <CTASection {...ctaData} />
+      <CTAFormSection {...ctaData} />
       <Footer />
     </main>
   )

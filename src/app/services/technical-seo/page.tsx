@@ -4,20 +4,21 @@ import { Heading, Subheading, Lead } from '@/components/text'
 import { Button } from '@/components/button'
 import Link from 'next/link'
 import { CheckIcon } from '@/components/check-icon'
-import { FAQAccordion } from '@/components/faq-accordion'
+import { FAQDarkSection } from '@/components/faq-dark-section'
 import { JsonLd } from '@/components/json-ld'
 import { Footer } from '@/components/footer'
 import {
   ServiceHero,
   StatsBar,
   ServicesGrid,
-  ProcessSection,
   CaseStudyDark,
   FeatureCardsSection,
   PricingSection,
   TestimonialSection,
-  CTASection,
+  TestimonialQuoteSection,
+  CTAFormSection,
 } from '@/components/service-page-sections'
+import { ProcessTabbedSection } from '@/components/process-tabbed-section'
 import {
   Zap,
   Search,
@@ -197,39 +198,27 @@ const processData = {
   steps: [
     {
       number: '01',
-      title: 'Comprehensive Technical Audit',
+      title: 'Discovery & Audit',
       description:
-        'Full-site crawl using Screaming Frog and Lumar, supplemented by Google Search Console data and log file analysis. Audit covers crawlability, indexation, Core Web Vitals, site architecture, structured data, HTTPS, mobile rendering, and JavaScript execution.',
+        'Full-site crawl using Screaming Frog and Lumar, supplemented by Google Search Console data and log file analysis. Audit covers crawlability, indexation, Core Web Vitals, site architecture, structured data, HTTPS, mobile rendering, and JavaScript execution. Every finding is scored by estimated traffic impact, implementation effort, and business priority to create a prioritized roadmap with highest ROI focus.',
     },
     {
       number: '02',
-      title: 'Impact-Based Prioritization',
+      title: 'Implementation & Optimization',
       description:
-        'Score every finding by estimated traffic impact, implementation effort, and business priority. Critical indexation blockers and Core Web Vitals failures go to the top. Prioritized roadmap ensures highest ROI focus.',
+        'Detailed implementation specifications for your dev team or direct execution. Includes robots.txt, sitemaps, canonicals, redirects, schema markup, speed optimization, and JavaScript rendering solutions. Focused performance sprint targeting LCP, INP, CLS improvements with critical rendering path optimization, resource hints, deferred JavaScript, image format upgrades, critical CSS extraction, and layout stability fixes.',
     },
     {
       number: '03',
-      title: 'Implementation & Development Support',
+      title: 'Validation & Testing',
       description:
-        'Detailed implementation specifications for your dev team or direct execution. Includes robots.txt, sitemaps, canonicals, redirects, schema markup, speed optimization, and JavaScript rendering solutions.',
+        'Post-implementation validation through fresh crawls, Search Console monitoring, PageSpeed Insights field data checks, structured data testing. Staging environment testing prevents production regressions and ensures all changes work correctly before deployment.',
     },
     {
       number: '04',
-      title: 'Core Web Vitals Sprint',
+      title: 'Monitoring & Reporting',
       description:
-        'Focused performance sprint targeting LCP, INP, CLS improvements. Optimize critical rendering paths, resource hints, defer non-critical JavaScript, image format upgrades, critical CSS extraction, layout stability fixes.',
-    },
-    {
-      number: '05',
-      title: 'Validation & Testing',
-      description:
-        'Post-implementation validation through fresh crawls, Search Console monitoring, PageSpeed Insights field data checks, structured data testing. Staging environment testing prevents production regressions.',
-    },
-    {
-      number: '06',
-      title: 'Ongoing Monitoring',
-      description:
-        'Continuous vigilance with Lighthouse CI monitoring, weekly crawl checks, Core Web Vitals dashboards, Search Console alerting. Catch issues before they impact rankings.',
+        'Continuous vigilance with Lighthouse CI monitoring, weekly crawl checks, Core Web Vitals dashboards, Search Console alerting, and comprehensive monthly reporting. Proactive monitoring catches issues before they impact rankings and allows rapid response to algorithm updates or technical regressions.',
     },
   ],
 }
@@ -461,10 +450,7 @@ const ctaData = {
   subheading: 'Ready to Fix Technical Issues?',
   heading: 'Get your free technical SEO audit.',
   lead: 'Discover exactly what technical issues are holding back your rankings. Our audit covers Core Web Vitals, crawlability, indexation, site speed, and structured data, with a prioritized roadmap of fixes.',
-  ctaPrimaryText: 'Get Your Free Audit',
-  ctaPrimaryHref: '/contact',
-  ctaSecondaryText: 'View All Pricing',
-  ctaSecondaryHref: '/pricing',
+  submitText: 'Get Your Free Audit',
 }
 
 /* -------------------------------------------------------------------------- */
@@ -571,16 +557,20 @@ export default function TechnicalSEOPage() {
       <ServiceHero {...heroData} />
       <StatsBar stats={statsData} />
       <ServicesGrid {...servicesData} />
-      <ProcessSection {...processData} />
+      <ProcessTabbedSection {...processData} />
       <CaseStudyDark {...caseStudyData} />
       <FeatureCardsSection {...toolsData} />
       <ComparisonTableSection />
       <PricingSection {...pricingData} />
       <TestimonialSection {...testimonialsData} />
-      <Container className="py-24">
-        <FAQAccordion title="Technical SEO frequently asked questions" items={faqData} />
-      </Container>
-      <CTASection {...ctaData} />
+      <TestimonialQuoteSection
+        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
+        author="David Thompson"
+        role="CEO"
+        company="GrowthTech Solutions"
+      />
+      <FAQDarkSection title="Technical SEO frequently asked questions" items={faqData} />
+      <CTAFormSection {...ctaData} />
       <Footer />
     </main>
   )

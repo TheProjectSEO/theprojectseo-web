@@ -12,7 +12,7 @@ import {
   FeatureCardsSection,
   PricingSection,
   TestimonialSection,
-  CTASection,
+  CTAFormSection,
 } from '@/components/service-page-sections'
 import {
   Search,
@@ -418,10 +418,7 @@ const ctaData = {
   subheading: 'Ready to Discover What&apos;s Holding You Back?',
   heading: 'Get your comprehensive SEO audit.',
   lead: 'Our audit identifies every technical issue, content gap, and optimization opportunity across your entire site. Receive a prioritized roadmap with actionable recommendations that drive measurable ranking improvements.',
-  ctaPrimaryText: 'Get Your SEO Audit',
-  ctaPrimaryHref: '/contact',
-  ctaSecondaryText: 'View All Pricing',
-  ctaSecondaryHref: '/pricing',
+  submitText: 'Get Your SEO Audit',
 }
 
 /* -------------------------------------------------------------------------- */
@@ -457,7 +454,7 @@ export default function SEOAuditPage() {
       <Container className="py-24">
         <FAQAccordion title="SEO audit frequently asked questions" items={faqData} />
       </Container>
-      <CTASection {...ctaData} />
+      <CTAFormSection {...ctaData} />
       <Footer />
     </main>
   )

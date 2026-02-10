@@ -1,21 +1,22 @@
 import type { Metadata } from 'next'
 import { Container } from '@/components/container'
-import { FAQAccordion } from '@/components/faq-accordion'
+import { FAQDarkSection } from '@/components/faq-dark-section'
 import { JsonLd } from '@/components/json-ld'
 import { Footer } from '@/components/footer'
 import {
   ServiceHero,
   StatsBar,
   ServicesGrid,
-  ProcessSection,
   CaseStudyDark,
   FeatureCardsSection,
   PricingSection,
   TestimonialSection,
+  TestimonialQuoteSection,
   RelatedServicesSection,
-  CTASection,
+  CTAFormSection,
   TextContentSection,
 } from '@/components/service-page-sections'
+import { ProcessTabbedSection } from '@/components/process-tabbed-section'
 import {
   Globe,
   Server,
@@ -174,33 +175,27 @@ const processData = {
   steps: [
     {
       number: '01',
-      title: 'Enterprise SEO Audit & Discovery',
+      title: 'Discovery & Audit',
       description:
-        'We begin with a comprehensive enterprise SEO audit that goes far beyond standard site crawls. Using tools like Botify and Lumar, we analyze crawl budget allocation, log file data, JavaScript rendering issues, and technical infrastructure. We map your entire domain portfolio, identify cross-domain cannibalization, and benchmark against enterprise competitors.',
+        'Comprehensive enterprise SEO audit that goes far beyond standard site crawls. Using tools like Botify and Lumar, we analyze crawl budget allocation, log file data, JavaScript rendering issues, and technical infrastructure. We map your entire domain portfolio, identify cross-domain cannibalization, and benchmark against enterprise competitors.',
     },
     {
       number: '02',
-      title: 'Governance Framework & Strategy',
+      title: 'Strategy & Governance',
       description:
-        'We establish an SEO governance framework defining roles across engineering, content, product, and marketing teams. Our strategy includes crawl budget optimization roadmaps, international SEO expansion plans, content strategy at scale, and platform migration timelines. Every initiative is prioritized by expected revenue impact.',
+        'Establish SEO governance framework defining roles across engineering, content, product, and marketing teams. Our strategy includes crawl budget optimization roadmaps, international SEO expansion plans, content strategy at scale, and platform migration timelines. Every initiative is prioritized by expected revenue impact.',
     },
     {
       number: '03',
-      title: 'Technical Implementation at Scale',
+      title: 'Implementation at Scale',
       description:
-        'Our team works alongside your engineering organization to implement technical SEO improvements at scale. This includes hreflang deployment for international sites, JavaScript SEO fixes, edge SEO configurations via CDN, structured data deployment across page templates, and crawl budget optimization through intelligent robots.txt and sitemap strategies.',
+        'Work alongside your engineering organization to implement technical SEO improvements at scale including hreflang deployment, JavaScript SEO fixes, edge SEO configurations via CDN, and structured data deployment. Develop enterprise content strategies across multiple brands, regions, and languages with editorial workflow management and scalable link building through digital PR campaigns earning coverage in industry publications.',
     },
     {
       number: '04',
-      title: 'Content Strategy & Digital PR at Scale',
+      title: 'Monitoring & Optimization',
       description:
-        'We develop enterprise content strategies that operate across multiple brands, regions, and languages. Our content operations include editorial workflow management, content governance policies, and scalable link building through digital PR campaigns that earn coverage in industry publications and major media outlets.',
-    },
-    {
-      number: '05',
-      title: 'Monitoring, Reporting & Optimization',
-      description:
-        'Continuous monitoring through real-time dashboards that track rankings, crawl health, Core Web Vitals, and revenue attribution across all domains. We provide executive-level SEO reporting for C-suite stakeholders and detailed operational reports for implementation teams, with automated alerting for critical changes.',
+        'Continuous monitoring through real-time dashboards tracking rankings, crawl health, Core Web Vitals, and revenue attribution across all domains. We provide executive-level SEO reporting for C-suite stakeholders and detailed operational reports for implementation teams, with automated alerting for critical changes and ongoing optimization based on performance data.',
     },
   ],
 }
@@ -432,10 +427,7 @@ const ctaData = {
   subheading: 'Ready to Scale Enterprise SEO?',
   heading: 'Let&apos;s build your enterprise organic growth engine',
   lead: 'Schedule a consultation to discuss your organization&apos;s specific needs. We&apos;ll assess your current SEO maturity, identify high-impact opportunities, and outline a roadmap for enterprise-scale organic growth.',
-  ctaPrimaryText: 'Schedule Enterprise Consultation',
-  ctaPrimaryHref: '/contact',
-  ctaSecondaryText: 'Start with an Audit',
-  ctaSecondaryHref: '/services/seo-audit',
+  submitText: 'Schedule Enterprise Consultation',
   note: 'Free consultation includes preliminary site assessment, competitive benchmarking, and enterprise SEO roadmap.',
 }
 
@@ -487,7 +479,7 @@ export default function EnterpriseSEOPage() {
 
       <TextContentSection {...contentStrategyData} />
 
-      <ProcessSection {...processData} />
+      <ProcessTabbedSection {...processData} />
 
       <CaseStudyDark {...caseStudyData} />
 
@@ -547,13 +539,18 @@ export default function EnterpriseSEOPage() {
 
       <TestimonialSection {...testimonialData} />
 
-      <Container className="py-24 bg-paper">
-        <FAQAccordion title="Enterprise SEO frequently asked questions" items={faqData} />
-      </Container>
+      <TestimonialQuoteSection
+        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
+        author="David Thompson"
+        role="CEO"
+        company="GrowthTech Solutions"
+      />
+
+      <FAQDarkSection title="Enterprise SEO frequently asked questions" items={faqData} />
 
       <RelatedServicesSection {...relatedServicesData} />
 
-      <CTASection {...ctaData} />
+      <CTAFormSection {...ctaData} />
 
       <Footer />
     </main>

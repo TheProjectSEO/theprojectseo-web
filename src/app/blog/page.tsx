@@ -1,4 +1,5 @@
 import { Button } from '@/components/button'
+import { HeroAnimation } from '@/components/hero-animation'
 import { JsonLd } from '@/components/json-ld'
 import { Container } from '@/components/container'
 import { Footer } from '@/components/footer'
@@ -150,6 +151,7 @@ const categories = [
 function Hero() {
   return (
     <div className="relative">
+        <HeroAnimation />
       <Container className="relative">
         <Navbar
           banner={
@@ -164,14 +166,14 @@ function Hero() {
         />
         <div className="pt-16 pb-24 sm:pt-24 sm:pb-32 md:pt-32 md:pb-48">
           <div className="max-w-4xl">
-            <h1 className="font-display text-[clamp(36px,5vw,56px)] font-light leading-[1.1] tracking-tight text-ink">
+            <h1 className="font-display text-[clamp(48px,6vw,96px)] font-medium leading-[0.95] tracking-[-0.02em] text-ink">
               Master SEO.
               <span className="text-accent">
                 {' '}
                 Dominate search.
               </span>
             </h1>
-            <p className="mt-8 max-w-2xl font-sans text-xl/7 font-medium text-slate sm:text-2xl/8">
+            <p className="mt-8 max-w-2xl text-xl leading-relaxed text-stone">
               Get the latest SEO insights, proven strategies, and algorithm
               updates that help businesses achieve #1 rankings and drive
               explosive organic growth.

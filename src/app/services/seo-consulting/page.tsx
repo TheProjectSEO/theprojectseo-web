@@ -4,6 +4,8 @@ import { Footer } from '@/components/footer'
 import { Navbar } from '@/components/navbar'
 import { Heading, Subheading } from '@/components/text'
 import { FAQAccordion } from '@/components/faq-accordion'
+import { HeroAnimation } from '@/components/hero-animation'
+import { ProcessTabbedSection } from '@/components/process-tabbed-section'
 import {
   CheckCircle,
   BarChart3,
@@ -70,18 +72,19 @@ const relatedServices = [
 
 function Hero() {
   return (
-    <div className="relative">
+    <div className="relative overflow-hidden">
+      <HeroAnimation />
       <Container className="relative">
         <div className="pt-16 pb-20 sm:pt-24 sm:pb-28 md:pt-32 md:pb-40">
           <div className="max-w-4xl">
-            <p className="font-mono text-xs font-medium uppercase tracking-[0.1em] text-ash mb-6">
+            <p className="font-mono text-sm font-semibold uppercase tracking-[0.15em] text-accent mb-6">
               SEO Consulting by Aditya Aman
             </p>
-            <h1 className="font-display text-[clamp(36px,5vw,56px)] font-light leading-[1.1] tracking-tight text-ink">
+            <h1 className="font-display text-[clamp(48px,6vw,96px)] font-medium leading-[0.95] tracking-[-0.02em] text-ink">
               Expert{' '}
-              <em className="text-accent not-italic font-display font-light italic">SEO Consulting</em>
+              <em className="text-accent italic">SEO Consulting</em>
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-[1.65] text-slate">
+            <p className="mt-6 max-w-2xl text-xl leading-relaxed text-stone">
               Get personalized SEO strategy and consulting from Aditya Aman, a leading SEO expert
               who has helped hundreds of businesses dominate search rankings and drive millions in revenue.
             </p>
@@ -305,29 +308,31 @@ function ConsultingServices() {
 /*  Section 5: Process                                                         */
 /* -------------------------------------------------------------------------- */
 
+const processSteps = [
+  {
+    number: "01",
+    title: "Discovery & Analysis",
+    description: "We start with an in-depth analysis of your business, current SEO performance, and competitive landscape to understand your unique challenges and opportunities."
+  },
+  {
+    number: "02",
+    title: "Strategy Development",
+    description: "Based on our analysis, we develop a customized SEO strategy that aligns with your business goals and provides a clear roadmap for success."
+  },
+  {
+    number: "03",
+    title: "Implementation Guidance",
+    description: "Get hands-on guidance and support during implementation, whether you&apos;re executing internally or need our team to handle the work."
+  },
+  {
+    number: "04",
+    title: "Monitoring & Optimization",
+    description: "Ongoing monitoring, reporting, and optimization recommendations to ensure your SEO efforts continue to deliver results."
+  }
+]
+
 function ProcessSection() {
-  const steps = [
-    {
-      number: "01",
-      title: "Discovery & Analysis",
-      description: "We start with an in-depth analysis of your business, current SEO performance, and competitive landscape to understand your unique challenges and opportunities."
-    },
-    {
-      number: "02",
-      title: "Strategy Development",
-      description: "Based on our analysis, we develop a customized SEO strategy that aligns with your business goals and provides a clear roadmap for success."
-    },
-    {
-      number: "03",
-      title: "Implementation Guidance",
-      description: "Get hands-on guidance and support during implementation, whether you&apos;re executing internally or need our team to handle the work."
-    },
-    {
-      number: "04",
-      title: "Monitoring & Optimization",
-      description: "Ongoing monitoring, reporting, and optimization recommendations to ensure your SEO efforts continue to deliver results."
-    }
-  ]
+  const steps = processSteps
 
   return (
     <Container className="py-24">
@@ -827,7 +832,11 @@ export default function SEOConsulting() {
       <StatsBar />
       <ConsultantProfile />
       <ConsultingServices />
-      <ProcessSection />
+      <ProcessTabbedSection
+        subheading="Our Process"
+        heading="How our SEO consulting works"
+        steps={processSteps}
+      />
       <CaseStudySection />
       <TestimonialsSection />
       <ConsultingPackages />

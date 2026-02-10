@@ -4,7 +4,11 @@ import { Footer } from '@/components/footer'
 import { Navbar } from '@/components/navbar'
 import { Heading, Lead, Subheading } from '@/components/text'
 import { CheckIcon } from '@/components/check-icon'
-import { FAQAccordion } from '@/components/faq-accordion'
+import { FAQDarkSection } from '@/components/faq-dark-section'
+import { TestimonialQuoteSection } from '@/components/testimonial-quote-section'
+import { HeroAnimation } from '@/components/hero-animation'
+import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { CTAFormSection } from '@/components/service-page-sections'
 import { JsonLd } from '@/components/json-ld'
 import {
   ScaleIcon,
@@ -313,16 +317,16 @@ function HeroSection() {
       <Container className="relative">
         <Navbar />
         <div className="pt-16 pb-20 sm:pt-24 sm:pb-28">
-          <p className="font-mono text-xs font-medium uppercase tracking-[0.1em] text-ash mb-6">
+          <p className="font-mono text-sm font-semibold uppercase tracking-[0.15em] text-accent mb-6">
             Legal Industry
           </p>
-          <h1 className="font-display text-[clamp(36px,5vw,56px)] font-light leading-[1.1] tracking-tight text-ink max-w-3xl">
+          <h1 className="font-display text-[clamp(48px,6vw,96px)] font-medium leading-[0.95] tracking-[-0.02em] text-ink">
             Law firm SEO that drives{' '}
             <em className="text-accent not-italic font-display font-light italic">
               high-value client acquisition
             </em>
           </h1>
-          <p className="mt-6 max-w-lg text-lg leading-[1.65] text-slate">
+          <p className="mt-6 max-w-2xl text-xl leading-relaxed text-stone">
             Ethical, bar-compliant SEO strategies that position your law firm in front of clients
             actively searching for legal representation. Turn organic search into your most
             reliable and cost-effective client acquisition channel.
@@ -350,13 +354,13 @@ function StatsSection() {
   return (
     <div className="bg-cream border-y border-border py-14">
       <Container>
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           {stats.map((stat, index) => (
             <div key={index} className="text-center">
-              <div className="font-display text-4xl font-medium text-ink sm:text-5xl">
+              <div className="font-mono text-[clamp(36px,5vw,56px)] font-black text-accent">
                 {stat.metric}
               </div>
-              <div className="mt-2 text-sm font-medium text-slate">{stat.label}</div>
+              <div className="font-mono text-xs uppercase tracking-[0.15em] text-stone mt-3">{stat.label}</div>
             </div>
           ))}
         </div>
@@ -847,14 +851,17 @@ function PricingSection() {
   )
 }
 
-function FAQSection() {
+function TestimonialAndFAQSection() {
   return (
-    <Container className="py-24">
-      <FAQAccordion
-        items={legalFAQs}
-        title="Legal SEO frequently asked questions"
+    <>
+      <TestimonialQuoteSection
+        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
+        author="David Thompson"
+        role="CEO"
+        company="GrowthTech Solutions"
       />
-    </Container>
+      <FAQDarkSection title="Legal SEO frequently asked questions" items={legalFAQs} />
+    </>
   )
 }
 
@@ -885,37 +892,6 @@ function RelatedIndustriesSection() {
   )
 }
 
-function CTASection() {
-  return (
-    <div className="bg-cream border-t border-border">
-      <Container className="py-16">
-        <div className="flex flex-col items-center gap-8 text-center lg:flex-row lg:justify-between lg:text-left">
-          <div className="max-w-xl">
-            <Subheading>Ready to grow your legal practice with SEO?</Subheading>
-            <Heading as="h2" className="mt-2">
-              Let&apos;s build your law firm&apos;s SEO strategy.
-            </Heading>
-            <Lead className="mt-6">
-              Partner with SEO experts who understand bar advertising rules, legal search intent,
-              and the competitive landscape of law firm marketing. Get a free audit and custom
-              strategy tailored to your practice areas and jurisdiction.
-            </Lead>
-          </div>
-          <div className="flex flex-col gap-4 sm:flex-row shrink-0">
-            <Button href="/contact">Get Free Legal SEO Audit</Button>
-            <Button variant="outline" href="/pricing">
-              View Pricing
-            </Button>
-          </div>
-        </div>
-        <p className="mt-6 text-xs text-ash text-center lg:text-left">
-          Free consultation includes practice-area keyword research and competitor analysis.
-          All strategies are bar-compliant.
-        </p>
-      </Container>
-    </div>
-  )
-}
 
 export default function LegalSEO() {
   return (
@@ -974,7 +950,11 @@ export default function LegalSEO() {
       {/* Section 4: Services */}
       <ServicesSection />
       {/* Section 5: Process */}
-      <ProcessSection />
+      <ProcessTabbedSection
+        subheading="Our Process"
+        heading="How we grow your law firm's organic presence"
+        steps={processSteps}
+      />
       {/* Section 6: Technical SEO */}
       <TechnicalSEOSection />
       {/* Section 7: Case Study */}
@@ -986,11 +966,11 @@ export default function LegalSEO() {
       {/* Section 10: Pricing */}
       <PricingSection />
       {/* Section 11: FAQ */}
-      <FAQSection />
+      <TestimonialAndFAQSection />
       {/* Section 12: Related Industries */}
       <RelatedIndustriesSection />
       {/* Section 13: CTA */}
-      <CTASection />
+      <CTAFormSection subheading="Ready to grow your legal practice with SEO?" heading="Let's build your law firm's SEO strategy." lead="Partner with SEO experts who understand bar advertising rules, legal search intent, and the competitive landscape of law firm marketing. Get a free audit and custom strategy tailored to your practice areas and jurisdiction." submitText="Get Free Legal SEO Audit" />
       <Footer />
     </main>
   )

@@ -1,4 +1,5 @@
 import { Container } from '@/components/container'
+import { HeroAnimation } from '@/components/hero-animation'
 import { JsonLd } from '@/components/json-ld'
 import { Footer } from '@/components/footer'
 import { Navbar } from '@/components/navbar'
@@ -31,6 +32,7 @@ export default function TermsOfService() {
 
       {/* Page Header */}
       <div className="relative py-16">
+        <HeroAnimation />
         <Container>
           <div className="mx-auto max-w-4xl">
             <Subheading>Legal</Subheading>
@@ -60,7 +62,8 @@ export default function TermsOfService() {
             <h2>1. Agreement to Terms</h2>
 
             <p>
-              By accessing or using the website and services provided by TheProjectSEO
+              By accessing or using the website and services provided by TheProjectSEO Digital
+              (OPC) Private Limited (CIN: U73100JH2025OPC026020), operating as &quot;TheProjectSEO&quot;
               (&quot;Company,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;), you agree to be
               bound by these Terms of Service (&quot;Terms&quot;). If you do not agree to all of
               these Terms, you are prohibited from using our website and services and must
@@ -420,11 +423,10 @@ export default function TermsOfService() {
 
             <p>
               These Terms shall be governed by and construed in accordance with the laws
-              of the jurisdiction in which TheProjectSEO operates, without regard to its
-              conflict of law provisions. Any legal proceedings arising out of or relating
-              to these Terms shall be brought exclusively in the courts of competent
-              jurisdiction within that jurisdiction, and both parties consent to the
-              personal jurisdiction of such courts.
+              of India. Any legal proceedings arising out of or relating to these Terms
+              shall be brought exclusively in the courts of competent jurisdiction in
+              Ranchi, Jharkhand, India, and both parties consent to the personal
+              jurisdiction of such courts.
             </p>
 
             {/* Section Divider */}
@@ -508,6 +510,15 @@ export default function TermsOfService() {
             </p>
 
             <ul>
+              <li>
+                <strong>Legal Entity:</strong> TheProjectSEO Digital (OPC) Private Limited
+              </li>
+              <li>
+                <strong>CIN:</strong> U73100JH2025OPC026020
+              </li>
+              <li>
+                <strong>Registered Address:</strong> No. 808, Mahabir Tower, Main Road, P.S. Hindpiri, Ranchi, Jharkhand &ndash; 834001, India
+              </li>
               <li>
                 <strong>Email:</strong>{' '}
                 <a href="mailto:legal@theprojectseo.com">legal@theprojectseo.com</a>

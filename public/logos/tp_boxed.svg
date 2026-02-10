@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+<rect width="100%" height="100%" fill="#FAFAF9"/>
+
+<rect x="64" y="64" width="384" height="384" rx="48" fill="#FFFFFF" stroke="#D16847" stroke-width="8"/>
+<text x="256" y="325" text-anchor="middle" fill="#0A0A0A" font-family="Archivo, system-ui, sans-serif" font-weight="700" font-size="210" letter-spacing="-6">
+  TP
+</text>
+</svg>

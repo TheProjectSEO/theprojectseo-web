@@ -1,10 +1,14 @@
 import { Button } from '@/components/button'
+import { HeroAnimation } from '@/components/hero-animation'
 import { Container } from '@/components/container'
 import { Footer } from '@/components/footer'
 import { Navbar } from '@/components/navbar'
 import { Heading, Lead, Subheading } from '@/components/text'
 import { CheckIcon } from '@/components/check-icon'
-import { FAQAccordion } from '@/components/faq-accordion'
+import { CTAFormSection } from '@/components/service-page-sections'
+import { FAQDarkSection } from '@/components/faq-dark-section'
+import { TestimonialQuoteSection } from '@/components/testimonial-quote-section'
+import { ProcessTabbedSection } from '@/components/process-tabbed-section'
 import {
   MapPinIcon,
   LanguageIcon,
@@ -221,17 +225,18 @@ const relatedLocations = [
 function Header() {
   return (
     <div className="relative">
+        <HeroAnimation />
       <Container className="relative">
         <Navbar />
         <div className="pt-16 pb-20 sm:pt-24 sm:pb-28">
-          <p className="font-mono text-xs font-medium uppercase tracking-[0.1em] text-ash mb-6">
+          <p className="font-mono text-sm font-semibold uppercase tracking-[0.15em] text-accent mb-6">
             Singapore SEO Services
           </p>
-          <h1 className="font-display text-[clamp(36px,5vw,56px)] font-light leading-[1.1] tracking-tight text-ink max-w-3xl">
+          <h1 className="font-display text-[clamp(48px,6vw,96px)] font-medium leading-[0.95] tracking-[-0.02em] text-ink">
             Dominate search in{' '}
             <em className="text-accent italic">Singapore&apos;s digital market</em>
           </h1>
-          <p className="mt-6 max-w-lg text-lg leading-[1.65] text-slate">
+          <p className="mt-6 max-w-2xl text-xl leading-relaxed text-stone">
             Strategic SEO solutions for businesses in Singapore. From multilingual optimization to ASEAN market expansion, we help you dominate search in the Lion City and beyond.
           </p>
           <div className="mt-8 flex flex-col gap-x-6 gap-y-4 sm:flex-row">
@@ -264,8 +269,8 @@ function StatsBar() {
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           {stats.map((stat, index) => (
             <div key={index} className="text-center">
-              <div className="font-mono text-[32px] font-semibold text-ink">{stat.value}</div>
-              <div className="font-mono text-xs uppercase tracking-[0.1em] text-ash mt-2">
+              <div className="font-mono text-[clamp(36px,5vw,56px)] font-black text-accent">{stat.value}</div>
+              <div className="font-mono text-xs uppercase tracking-[0.15em] text-stone mt-3">
                 {stat.label}
               </div>
             </div>
@@ -533,21 +538,8 @@ function TestimonialSection() {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  Section 9: FAQ                                                             */
+/*  Section 9: FAQ (Dark)                                                      */
 /* -------------------------------------------------------------------------- */
-
-function FAQSection() {
-  return (
-    <div className="bg-paper py-24">
-      <Container>
-        <FAQAccordion
-          title="Singapore SEO frequently asked questions"
-          items={faqItems}
-        />
-      </Container>
-    </div>
-  )
-}
 
 /* -------------------------------------------------------------------------- */
 /*  Section 10: Related Locations                                              */
@@ -584,36 +576,6 @@ function RelatedLocationsSection() {
 /*  Section 11: CTA                                                            */
 /* -------------------------------------------------------------------------- */
 
-function CTASection() {
-  return (
-    <div className="bg-paper py-16 border-t border-border">
-      <Container>
-        <div className="flex flex-col items-center gap-8 text-center lg:flex-row lg:justify-between lg:text-left">
-          <div className="max-w-xl">
-            <Subheading>Ready to Dominate Singapore Search Results?</Subheading>
-            <Heading as="h2" className="mt-2">
-              Let&apos;s build your Singapore SEO growth engine.
-            </Heading>
-            <Lead className="mt-6">
-              Partner with SEO experts who understand Singapore&apos;s multilingual, mobile-first
-              market. We&apos;ll help you turn organic search into your most efficient acquisition
-              channel across the Lion City and ASEAN.
-            </Lead>
-          </div>
-          <div className="flex flex-col gap-4 sm:flex-row shrink-0">
-            <Button href="/contact">Get Singapore Market Analysis</Button>
-            <Button variant="outline" href="/pricing">
-              View Pricing
-            </Button>
-          </div>
-        </div>
-        <p className="mt-6 text-xs text-ash text-center lg:text-left">
-          Free analysis includes Singapore competitor research, multilingual keyword opportunities, and ASEAN expansion assessment.
-        </p>
-      </Container>
-    </div>
-  )
-}
 
 /* -------------------------------------------------------------------------- */
 /*  Page Export                                                                 */
@@ -646,13 +608,31 @@ export default function SingaporeSEOServices() {
       <StatsBar />
       <AdvantagesSection />
       <ServicesSection />
-      <ProcessSection />
+      <ProcessTabbedSection
+        subheading="Our Process"
+        heading="How we drive SEO results in Singapore"
+        steps={processSteps}
+      />
       <CaseStudySection />
       <CitiesSection />
       <TestimonialSection />
-      <FAQSection />
+      <FAQDarkSection
+        title="Singapore SEO frequently asked questions"
+        items={faqItems}
+      />
       <RelatedLocationsSection />
-      <CTASection />
+      <TestimonialQuoteSection
+        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
+        author="David Thompson"
+        role="CEO"
+        company="GrowthTech Solutions"
+      />
+      <CTAFormSection
+        subheading="Ready to Dominate Singapore Search Results?"
+        heading="Let's build your Singapore SEO growth engine."
+        lead="Partner with SEO experts who understand Singapore's multilingual, mobile-first market. We'll help you turn organic search into your most efficient acquisition channel across the Lion City and ASEAN."
+        submitText="Get Singapore Market Analysis"
+      />
       <Footer />
     </main>
   )

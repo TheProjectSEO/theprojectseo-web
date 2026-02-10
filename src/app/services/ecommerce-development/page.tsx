@@ -1,20 +1,21 @@
 import type { Metadata } from 'next'
 import { Container } from '@/components/container'
-import { FAQAccordion } from '@/components/faq-accordion'
+import { FAQDarkSection } from '@/components/faq-dark-section'
 import { Footer } from '@/components/footer'
 import { JsonLd } from '@/components/json-ld'
 import {
   ServiceHero,
   StatsBar,
   ServicesGrid,
-  ProcessSection,
   CaseStudyDark,
   FeatureCardsSection,
   PricingSection,
   TestimonialSection,
+  TestimonialQuoteSection,
   RelatedServicesSection,
-  CTASection,
+  CTAFormSection,
 } from '@/components/service-page-sections'
+import { ProcessTabbedSection } from '@/components/process-tabbed-section'
 import {
   ShoppingCart,
   CreditCard,
@@ -457,10 +458,7 @@ const ctaData = {
   subheading: 'Ready to Launch?',
   heading: 'Build a store that converts',
   lead: 'Let&apos;s discuss your e-commerce goals and design a store that turns visitors into customers. From strategy to launch in 6-8 weeks.',
-  ctaPrimaryText: 'Start Your Store',
-  ctaPrimaryHref: '/contact',
-  ctaSecondaryText: 'View All Services',
-  ctaSecondaryHref: '/services',
+  submitText: 'Start Your Store',
 }
 
 export default function EcommerceDevelopmentPage() {
@@ -486,20 +484,24 @@ export default function EcommerceDevelopmentPage() {
       <StatsBar stats={statsData} />
       <FeatureCardsSection {...challengesData} />
       <ServicesGrid {...servicesData} />
-      <ProcessSection {...processData} />
+      <ProcessTabbedSection {...processData} />
       <CaseStudyDark {...caseStudyData} />
       <FeatureCardsSection {...toolsData} />
       <PricingSection {...pricingData} />
       <TestimonialSection {...testimonialsData} />
-      <Container className="py-24">
-        <FAQAccordion title="E-commerce development FAQ" items={faqData} />
-      </Container>
+      <TestimonialQuoteSection
+        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
+        author="David Thompson"
+        role="CEO"
+        company="GrowthTech Solutions"
+      />
+      <FAQDarkSection title="E-commerce development FAQ" items={faqData} />
       <RelatedServicesSection
         subheading="Related Services"
         heading="Explore more development services"
         services={relatedServicesData}
       />
-      <CTASection {...ctaData} />
+      <CTAFormSection {...ctaData} />
       <Footer />
     </main>
   )

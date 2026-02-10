@@ -71,17 +71,30 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Services */}
+          {/* Development */}
           <div>
             <h3 className="mb-4 font-heading text-xs font-semibold uppercase tracking-[0.08em] text-white/90">
-              Services
+              Development
             </h3>
             <ul className="space-y-3">
-              <li><Link href="/services/aeo" className="text-sm text-white/50 transition-colors hover:text-white/70">AEO Services</Link></li>
-              <li><Link href="/services/seo" className="text-sm text-white/50 transition-colors hover:text-white/70">SEO Services</Link></li>
-              <li><Link href="/services/content" className="text-sm text-white/50 transition-colors hover:text-white/70">Content Services</Link></li>
-              <li><Link href="/services/web" className="text-sm text-white/50 transition-colors hover:text-white/70">Web Services</Link></li>
+              <li><Link href="/services/web-app-development" className="text-sm text-white/50 transition-colors hover:text-white/70">Web Development</Link></li>
+              <li><Link href="/services/ai-development" className="text-sm text-white/50 transition-colors hover:text-white/70">AI Development</Link></li>
+              <li><Link href="/services/mvp-development" className="text-sm text-white/50 transition-colors hover:text-white/70">MVP Development</Link></li>
+              <li><Link href="/services/n8n-automation" className="text-sm text-white/50 transition-colors hover:text-white/70">N8n Automation</Link></li>
+              <li><Link href="/services" className="text-sm text-white/50 transition-colors hover:text-white/70">All Services →</Link></li>
+            </ul>
+          </div>
+
+          {/* SEO Services */}
+          <div className="hidden lg:block">
+            <h3 className="mb-4 font-heading text-xs font-semibold uppercase tracking-[0.08em] text-white/90">
+              SEO Services
+            </h3>
+            <ul className="space-y-3">
               <li><Link href="/services/seo-consulting" className="text-sm text-white/50 transition-colors hover:text-white/70">SEO Consulting</Link></li>
+              <li><Link href="/services/local-seo" className="text-sm text-white/50 transition-colors hover:text-white/70">Local SEO</Link></li>
+              <li><Link href="/services/technical-seo" className="text-sm text-white/50 transition-colors hover:text-white/70">Technical SEO</Link></li>
+              <li><Link href="/services/enterprise-seo" className="text-sm text-white/50 transition-colors hover:text-white/70">Enterprise SEO</Link></li>
             </ul>
           </div>
 
@@ -155,7 +168,10 @@ export function Footer() {
         {/* Legal bar */}
         <div className="flex flex-col items-center justify-between gap-4 border-t border-white/[0.08] py-6 sm:flex-row">
           <p className="text-xs text-white/40">
-            &copy; {new Date().getFullYear()} TheProjectSEO Inc. All rights reserved.
+            &copy; {new Date().getFullYear()} TheProjectSEO Digital (OPC) Private Limited. All rights reserved.
+          </p>
+          <p className="text-xs text-white/30 mt-1">
+            CIN: U73100JH2025OPC026020
           </p>
           <div className="flex items-center gap-6">
             <Link href="/privacy" className="text-xs text-white/40 transition-colors hover:text-white/60">

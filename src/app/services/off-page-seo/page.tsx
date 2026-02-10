@@ -12,7 +12,7 @@ import {
   FeatureCardsSection,
   PricingSection,
   TestimonialSection,
-  CTASection,
+  CTAFormSection,
 } from '@/components/service-page-sections'
 import {
   Link2,
@@ -428,10 +428,7 @@ const ctaData = {
   subheading: 'Ready to Build Real Authority?',
   heading: 'Get your free off-page SEO strategy.',
   lead: 'Discover your backlink gaps, unlinked mention opportunities, and the off-page strategy needed to outrank your competitors. Our free audit includes a competitive link gap analysis and actionable recommendations.',
-  ctaPrimaryText: 'Get Your Free Strategy',
-  ctaPrimaryHref: '/contact',
-  ctaSecondaryText: 'View All Pricing',
-  ctaSecondaryHref: '/pricing',
+  submitText: 'Get Your Free Strategy',
 }
 
 /* -------------------------------------------------------------------------- */
@@ -467,7 +464,7 @@ export default function OffPageSEOPage() {
       <Container className="py-24">
         <FAQAccordion title="Off-page SEO frequently asked questions" items={faqData} />
       </Container>
-      <CTASection {...ctaData} />
+      <CTAFormSection {...ctaData} />
       <Footer />
     </main>
   )

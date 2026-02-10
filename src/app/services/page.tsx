@@ -1,10 +1,13 @@
 import { Button } from '@/components/button'
+import { HeroAnimation } from '@/components/hero-animation'
 import { Container } from '@/components/container'
 import { Footer } from '@/components/footer'
 import { Navbar } from '@/components/navbar'
 import { Heading, Lead, Subheading } from '@/components/text'
 import { CheckIcon } from '@/components/check-icon'
+import { CTAFormSection } from '@/components/service-page-sections'
 import { FAQAccordion } from '@/components/faq-accordion'
+import { ProcessSectionAnimated } from '@/components/process-section-animated'
 import {
   BarChart3,
   Link2,
@@ -270,17 +273,18 @@ const relatedServices = [
 function Header() {
   return (
     <div className="relative">
+        <HeroAnimation />
       <Container className="relative">
         <Navbar />
         <div className="pt-16 pb-20 sm:pt-24 sm:pb-28">
-          <p className="font-mono text-xs font-medium uppercase tracking-[0.1em] text-ash mb-6">
+          <p className="font-mono text-sm font-semibold uppercase tracking-[0.15em] text-accent mb-6">
             Our Services
           </p>
-          <h1 className="font-display text-[clamp(36px,5vw,56px)] font-light leading-[1.1] tracking-tight text-ink max-w-3xl">
+          <h1 className="font-display text-[clamp(48px,6vw,96px)] font-medium leading-[0.95] tracking-[-0.02em] text-ink">
             Complete SEO services to{' '}
             <em className="text-accent italic">dominate search</em>
           </h1>
-          <p className="mt-6 max-w-lg text-lg leading-[1.65] text-slate">
+          <p className="mt-6 max-w-2xl text-xl leading-relaxed text-stone">
             From technical audits to content optimization, we provide all the SEO services
             your business needs to rank #1 on Google and drive sustainable organic growth.
           </p>
@@ -633,35 +637,6 @@ function RelatedServicesSection() {
 /*  Section 10: CTA                                                            */
 /* -------------------------------------------------------------------------- */
 
-function CTASection() {
-  return (
-    <div className="bg-paper py-16 border-t border-border">
-      <Container>
-        <div className="flex flex-col items-center gap-8 text-center lg:flex-row lg:justify-between lg:text-left">
-          <div className="max-w-xl">
-            <Subheading>Ready to Get Started?</Subheading>
-            <Heading as="h2" className="mt-2">
-              Let&apos;s dominate your search rankings.
-            </Heading>
-            <Lead className="mt-6">
-              Choose the SEO services that fit your business needs, or let us create
-              a custom strategy during your free consultation.
-            </Lead>
-          </div>
-          <div className="flex flex-col gap-4 sm:flex-row shrink-0">
-            <Button href="/contact">Get Your Free SEO Audit</Button>
-            <Button variant="outline" href="/pricing">
-              View All Pricing
-            </Button>
-          </div>
-        </div>
-        <p className="mt-6 text-xs text-ash text-center lg:text-left">
-          Free audit includes technical analysis, keyword opportunities, and competitive insights.
-        </p>
-      </Container>
-    </div>
-  )
-}
 
 /* -------------------------------------------------------------------------- */
 /*  Page Export                                                                 */
@@ -714,13 +689,22 @@ export default function Services() {
       <Header />
       <StatsBar />
       <ServicesGrid />
-      <ProcessSection />
+      <ProcessSectionAnimated
+        subheading="Our Process"
+        heading="How we deliver SEO results."
+        steps={processSteps}
+      />
       <CaseStudySection />
       <PackagesSection />
       <TestimonialSection />
       <FAQSection />
       <RelatedServicesSection />
-      <CTASection />
+      <CTAFormSection
+        subheading="Ready to Get Started?"
+        heading="Let's dominate your search rankings."
+        lead="Choose the SEO services that fit your business needs, or let us create a custom strategy during your free consultation."
+        submitText="Get Your Free SEO Audit"
+      />
       <Footer />
     </main>
   )

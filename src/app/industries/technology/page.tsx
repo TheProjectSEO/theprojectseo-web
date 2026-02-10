@@ -4,7 +4,11 @@ import { Footer } from '@/components/footer'
 import { Navbar } from '@/components/navbar'
 import { Heading, Lead, Subheading } from '@/components/text'
 import { CheckIcon } from '@/components/check-icon'
-import { FAQAccordion } from '@/components/faq-accordion'
+import { FAQDarkSection } from '@/components/faq-dark-section'
+import { TestimonialQuoteSection } from '@/components/testimonial-quote-section'
+import { HeroAnimation } from '@/components/hero-animation'
+import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { CTAFormSection } from '@/components/service-page-sections'
 import { JsonLd } from '@/components/json-ld'
 import {
   CpuChipIcon,
@@ -206,14 +210,14 @@ function Header() {
       <Container className="relative">
         <Navbar />
         <div className="pt-16 pb-20 sm:pt-24 sm:pb-28">
-          <p className="font-mono text-xs font-medium uppercase tracking-[0.1em] text-ash mb-6">
+          <p className="font-mono text-sm font-semibold uppercase tracking-[0.15em] text-accent mb-6">
             Technology
           </p>
-          <h1 className="font-display text-[clamp(36px,5vw,56px)] font-light leading-[1.1] tracking-tight text-ink max-w-3xl">
+          <h1 className="font-display text-[clamp(48px,6vw,96px)] font-medium leading-[0.95] tracking-[-0.02em] text-ink">
             Technology SEO that positions your brand as the{' '}
             <em className="text-accent not-italic font-display font-light italic">industry leader</em>
           </h1>
-          <p className="mt-6 max-w-lg text-lg leading-[1.65] text-slate">
+          <p className="mt-6 max-w-2xl text-xl leading-relaxed text-stone">
             Specialized SEO strategies for technology companies that drive qualified traffic from developers, buyers, and enterprise decision-makers.
           </p>
           <div className="mt-8 flex flex-col gap-x-6 gap-y-4 sm:flex-row">
@@ -240,7 +244,7 @@ function StatsSection() {
             { metric: '2.4%', label: 'Avg Conversion Rate' },
           ].map((item) => (
             <div key={item.label} className="text-center">
-              <div className="font-mono text-[32px] font-semibold text-ink leading-none mb-2">{item.metric}</div>
+              <div className="font-mono text-[clamp(36px,5vw,56px)] font-black text-accent leading-none mb-2">{item.metric}</div>
               <div className="font-mono text-xs uppercase tracking-[0.1em] text-ash">{item.label}</div>
             </div>
           ))}
@@ -622,14 +626,17 @@ function PricingSection() {
   )
 }
 
-function FAQSection() {
+function TestimonialAndFAQSection() {
   return (
-    <Container className="py-24">
-      <FAQAccordion
-        items={faqs}
-        title="Technology SEO frequently asked questions"
+    <>
+      <TestimonialQuoteSection
+        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
+        author="David Thompson"
+        role="CEO"
+        company="GrowthTech Solutions"
       />
-    </Container>
+      <FAQDarkSection title="Technology SEO frequently asked questions" items={faqs} />
+    </>
   )
 }
 
@@ -661,35 +668,6 @@ function RelatedIndustriesSection() {
   )
 }
 
-function CTASection() {
-  return (
-    <div className="bg-cream border-t border-border border-b border-border">
-      <Container className="py-16">
-        <div className="flex flex-col items-center gap-8 text-center lg:flex-row lg:justify-between lg:text-left">
-          <div className="max-w-xl">
-            <Subheading>Ready to accelerate your tech company&apos;s growth?</Subheading>
-            <Heading as="h2" className="mt-2">
-              Let&apos;s build your technology SEO strategy.
-            </Heading>
-            <Lead className="mt-6">
-              Partner with SEO experts who understand the technology industry. We&apos;ll help you
-              capture developer mindshare, dominate enterprise search, and drive qualified pipeline through organic.
-            </Lead>
-          </div>
-          <div className="flex flex-col gap-4 sm:flex-row shrink-0">
-            <Button href="/contact">Get Tech SEO Strategy</Button>
-            <Button variant="outline" href="/pricing">
-              View Pricing
-            </Button>
-          </div>
-        </div>
-        <p className="mt-6 text-xs text-ash text-center lg:text-left">
-          Free consultation includes technology-specific keyword research and competitor analysis.
-        </p>
-      </Container>
-    </div>
-  )
-}
 
 export default function TechnologySEO() {
   return (
@@ -748,7 +726,11 @@ export default function TechnologySEO() {
       {/* Section 4: Services Tailored for Industry */}
       <ServicesSection />
       {/* Section 5: Process */}
-      <ProcessSection />
+      <ProcessTabbedSection
+        subheading="Our Process"
+        heading="How we deliver results for tech companies"
+        steps={processSteps}
+      />
       {/* Section 6: Technical SEO Excellence */}
       <TechnicalSEOSection />
       {/* Section 7: Case Study (dark) */}
@@ -760,11 +742,11 @@ export default function TechnologySEO() {
       {/* Section 10: Pricing */}
       <PricingSection />
       {/* Section 11: FAQ */}
-      <FAQSection />
+      <TestimonialAndFAQSection />
       {/* Section 12: Related Industries */}
       <RelatedIndustriesSection />
       {/* Section 13: CTA */}
-      <CTASection />
+      <CTAFormSection subheading="Ready to accelerate your tech company's growth?" heading="Let's build your technology SEO strategy." lead="Partner with SEO experts who understand the technology industry. We'll help you capture developer mindshare, dominate enterprise search, and drive qualified pipeline through organic." submitText="Get Tech SEO Strategy" />
       <Footer />
     </main>
   )

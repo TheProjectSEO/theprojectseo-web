@@ -4,7 +4,10 @@ import { Footer } from '@/components/footer'
 import { Navbar } from '@/components/navbar'
 import { Heading, Lead, Subheading } from '@/components/text'
 import { CheckIcon } from '@/components/check-icon'
+import { CTAFormSection } from '@/components/service-page-sections'
 import { FAQAccordion } from '@/components/faq-accordion'
+import { HeroAnimation } from '@/components/hero-animation'
+import { ProcessTabbedSection } from '@/components/process-tabbed-section'
 import {
   BarChart3,
   Link2,
@@ -272,18 +275,19 @@ const relatedServices = [
 
 function Header() {
   return (
-    <div className="relative">
+    <div className="relative overflow-hidden">
+      <HeroAnimation />
       <Container className="relative">
         <Navbar />
         <div className="pt-16 pb-20 sm:pt-24 sm:pb-28">
-          <p className="font-mono text-xs font-medium uppercase tracking-[0.1em] text-ash mb-6">
+          <p className="font-mono text-sm font-semibold uppercase tracking-[0.15em] text-accent mb-6">
             SEO Services
           </p>
-          <h1 className="font-display text-[clamp(36px,5vw,56px)] font-light leading-[1.1] tracking-tight text-ink max-w-3xl">
+          <h1 className="font-display text-[clamp(48px,6vw,96px)] font-medium leading-[0.95] tracking-[-0.02em] text-ink">
             Search engine optimization that drives{' '}
             <em className="text-accent italic">real growth</em>
           </h1>
-          <p className="mt-6 max-w-lg text-lg leading-[1.65] text-slate">
+          <p className="mt-6 max-w-2xl text-xl leading-relaxed text-stone">
             From technical foundations to content strategy and link building, our
             comprehensive SEO services help businesses rank higher, attract
             qualified traffic, and convert visitors into customers.
@@ -663,37 +667,6 @@ function RelatedServicesSection() {
 /*  Section 10: CTA                                                            */
 /* -------------------------------------------------------------------------- */
 
-function CTASection() {
-  return (
-    <div className="bg-paper py-16 border-t border-border">
-      <Container>
-        <div className="flex flex-col items-center gap-8 text-center lg:flex-row lg:justify-between lg:text-left">
-          <div className="max-w-xl">
-            <Subheading>Ready to Dominate Search Results?</Subheading>
-            <Heading as="h2" className="mt-2">
-              Let&apos;s build your organic growth engine.
-            </Heading>
-            <Lead className="mt-6">
-              Join hundreds of businesses that trust TheProjectSEO to drive
-              their organic growth. Get your free SEO audit and discover exactly
-              what it takes to rank on page one.
-            </Lead>
-          </div>
-          <div className="flex flex-col gap-4 sm:flex-row shrink-0">
-            <Button href="/contact">Get Your Free SEO Audit</Button>
-            <Button variant="outline" href="/pricing">
-              View All Pricing
-            </Button>
-          </div>
-        </div>
-        <p className="mt-6 text-xs text-ash text-center lg:text-left">
-          Free audit includes technical analysis, keyword opportunities, and
-          competitive insights.
-        </p>
-      </Container>
-    </div>
-  )
-}
 
 /* -------------------------------------------------------------------------- */
 /*  Page Export                                                                 */
@@ -738,13 +711,22 @@ export default function SEOServices() {
       <Header />
       <StatsBar />
       <ServicesGrid />
-      <ProcessSection />
+      <ProcessTabbedSection
+        subheading="Our Process"
+        heading="How we deliver results"
+        steps={processSteps}
+      />
       <CaseStudySection />
       <PackagesSection />
       <TestimonialSection />
       <FAQSection />
       <RelatedServicesSection />
-      <CTASection />
+      <CTAFormSection
+        subheading="Ready to Dominate Search Results?"
+        heading="Let's build your organic growth engine."
+        lead="Join hundreds of businesses that trust TheProjectSEO to drive their organic growth. Get your free SEO audit and discover exactly what it takes to rank on page one."
+        submitText="Get Your Free SEO Audit"
+      />
       <Footer />
     </main>
   )

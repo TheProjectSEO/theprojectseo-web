@@ -1,10 +1,14 @@
 import { Button } from '@/components/button'
+import { HeroAnimation } from '@/components/hero-animation'
 import { Container } from '@/components/container'
 import { Footer } from '@/components/footer'
 import { Navbar } from '@/components/navbar'
 import { Heading, Lead, Subheading } from '@/components/text'
 import { CheckIcon } from '@/components/check-icon'
-import { FAQAccordion } from '@/components/faq-accordion'
+import { CTAFormSection } from '@/components/service-page-sections'
+import { FAQDarkSection } from '@/components/faq-dark-section'
+import { TestimonialQuoteSection } from '@/components/testimonial-quote-section'
+import { ProcessTabbedSection } from '@/components/process-tabbed-section'
 import { MapPinIcon, ClockIcon, LanguageIcon, ChartBarIcon } from '@heroicons/react/24/outline'
 import { JsonLd } from '@/components/json-ld'
 import type { Metadata } from 'next'
@@ -216,17 +220,18 @@ const relatedLocations = [
 function Header() {
   return (
     <div className="relative">
+        <HeroAnimation />
       <Container className="relative">
         <Navbar />
         <div className="pt-16 pb-20 sm:pt-24 sm:pb-28">
-          <p className="font-mono text-xs font-medium uppercase tracking-[0.1em] text-ash mb-6">
+          <p className="font-mono text-sm font-semibold uppercase tracking-[0.15em] text-accent mb-6">
             USA SEO Services
           </p>
-          <h1 className="font-display text-[clamp(36px,5vw,56px)] font-light leading-[1.1] tracking-tight text-ink max-w-3xl">
+          <h1 className="font-display text-[clamp(48px,6vw,96px)] font-medium leading-[0.95] tracking-[-0.02em] text-ink">
             SEO services built for the{' '}
             <em className="text-accent italic">American market</em>
           </h1>
-          <p className="mt-6 max-w-lg text-lg leading-[1.65] text-slate">
+          <p className="mt-6 max-w-2xl text-xl leading-relaxed text-stone">
             Drive organic growth for your US business with local market expertise, proven SEO strategies, and deep understanding of the world&apos;s most competitive search landscape.
           </p>
           <div className="mt-8 flex flex-col gap-x-6 gap-y-4 sm:flex-row">
@@ -259,8 +264,8 @@ function StatsBar() {
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           {stats.map((stat, index) => (
             <div key={index} className="text-center">
-              <div className="font-mono text-[32px] font-semibold text-ink">{stat.value}</div>
-              <div className="font-mono text-xs uppercase tracking-[0.1em] text-ash mt-2">
+              <div className="font-mono text-[clamp(36px,5vw,56px)] font-black text-accent">{stat.value}</div>
+              <div className="font-mono text-xs uppercase tracking-[0.15em] text-stone mt-3">
                 {stat.label}
               </div>
             </div>
@@ -529,21 +534,8 @@ function TestimonialSection() {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  Section 9: FAQ                                                             */
+/*  Section 9: FAQ (Dark)                                                      */
 /* -------------------------------------------------------------------------- */
-
-function FAQSection() {
-  return (
-    <div className="bg-paper py-24">
-      <Container>
-        <FAQAccordion
-          title="USA SEO frequently asked questions"
-          items={faqItems}
-        />
-      </Container>
-    </div>
-  )
-}
 
 /* -------------------------------------------------------------------------- */
 /*  Section 10: Related Locations                                              */
@@ -580,36 +572,6 @@ function RelatedLocationsSection() {
 /*  Section 11: CTA                                                            */
 /* -------------------------------------------------------------------------- */
 
-function CTASection() {
-  return (
-    <div className="bg-paper py-16 border-t border-border">
-      <Container>
-        <div className="flex flex-col items-center gap-8 text-center lg:flex-row lg:justify-between lg:text-left">
-          <div className="max-w-xl">
-            <Subheading>Ready to Dominate US Search Results?</Subheading>
-            <Heading as="h2" className="mt-2">
-              Let&apos;s build your US SEO growth engine.
-            </Heading>
-            <Lead className="mt-6">
-              Partner with SEO experts who understand the American market inside and out.
-              We&apos;ll create a winning strategy that drives qualified US traffic and turns
-              organic search into your most efficient revenue channel.
-            </Lead>
-          </div>
-          <div className="flex flex-col gap-4 sm:flex-row shrink-0">
-            <Button href="/contact">Get Free US Market Analysis</Button>
-            <Button variant="outline" href="/pricing">
-              View US SEO Packages
-            </Button>
-          </div>
-        </div>
-        <p className="mt-6 text-xs text-ash text-center lg:text-left">
-          Free analysis includes US competitor research, keyword opportunity assessment, and growth roadmap.
-        </p>
-      </Container>
-    </div>
-  )
-}
 
 /* -------------------------------------------------------------------------- */
 /*  Page Export                                                                 */
@@ -642,13 +604,31 @@ export default function USASEOServices() {
       <StatsBar />
       <AdvantagesSection />
       <ServicesSection />
-      <ProcessSection />
+      <ProcessTabbedSection
+        subheading="Our Process"
+        heading="How we drive US SEO results"
+        steps={processSteps}
+      />
       <CaseStudySection />
       <CitiesSection />
       <TestimonialSection />
-      <FAQSection />
+      <FAQDarkSection
+        title="USA SEO frequently asked questions"
+        items={faqItems}
+      />
       <RelatedLocationsSection />
-      <CTASection />
+      <TestimonialQuoteSection
+        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
+        author="David Thompson"
+        role="CEO"
+        company="GrowthTech Solutions"
+      />
+      <CTAFormSection
+        subheading="Ready to Dominate US Search Results?"
+        heading="Let's build your US SEO growth engine."
+        lead="Partner with SEO experts who understand the American market inside and out. We'll create a winning strategy that drives qualified US traffic and turns organic search into your most efficient revenue channel."
+        submitText="Get Free US Market Analysis"
+      />
       <Footer />
     </main>
   )

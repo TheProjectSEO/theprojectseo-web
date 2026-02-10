@@ -4,25 +4,25 @@ import { Link } from './link'
 
 const variants = {
   solid: clsx(
-    'inline-flex items-center justify-center px-5 py-2.5',
+    'inline-flex items-center justify-center px-6 py-3',
     'rounded-md bg-accent shadow-sm',
-    'text-sm font-heading font-semibold whitespace-nowrap text-white',
+    'text-base font-heading font-semibold whitespace-nowrap text-white',
     'transition-all duration-200',
     'data-disabled:bg-accent/40 data-disabled:opacity-40',
     'data-hover:bg-accent-hover data-hover:shadow-md data-hover:-translate-y-px',
   ),
   ghost: clsx(
-    'inline-flex items-center justify-center px-5 py-2.5',
+    'inline-flex items-center justify-center px-6 py-3',
     'rounded-md bg-transparent border-[1.5px] border-accent',
-    'text-sm font-heading font-semibold whitespace-nowrap text-accent',
+    'text-base font-heading font-semibold whitespace-nowrap text-accent',
     'transition-all duration-200',
     'data-disabled:opacity-40',
     'data-hover:bg-accent-soft',
   ),
   outline: clsx(
-    'inline-flex items-center justify-center px-4 py-2',
+    'inline-flex items-center justify-center px-6 py-3',
     'rounded-md border border-border-emphasis',
-    'text-sm font-heading font-medium whitespace-nowrap text-stone',
+    'text-base font-heading font-medium whitespace-nowrap text-stone',
     'transition-all duration-200',
     'data-disabled:opacity-40',
     'data-hover:bg-cream',

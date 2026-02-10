@@ -1,20 +1,21 @@
 import type { Metadata } from 'next'
-import { Container } from '@/components/container'
-import { FAQAccordion } from '@/components/faq-accordion'
 import { Footer } from '@/components/footer'
 import { JsonLd } from '@/components/json-ld'
+import { N8nHero } from '@/components/n8n-hero'
+import { FAQDarkSection } from '@/components/faq-dark-section'
+import { SubpageNav } from '@/components/subpage-nav'
+import { ProcessTabbedSection } from '@/components/process-tabbed-section'
 import {
-  ServiceHero,
   StatsBar,
   ServicesGrid,
-  ProcessSection,
   CaseStudyDark,
   FeatureCardsSection,
   PricingSection,
   TestimonialSection,
   RelatedServicesSection,
-  CTASection,
+  CTAFormSection,
   TextContentSection,
+  TestimonialQuoteSection,
 } from '@/components/service-page-sections'
 import {
   Workflow,
@@ -68,6 +69,42 @@ const heroData = {
   ctaSecondaryHref: '#pricing',
 }
 
+const subpagesData = {
+  heading: 'Explore automation by use case',
+  subpages: [
+    {
+      title: 'Marketing Automation',
+      href: '/services/n8n-automation/marketing-automation',
+      icon: Zap,
+    },
+    {
+      title: 'Sales Automation',
+      href: '/services/n8n-automation/sales-automation',
+      icon: Users,
+    },
+    {
+      title: 'CRM Automation',
+      href: '/services/n8n-automation/crm-automation',
+      icon: Database,
+    },
+    {
+      title: 'Data Pipeline Automation',
+      href: '/services/n8n-automation/data-pipeline-automation',
+      icon: Workflow,
+    },
+    {
+      title: 'Reporting Automation',
+      href: '/services/n8n-automation/reporting-automation',
+      icon: BarChart3,
+    },
+    {
+      title: 'Customer Service Automation',
+      href: '/services/n8n-automation/customer-service-automation',
+      icon: Settings,
+    },
+  ],
+}
+
 const statsData = [
   { value: '500+', label: 'Workflows Built' },
   { value: '400+', label: 'Apps Integrated' },
@@ -116,6 +153,24 @@ const challengesData = {
         'N8n offers self-hosted alternative',
       ],
     },
+    {
+      title: 'Data Quality Issues',
+      items: [
+        'Inconsistent formatting across systems',
+        'Missing data validation rules',
+        'Manual data cleaning required',
+        'Duplicate records causing errors',
+      ],
+    },
+    {
+      title: 'Slow Response Times',
+      items: [
+        'Manual approval delays workflows',
+        'Hours wasted on status updates',
+        'Customer requests take too long',
+        'Teams blocked waiting for data',
+      ],
+    },
   ],
 }
 
@@ -127,7 +182,7 @@ const servicesData = {
     {
       icon: Zap,
       title: 'Marketing Automation',
-      description: 'Lead capture, email sequences, social media posting, campaign tracking, and analytics automation.',
+      description: 'Automate lead capture, email campaigns, social posting, and performance tracking.',
       features: [
         'Lead capture to CRM sync',
         'Email sequence automation',
@@ -171,7 +226,7 @@ const servicesData = {
     {
       icon: BarChart3,
       title: 'Reporting Automation',
-      description: 'Automated dashboards, scheduled reports, data aggregation, and KPI tracking.',
+      description: 'Automate dashboards, scheduled reports, data aggregation, and KPI alerts.',
       features: [
         'Automated dashboard generation',
         'Scheduled report delivery',
@@ -182,7 +237,7 @@ const servicesData = {
     {
       icon: Users,
       title: 'Customer Service Automation',
-      description: 'Ticket routing, auto-responses, escalation workflows, and satisfaction surveys.',
+      description: 'Automate ticket routing, responses, escalations, and satisfaction surveys.',
       features: [
         'Smart ticket routing',
         'Auto-response templates',
@@ -193,7 +248,7 @@ const servicesData = {
     {
       icon: ShoppingCart,
       title: 'E-commerce Automation',
-      description: 'Order processing, inventory sync, customer notifications, and fulfillment workflows.',
+      description: 'Automate orders, inventory sync, customer notifications, and fulfillment.',
       features: [
         'Order processing automation',
         'Inventory synchronization',
@@ -204,12 +259,23 @@ const servicesData = {
     {
       icon: Settings,
       title: 'Custom Integrations',
-      description: 'API integrations, webhook handlers, custom nodes, and complex multi-step workflows.',
+      description: 'Build custom APIs, webhooks, nodes, and complex multi-step workflows.',
       features: [
         'Custom API integrations',
         'Webhook handler setup',
         'Custom node development',
         'Complex branching logic',
+      ],
+    },
+    {
+      icon: CheckCircle,
+      title: 'HR & Operations',
+      description: 'Automate employee onboarding, time tracking, expenses, and internal processes.',
+      features: [
+        'Employee onboarding workflows',
+        'Time & attendance tracking',
+        'Expense approval automation',
+        'Internal process automation',
       ],
     },
   ],
@@ -473,10 +539,7 @@ const ctaData = {
   subheading: 'Ready to Automate?',
   heading: 'Start building N8n workflows today',
   lead: 'Let&apos;s discuss your automation needs and design custom N8n workflows that save time and money.',
-  ctaPrimaryText: 'Start Automating',
-  ctaPrimaryHref: '/contact',
-  ctaSecondaryText: 'Learn About Us',
-  ctaSecondaryHref: '/company',
+  submitText: 'Start Automating',
 }
 
 /* -------------------------------------------------------------------------- */
@@ -536,25 +599,30 @@ export default function N8nAutomationPage() {
           },
         }}
       />
-      <ServiceHero {...heroData} />
+      <N8nHero {...heroData} />
       <StatsBar stats={statsData} />
+      <SubpageNav {...subpagesData} />
       <FeatureCardsSection {...challengesData} />
       <ServicesGrid {...servicesData} />
-      <ProcessSection {...processData} />
+      <ProcessTabbedSection {...processData} />
       <CaseStudyDark {...caseStudyData} />
       <FeatureCardsSection {...toolsData} />
       <TextContentSection {...industriesData} />
       <PricingSection {...pricingData} />
       <TestimonialSection {...testimonialsData} />
-      <Container className="py-24">
-        <FAQAccordion title="Frequently asked questions" items={faqData} />
-      </Container>
+      <TestimonialQuoteSection
+        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
+        author="David Thompson"
+        role="CEO"
+        company="GrowthTech Solutions"
+      />
+      <FAQDarkSection title="Frequently asked questions" items={faqData} />
       <RelatedServicesSection
         subheading="Related Services"
         heading="Explore more automation services"
         services={relatedServicesData}
       />
-      <CTASection {...ctaData} />
+      <CTAFormSection {...ctaData} />
       <Footer />
     </main>
   )

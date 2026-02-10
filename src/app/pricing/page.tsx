@@ -1,10 +1,13 @@
 import { Button } from '@/components/button'
+import { HeroAnimation } from '@/components/hero-animation'
+import { SEOVisual } from '@/components/seo-visual'
 import { JsonLd } from '@/components/json-ld'
 import { Container } from '@/components/container'
 import { Footer } from '@/components/footer'
 import { Link } from '@/components/link'
 import { Navbar } from '@/components/navbar'
 import { Heading, Lead, Subheading } from '@/components/text'
+import { TestimonialQuoteSection } from '@/components/testimonial-quote-section'
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import {
   CheckIcon,
@@ -132,6 +135,7 @@ function Header() {
 function PricingCards() {
   return (
     <div className="relative py-24">
+        <HeroAnimation />
       <div className="absolute inset-x-2 top-48 bottom-0 rounded-none border border-border-strong bg-cream" />
       <Container className="relative">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
@@ -402,8 +406,30 @@ function Testimonial() {
             <div className="-m-2 border border-white/20 bg-white/10 max-lg:mx-auto max-lg:max-w-xs">
               <div className="p-2">
                 <div className="overflow-hidden outline outline-1 -outline-offset-1 outline-white/10">
-                  <div className="aspect-3/4 w-full bg-ink/80 flex items-center justify-center">
-                    <span className="text-white/40 font-sans">Client Photo</span>
+                  <div className="aspect-3/4 w-full bg-ink/80 p-8 flex flex-col gap-4">
+                    <div className="flex-1">
+                      <svg viewBox="0 0 100 100" className="w-full h-full text-white/60">
+                        <polyline
+                          points="10,80 30,50 50,40 70,20 90,10"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        />
+                        {[
+                          { x: 10, y: 80 },
+                          { x: 30, y: 50 },
+                          { x: 50, y: 40 },
+                          { x: 70, y: 20 },
+                          { x: 90, y: 10 },
+                        ].map((point, i) => (
+                          <circle key={i} cx={point.x} cy={point.y} r="3" fill="currentColor" />
+                        ))}
+                      </svg>
+                    </div>
+                    <div className="text-center">
+                      <div className="font-heading text-5xl font-bold text-white mb-1">340%</div>
+                      <div className="font-mono text-xs uppercase tracking-widest text-white/60">Traffic Growth</div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -527,6 +553,12 @@ export default async function Pricing({
       <PricingCards />
       <PricingTable selectedTier={tier} />
       <Testimonial />
+      <TestimonialQuoteSection
+        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
+        author="David Thompson"
+        role="CEO"
+        company="GrowthTech Solutions"
+      />
       <FrequentlyAskedQuestions />
       <Footer />
     </main>

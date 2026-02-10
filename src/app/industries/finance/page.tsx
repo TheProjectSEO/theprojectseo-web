@@ -4,7 +4,11 @@ import { Footer } from '@/components/footer'
 import { Navbar } from '@/components/navbar'
 import { Heading, Lead, Subheading } from '@/components/text'
 import { CheckIcon } from '@/components/check-icon'
-import { FAQAccordion } from '@/components/faq-accordion'
+import { FAQDarkSection } from '@/components/faq-dark-section'
+import { TestimonialQuoteSection } from '@/components/testimonial-quote-section'
+import { HeroAnimation } from '@/components/hero-animation'
+import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { CTAFormSection } from '@/components/service-page-sections'
 import {
   ShieldCheckIcon,
   ScaleIcon,
@@ -121,25 +125,25 @@ const services = [
 
 const processSteps = [
   {
-    step: '01',
+    number: '01',
     title: 'Financial SEO Audit',
     description:
       'We conduct a comprehensive audit of your current search presence, analyzing technical health, content quality, backlink profile, and competitive positioning within financial services SERPs.',
   },
   {
-    step: '02',
+    number: '02',
     title: 'Compliance Review',
     description:
       'Every strategy element is reviewed against FINRA, SEC, and applicable state regulations. We establish content approval workflows that keep your marketing team agile without risking compliance violations.',
   },
   {
-    step: '03',
+    number: '03',
     title: 'Content & Optimization',
     description:
       'We execute your strategy with compliance-safe content creation, on-page optimization, technical SEO improvements, and authority-building link acquisition tailored to the finance vertical.',
   },
   {
-    step: '04',
+    number: '04',
     title: 'Monitor & Refine',
     description:
       'Continuous monitoring of rankings, traffic quality, lead generation metrics, and regulatory changes. We refine the strategy monthly to maximize ROI and stay ahead of algorithm updates.',
@@ -288,17 +292,18 @@ const relatedIndustries = [
 /* ─── Section 1: Hero (bg-paper) ─── */
 function HeroSection() {
   return (
-    <div className="relative">
+    <div className="relative overflow-hidden">
+      <HeroAnimation />
       <Container className="relative">
         <Navbar />
         <div className="pt-16 pb-20 sm:pt-24 sm:pb-28">
-          <p className="font-mono text-xs font-medium uppercase tracking-[0.1em] text-ash mb-6">
+          <p className="font-mono text-sm font-semibold uppercase tracking-[0.15em] text-accent mb-6">
             Finance & Financial Services
           </p>
-          <h1 className="font-display text-[clamp(36px,5vw,56px)] font-light leading-[1.1] tracking-tight text-ink max-w-3xl">
+          <h1 className="font-display text-[clamp(48px,6vw,96px)] font-medium leading-[0.95] tracking-[-0.02em] text-ink">
             Financial services SEO that builds authority and drives qualified leads
           </h1>
-          <p className="mt-6 max-w-lg text-lg leading-[1.65] text-slate">
+          <p className="mt-6 max-w-2xl text-xl leading-relaxed text-stone">
             Compliance-safe SEO strategies for wealth management firms, fintech companies, insurance agencies, and banking institutions that turn organic search into your most reliable growth channel.
           </p>
           <div className="mt-8 flex flex-col gap-x-6 gap-y-4 sm:flex-row">
@@ -316,26 +321,18 @@ function HeroSection() {
 /* ─── Section 2: Stats (bg-cream) ─── */
 function StatsSection() {
   return (
-    <div className="bg-cream py-24">
+    <div className="bg-cream border-y border-border py-14">
       <Container>
-        <div className="text-center mb-16">
-          <Subheading>The Financial Services Opportunity</Subheading>
-          <Heading as="h2" className="mt-2">
-            Why SEO matters for financial services.
-          </Heading>
-        </div>
-
-        <div className="grid grid-cols-1 gap-px bg-border-strong sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           {[
-            { value: '$26.5T', label: 'Global Financial Services Market', detail: 'Annual market size' },
-            { value: '68%', label: 'Research Online First', detail: 'Before choosing a financial advisor' },
-            { value: '2.4K', label: 'Monthly Search Volume', detail: 'Avg. for "financial advisor near me"' },
-            { value: '4.8%', label: 'Avg. Conversion Rate', detail: 'Finance organic search leads' },
+            { value: '$26.5T', label: 'Global Financial Services Market' },
+            { value: '68%', label: 'Research Online First' },
+            { value: '2.4K', label: 'Monthly Search Volume' },
+            { value: '4.8%', label: 'Avg. Conversion Rate' },
           ].map((stat, index) => (
-            <div key={index} className="bg-paper p-8 text-center">
-              <div className="font-mono text-3xl font-bold text-ink sm:text-4xl">{stat.value}</div>
-              <div className="mt-2 font-heading text-sm font-semibold text-ink">{stat.label}</div>
-              <div className="mt-1 text-xs text-ash">{stat.detail}</div>
+            <div key={index} className="text-center">
+              <div className="font-mono text-[clamp(36px,5vw,56px)] font-black text-accent">{stat.value}</div>
+              <div className="font-mono text-xs uppercase tracking-[0.15em] text-stone mt-3">{stat.label}</div>
             </div>
           ))}
         </div>
@@ -425,7 +422,7 @@ function ProcessSection() {
       <div className="grid grid-cols-1 gap-px bg-border-strong lg:grid-cols-4">
         {processSteps.map((item, index) => (
           <div key={index} className="bg-paper p-8">
-            <div className="font-mono text-3xl font-bold text-accent mb-4">{item.step}</div>
+            <div className="font-mono text-3xl font-bold text-accent mb-4">{item.number}</div>
             <h3 className="font-heading text-lg font-semibold text-ink mb-3">{item.title}</h3>
             <p className="text-sm leading-relaxed text-slate">{item.description}</p>
           </div>
@@ -674,14 +671,17 @@ function PricingSection() {
 }
 
 /* ─── Section 10: FAQ (bg-paper) ─── */
-function FAQSection() {
+function TestimonialAndFAQSection() {
   return (
-    <Container className="py-24">
-      <FAQAccordion
-        items={faqs}
-        title="Financial services SEO questions"
+    <>
+      <TestimonialQuoteSection
+        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
+        author="David Thompson"
+        role="CEO"
+        company="GrowthTech Solutions"
       />
-    </Container>
+      <FAQDarkSection title="Financial services SEO questions" items={faqs} />
+    </>
   )
 }
 
@@ -715,34 +715,6 @@ function RelatedIndustriesSection() {
 }
 
 /* ─── Section 12: CTA (bg-paper) ─── */
-function CTASection() {
-  return (
-    <div className="border-t border-border border-b border-border">
-      <Container className="py-16">
-        <div className="flex flex-col items-center gap-8 text-center lg:flex-row lg:justify-between lg:text-left">
-          <div className="max-w-xl">
-            <Subheading>Ready to dominate financial search results?</Subheading>
-            <Heading as="h2" className="mt-2">
-              Let&apos;s build your financial services SEO strategy.
-            </Heading>
-            <Lead className="mt-6">
-              Partner with SEO experts who understand FINRA compliance, YMYL standards, and the nuances of marketing financial services. We&apos;ll help you turn organic search into your most predictable growth channel.
-            </Lead>
-          </div>
-          <div className="flex flex-col gap-4 sm:flex-row shrink-0">
-            <Button href="/contact">Get Financial SEO Strategy</Button>
-            <Button variant="outline" href="/pricing">
-              View Pricing
-            </Button>
-          </div>
-        </div>
-        <p className="mt-6 text-xs text-ash text-center lg:text-left">
-          Free consultation includes financial keyword research, compliance content audit, and competitor analysis.
-        </p>
-      </Container>
-    </div>
-  )
-}
 
 export default function FinanceSEO() {
   return (
@@ -796,15 +768,24 @@ export default function FinanceSEO() {
       <StatsSection />
       <ChallengesSection />
       <ServicesSection />
-      <ProcessSection />
+      <ProcessTabbedSection
+        subheading="Our Process"
+        heading="A proven process for financial services SEO"
+        steps={processSteps}
+      />
       <TechnicalSEOSection />
       <CaseStudySection />
       <KeywordsSection />
       <TestimonialSection />
       <PricingSection />
-      <FAQSection />
+      <TestimonialAndFAQSection />
       <RelatedIndustriesSection />
-      <CTASection />
+      <CTAFormSection
+        subheading="Ready to dominate financial search results?"
+        heading="Let's build your financial services SEO strategy."
+        lead="Partner with SEO experts who understand FINRA compliance, YMYL standards, and the nuances of marketing financial services. We'll help you turn organic search into your most predictable growth channel."
+        submitText="Get Financial SEO Strategy"
+      />
       <Footer />
     </main>
   )

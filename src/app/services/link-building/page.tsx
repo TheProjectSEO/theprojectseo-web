@@ -12,7 +12,7 @@ import {
   FeatureCardsSection,
   PricingSection,
   TestimonialSection,
-  CTASection,
+  CTAFormSection,
 } from '@/components/service-page-sections'
 import {
   Link2,
@@ -422,10 +422,7 @@ const ctaData = {
   subheading: 'Ready to Build Authority?',
   heading: 'Get your free link building strategy.',
   lead: 'Discover your backlink profile weaknesses, competitive link gaps, and the exact link building strategy needed to outrank your competitors. Our free audit includes competitor backlink analysis and actionable recommendations.',
-  ctaPrimaryText: 'Get Your Free Strategy',
-  ctaPrimaryHref: '/contact',
-  ctaSecondaryText: 'View All Pricing',
-  ctaSecondaryHref: '/pricing',
+  submitText: 'Get Your Free Strategy',
 }
 
 /* -------------------------------------------------------------------------- */
@@ -461,7 +458,7 @@ export default function LinkBuildingPage() {
       <Container className="py-24">
         <FAQAccordion title="Link building frequently asked questions" items={faqData} />
       </Container>
-      <CTASection {...ctaData} />
+      <CTAFormSection {...ctaData} />
       <Footer />
     </main>
   )

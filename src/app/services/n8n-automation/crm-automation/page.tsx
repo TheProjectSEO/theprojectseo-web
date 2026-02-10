@@ -1,20 +1,21 @@
 import type { Metadata } from 'next'
 import { Container } from '@/components/container'
-import { FAQAccordion } from '@/components/faq-accordion'
+import { FAQDarkSection } from '@/components/faq-dark-section'
 import { Footer } from '@/components/footer'
 import { JsonLd } from '@/components/json-ld'
 import {
   ServiceHero,
   StatsBar,
   ServicesGrid,
-  ProcessSection,
   CaseStudyDark,
   FeatureCardsSection,
   PricingSection,
   TestimonialSection,
+  TestimonialQuoteSection,
   RelatedServicesSection,
-  CTASection,
+  CTAFormSection,
 } from '@/components/service-page-sections'
+import { ProcessTabbedSection } from '@/components/process-tabbed-section'
 import {
   Database,
   RefreshCw,
@@ -458,10 +459,7 @@ const ctaData = {
   subheading: 'Ready to Automate?',
   heading: 'Perfect CRM synchronization starts here',
   lead: 'Let&apos;s discuss your CRM ecosystem and design N8n workflows that eliminate manual data entry and ensure perfect data accuracy.',
-  ctaPrimaryText: 'Automate Your CRM',
-  ctaPrimaryHref: '/contact',
-  ctaSecondaryText: 'All Automation Services',
-  ctaSecondaryHref: '/services/n8n-automation',
+  submitText: 'Automate Your CRM',
 }
 
 export default function CRMAutomationPage() {
@@ -487,20 +485,24 @@ export default function CRMAutomationPage() {
       <StatsBar stats={statsData} />
       <FeatureCardsSection {...challengesData} />
       <ServicesGrid {...servicesData} />
-      <ProcessSection {...processData} />
+      <ProcessTabbedSection {...processData} />
       <CaseStudyDark {...caseStudyData} />
       <FeatureCardsSection {...toolsData} />
       <PricingSection {...pricingData} />
       <TestimonialSection {...testimonialsData} />
-      <Container className="py-24">
-        <FAQAccordion title="CRM automation FAQ" items={faqData} />
-      </Container>
+      <TestimonialQuoteSection
+        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
+        author="David Thompson"
+        role="CEO"
+        company="GrowthTech Solutions"
+      />
+      <FAQDarkSection title="CRM automation FAQ" items={faqData} />
       <RelatedServicesSection
         subheading="Related Services"
         heading="Explore more automation solutions"
         services={relatedServicesData}
       />
-      <CTASection {...ctaData} />
+      <CTAFormSection {...ctaData} />
       <Footer />
     </main>
   )

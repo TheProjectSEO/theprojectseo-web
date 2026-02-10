@@ -1,6 +1,8 @@
 import { AnimatedNumber } from '@/components/animated-number'
 import { JsonLd } from '@/components/json-ld'
 import { Button } from '@/components/button'
+import { HeroAnimation } from '@/components/hero-animation'
+import { SEOVisual } from '@/components/seo-visual'
 import { Container } from '@/components/container'
 import { Footer } from '@/components/footer'
 import { Navbar } from '@/components/navbar'
@@ -42,17 +44,13 @@ function Header() {
         </div>
         <div className="pt-20 lg:row-span-2 lg:-mr-16 xl:mr-auto">
           <div className="-mx-8 grid grid-cols-2 gap-4 sm:-mx-16 sm:grid-cols-4 lg:mx-0 lg:grid-cols-2 lg:gap-4 xl:gap-8">
-            <div className="aspect-square overflow-hidden rounded-none shadow-xl border border-border-strong bg-cream flex items-center justify-center">
-              <p className="font-mono text-xs uppercase tracking-[0.1em] text-ash">SEO Analysis</p>
+            <SEOVisual type="ranking" label="Ranking Trends" />
+            <div className="-mt-8 lg:-mt-32">
+              <SEOVisual type="keywords" label="Keyword Research" />
             </div>
-            <div className="-mt-8 aspect-square overflow-hidden rounded-none shadow-xl border border-border-strong lg:-mt-32 bg-cream flex items-center justify-center">
-              <p className="font-mono text-xs uppercase tracking-[0.1em] text-ash">Keyword Research</p>
-            </div>
-            <div className="aspect-square overflow-hidden rounded-none shadow-xl border border-border-strong bg-cream flex items-center justify-center">
-              <p className="font-mono text-xs uppercase tracking-[0.1em] text-ash">Content Strategy</p>
-            </div>
-            <div className="-mt-8 aspect-square overflow-hidden rounded-none shadow-xl border border-border-strong lg:-mt-32 bg-cream flex items-center justify-center">
-              <p className="font-mono text-xs uppercase tracking-[0.1em] text-ash">Rankings Growth</p>
+            <SEOVisual type="traffic" label="Traffic Growth" />
+            <div className="-mt-8 lg:-mt-32">
+              <SEOVisual type="conversion" label="Conversion Optimization" />
             </div>
           </div>
         </div>
@@ -145,8 +143,18 @@ function Team() {
           </div>
         </div>
         <div className="max-lg:order-first max-lg:max-w-lg">
-          <div className="aspect-3/2 overflow-hidden rounded-none shadow-xl border border-border-strong bg-cream flex items-center justify-center">
-            <p className="font-mono text-xs uppercase tracking-[0.1em] text-ash">Team Photo</p>
+          <div className="aspect-3/2 overflow-hidden rounded-none shadow-xl border border-border-strong bg-gradient-to-br from-accent/10 to-accent/5 flex items-center justify-center p-12">
+            <div className="grid grid-cols-3 gap-4 w-full">
+              {[...Array(9)].map((_, i) => (
+                <div
+                  key={i}
+                  className="aspect-square rounded-none bg-accent/20 flex items-center justify-center"
+                  style={{ animationDelay: `${i * 0.05}s` }}
+                >
+                  <div className="size-8 rounded-full bg-accent/40" />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -267,6 +275,7 @@ function WhyWe() {
 function Testimonial() {
   return (
     <div className="relative flex aspect-square flex-col justify-end overflow-hidden rounded-none sm:aspect-5/4 lg:aspect-3/4">
+        <HeroAnimation />
       <div className="absolute inset-0 bg-accent"></div>
       <div
         aria-hidden="true"

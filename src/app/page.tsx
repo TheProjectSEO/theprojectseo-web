@@ -4,6 +4,7 @@ import { Footer } from '@/components/footer'
 import { Link } from '@/components/link'
 import { Navbar } from '@/components/navbar'
 import { Heading, Subheading } from '@/components/text'
+import { HeroAnimation } from '@/components/hero-animation'
 import {
   BarChart3,
   Search,
@@ -13,6 +14,7 @@ import {
   Settings,
   CheckCircle,
 } from 'lucide-react'
+import { CTAFormSection } from '@/components/service-page-sections'
 import { FAQAccordion } from '@/components/faq-accordion'
 import { JsonLd } from '@/components/json-ld'
 import type { Metadata } from 'next'
@@ -25,20 +27,21 @@ export const metadata: Metadata = {
 
 function Hero() {
   return (
-    <div className="relative">
+    <div className="relative overflow-hidden">
+      <HeroAnimation />
       <Container className="relative">
         <div className="grid grid-cols-1 items-center gap-12 pt-16 pb-20 sm:pt-24 sm:pb-28 lg:grid-cols-5 lg:gap-16">
           {/* Left content - 60% */}
           <div className="lg:col-span-3">
-            <p className="font-mono text-xs font-medium uppercase tracking-[0.1em] text-ash mb-6">
+            <p className="font-mono text-sm font-semibold uppercase tracking-[0.15em] text-accent mb-6">
               Data-Driven SEO Agency
             </p>
-            <h1 className="font-display text-[clamp(36px,5vw,56px)] font-light leading-[1.1] tracking-tight text-ink">
+            <h1 className="font-display text-[clamp(48px,6vw,96px)] font-medium leading-[0.95] tracking-[-0.02em] text-ink">
               We help brands{' '}
-              <em className="text-accent not-italic font-display font-light italic">dominate</em>{' '}
+              <em className="text-accent italic">dominate</em>{' '}
               every search result.
             </h1>
-            <p className="mt-6 max-w-lg text-lg leading-[1.65] text-slate">
+            <p className="mt-6 max-w-2xl text-xl leading-relaxed text-stone">
               TheProjectSEO reveals the exact strategies your competitors use
               and builds a roadmap to outrank them — consistently.
             </p>
@@ -178,10 +181,10 @@ function StatsSection() {
       <Container>
         <div className="grid grid-cols-1 gap-16 items-center lg:grid-cols-2">
           <div>
-            <p className="font-mono text-xs font-medium uppercase tracking-[0.1em] text-white/50 mb-4">
+            <p className="font-mono text-xs font-medium uppercase tracking-[0.15em] text-white/50 mb-4">
               Growth Rate
             </p>
-            <div className="font-mono text-[72px] font-semibold leading-none text-white mb-4">
+            <div className="font-mono text-[72px] font-black leading-none text-white mb-4">
               +340%
             </div>
             <p className="text-xl font-heading font-medium text-white/80 mb-4">
@@ -201,8 +204,8 @@ function StatsSection() {
               { val: '90%', label: 'Client Retention Rate' },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
-                <div className="font-mono text-[36px] font-semibold text-white mb-2">{stat.val}</div>
-                <div className="font-mono text-xs uppercase tracking-[0.1em] text-white/40">{stat.label}</div>
+                <div className="font-mono text-[clamp(36px,5vw,56px)] font-black text-white mb-2">{stat.val}</div>
+                <div className="font-mono text-xs uppercase tracking-[0.15em] text-white/40 mt-3">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -349,128 +352,6 @@ function IndustriesSection() {
   )
 }
 
-function ContactFormSection() {
-  return (
-    <div className="bg-cream">
-      <Container className="py-24">
-      <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
-        <div>
-          <Subheading>Ready to get started?</Subheading>
-          <Heading as="h2" className="mt-2">
-            Let&apos;s work with your most profitable channel.
-          </Heading>
-          <p className="mt-6 text-lg leading-[1.65] text-slate">
-            Get a free SEO audit and discover how we can help you dominate your search market.
-          </p>
-
-          <div className="mt-8 space-y-4">
-            {['Free comprehensive SEO audit', 'Custom strategy roadmap', 'Competitive analysis report'].map((item) => (
-              <div key={item} className="flex items-center gap-3">
-                <CheckCircle className="size-4 text-accent flex-shrink-0" />
-                <span className="text-sm text-slate">{item}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="rounded-lg border border-border-strong bg-white p-8 shadow-lg">
-          <form className="space-y-5">
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-              <div>
-                <label htmlFor="firstName" className="mb-1.5 block text-sm font-medium text-stone">
-                  First Name *
-                </label>
-                <input
-                  type="text"
-                  id="firstName"
-                  name="firstName"
-                  required
-                  className="w-full rounded-md border border-border-emphasis bg-paper px-4 py-2.5 text-sm text-ink placeholder:text-ash focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent-soft"
-                  placeholder="John"
-                />
-              </div>
-              <div>
-                <label htmlFor="lastName" className="mb-1.5 block text-sm font-medium text-stone">
-                  Last Name *
-                </label>
-                <input
-                  type="text"
-                  id="lastName"
-                  name="lastName"
-                  required
-                  className="w-full rounded-md border border-border-emphasis bg-paper px-4 py-2.5 text-sm text-ink placeholder:text-ash focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent-soft"
-                  placeholder="Smith"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-stone">
-                Business Email *
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                className="w-full rounded-md border border-border-emphasis bg-paper px-4 py-2.5 text-sm text-ink placeholder:text-ash focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent-soft"
-                placeholder="john@company.com"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="website" className="mb-1.5 block text-sm font-medium text-stone">
-                Website URL *
-              </label>
-              <input
-                type="url"
-                id="website"
-                name="website"
-                required
-                className="w-full rounded-md border border-border-emphasis bg-paper px-4 py-2.5 text-sm text-ink placeholder:text-ash focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent-soft"
-                placeholder="https://yourwebsite.com"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="budget" className="mb-1.5 block text-sm font-medium text-stone">
-                Monthly SEO Budget
-              </label>
-              <select id="budget" name="budget" className="w-full rounded-md border border-border-emphasis bg-paper px-4 py-2.5 text-sm text-ink focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent-soft">
-                <option value="">Select budget range</option>
-                <option value="1000-5000">$1,000 - $5,000</option>
-                <option value="5000-10000">$5,000 - $10,000</option>
-                <option value="10000-25000">$10,000 - $25,000</option>
-                <option value="25000+">$25,000+</option>
-              </select>
-            </div>
-
-            <Button className="w-full">
-              Get Your Free SEO Audit
-            </Button>
-
-            <p className="text-xs text-ash text-center">
-              By submitting this form, you agree to our privacy policy. We&apos;ll never spam you.
-            </p>
-          </form>
-
-          {/* Social proof below form */}
-          <div className="mt-6 flex flex-col gap-3">
-            <div className="flex items-center gap-2 text-xs text-ash">
-              <div className="size-1.5 rounded-full bg-green-500 animate-pulse" />
-              <span>Average response time: <span className="font-semibold text-ink">under 2 hours</span></span>
-            </div>
-            <div className="flex items-center gap-2 text-xs text-ash">
-              <CheckCircle className="size-3.5 text-accent flex-shrink-0" />
-              <span>Rated <span className="font-semibold text-ink">4.7/5</span> by our clients</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      </Container>
-    </div>
-  )
-}
 
 
 export default function Home() {
@@ -481,8 +362,17 @@ export default function Home() {
           '@context': 'https://schema.org',
           '@type': 'Organization',
           name: 'TheProjectSEO',
+          legalName: 'TheProjectSEO Digital (OPC) Private Limited',
           url: 'https://theprojectseo.com',
           logo: 'https://theprojectseo.com/logos/wordmark_A_full.svg',
+          address: {
+            '@type': 'PostalAddress',
+            streetAddress: 'No. 808, Mahabir Tower, Main Road, P.S. Hindpiri',
+            addressLocality: 'Ranchi',
+            addressRegion: 'Jharkhand',
+            postalCode: '834001',
+            addressCountry: 'IN',
+          },
           sameAs: [
             'https://facebook.com/theprojectseo',
             'https://x.com/theprojectseo',
@@ -512,7 +402,11 @@ export default function Home() {
         <TestimonialsSection />
         <TeamSection />
         <IndustriesSection />
-        <ContactFormSection />
+        <CTAFormSection
+          subheading="Ready to get started?"
+          heading="Let's work with your most profitable channel."
+          lead="Get a free SEO audit and discover how we can help you dominate your search market."
+        />
         <Container className="py-16">
           <FAQAccordion />
         </Container>

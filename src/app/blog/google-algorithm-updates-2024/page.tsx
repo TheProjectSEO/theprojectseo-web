@@ -1,10 +1,12 @@
 import { Button } from '@/components/button'
+import { HeroAnimation } from '@/components/hero-animation'
 import { Container } from '@/components/container'
 import { Footer } from '@/components/footer'
 import { Link } from '@/components/link'
 import { Navbar } from '@/components/navbar'
 import { Heading, Lead, Subheading } from '@/components/text'
 import { FAQAccordion } from '@/components/faq-accordion'
+import { TestimonialQuoteSection } from '@/components/testimonial-quote-section'
 import { ChevronLeft, ChevronRight, Calendar, Clock, User } from 'lucide-react'
 import dayjs from 'dayjs'
 import { JsonLd } from '@/components/json-ld'
@@ -54,6 +56,7 @@ const relatedPosts = [
 function ArticleHeader() {
   return (
     <div className="relative py-16">
+        <HeroAnimation />
       <Container>
         <div className="mx-auto max-w-4xl">
           <nav className="font-mono text-xs uppercase tracking-[0.1em] text-ash">
@@ -604,6 +607,12 @@ export default function BlogPost() {
       </Container>
       <ArticleHeader />
       <ArticleContent />
+      <TestimonialQuoteSection
+        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
+        author="David Thompson"
+        role="CEO"
+        company="GrowthTech Solutions"
+      />
       <RelatedPosts />
       <Footer />
     </main>

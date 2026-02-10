@@ -4,7 +4,11 @@ import { Footer } from '@/components/footer'
 import { Navbar } from '@/components/navbar'
 import { Heading, Lead, Subheading } from '@/components/text'
 import { CheckIcon } from '@/components/check-icon'
-import { FAQAccordion } from '@/components/faq-accordion'
+import { FAQDarkSection } from '@/components/faq-dark-section'
+import { TestimonialQuoteSection } from '@/components/testimonial-quote-section'
+import { HeroAnimation } from '@/components/hero-animation'
+import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { CTAFormSection } from '@/components/service-page-sections'
 import {
   MapPinIcon,
   HomeModernIcon,
@@ -241,13 +245,13 @@ function HeroSection() {
       <Container className="relative">
         <Navbar />
         <div className="pt-16 pb-20 sm:pt-24 sm:pb-28">
-          <p className="font-mono text-xs font-medium uppercase tracking-[0.1em] text-ash mb-6">
+          <p className="font-mono text-sm font-semibold uppercase tracking-[0.15em] text-accent mb-6">
             Real Estate
           </p>
-          <h1 className="font-display text-[clamp(36px,5vw,56px)] font-light leading-[1.1] tracking-tight text-ink max-w-3xl">
+          <h1 className="font-display text-[clamp(48px,6vw,96px)] font-medium leading-[0.95] tracking-[-0.02em] text-ink">
             Real estate SEO that fills your pipeline with qualified buyers and sellers
           </h1>
-          <p className="mt-6 max-w-lg text-lg leading-[1.65] text-slate">
+          <p className="mt-6 max-w-2xl text-xl leading-relaxed text-stone">
             Dominate local search results, outrank the portals for your neighborhoods, and turn organic traffic into listing appointments and closed deals.
           </p>
           <div className="mt-8 flex flex-col gap-x-6 gap-y-4 sm:flex-row">
@@ -268,19 +272,19 @@ function StatsSection() {
       <Container>
         <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
           <div className="text-center">
-            <div className="font-mono text-[32px] font-semibold text-ink">$3.7T</div>
+            <div className="font-mono text-[clamp(36px,5vw,56px)] font-black text-accent">$3.7T</div>
             <div className="mt-1 text-sm text-slate">US real estate market</div>
           </div>
           <div className="text-center">
-            <div className="font-mono text-[32px] font-semibold text-ink">97%</div>
+            <div className="font-mono text-[clamp(36px,5vw,56px)] font-black text-accent">97%</div>
             <div className="mt-1 text-sm text-slate">of buyers search online</div>
           </div>
           <div className="text-center">
-            <div className="font-mono text-[32px] font-semibold text-ink">4.8K</div>
+            <div className="font-mono text-[clamp(36px,5vw,56px)] font-black text-accent">4.8K</div>
             <div className="mt-1 text-sm text-slate">avg monthly search volume</div>
           </div>
           <div className="text-center">
-            <div className="font-mono text-[32px] font-semibold text-ink">2.8%</div>
+            <div className="font-mono text-[clamp(36px,5vw,56px)] font-black text-accent">2.8%</div>
             <div className="mt-1 text-sm text-slate">average conversion rate</div>
           </div>
         </div>
@@ -672,16 +676,17 @@ function PricingSection() {
   )
 }
 
-function FAQSection() {
+function TestimonialAndFAQSection() {
   return (
-    <div className="bg-paper py-24">
-      <Container>
-        <FAQAccordion
-          items={faqItems}
-          title="Real estate SEO questions, answered"
-        />
-      </Container>
-    </div>
+    <>
+      <TestimonialQuoteSection
+        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
+        author="David Thompson"
+        role="CEO"
+        company="GrowthTech Solutions"
+      />
+      <FAQDarkSection title="Real estate SEO questions, answered" items={faqItems} />
+    </>
   )
 }
 
@@ -712,35 +717,6 @@ function RelatedIndustriesSection() {
   )
 }
 
-function CTASection() {
-  return (
-    <div className="bg-paper border-t border-border py-16">
-      <Container>
-        <div className="flex flex-col items-center gap-8 text-center lg:flex-row lg:justify-between lg:text-left">
-          <div className="max-w-xl">
-            <Subheading>Ready to dominate your local real estate market?</Subheading>
-            <Heading as="h2" className="mt-2">
-              Let&apos;s build your real estate SEO strategy.
-            </Heading>
-            <Lead className="mt-6">
-              Partner with SEO experts who understand the real estate industry. We&apos;ll help you outrank
-              the portals, attract qualified buyers and sellers, and grow your business through organic search.
-            </Lead>
-          </div>
-          <div className="flex flex-col gap-4 sm:flex-row shrink-0">
-            <Button href="/contact">Get Real Estate SEO Audit</Button>
-            <Button variant="outline" href="/pricing">
-              View Pricing
-            </Button>
-          </div>
-        </div>
-        <p className="mt-6 text-xs text-ash text-center lg:text-left">
-          Free consultation includes local market analysis, competitor audit, and keyword opportunity report.
-        </p>
-      </Container>
-    </div>
-  )
-}
 
 export default function RealEstateSEO() {
   return (
@@ -799,7 +775,11 @@ export default function RealEstateSEO() {
       {/* Section 4: Services */}
       <ServicesSection />
       {/* Section 5: Process */}
-      <ProcessSection />
+      <ProcessTabbedSection
+        subheading="Our Process"
+        heading="How we deliver real estate SEO results"
+        steps={processSteps}
+      />
       {/* Section 6: Technical SEO */}
       <TechnicalSEOSection />
       {/* Section 7: Case Study */}
@@ -811,11 +791,11 @@ export default function RealEstateSEO() {
       {/* Section 10: Pricing */}
       <PricingSection />
       {/* Section 11: FAQ */}
-      <FAQSection />
+      <TestimonialAndFAQSection />
       {/* Section 12: Related Industries */}
       <RelatedIndustriesSection />
       {/* Section 13: CTA */}
-      <CTASection />
+      <CTAFormSection subheading="Ready to dominate your local real estate market?" heading="Let's build your real estate SEO strategy." lead="Partner with SEO experts who understand the real estate industry. We'll help you outrank the portals, attract qualified buyers and sellers, and grow your business through organic search." submitText="Get Real Estate SEO Audit" />
       <Footer />
     </main>
   )

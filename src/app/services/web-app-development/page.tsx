@@ -12,7 +12,7 @@ import {
   FeatureCardsSection,
   PricingSection,
   TestimonialSection,
-  CTASection,
+  CTAFormSection,
 } from '@/components/service-page-sections'
 import { FAQAccordion } from '@/components/faq-accordion'
 import { Container } from '@/components/container'
@@ -404,10 +404,7 @@ const ctaData = {
   subheading: 'Ready to Build Your Web Application?',
   heading: 'Let&apos;s build intelligent systems that scale.',
   lead: 'Start with a free consultation to discuss your project requirements, technical architecture, and timeline. No obligation, just expert guidance.',
-  ctaPrimaryText: 'Start Your Project',
-  ctaPrimaryHref: '/contact',
-  ctaSecondaryText: 'Learn About Us',
-  ctaSecondaryHref: '/company',
+  submitText: 'Start Your Project',
   note: 'Free consultation includes technical assessment, architecture recommendations, and project estimate.',
 }
 
@@ -513,7 +510,7 @@ export default function WebAppDevelopment() {
         <FAQAccordion title="Web application development FAQ" items={faqData} />
       </Container>
       <RelatedServicesSection />
-      <CTASection {...ctaData} />
+      <CTAFormSection {...ctaData} />
       <Footer />
     </main>
   )
