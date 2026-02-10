@@ -31,6 +31,9 @@ export const metadata: Metadata = {
   description: "Leading SEO agency helping businesses achieve #1 rankings. Expert SEO audits, keyword research, technical SEO, and content optimization. Get results that drive revenue.",
   keywords: "SEO agency, search engine optimization, SEO services, digital marketing, keyword research, technical SEO, local SEO",
   metadataBase: new URL('https://theprojectseo.com'),
+  verification: {
+    google: '1kf0OJwcLdQ89CJbRqmFwE6YnUtHYLH4smj_N4HRY50',
+  },
   openGraph: {
     title: "TheProjectSEO - Professional SEO Agency",
     description: "Leading SEO agency helping businesses achieve #1 rankings. Expert SEO services that drive real results.",
