@@ -1,150 +1,446 @@
 import { Button } from '@/components/button'
 import { HeroAnimation } from '@/components/hero-animation'
-import { SEOVisual } from '@/components/seo-visual'
 import { JsonLd } from '@/components/json-ld'
 import { Container } from '@/components/container'
 import { Footer } from '@/components/footer'
 import { Link } from '@/components/link'
 import { Navbar } from '@/components/navbar'
 import { Heading, Lead, Subheading } from '@/components/text'
+import { FAQAccordion } from '@/components/faq-accordion'
 import { TestimonialQuoteSection } from '@/components/testimonial-quote-section'
-import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import {
-  CheckIcon,
-  ChevronUpDownIcon,
-  MinusIcon,
-} from '@heroicons/react/16/solid'
+import { CheckIcon } from '@heroicons/react/16/solid'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'SEO Pricing | TheProjectSEO',
+  title: 'Pricing | SEO, Development & Automation Services | TheProjectSEO',
   description:
-    'Transparent SEO pricing that delivers results. Choose from Starter, Growth, or Enterprise SEO packages designed to boost your rankings.',
+    'Transparent pricing for SEO, web development, AI solutions, and automation. Every project is custom-built. SEO from $1,800/mo, development from $3,000, content from $70/article.',
   alternates: {
     canonical: '/pricing',
   },
+  openGraph: {
+    title: 'Pricing | SEO, Development & Automation Services | TheProjectSEO',
+    description:
+      'Transparent pricing for SEO, web development, AI solutions, and automation. Every project is custom-built.',
+    url: 'https://theprojectseo.com/pricing',
+  },
+  twitter: {
+    title: 'Pricing | SEO, Development & Automation Services | TheProjectSEO',
+    description:
+      'Transparent pricing for SEO, web development, AI solutions, and automation. Every project is custom-built.',
+  },
 }
 
-const tiers = [
+/* ─── SEO Retainer Tiers ─── */
+
+interface SEOTier {
+  name: string
+  price: string
+  period: string
+  description: string
+  featured: boolean
+  highlights: string[]
+}
+
+const seoTiers: SEOTier[] = [
   {
-    name: 'Starter' as const,
-    slug: 'starter',
-    description: 'Perfect for small businesses starting their SEO journey.',
-    priceMonthly: 997,
-    href: '/contact',
+    name: 'Foundation',
+    price: '$1,800',
+    period: '/mo',
+    description:
+      'For businesses building their organic presence from the ground up.',
+    featured: false,
     highlights: [
-      { description: 'Complete SEO audit' },
-      { description: 'Keyword research (50 keywords)' },
-      { description: 'On-page optimization (5 pages)' },
-      { description: 'Monthly progress reports' },
-      { description: 'Technical SEO fixes', disabled: true },
-      { description: 'Content creation', disabled: true },
-    ],
-    features: [
-      { section: 'SEO Services', name: 'SEO Audit', value: 'Complete' },
-      { section: 'SEO Services', name: 'Keyword Research', value: '50 keywords' },
-      { section: 'SEO Services', name: 'On-page Optimization', value: '5 pages' },
-      { section: 'SEO Services', name: 'Technical SEO', value: false },
-      { section: 'SEO Services', name: 'Link Building', value: false },
-      { section: 'Content', name: 'Content Strategy', value: false },
-      { section: 'Content', name: 'Content Creation', value: false },
-      { section: 'Content', name: 'Content Optimization', value: '5 pages' },
-      { section: 'Reporting', name: 'Monthly Reports', value: true },
-      { section: 'Reporting', name: 'Real-time Dashboard', value: false },
-      { section: 'Reporting', name: 'Competitor Analysis', value: false },
-      { section: 'Support', name: 'Email Support', value: true },
-      { section: 'Support', name: 'Phone Support', value: false },
-      { section: 'Support', name: 'Dedicated SEO Manager', value: false },
+      'Comprehensive SEO audit',
+      'Keyword research (100+ keywords)',
+      'On-page optimization (10 pages/mo)',
+      'Technical SEO monitoring',
+      'Google Business Profile setup',
+      '2 blog articles/month',
+      'Monthly reporting dashboard',
+      'Email support',
     ],
   },
   {
-    name: 'Growth' as const,
-    slug: 'growth',
-    description: 'Comprehensive SEO for growing businesses.',
-    priceMonthly: 1997,
-    href: '/contact',
+    name: 'Growth',
+    price: '$3,500',
+    period: '/mo',
+    description:
+      'For businesses ready to scale organic traffic and dominate their niche.',
     featured: true,
     highlights: [
-      { description: 'Everything in Starter' },
-      { description: 'Technical SEO optimization' },
-      { description: 'Content creation (4 articles/month)' },
-      { description: 'Link building (10 links/month)' },
-      { description: 'Local SEO optimization' },
-    ],
-    features: [
-      { section: 'SEO Services', name: 'SEO Audit', value: 'Complete' },
-      { section: 'SEO Services', name: 'Keyword Research', value: '200 keywords' },
-      { section: 'SEO Services', name: 'On-page Optimization', value: '20 pages' },
-      { section: 'SEO Services', name: 'Technical SEO', value: true },
-      { section: 'SEO Services', name: 'Link Building', value: '10 links/month' },
-      { section: 'Content', name: 'Content Strategy', value: true },
-      { section: 'Content', name: 'Content Creation', value: '4 articles/month' },
-      { section: 'Content', name: 'Content Optimization', value: '20 pages' },
-      { section: 'Reporting', name: 'Monthly Reports', value: true },
-      { section: 'Reporting', name: 'Real-time Dashboard', value: true },
-      { section: 'Reporting', name: 'Competitor Analysis', value: true },
-      { section: 'Support', name: 'Email Support', value: true },
-      { section: 'Support', name: 'Phone Support', value: true },
-      { section: 'Support', name: 'Dedicated SEO Manager', value: false },
+      'Everything in Foundation',
+      'Advanced keyword strategy (300+ keywords)',
+      'On-page optimization (25 pages/mo)',
+      'Full technical SEO management',
+      'Content strategy & creation (4 articles/mo)',
+      'Link building (10 links/mo)',
+      'Competitor analysis & tracking',
+      'Real-time analytics dashboard',
+      'Bi-weekly strategy calls',
+      'Dedicated SEO manager',
     ],
   },
   {
-    name: 'Enterprise' as const,
-    slug: 'enterprise',
-    description: 'Advanced SEO solutions for large organizations.',
-    priceMonthly: 4997,
-    href: '/contact',
+    name: 'Enterprise',
+    price: 'Custom',
+    period: '',
+    description:
+      'For organizations that need multi-brand, multi-region, or large-scale SEO.',
+    featured: false,
     highlights: [
-      { description: 'Everything in Growth' },
-      { description: 'Dedicated SEO manager' },
-      { description: 'Custom content strategy' },
-      { description: 'Advanced link building' },
-      { description: 'Multi-location SEO' },
-    ],
-    features: [
-      { section: 'SEO Services', name: 'SEO Audit', value: 'Complete' },
-      { section: 'SEO Services', name: 'Keyword Research', value: 'Unlimited' },
-      { section: 'SEO Services', name: 'On-page Optimization', value: 'Unlimited' },
-      { section: 'SEO Services', name: 'Technical SEO', value: true },
-      { section: 'SEO Services', name: 'Link Building', value: '25 links/month' },
-      { section: 'Content', name: 'Content Strategy', value: 'Custom' },
-      { section: 'Content', name: 'Content Creation', value: '8 articles/month' },
-      { section: 'Content', name: 'Content Optimization', value: 'Unlimited' },
-      { section: 'Reporting', name: 'Monthly Reports', value: true },
-      { section: 'Reporting', name: 'Real-time Dashboard', value: true },
-      { section: 'Reporting', name: 'Competitor Analysis', value: 'Advanced' },
-      { section: 'Support', name: 'Email Support', value: true },
-      { section: 'Support', name: 'Phone Support', value: true },
-      { section: 'Support', name: 'Dedicated SEO Manager', value: true },
+      'Custom keyword universe',
+      'Unlimited page optimization',
+      'Custom content strategy',
+      'Advanced link building (25+ links/mo)',
+      'Multi-location & multi-brand SEO',
+      'Custom reporting & dashboards',
+      'Weekly strategy sessions',
+      'Priority support & SLA',
+      'Custom tool integrations',
     ],
   },
 ]
 
+/* ─── Development Services ─── */
+
+interface DevService {
+  name: string
+  price: string
+  description: string
+  highlights: string[]
+  note?: string
+  href: string
+}
+
+const devServices: DevService[] = [
+  {
+    name: 'MVP Development',
+    price: '$3,000',
+    description:
+      'Validate your idea fast with a production-ready minimum viable product.',
+    highlights: [
+      'Core feature set scoped to your goals',
+      'Responsive design across all devices',
+      'User authentication & database',
+      'Cloud deployment & CI/CD',
+    ],
+    note: 'Delivery in 8\u201312 weeks',
+    href: '/services/mvp-development',
+  },
+  {
+    name: 'Web Applications',
+    price: '$6,000',
+    description:
+      'Custom web applications built for scale, performance, and reliability.',
+    highlights: [
+      'Custom architecture & API design',
+      'Third-party integrations',
+      'Admin dashboard & analytics',
+      'Cloud infrastructure & deployment',
+    ],
+    href: '/services/web-app-development',
+  },
+  {
+    name: 'E-commerce Development',
+    price: '$3,000',
+    description:
+      'Custom online stores built for conversion and growth.',
+    highlights: [
+      'Starter Store (up to 200 products) \u2014 $3,000',
+      'Growth Store (custom features) \u2014 $9,000',
+      'Enterprise Commerce (full custom) \u2014 $15,000',
+    ],
+    href: '/services/ecommerce-development',
+  },
+  {
+    name: 'AI & LLM Integration',
+    price: '$3,000',
+    description:
+      'Integrate AI into your products, workflows, and customer experience.',
+    highlights: [
+      'AI Chatbot / Assistant \u2014 $3,000',
+      'Custom AI Application \u2014 $6,000',
+      'Enterprise AI Platform \u2014 $10,000',
+    ],
+    href: '/services/ai-development',
+  },
+  {
+    name: 'Data Engineering',
+    price: '$3,000',
+    description:
+      'Build the data infrastructure your business decisions depend on.',
+    highlights: [
+      'ETL pipeline design & implementation',
+      'Data warehousing & modeling',
+      'Real-time data processing',
+      'Analytics dashboards & reporting',
+    ],
+    href: '/services/data-engineering',
+  },
+]
+
+/* ─── Automation Tiers ─── */
+
+interface AutomationTier {
+  name: string
+  price: string
+  period: string
+  description: string
+  highlights: string[]
+  maintenance?: string
+}
+
+const automationTiers: AutomationTier[] = [
+  {
+    name: 'Simple Workflow',
+    price: '$500',
+    period: 'one-time',
+    description:
+      'Single-system automation with basic triggers and actions.',
+    highlights: [
+      'One integration (e.g. form \u2192 CRM)',
+      'Basic triggers & actions',
+      'Documentation & handoff',
+      'One-time setup',
+    ],
+    maintenance: '$200/mo maintenance available',
+  },
+  {
+    name: 'Multi-System',
+    price: '$2,500',
+    period: 'one-time',
+    description:
+      'Connect 3\u20135 systems with conditional logic and error handling.',
+    highlights: [
+      '3\u20135 system integrations',
+      'Conditional logic & branching',
+      'Error handling & retry logic',
+      'Full testing & QA',
+    ],
+    maintenance: '$200/mo maintenance available',
+  },
+  {
+    name: 'AI-Powered',
+    price: '$5,000',
+    period: 'one-time',
+    description:
+      'Intelligent automation with AI/ML for smarter decision-making.',
+    highlights: [
+      'AI/ML model integration',
+      'Smart routing & classification',
+      'Natural language processing',
+      'Predictive automation',
+    ],
+    maintenance: '$200/mo maintenance available',
+  },
+  {
+    name: 'Enterprise Orchestration',
+    price: 'Custom',
+    period: '',
+    description:
+      'Full-scale automation with SSO, data pipelines, and containerized builds.',
+    highlights: [
+      'SSO integration (Okta, Azure AD)',
+      'Custom data pipelines',
+      'Containerized deployment',
+      'Custom orchestration logic',
+      '24/7 monitoring & alerting',
+    ],
+  },
+]
+
+/* ─── Content & Link Building ─── */
+
+const contentPricing = [
+  { item: 'SEO Blog Article (1,000\u20131,500 words)', price: '$70' },
+  { item: 'In-depth Guide (2,000+ words)', price: '$150' },
+  { item: 'Monthly Content Package (8 articles)', price: '$500' },
+]
+
+const backlinkPricing = [
+  {
+    tier: 'DR 10\u201320',
+    price: '$80',
+    description: 'Niche-relevant, quality sites',
+  },
+  {
+    tier: 'DR 30\u201340',
+    price: '$120',
+    description: 'Established authority sites',
+  },
+  {
+    tier: 'DR 50\u201360',
+    price: '$200',
+    description: 'High-authority publications',
+  },
+  {
+    tier: 'DR 70+',
+    price: '$350',
+    description: 'Premium, top-tier domains',
+  },
+]
+
+/* ─── FAQ ─── */
+
+const faqItems = [
+  {
+    question: 'How is your pricing different from other agencies?',
+    answer:
+      "Every project we take on is custom-scoped. We don't use cookie-cutter packages or templates. Your pricing reflects your specific goals, timeline, and technical requirements\u2014not a generic tier that barely fits.",
+  },
+  {
+    question: 'Can I combine multiple services?',
+    answer:
+      'Absolutely. Most clients bundle SEO with content marketing, or development with automation. We offer package discounts when you combine services\u2014reach out for a custom quote.',
+  },
+  {
+    question: 'How long does it take to see SEO results?',
+    answer:
+      'Most clients see measurable improvements within 60\u201390 days, with significant ranking gains in 4\u20136 months. We set realistic expectations during onboarding and provide transparent progress reports every month.',
+  },
+  {
+    question: "What's the typical timeline for development projects?",
+    answer:
+      'MVPs typically ship in 8\u201312 weeks. Web applications take 12\u201320 weeks depending on complexity. E-commerce stores range from 6\u201316 weeks based on customization level.',
+  },
+  {
+    question: 'Do you offer ongoing maintenance after project delivery?',
+    answer:
+      'Yes. Development projects include a 30-day warranty period. After that, maintenance retainers start at $200/month for automation workflows and scale based on project complexity.',
+  },
+  {
+    question: 'How do backlink prices work?',
+    answer:
+      "Backlinks are priced by domain rating (DR)\u2014a measure of the linking site's authority. DR 10\u201320 links start at $80 each, DR 30\u201340 at $120, and higher DR domains are priced accordingly. Every link is manually vetted for relevance and quality.",
+  },
+  {
+    question: 'Can I cancel my SEO retainer anytime?',
+    answer:
+      'Yes. All SEO retainers are month-to-month with no long-term contracts. We believe in earning your business through results, not locking you into agreements.',
+  },
+  {
+    question: 'Do you work with startups on limited budgets?',
+    answer:
+      'We do. Our MVP development starts at $3,000 and blog content at $70 per article. We work with you to prioritize the highest-impact activities within your budget.',
+  },
+  {
+    question: "What's included in the full content marketing retainer?",
+    answer:
+      'The $2,000/month retainer covers 8 SEO-optimized articles, content strategy, Reddit and forum promotion, social distribution, and monthly performance reporting.',
+  },
+  {
+    question: 'How do I get started?',
+    answer:
+      'Book a free consultation through our contact page. We discuss your goals, audit your current setup, and provide a custom proposal within 48 hours\u2014no obligation.',
+  },
+]
+
+/* ═══════════════════════════════════════════════════════════
+   Section Components
+   ═══════════════════════════════════════════════════════════ */
+
 function Header() {
   return (
-    <Container className="mt-16">
-      <Heading as="h1">SEO pricing that delivers results.</Heading>
-      <Lead className="mt-6 max-w-3xl">
-        Transparent SEO pricing with no hidden fees. Choose the plan that fits
-        your business goals and start dominating search rankings today.
-      </Lead>
-    </Container>
+    <div className="relative">
+      <HeroAnimation />
+      <Container className="relative pt-16 pb-24">
+        <Heading as="h1">Pricing built around your project.</Heading>
+        <Lead className="mt-6 max-w-3xl">
+          Every engagement is custom. No cookie-cutter packages, no
+          one-size-fits-all plans. Just solutions designed for your specific
+          goals and budget.
+        </Lead>
+        <nav className="mt-10 flex flex-wrap gap-3" aria-label="Jump to pricing section">
+          {[
+            { label: 'SEO Retainers', href: '#seo' },
+            { label: 'Development', href: '#development' },
+            { label: 'Automation', href: '#automation' },
+            { label: 'Content & Links', href: '#content' },
+          ].map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="rounded-full border border-border-strong px-4 py-2 text-sm font-medium text-stone transition-colors hover:bg-cream"
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      </Container>
+    </div>
   )
 }
 
-function PricingCards() {
+/* ─── SEO Retainers ─── */
+
+function SEOPricing() {
   return (
-    <div className="relative py-24">
-        <HeroAnimation />
-      <div className="absolute inset-x-2 top-48 bottom-0 rounded-none border border-border-strong bg-cream" />
-      <Container className="relative">
+    <section id="seo" className="scroll-mt-8 bg-cream py-24">
+      <Container>
+        <div className="mb-16 text-center">
+          <Subheading>SEO Services</Subheading>
+          <Heading as="h2" className="mt-2">
+            Monthly SEO retainers
+          </Heading>
+          <p className="mx-auto mt-4 max-w-2xl text-stone">
+            Ongoing SEO management with transparent deliverables, monthly
+            reporting, and a dedicated team focused on your organic growth.
+          </p>
+        </div>
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-          {tiers.map((tier, tierIndex) => (
-            <PricingCard key={tierIndex} tier={tier} />
+          {seoTiers.map((tier, i) => (
+            <div
+              key={i}
+              className={`rounded-none border border-border-strong bg-white ${
+                tier.featured
+                  ? 'relative border-t-[3px] border-t-accent shadow-lg lg:scale-105'
+                  : ''
+              }`}
+            >
+              {tier.featured && (
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                  <span className="whitespace-nowrap bg-accent px-4 py-1.5 font-mono text-xs font-medium uppercase tracking-[0.1em] text-white">
+                    Most Popular
+                  </span>
+                </div>
+              )}
+              <div className="p-8">
+                <Subheading as="h3">{tier.name}</Subheading>
+                <p className="mt-2 text-sm text-stone">{tier.description}</p>
+                <div className="mt-8 flex items-baseline gap-2">
+                  <span className="font-mono text-[40px] font-medium text-ink">
+                    {tier.price}
+                  </span>
+                  {tier.period && (
+                    <span className="text-sm text-stone">{tier.period}</span>
+                  )}
+                </div>
+                <div className="mt-8">
+                  <Button
+                    variant={tier.featured ? 'solid' : 'ghost'}
+                    href="/contact"
+                  >
+                    {tier.name === 'Enterprise' ? 'Contact us' : 'Get started'}
+                  </Button>
+                </div>
+                <ul className="mt-8 space-y-3">
+                  {tier.highlights.map((item, j) => (
+                    <li
+                      key={j}
+                      className="flex items-start gap-3 text-sm text-stone"
+                    >
+                      <CheckIcon className="mt-0.5 size-4 shrink-0 fill-accent" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           ))}
         </div>
-        <div className="mt-24 text-center">
-          <p className="text-sm text-ash mb-4">All plans include:</p>
+        <div className="mt-16 text-center">
+          <p className="mb-3 text-sm text-ash">All SEO plans include:</p>
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-slate">
             <span>&#10003; No setup fees</span>
             <span>&#10003; Cancel anytime</span>
@@ -153,413 +449,370 @@ function PricingCards() {
           </div>
         </div>
       </Container>
-    </div>
+    </section>
   )
 }
 
-function PricingCard({ tier }: { tier: (typeof tiers)[number] }) {
-  return (
-    <div
-      className={`grid grid-cols-1 rounded-none border border-border-strong bg-white max-lg:mx-auto max-lg:w-full max-lg:max-w-md ${
-        tier.featured
-          ? 'relative transform lg:scale-105 border-t-[3px] border-t-accent shadow-lg'
-          : ''
-      }`}
-    >
-      {tier.featured && (
-        <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-          <span className="font-mono text-xs font-medium tracking-[0.1em] uppercase bg-accent text-white px-4 py-1.5">
-            Popular
-          </span>
-        </div>
-      )}
-      <div className="p-10 pb-9">
-        <Subheading>{tier.name}</Subheading>
-        <p className="mt-2 text-sm/6 text-stone">{tier.description}</p>
-        <div className="mt-8 flex items-center gap-4">
-          <div className="font-mono text-[40px] font-medium text-ink">
-            ${tier.priceMonthly}
-          </div>
-          <div className="text-sm/5 text-stone">
-            <p>USD</p>
-            <p>per month</p>
-          </div>
-        </div>
-        <div className="mt-8">
-          {tier.featured ? (
-            <Button variant="solid" href={tier.href}>
-              Get started
-            </Button>
-          ) : (
-            <Button variant="ghost" href={tier.href}>
-              Get started
-            </Button>
-          )}
-        </div>
-        <div className="mt-8">
-          <h3 className="text-sm/6 font-medium text-ink">
-            What&apos;s included:
-          </h3>
-          <ul className="mt-3 space-y-3">
-            {tier.highlights.map((props, featureIndex) => (
-              <FeatureItem key={featureIndex} {...props} />
-            ))}
-          </ul>
-        </div>
-      </div>
-    </div>
-  )
-}
+/* ─── Development Services ─── */
 
-function PricingTable({
-  selectedTier,
-}: {
-  selectedTier: (typeof tiers)[number]
-}) {
+function DevelopmentPricing() {
   return (
-    <Container className="py-24">
-      <table className="w-full text-left">
-        <caption className="sr-only">SEO pricing plan comparison</caption>
-        <colgroup>
-          <col className="w-3/5 sm:w-2/5" />
-          <col
-            data-selected={selectedTier === tiers[0] ? true : undefined}
-            className="w-2/5 data-selected:table-column max-sm:hidden sm:w-1/5"
-          />
-          <col
-            data-selected={selectedTier === tiers[1] ? true : undefined}
-            className="w-2/5 data-selected:table-column max-sm:hidden sm:w-1/5"
-          />
-          <col
-            data-selected={selectedTier === tiers[2] ? true : undefined}
-            className="w-2/5 data-selected:table-column max-sm:hidden sm:w-1/5"
-          />
-        </colgroup>
-        <thead>
-          <tr className="max-sm:hidden">
-            <td className="p-0" />
-            {tiers.map((tier) => (
-              <th
-                key={tier.slug}
-                scope="col"
-                data-selected={selectedTier === tier ? true : undefined}
-                className="p-0 data-selected:table-cell max-sm:hidden"
-              >
-                <Subheading as="div">{tier.name}</Subheading>
-              </th>
-            ))}
-          </tr>
-          <tr className="sm:hidden">
-            <td className="p-0">
-              <div className="relative inline-block">
-                <Menu>
-                  <MenuButton className="flex items-center justify-between gap-2 font-medium">
-                    {selectedTier.name}
-                    <ChevronUpDownIcon className="size-4 fill-ink" />
-                  </MenuButton>
-                  <MenuItems
-                    anchor="bottom start"
-                    className="min-w-(--button-width) rounded-none bg-white p-1 shadow-lg border border-border-strong [--anchor-gap:6px] [--anchor-offset:-4px] [--anchor-padding:10px]"
-                  >
-                    {tiers.map((tier) => (
-                      <MenuItem key={tier.slug}>
-                        <Link
-                          scroll={false}
-                          href={`/pricing?tier=${tier.slug}`}
-                          data-selected={
-                            tier === selectedTier ? true : undefined
-                          }
-                          className="group flex items-center gap-2 px-2 py-1 data-focus:bg-cream"
-                        >
-                          {tier.name}
-                          <CheckIcon className="hidden size-4 group-data-selected:block" />
-                        </Link>
-                      </MenuItem>
-                    ))}
-                  </MenuItems>
-                </Menu>
-              </div>
-            </td>
-            <td colSpan={3} className="p-0 text-right">
-              <Button variant="outline" href={selectedTier.href}>
-                Get started
-              </Button>
-            </td>
-          </tr>
-          <tr className="max-sm:hidden">
-            <th className="p-0" scope="row">
-              <span className="sr-only">Get started</span>
-            </th>
-            {tiers.map((tier) => (
-              <td
-                key={tier.slug}
-                data-selected={selectedTier === tier ? true : undefined}
-                className="px-0 pt-4 pb-0 data-selected:table-cell max-sm:hidden"
-              >
-                <Button variant="outline" href={tier.href}>
-                  Get started
-                </Button>
-              </td>
-            ))}
-          </tr>
-        </thead>
-        {[...new Set(tiers[0].features.map(({ section }) => section))].map(
-          (section) => (
-            <tbody key={section} className="group">
-              <tr>
-                <th
-                  scope="colgroup"
-                  colSpan={4}
-                  className="px-0 pt-10 pb-0 group-first-of-type:pt-5"
-                >
-                  <div className="-mx-4 bg-cream px-4 py-3 text-sm/6 font-semibold font-heading">
-                    {section}
-                  </div>
-                </th>
-              </tr>
-              {tiers[0].features
-                .filter((feature) => feature.section === section)
-                .map(({ name }) => (
-                  <tr
-                    key={name}
-                    className="border-b border-border last:border-none"
-                  >
-                    <th
-                      scope="row"
-                      className="px-0 py-4 text-sm/6 font-normal text-slate"
-                    >
-                      {name}
-                    </th>
-                    {tiers.map((tier) => {
-                      const value = tier.features.find(
-                        (feature) =>
-                          feature.section === section && feature.name === name,
-                      )?.value
-
-                      return (
-                        <td
-                          key={tier.slug}
-                          data-selected={
-                            selectedTier === tier ? true : undefined
-                          }
-                          className="p-4 data-selected:table-cell max-sm:hidden"
-                        >
-                          {value === true ? (
-                            <>
-                              <CheckIcon className="size-4 fill-accent" />
-                              <span className="sr-only">
-                                Included in {tier.name}
-                              </span>
-                            </>
-                          ) : value === false || value === undefined ? (
-                            <>
-                              <MinusIcon className="size-4 fill-ash" />
-                              <span className="sr-only">
-                                Not included in {tier.name}
-                              </span>
-                            </>
-                          ) : (
-                            <div className="text-sm/6 font-sans">{value}</div>
-                          )}
-                        </td>
-                      )
-                    })}
-                  </tr>
-                ))}
-            </tbody>
-          ),
-        )}
-      </table>
-    </Container>
-  )
-}
-
-function FeatureItem({
-  description,
-  disabled = false,
-}: {
-  description: string
-  disabled?: boolean
-}) {
-  return (
-    <li
-      data-disabled={disabled ? true : undefined}
-      className="flex items-start gap-4 text-sm/6 text-stone data-disabled:text-ash/50"
-    >
-      <span className="inline-flex h-6 items-center">
-        <CheckIcon
-          className={`size-4 shrink-0 ${disabled ? 'fill-ash/30' : 'fill-accent'}`}
-        />
-      </span>
-      {disabled && <span className="sr-only">Not included:</span>}
-      {description}
-    </li>
-  )
-}
-
-function Testimonial() {
-  return (
-    <div className="mx-2 my-24 bg-ink bg-[url(/dot-texture.svg)] pt-72 pb-24 lg:pt-36">
+    <section id="development" className="scroll-mt-8 py-24">
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-[384px_1fr_1fr]">
-          <div className="-mt-96 lg:-mt-52">
-            <div className="-m-2 border border-white/20 bg-white/10 max-lg:mx-auto max-lg:max-w-xs">
-              <div className="p-2">
-                <div className="overflow-hidden outline outline-1 -outline-offset-1 outline-white/10">
-                  <div className="aspect-3/4 w-full bg-ink/80 p-8 flex flex-col gap-4">
-                    <div className="flex-1">
-                      <svg viewBox="0 0 100 100" className="w-full h-full text-white/60">
-                        <polyline
-                          points="10,80 30,50 50,40 70,20 90,10"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        />
-                        {[
-                          { x: 10, y: 80 },
-                          { x: 30, y: 50 },
-                          { x: 50, y: 40 },
-                          { x: 70, y: 20 },
-                          { x: 90, y: 10 },
-                        ].map((point, i) => (
-                          <circle key={i} cx={point.x} cy={point.y} r="3" fill="currentColor" />
-                        ))}
-                      </svg>
-                    </div>
-                    <div className="text-center">
-                      <div className="font-heading text-5xl font-bold text-white mb-1">340%</div>
-                      <div className="font-mono text-xs uppercase tracking-widest text-white/60">Traffic Growth</div>
-                    </div>
+        <div className="mb-16 text-center">
+          <Subheading>Development</Subheading>
+          <Heading as="h2" className="mt-2">
+            Project-based development
+          </Heading>
+          <p className="mx-auto mt-4 max-w-2xl text-stone">
+            Custom-built applications, platforms, and AI solutions. Fixed-price
+            projects with clear scope, timelines, and deliverables.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {devServices.map((service, i) => (
+            <div
+              key={i}
+              className="flex flex-col rounded-none border border-border-strong bg-white p-8"
+            >
+              <h3 className="font-heading text-lg font-semibold text-ink">
+                {service.name}
+              </h3>
+              <p className="mt-2 text-sm text-stone">{service.description}</p>
+              <div className="mt-6 flex items-baseline gap-2">
+                <span className="font-mono text-2xl font-medium text-ink">
+                  from {service.price}
+                </span>
+              </div>
+              <ul className="mt-6 flex-1 space-y-2">
+                {service.highlights.map((item, j) => (
+                  <li
+                    key={j}
+                    className="flex items-start gap-3 text-sm text-stone"
+                  >
+                    <CheckIcon className="mt-0.5 size-4 shrink-0 fill-accent" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              {service.note && (
+                <p className="mt-4 font-mono text-xs uppercase tracking-wide text-ash">
+                  {service.note}
+                </p>
+              )}
+              <Link
+                href={service.href}
+                className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:underline"
+              >
+                Learn more &rarr;
+              </Link>
+            </div>
+          ))}
+        </div>
+      </Container>
+    </section>
+  )
+}
+
+/* ─── Automation Services ─── */
+
+function AutomationPricing() {
+  return (
+    <section id="automation" className="scroll-mt-8 bg-cream py-24">
+      <Container>
+        <div className="mb-16 text-center">
+          <Subheading>Automation</Subheading>
+          <Heading as="h2" className="mt-2">
+            Workflow automation
+          </Heading>
+          <p className="mx-auto mt-4 max-w-2xl text-stone">
+            Eliminate manual work with n8n-powered automation. One-time build
+            with optional ongoing maintenance.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {automationTiers.map((tier, i) => (
+            <div
+              key={i}
+              className="flex flex-col rounded-none border border-border-strong bg-white p-8"
+            >
+              <h3 className="font-heading text-lg font-semibold text-ink">
+                {tier.name}
+              </h3>
+              <p className="mt-2 text-sm text-stone">{tier.description}</p>
+              <div className="mt-6 flex items-baseline gap-2">
+                <span className="font-mono text-2xl font-medium text-ink">
+                  {tier.price}
+                </span>
+                {tier.period && (
+                  <span className="text-sm text-stone">{tier.period}</span>
+                )}
+              </div>
+              <ul className="mt-6 flex-1 space-y-2">
+                {tier.highlights.map((item, j) => (
+                  <li
+                    key={j}
+                    className="flex items-start gap-3 text-sm text-stone"
+                  >
+                    <CheckIcon className="mt-0.5 size-4 shrink-0 fill-accent" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              {tier.maintenance && (
+                <p className="mt-4 text-xs text-ash">{tier.maintenance}</p>
+              )}
+            </div>
+          ))}
+        </div>
+        <div className="mt-8 text-center">
+          <Link
+            href="/services/n8n-automation"
+            className="text-sm font-medium text-accent hover:underline"
+          >
+            Explore all automation services &rarr;
+          </Link>
+        </div>
+      </Container>
+    </section>
+  )
+}
+
+/* ─── Content & Link Building ─── */
+
+function ContentPricing() {
+  return (
+    <section id="content" className="scroll-mt-8 py-24">
+      <Container>
+        <div className="mb-16 text-center">
+          <Subheading>Content & Links</Subheading>
+          <Heading as="h2" className="mt-2">
+            Content marketing & link building
+          </Heading>
+          <p className="mx-auto mt-4 max-w-2xl text-stone">
+            SEO-optimized content and high-quality backlinks to build authority
+            and drive organic traffic.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          {/* Content Creation */}
+          <div className="rounded-none border border-border-strong bg-white">
+            <div className="border-b border-border-strong px-8 py-5">
+              <h3 className="font-heading text-lg font-semibold text-ink">
+                Content Creation
+              </h3>
+            </div>
+            <div className="p-8">
+              <div className="space-y-0">
+                {contentPricing.map((item, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center justify-between border-b border-border py-4 last:border-0"
+                  >
+                    <span className="text-sm text-stone">{item.item}</span>
+                    <span className="ml-4 whitespace-nowrap font-mono text-sm font-medium text-ink">
+                      {item.price}
+                    </span>
                   </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
-          <div className="flex max-lg:mt-16 lg:col-span-2 lg:px-16">
-            <figure className="mx-auto flex max-w-xl flex-col gap-16 max-lg:text-center">
-              <blockquote>
-                <p className="relative font-display text-3xl tracking-tight text-white lg:text-4xl">
-                  TheProjectSEO increased our organic traffic by 340% in just 8 months.
-                  The ROI has been incredible.
-                </p>
-              </blockquote>
-              <figcaption className="mt-auto">
-                <p className="text-sm/6 font-medium text-white">David Thompson</p>
-                <p className="text-sm/6 font-medium text-white/60">
-                  CEO, GrowthTech Solutions
-                </p>
-              </figcaption>
-            </figure>
+
+          {/* Link Building */}
+          <div className="rounded-none border border-border-strong bg-white">
+            <div className="border-b border-border-strong px-8 py-5">
+              <h3 className="font-heading text-lg font-semibold text-ink">
+                Link Building{' '}
+                <span className="text-sm font-normal text-ash">per link</span>
+              </h3>
+            </div>
+            <div className="p-8">
+              <div className="space-y-0">
+                {backlinkPricing.map((item, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center justify-between border-b border-border py-4 last:border-0"
+                  >
+                    <div>
+                      <span className="text-sm font-medium text-ink">
+                        {item.tier}
+                      </span>
+                      <p className="text-xs text-ash">{item.description}</p>
+                    </div>
+                    <span className="ml-4 whitespace-nowrap font-mono text-sm font-medium text-ink">
+                      {item.price}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Full Content Marketing Retainer */}
+        <div className="mt-8 rounded-none border border-accent/30 bg-accent/5 p-8 text-center">
+          <h3 className="font-heading text-lg font-semibold text-ink">
+            Full Content Marketing
+          </h3>
+          <div className="mt-2 flex items-baseline justify-center gap-2">
+            <span className="font-mono text-[32px] font-medium text-ink">
+              $2,000
+            </span>
+            <span className="text-sm text-stone">/mo</span>
+          </div>
+          <p className="mx-auto mt-3 max-w-lg text-sm text-stone">
+            8 SEO articles, content strategy, Reddit &amp; forum promotion,
+            social distribution, and monthly performance reporting.
+          </p>
+          <div className="mt-6">
+            <Button variant="ghost" href="/contact">
+              Get started
+            </Button>
           </div>
         </div>
       </Container>
-    </div>
+    </section>
   )
 }
 
-function FrequentlyAskedQuestions() {
+/* ─── Custom Section (dark) ─── */
+
+function CustomSection() {
   return (
-    <Container>
-      <section id="faqs" className="scroll-mt-8">
-        <Subheading className="text-center">
-          Frequently asked questions
-        </Subheading>
-        <Heading as="div" className="mt-2 text-center">
-          Your SEO questions answered.
-        </Heading>
-        <div className="mx-auto mt-16 mb-32 max-w-xl space-y-12">
-          <dl>
-            <dt className="text-sm font-semibold font-heading text-ink">
-              How long does it take to see SEO results?
-            </dt>
-            <dd className="mt-4 text-sm/6 text-slate font-sans">
-              Most clients start seeing improvements within 30-60 days, with significant
-              ranking improvements typically occurring within 3-6 months. SEO is a
-              long-term strategy that builds momentum over time.
-            </dd>
-          </dl>
-          <dl>
-            <dt className="text-sm font-semibold font-heading text-ink">
-              Do you guarantee first page rankings?
-            </dt>
-            <dd className="mt-4 text-sm/6 text-slate font-sans">
-              While we cannot guarantee specific rankings due to Google&apos;s ever-changing
-              algorithm, we do guarantee significant improvements in your organic visibility
-              and traffic when you follow our strategy.
-            </dd>
-          </dl>
-          <dl>
-            <dt className="text-sm font-semibold font-heading text-ink">
-              What makes TheProjectSEO different from other agencies?
-            </dt>
-            <dd className="mt-4 text-sm/6 text-slate font-sans">
-              We focus on data-driven strategies that deliver measurable ROI. Our team
-              stays ahead of algorithm updates, uses cutting-edge tools, and provides
-              transparent reporting so you always know what we&apos;re working on.
-            </dd>
-          </dl>
-          <dl>
-            <dt className="text-sm font-semibold font-heading text-ink">
-              Can I cancel my SEO service anytime?
-            </dt>
-            <dd className="mt-4 text-sm/6 text-slate font-sans">
-              Yes, all our plans are month-to-month with no long-term contracts.
-              We believe in earning your business every month through results,
-              not locking you into lengthy agreements.
-            </dd>
-          </dl>
-          <dl>
-            <dt className="text-sm font-semibold font-heading text-ink">
-              Do you work with businesses in my industry?
-            </dt>
-            <dd className="mt-4 text-sm/6 text-slate font-sans">
-              We have experience across virtually every industry, from B2B SaaS and
-              e-commerce to healthcare and professional services. Our strategies are
-              customized based on your specific industry and target audience.
-            </dd>
-          </dl>
+    <section className="bg-ink py-24">
+      <Container>
+        <div className="mx-auto max-w-3xl text-center">
+          <Subheading dark>Why Custom</Subheading>
+          <Heading as="h2" dark className="mt-2">
+            Every project starts with a conversation.
+          </Heading>
+          <p className="mt-6 text-lg leading-relaxed text-white/70">
+            We don&apos;t believe in cookie-cutter solutions. Your business is
+            unique, your challenges are specific, and your strategy should be
+            too. That&apos;s why every engagement begins with a deep-dive into
+            your goals, your market, and your competitive landscape.
+          </p>
+          <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-3">
+            <div>
+              <div className="font-mono text-3xl font-medium text-accent">
+                100%
+              </div>
+              <p className="mt-2 text-sm text-white/60">
+                Custom-scoped projects
+              </p>
+            </div>
+            <div>
+              <div className="font-mono text-3xl font-medium text-accent">
+                48hr
+              </div>
+              <p className="mt-2 text-sm text-white/60">
+                Custom proposal delivery
+              </p>
+            </div>
+            <div>
+              <div className="font-mono text-3xl font-medium text-accent">
+                0
+              </div>
+              <p className="mt-2 text-sm text-white/60">
+                Long-term contracts required
+              </p>
+            </div>
+          </div>
+          <div className="mt-12">
+            <Button variant="solid" href="/contact">
+              Book a free consultation
+            </Button>
+          </div>
         </div>
-      </section>
-    </Container>
+      </Container>
+    </section>
   )
 }
 
-export default async function Pricing({
-  searchParams,
-}: {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
-}) {
-  const params = await searchParams
-  const tier =
-    typeof params.tier === 'string'
-      ? tiers.find(({ slug }) => slug === params.tier)!
-      : tiers[0]
+/* ─── FAQ ─── */
 
+function FAQ() {
+  return (
+    <section className="py-24">
+      <Container>
+        <FAQAccordion
+          items={faqItems}
+          title="Pricing questions answered"
+        />
+      </Container>
+    </section>
+  )
+}
+
+/* ─── CTA ─── */
+
+function CTASection() {
+  return (
+    <section className="bg-cream py-24">
+      <Container>
+        <div className="mx-auto max-w-2xl text-center">
+          <Subheading>Ready to start?</Subheading>
+          <Heading as="h2" className="mt-2">
+            Let&apos;s build something great together.
+          </Heading>
+          <p className="mt-6 text-stone">
+            Tell us about your project and we&apos;ll send you a custom proposal
+            within 48 hours. No commitment, no pressure.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <Button variant="solid" href="/contact">
+              Get a custom proposal
+            </Button>
+            <Button variant="outline" href="/services">
+              Explore services
+            </Button>
+          </div>
+        </div>
+      </Container>
+    </section>
+  )
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Page
+   ═══════════════════════════════════════════════════════════ */
+
+export default function Pricing() {
   return (
     <main className="overflow-hidden">
       <JsonLd
         data={{
           '@context': 'https://schema.org',
           '@type': 'WebPage',
-          name: 'SEO Pricing',
-          description: 'Transparent SEO pricing plans...',
+          name: 'Pricing - SEO, Development & Automation Services',
+          description:
+            'Transparent pricing for SEO, web development, AI solutions, and automation services. Every project is custom-built.',
           url: 'https://theprojectseo.com/pricing',
+          provider: {
+            '@type': 'Organization',
+            name: 'TheProjectSEO',
+            url: 'https://theprojectseo.com',
+          },
         }}
       />
       <Container>
         <Navbar />
       </Container>
       <Header />
-      <PricingCards />
-      <PricingTable selectedTier={tier} />
-      <Testimonial />
+      <SEOPricing />
+      <DevelopmentPricing />
+      <AutomationPricing />
+      <ContentPricing />
+      <CustomSection />
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
+        quote="TheProjectSEO delivered a custom SEO strategy that increased our organic traffic by 340% in 8 months. The ROI has been incredible."
         author="David Thompson"
         role="CEO"
         company="GrowthTech Solutions"
       />
-      <FrequentlyAskedQuestions />
+      <FAQ />
+      <CTASection />
       <Footer />
     </main>
   )
