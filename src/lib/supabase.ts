@@ -7,7 +7,7 @@ function createNoopClient(): SupabaseClient {
   /* eslint-disable @typescript-eslint/no-explicit-any */
   const handler: ProxyHandler<any> = {
     get: (_target, prop) => {
-      if (prop === 'then') return undefined
+      if (prop === 'then') return (resolve?: (v?: unknown) => void) => resolve?.()
       return () => new Proxy({}, handler)
     },
   }

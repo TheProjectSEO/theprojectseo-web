@@ -168,7 +168,7 @@ export function SessionTracker() {
         search_query: query,
         device_type: deviceType,
         screen_width: window.innerWidth,
-      })
+      }).then(() => {}, () => {})
     }
 
     flushedRef.current = false
