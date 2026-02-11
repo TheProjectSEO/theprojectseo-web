@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Archivo, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { SessionTrackerLoader } from "@/components/session-tracker-loader";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -91,6 +92,7 @@ export default function RootLayout({
     >
       <body className="font-sans antialiased bg-paper text-ink">
         {children}
+        <SessionTrackerLoader />
       </body>
     </html>
   );
