@@ -5,6 +5,7 @@ import { N8nHero } from '@/components/n8n-hero'
 import { FAQDarkSection } from '@/components/faq-dark-section'
 import { SubpageNav } from '@/components/subpage-nav'
 import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { N8nWorkflowVisual } from '@/components/n8n-workflow-visual'
 import {
   StatsBar,
   ServicesGrid,
@@ -604,7 +605,7 @@ export default function N8nAutomationPage() {
       <SubpageNav {...subpagesData} />
       <FeatureCardsSection {...challengesData} />
       <ServicesGrid {...servicesData} />
-      <ProcessTabbedSection {...processData} />
+      <ProcessTabbedSection {...processData} visual={<N8nWorkflowVisual />} visualBg="ink" />
       <CaseStudyDark {...caseStudyData} />
       <FeatureCardsSection {...toolsData} />
       <TextContentSection {...industriesData} />

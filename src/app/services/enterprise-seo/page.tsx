@@ -17,6 +17,7 @@ import {
   TextContentSection,
 } from '@/components/service-page-sections'
 import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { ServiceProcessVisual } from '@/components/service-process-visual'
 import {
   Globe,
   Server,
@@ -479,7 +480,7 @@ export default function EnterpriseSEOPage() {
 
       <TextContentSection {...contentStrategyData} />
 
-      <ProcessTabbedSection {...processData} />
+      <ProcessTabbedSection {...processData} visual={<ServiceProcessVisual type="strategy" />} visualBg="ink" />
 
       <CaseStudyDark {...caseStudyData} />
 

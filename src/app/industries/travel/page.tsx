@@ -8,6 +8,7 @@ import { FAQDarkSection } from '@/components/faq-dark-section'
 import { TestimonialQuoteSection } from '@/components/testimonial-quote-section'
 import { HeroAnimation } from '@/components/hero-animation'
 import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { IndustryProcessVisual } from '@/components/industry-process-visual'
 import { CTAFormSection } from '@/components/service-page-sections'
 import {
   GlobeAltIcon,
@@ -712,7 +713,7 @@ function PricingSection() {
               Travel SEO packages
             </p>
             <div className="font-mono text-4xl font-bold text-ink">
-              Starting at $1,997<span className="text-base font-normal text-ash">/month</span>
+              Starting at $2,200<span className="text-base font-normal text-ash">/month</span>
             </div>
             <p className="mt-4 text-sm text-slate max-w-md mx-auto">
               Includes destination keyword research, content strategy, technical optimization,
@@ -856,6 +857,8 @@ export default function TravelSEO() {
         subheading="Our Process"
         heading="How we drive organic bookings for travel brands"
         steps={processSteps}
+        visual={<IndustryProcessVisual type="travel" />}
+        visualBg="ink"
       />
       <TechnicalSEOSection />
       <CaseStudySection />

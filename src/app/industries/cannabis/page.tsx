@@ -8,6 +8,7 @@ import { FAQDarkSection } from '@/components/faq-dark-section'
 import { TestimonialQuoteSection } from '@/components/testimonial-quote-section'
 import { HeroAnimation } from '@/components/hero-animation'
 import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { IndustryProcessVisual } from '@/components/industry-process-visual'
 import { CTAFormSection } from '@/components/service-page-sections'
 import {
   ShieldExclamationIcon,
@@ -413,7 +414,7 @@ function ServicesSection() {
 /*  Section 5: Process Steps                                                   */
 /* -------------------------------------------------------------------------- */
 
-// Process section now uses ProcessSectionAnimated component with slide-from-left animation
+// Section 05: Process
 
 /* -------------------------------------------------------------------------- */
 /*  Section 6: Technical SEO                                                   */
@@ -671,7 +672,7 @@ function PricingContextSection() {
 
           <div className="border border-border-strong rounded-none p-8 mb-8">
             <p className="font-heading text-lg font-semibold text-ink mb-4">
-              Investment starts at $1,997/month
+              Investment starts at $2,200/month
             </p>
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-sm text-stone">
@@ -813,6 +814,8 @@ export default function CannabisIndustrySEO() {
         subheading="Our Process"
         heading="How we drive cannabis SEO results"
         steps={processSteps}
+        visual={<IndustryProcessVisual type="cannabis" />}
+        visualBg="ink"
       />
       <TechnicalSEOSection />
       <CaseStudySection />

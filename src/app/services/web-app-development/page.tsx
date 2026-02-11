@@ -7,13 +7,14 @@ import {
   ServiceHero,
   StatsBar,
   ServicesGrid,
-  ProcessSection,
   CaseStudyDark,
   FeatureCardsSection,
   PricingSection,
   TestimonialSection,
   CTAFormSection,
 } from '@/components/service-page-sections'
+import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { ServiceProcessVisual } from '@/components/service-process-visual'
 import { FAQAccordion } from '@/components/faq-accordion'
 import { Container } from '@/components/container'
 import type { Metadata } from 'next'
@@ -500,7 +501,7 @@ export default function WebAppDevelopment() {
       <ServiceHero {...heroData} />
       <StatsBar stats={statsData} />
       <ServicesGrid {...servicesData} />
-      <ProcessSection {...processData} />
+      <ProcessTabbedSection {...processData} visual={<ServiceProcessVisual type="implementation" />} visualBg="ink" />
       <CaseStudyDark {...caseStudyData} />
       <FeatureCardsSection {...accessibilityData} />
       <FeatureCardsSection {...technologyData} />

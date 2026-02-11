@@ -9,6 +9,7 @@ import { CTAFormSection } from '@/components/service-page-sections'
 import { FAQDarkSection } from '@/components/faq-dark-section'
 import { TestimonialQuoteSection } from '@/components/testimonial-quote-section'
 import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { LocationProcessVisual } from '@/components/location-process-visual'
 import {
   LanguageIcon,
   ChartBarIcon,
@@ -603,6 +604,8 @@ export default function HongKongSEOServices() {
         subheading="Our Process"
         heading="How we drive Hong Kong SEO results"
         steps={processSteps}
+        visual={<LocationProcessVisual type="hongkong" />}
+        visualBg="accent"
       />
       <CaseStudySection />
       <CitiesSection />

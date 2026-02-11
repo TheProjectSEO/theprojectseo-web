@@ -7,13 +7,14 @@ import {
   ServiceHero,
   StatsBar,
   ServicesGrid,
-  ProcessSection,
   CaseStudyDark,
   FeatureCardsSection,
   PricingSection,
   TestimonialSection,
   CTAFormSection,
 } from '@/components/service-page-sections'
+import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { ServiceProcessVisual } from '@/components/service-process-visual'
 import {
   Link2,
   Megaphone,
@@ -456,7 +457,7 @@ export default function OffPageSEOPage() {
       <ServiceHero {...heroData} />
       <StatsBar stats={statsData} />
       <ServicesGrid {...servicesData} />
-      <ProcessSection {...processData} />
+      <ProcessTabbedSection {...processData} visual={<ServiceProcessVisual type="optimization" />} visualBg="ink" />
       <CaseStudyDark {...caseStudyData} />
       <FeatureCardsSection {...toolsData} />
       <PricingSection {...pricingData} />

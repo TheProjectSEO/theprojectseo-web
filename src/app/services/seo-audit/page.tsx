@@ -7,13 +7,14 @@ import {
   ServiceHero,
   StatsBar,
   ServicesGrid,
-  ProcessSection,
   CaseStudyDark,
   FeatureCardsSection,
   PricingSection,
   TestimonialSection,
   CTAFormSection,
 } from '@/components/service-page-sections'
+import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { ServiceProcessVisual } from '@/components/service-process-visual'
 import {
   Search,
   Zap,
@@ -446,7 +447,7 @@ export default function SEOAuditPage() {
       <ServiceHero {...heroData} />
       <StatsBar stats={statsData} />
       <ServicesGrid {...servicesData} />
-      <ProcessSection {...processData} />
+      <ProcessTabbedSection {...processData} visual={<ServiceProcessVisual type="audit" />} visualBg="ink" />
       <CaseStudyDark {...caseStudyData} />
       <FeatureCardsSection {...toolsData} />
       <PricingSection {...pricingData} />

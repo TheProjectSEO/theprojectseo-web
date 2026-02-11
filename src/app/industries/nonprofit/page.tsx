@@ -16,6 +16,7 @@ import { FAQDarkSection } from '@/components/faq-dark-section'
 import { TestimonialQuoteSection } from '@/components/testimonial-quote-section'
 import { HeroAnimation } from '@/components/hero-animation'
 import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { IndustryProcessVisual } from '@/components/industry-process-visual'
 import { CTAFormSection } from '@/components/service-page-sections'
 
 export const metadata: Metadata = {
@@ -603,7 +604,7 @@ function PricingSection() {
       <div className="max-w-2xl mx-auto">
         <div className="rounded-none border border-border-strong bg-paper p-10 text-center">
           <p className="font-mono text-xs uppercase tracking-[0.1em] text-accent mb-4">Nonprofit SEO</p>
-          <div className="font-mono text-4xl font-bold text-ink mb-2">Starting at $997/month</div>
+          <div className="font-mono text-4xl font-bold text-ink mb-2">Starting at $2,200/month</div>
           <p className="text-sm text-ash mb-8">Nonprofit-friendly pricing with flexible packages</p>
 
           <ul className="space-y-3 text-left max-w-md mx-auto mb-10">
@@ -747,6 +748,8 @@ export default function NonprofitSEO() {
         subheading="Our Process"
         heading="How we grow your nonprofit's digital presence"
         steps={processSteps}
+        visual={<IndustryProcessVisual type="nonprofit" />}
+        visualBg="ink"
       />
       {/* Section 6: Technical SEO */}
       <TechnicalSEOSection />

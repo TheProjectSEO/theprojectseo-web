@@ -6,6 +6,7 @@ import { Heading, Subheading } from '@/components/text'
 import { FAQAccordion } from '@/components/faq-accordion'
 import { HeroAnimation } from '@/components/hero-animation'
 import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { ServiceProcessVisual } from '@/components/service-process-visual'
 import {
   CheckCircle,
   BarChart3,
@@ -518,7 +519,7 @@ function ConsultingPackages() {
     },
     {
       name: "Monthly Consulting",
-      price: "$1,997",
+      price: "$2,200",
       duration: "Per month",
       description: "Ongoing monthly consulting with strategic guidance and implementation support.",
       features: [
@@ -836,6 +837,8 @@ export default function SEOConsulting() {
         subheading="Our Process"
         heading="How our SEO consulting works"
         steps={processSteps}
+        visual={<ServiceProcessVisual type="strategy" />}
+        visualBg="ink"
       />
       <CaseStudySection />
       <TestimonialsSection />

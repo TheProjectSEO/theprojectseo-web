@@ -16,6 +16,7 @@ import {
   CTAFormSection,
 } from '@/components/service-page-sections'
 import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { ServiceProcessVisual } from '@/components/service-process-visual'
 import {
   Rocket,
   Code,
@@ -483,7 +484,7 @@ export default function MVPDevelopmentPage() {
       <StatsBar stats={statsData} />
       <FeatureCardsSection {...challengesData} />
       <ServicesGrid {...servicesData} />
-      <ProcessTabbedSection {...processData} />
+      <ProcessTabbedSection {...processData} visual={<ServiceProcessVisual type="implementation" />} visualBg="ink" />
       <CaseStudyDark {...caseStudyData} />
       <FeatureCardsSection {...toolsData} />
       <PricingSection {...pricingData} />

@@ -8,6 +8,7 @@ import { FAQDarkSection } from '@/components/faq-dark-section'
 import { TestimonialQuoteSection } from '@/components/testimonial-quote-section'
 import { HeroAnimation } from '@/components/hero-animation'
 import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { IndustryProcessVisual } from '@/components/industry-process-visual'
 import { CTAFormSection } from '@/components/service-page-sections'
 import { JsonLd } from '@/components/json-ld'
 import type { Metadata } from 'next'
@@ -416,7 +417,7 @@ function ServicesSection() {
 }
 
 // Section 05: Process
-// Process section now uses ProcessSectionAnimated component with slide-from-left animation
+// Section 05: Process
 
 // Section 06: Technical SEO
 function TechnicalSEOSection() {
@@ -670,11 +671,11 @@ function PricingSection() {
         <div className="mx-auto max-w-3xl rounded-none border border-border-strong bg-cream p-8 text-center">
           <Subheading>Automotive SEO Investment</Subheading>
           <div className="mt-4 flex items-baseline justify-center gap-2">
-            <span className="font-mono text-[36px] font-bold text-ink">$1,997</span>
+            <span className="font-mono text-[36px] font-bold text-ink">$2,200</span>
             <span className="text-ash">/month</span>
           </div>
           <p className="mt-4 text-sm leading-relaxed text-slate max-w-lg mx-auto">
-            Our automotive SEO packages start at $1,997/month and include dealer website optimization, inventory SEO,
+            Our automotive SEO packages start at $2,200/month and include dealer website optimization, inventory SEO,
             local search management, and monthly reporting. Custom enterprise plans available for multi-location groups.
           </p>
           <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:justify-center">
@@ -788,6 +789,8 @@ export default function AutomotiveSEO() {
         subheading="Our Process"
         heading="How we accelerate your dealership's growth"
         steps={processSteps}
+        visual={<IndustryProcessVisual type="automotive" />}
+        visualBg="ink"
       />
       <TechnicalSEOSection />
       <CaseStudySection />

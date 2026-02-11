@@ -194,7 +194,7 @@ const faqItems = [
   {
     question: 'How much does SEO cost in India?',
     answer:
-      'SEO pricing in India varies based on scope and competitiveness. For small to mid-sized businesses, monthly SEO retainers typically range from \u20B925,000 to \u20B91,50,000 (approximately $300 to $1,800 USD). Enterprise-level SEO engagements for large corporations or highly competitive industries range from \u20B92,00,000 to \u20B95,00,000+ per month ($2,400 to $6,000+ USD). Our pricing is structured around measurable ROI, ensuring your investment delivers tangible business growth.',
+      'SEO pricing in India varies based on scope and competitiveness. For small to mid-sized businesses, monthly SEO retainers typically range from \u20B91,80,000 to \u20B93,50,000 (approximately $2,200 to $4,200 USD). Enterprise-level SEO engagements for large corporations or highly competitive industries range from \u20B93,50,000 to \u20B95,00,000+ per month ($4,200 to $6,000+ USD). Our pricing is structured around measurable ROI, ensuring your investment delivers tangible business growth.',
   },
   {
     question: 'How do you handle the Indian market\u2019s diversity?',

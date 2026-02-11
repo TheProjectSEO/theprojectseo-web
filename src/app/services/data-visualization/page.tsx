@@ -14,6 +14,8 @@ import {
   ShieldCheck,
   Clock,
 } from 'lucide-react'
+import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { ServiceProcessVisual } from '@/components/service-process-visual'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -473,6 +475,19 @@ export default function DataVisualizationPage() {
           </div>
         </Container>
       </section>
+
+      <ProcessTabbedSection
+        subheading="Our Process"
+        heading="How we build data visualizations."
+        steps={[
+          { number: '01', title: 'Requirements & Data Audit', description: 'We map your key metrics, data sources, and stakeholder needs. Understand what decisions your dashboards need to support.' },
+          { number: '02', title: 'Design & Prototyping', description: 'Create wireframes and interactive prototypes. Test with real data to ensure visualizations are intuitive and actionable.' },
+          { number: '03', title: 'Development & Integration', description: 'Build production dashboards with D3.js, Tableau, or custom solutions. Connect live data feeds and implement caching for performance.' },
+          { number: '04', title: 'Launch & Iteration', description: 'Deploy dashboards, train your team, and iterate based on usage analytics. Continuous refinement ensures maximum adoption and value.' },
+        ]}
+        visual={<ServiceProcessVisual type="reporting" />}
+        visualBg="ink"
+      />
 
       {/* Case Study - Dark Section */}
       <section className="bg-ink py-16 sm:py-24">

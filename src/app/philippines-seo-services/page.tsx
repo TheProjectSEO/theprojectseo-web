@@ -200,7 +200,7 @@ const faqItems = [
   {
     question: 'How much does SEO cost in the Philippines?',
     answer:
-      'SEO costs in the Philippines vary based on scope and competitiveness. Local small business SEO typically ranges from PHP 15,000 to PHP 50,000 per month, while comprehensive enterprise SEO campaigns can range from PHP 80,000 to PHP 250,000+ monthly. Compared to US agencies where similar services cost $3,000-$10,000+/month, Philippine SEO delivers excellent value without compromising quality. Our pricing is transparent and tailored to your specific market and growth objectives.',
+      'SEO costs in the Philippines vary based on scope and competitiveness. Our SEO retainers start at PHP 125,000 per month (approximately $2,200 USD), while comprehensive enterprise SEO campaigns can range from PHP 175,000 to PHP 350,000+ monthly. Compared to US agencies where similar services cost $3,000-$10,000+/month, Philippine SEO delivers excellent value without compromising quality. Our pricing is transparent and tailored to your specific market and growth objectives.',
   },
   {
     question: 'How do you handle timezone differences?',

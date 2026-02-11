@@ -8,7 +8,8 @@ import { HeroAnimation } from '@/components/hero-animation'
 import { JsonLd } from '@/components/json-ld'
 import { Navbar } from '@/components/navbar'
 import { Heading, Lead, Subheading } from '@/components/text'
-import { ProcessSectionAnimated } from '@/components/process-section-animated'
+import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { ServiceProcessVisual } from '@/components/service-process-visual'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -1256,10 +1257,12 @@ export default function AISEOAgent() {
       <ComparisonSection />
       <ArchitectureSection />
       <CMSIntegration />
-      <ProcessSectionAnimated
+      <ProcessTabbedSection
         subheading="Our Process"
         heading="From manual to AI-powered in 8 weeks."
         steps={processSteps}
+        visual={<ServiceProcessVisual type="implementation" />}
+        visualBg="ink"
       />
       <QASection />
       <CaseStudy1 />

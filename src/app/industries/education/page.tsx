@@ -8,6 +8,7 @@ import { FAQDarkSection } from '@/components/faq-dark-section'
 import { TestimonialQuoteSection } from '@/components/testimonial-quote-section'
 import { HeroAnimation } from '@/components/hero-animation'
 import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { IndustryProcessVisual } from '@/components/industry-process-visual'
 import { CTAFormSection } from '@/components/service-page-sections'
 import { JsonLd } from '@/components/json-ld'
 import {
@@ -573,7 +574,7 @@ function PricingSection() {
             Our education SEO packages are designed to deliver measurable enrollment results for institutions and EdTech companies of all sizes.
           </Lead>
           <div className="mt-8">
-            <p className="font-display text-4xl font-medium text-ink">Starting at $1,497/month</p>
+            <p className="font-display text-4xl font-medium text-ink">Starting at $2,200/month</p>
             <p className="mt-3 text-sm text-slate">Custom plans available based on program count, target markets, and enrollment goals.</p>
           </div>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:justify-center">
@@ -691,6 +692,8 @@ export default function EducationSEO() {
         subheading="Our Process"
         heading="How we grow education enrollment through SEO"
         steps={processSteps}
+        visual={<IndustryProcessVisual type="education" />}
+        visualBg="ink"
       />
       {/* Section 6: Technical SEO */}
       <TechnicalSEOSection />

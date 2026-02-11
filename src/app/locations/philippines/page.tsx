@@ -9,6 +9,7 @@ import { CTAFormSection } from '@/components/service-page-sections'
 import { FAQDarkSection } from '@/components/faq-dark-section'
 import { TestimonialQuoteSection } from '@/components/testimonial-quote-section'
 import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { LocationProcessVisual } from '@/components/location-process-visual'
 import {
   BuildingOfficeIcon,
   LanguageIcon,
@@ -609,6 +610,8 @@ export default function PhilippinesSEOServices() {
         subheading="Our Process"
         heading="How we drive Philippine SEO results"
         steps={processSteps}
+        visual={<LocationProcessVisual type="philippines" />}
+        visualBg="accent"
       />
       <CaseStudySection />
       <CitiesSection />

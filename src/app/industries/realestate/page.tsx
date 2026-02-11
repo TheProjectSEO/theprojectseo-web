@@ -8,6 +8,7 @@ import { FAQDarkSection } from '@/components/faq-dark-section'
 import { TestimonialQuoteSection } from '@/components/testimonial-quote-section'
 import { HeroAnimation } from '@/components/hero-animation'
 import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { IndustryProcessVisual } from '@/components/industry-process-visual'
 import { CTAFormSection } from '@/components/service-page-sections'
 import {
   MapPinIcon,
@@ -638,7 +639,7 @@ function PricingSection() {
           </Lead>
 
           <div className="mt-12 rounded-none border border-border-strong bg-white p-8">
-            <div className="font-mono text-[36px] font-bold text-ink">$1,997</div>
+            <div className="font-mono text-[36px] font-bold text-ink">$2,200</div>
             <div className="text-sm text-ash mt-1">Starting at /month</div>
 
             <ul className="mt-8 space-y-3 text-left max-w-md mx-auto">
@@ -779,6 +780,8 @@ export default function RealEstateSEO() {
         subheading="Our Process"
         heading="How we deliver real estate SEO results"
         steps={processSteps}
+        visual={<IndustryProcessVisual type="realestate" />}
+        visualBg="ink"
       />
       {/* Section 6: Technical SEO */}
       <TechnicalSEOSection />

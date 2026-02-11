@@ -8,6 +8,7 @@ import { CTAFormSection } from '@/components/service-page-sections'
 import { FAQAccordion } from '@/components/faq-accordion'
 import { HeroAnimation } from '@/components/hero-animation'
 import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { ServiceProcessVisual } from '@/components/service-process-visual'
 import {
   FileText,
   SquarePen,
@@ -161,7 +162,7 @@ const caseStudy = {
 const packages = [
   {
     name: 'Content Starter',
-    price: '$997',
+    price: '$2,200',
     period: '/month',
     description: 'Essential content services for small businesses',
     features: [
@@ -174,7 +175,7 @@ const packages = [
   },
   {
     name: 'Content Growth',
-    price: '$1,997',
+    price: '$3,500',
     period: '/month',
     description: 'Comprehensive content marketing for growing businesses',
     features: [
@@ -632,6 +633,8 @@ export default function ContentServices() {
         subheading="Our Process"
         heading="How we create content that ranks and converts"
         steps={processSteps}
+        visual={<ServiceProcessVisual type="strategy" />}
+        visualBg="ink"
       />
       <CaseStudySection />
       <PackagesSection />

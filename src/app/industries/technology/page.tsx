@@ -8,6 +8,7 @@ import { FAQDarkSection } from '@/components/faq-dark-section'
 import { TestimonialQuoteSection } from '@/components/testimonial-quote-section'
 import { HeroAnimation } from '@/components/hero-animation'
 import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { IndustryProcessVisual } from '@/components/industry-process-visual'
 import { CTAFormSection } from '@/components/service-page-sections'
 import { JsonLd } from '@/components/json-ld'
 import {
@@ -590,7 +591,7 @@ function PricingSection() {
 
           <div className="mt-12 border border-border-strong bg-white p-8">
             <div className="font-mono text-xs uppercase tracking-[0.1em] text-ash mb-4">Starting at</div>
-            <div className="font-mono text-[48px] font-bold text-ink leading-none mb-2">$1,997</div>
+            <div className="font-mono text-[48px] font-bold text-ink leading-none mb-2">$2,200</div>
             <div className="font-mono text-sm text-ash mb-8">/month</div>
 
             <ul className="space-y-3 text-left max-w-md mx-auto mb-8">
@@ -730,6 +731,8 @@ export default function TechnologySEO() {
         subheading="Our Process"
         heading="How we deliver results for tech companies"
         steps={processSteps}
+        visual={<IndustryProcessVisual type="technology" />}
+        visualBg="ink"
       />
       {/* Section 6: Technical SEO Excellence */}
       <TechnicalSEOSection />

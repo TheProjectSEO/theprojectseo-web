@@ -12,6 +12,8 @@ import {
   BarChart3,
   Cloud,
 } from 'lucide-react'
+import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { ServiceProcessVisual } from '@/components/service-process-visual'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -495,6 +497,19 @@ export default function DataEngineeringPage() {
           </div>
         </Container>
       </section>
+
+      <ProcessTabbedSection
+        subheading="Our Process"
+        heading="How we build data infrastructure."
+        steps={[
+          { number: '01', title: 'Discovery & Architecture', description: 'We audit your existing data sources, identify bottlenecks, and design a scalable architecture using modern tools like Airflow, dbt, and Snowflake.' },
+          { number: '02', title: 'Pipeline Development', description: 'Build robust ETL/ELT pipelines with automated testing, monitoring, and error handling. Every pipeline is version-controlled and documented.' },
+          { number: '03', title: 'Integration & Testing', description: 'Connect all data sources, validate data quality with automated checks, and run end-to-end integration tests before going live.' },
+          { number: '04', title: 'Deployment & Monitoring', description: 'Deploy to production with CI/CD, set up real-time monitoring dashboards, and establish alerting for pipeline failures or data anomalies.' },
+        ]}
+        visual={<ServiceProcessVisual type="implementation" />}
+        visualBg="ink"
+      />
 
       {/* Case Study - Dark Section */}
       <section className="bg-ink py-16 sm:py-24">

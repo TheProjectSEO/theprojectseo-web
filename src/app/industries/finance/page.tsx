@@ -8,6 +8,7 @@ import { FAQDarkSection } from '@/components/faq-dark-section'
 import { TestimonialQuoteSection } from '@/components/testimonial-quote-section'
 import { HeroAnimation } from '@/components/hero-animation'
 import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { IndustryProcessVisual } from '@/components/industry-process-visual'
 import { CTAFormSection } from '@/components/service-page-sections'
 import {
   ShieldCheckIcon,
@@ -772,6 +773,8 @@ export default function FinanceSEO() {
         subheading="Our Process"
         heading="A proven process for financial services SEO"
         steps={processSteps}
+        visual={<IndustryProcessVisual type="finance" />}
+        visualBg="ink"
       />
       <TechnicalSEOSection />
       <CaseStudySection />

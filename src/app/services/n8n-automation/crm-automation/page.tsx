@@ -16,6 +16,7 @@ import {
   CTAFormSection,
 } from '@/components/service-page-sections'
 import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { N8nWorkflowVisual } from '@/components/n8n-workflow-visual'
 import {
   Database,
   RefreshCw,
@@ -485,7 +486,7 @@ export default function CRMAutomationPage() {
       <StatsBar stats={statsData} />
       <FeatureCardsSection {...challengesData} />
       <ServicesGrid {...servicesData} />
-      <ProcessTabbedSection {...processData} />
+      <ProcessTabbedSection {...processData} visual={<N8nWorkflowVisual />} visualBg="ink" />
       <CaseStudyDark {...caseStudyData} />
       <FeatureCardsSection {...toolsData} />
       <PricingSection {...pricingData} />

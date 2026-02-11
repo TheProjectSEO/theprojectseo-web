@@ -8,6 +8,7 @@ import { CTAFormSection } from '@/components/service-page-sections'
 import { FAQAccordion } from '@/components/faq-accordion'
 import { HeroAnimation } from '@/components/hero-animation'
 import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { ServiceProcessVisual } from '@/components/service-process-visual'
 import Link from 'next/link'
 import {
   MessageSquare,
@@ -175,7 +176,7 @@ const caseStudy = {
 const aeoPackages = [
   {
     name: 'AEO Starter',
-    price: '$1,997',
+    price: '$2,200',
     period: '/month',
     description:
       'Essential answer engine optimization for growing businesses',
@@ -711,6 +712,8 @@ export default function AEOServices() {
         subheading="Our Process"
         heading="How we optimize for answer engines"
         steps={processSteps}
+        visual={<ServiceProcessVisual type="optimization" />}
+        visualBg="ink"
       />
       <CaseStudySection />
       <PackagesSection />

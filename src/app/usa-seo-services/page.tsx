@@ -196,7 +196,7 @@ const faqItems = [
   {
     question: 'How much does SEO cost in the United States?',
     answer:
-      'SEO services in the United States typically range from $1,500 to $10,000+ per month, depending on the scope, competitiveness of your industry, and the number of locations you need to target. Enterprise-level campaigns for Fortune 500 companies or highly competitive national keywords may exceed this range. We offer customized pricing based on your specific goals, market, and growth stage to ensure your investment delivers measurable ROI.',
+      'SEO services in the United States typically range from $2,200 to $10,000+ per month, depending on the scope, competitiveness of your industry, and the number of locations you need to target. Enterprise-level campaigns for Fortune 500 companies or highly competitive national keywords may exceed this range. We offer customized pricing based on your specific goals, market, and growth stage to ensure your investment delivers measurable ROI.',
   },
   {
     question: 'How long does it take to rank on Google in the US?',

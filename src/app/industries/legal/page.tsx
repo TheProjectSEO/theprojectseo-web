@@ -8,6 +8,7 @@ import { FAQDarkSection } from '@/components/faq-dark-section'
 import { TestimonialQuoteSection } from '@/components/testimonial-quote-section'
 import { HeroAnimation } from '@/components/hero-animation'
 import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { IndustryProcessVisual } from '@/components/industry-process-visual'
 import { CTAFormSection } from '@/components/service-page-sections'
 import { JsonLd } from '@/components/json-ld'
 import {
@@ -954,6 +955,8 @@ export default function LegalSEO() {
         subheading="Our Process"
         heading="How we grow your law firm's organic presence"
         steps={processSteps}
+        visual={<IndustryProcessVisual type="legal" />}
+        visualBg="ink"
       />
       {/* Section 6: Technical SEO */}
       <TechnicalSEOSection />

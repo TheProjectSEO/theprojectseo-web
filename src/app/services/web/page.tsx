@@ -8,6 +8,7 @@ import { CTAFormSection } from '@/components/service-page-sections'
 import { FAQAccordion } from '@/components/faq-accordion'
 import { HeroAnimation } from '@/components/hero-animation'
 import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { ServiceProcessVisual } from '@/components/service-process-visual'
 import {
   Code,
   Smartphone,
@@ -591,6 +592,8 @@ export default function WebServices() {
         subheading="Our Process"
         heading="How we build websites that perform"
         steps={processSteps}
+        visual={<ServiceProcessVisual type="implementation" />}
+        visualBg="ink"
       />
       <CaseStudySection />
       <TechnologiesSection />

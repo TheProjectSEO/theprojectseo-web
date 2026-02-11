@@ -17,6 +17,7 @@ import {
   TextContentSection,
 } from '@/components/service-page-sections'
 import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { ServiceProcessVisual } from '@/components/service-process-visual'
 import {
   ShoppingCart,
   Search,
@@ -459,7 +460,7 @@ export default function EcommerceSEOPage() {
 
       <TextContentSection {...toolsData} />
 
-      <ProcessTabbedSection {...processData} />
+      <ProcessTabbedSection {...processData} visual={<ServiceProcessVisual type="optimization" />} visualBg="ink" />
 
       <CaseStudyDark {...caseStudyData} />
 

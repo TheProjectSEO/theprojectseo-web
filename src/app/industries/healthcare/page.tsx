@@ -8,6 +8,7 @@ import { FAQDarkSection } from '@/components/faq-dark-section'
 import { TestimonialQuoteSection } from '@/components/testimonial-quote-section'
 import { HeroAnimation } from '@/components/hero-animation'
 import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { IndustryProcessVisual } from '@/components/industry-process-visual'
 import { CTAFormSection } from '@/components/service-page-sections'
 import { JsonLd } from '@/components/json-ld'
 import type { Metadata } from 'next'
@@ -828,6 +829,8 @@ export default function HealthcareSEO() {
         subheading="Our Process"
         heading="A proven healthcare SEO methodology"
         steps={processSteps}
+        visual={<IndustryProcessVisual type="healthcare" />}
+        visualBg="ink"
       />
       <TechnicalSEOSection />
       <CaseStudySection />

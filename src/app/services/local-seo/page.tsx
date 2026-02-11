@@ -7,13 +7,14 @@ import {
   ServiceHero,
   StatsBar,
   ServicesGrid,
-  ProcessSection,
   CaseStudyDark,
   FeatureCardsSection,
   PricingSection,
   TestimonialSection,
   CTAFormSection,
 } from '@/components/service-page-sections'
+import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { ServiceProcessVisual } from '@/components/service-process-visual'
 import {
   MapPin,
   Star,
@@ -298,7 +299,7 @@ const pricingData = {
   tiers: [
     {
       name: 'Starter',
-      price: '$1,200',
+      price: '$2,200',
       period: '/month',
       description: 'For single-location businesses building local presence.',
       features: [
@@ -380,7 +381,7 @@ const faqData = [
   },
   {
     question: 'How much do local SEO services cost?',
-    answer: 'Local SEO services typically range from $500-$2,500 per month depending on the number of locations and competitive landscape. Our Starter plan begins at $1,200/month for single-location businesses, Professional at $2,500/month for 2-3 locations with advanced features, and Enterprise is custom-quoted for multi-location businesses. One-time local SEO audits range from $500-$1,500. The investment delivers strong ROI as local search drives high-intent traffic with immediate purchase intent.',
+    answer: 'Local SEO services typically range from $2,200-$5,000 per month depending on the number of locations and competitive landscape. Our Starter plan begins at $2,200/month for single-location businesses, Professional at $2,500/month for 2-3 locations with advanced features, and Enterprise is custom-quoted for multi-location businesses. One-time local SEO audits range from $500-$1,500. The investment delivers strong ROI as local search drives high-intent traffic with immediate purchase intent.',
   },
   {
     question: 'What is Google Business Profile and why does it matter?',
@@ -448,7 +449,7 @@ export default function LocalSEOPage() {
       <ServiceHero {...heroData} />
       <StatsBar stats={statsData} />
       <ServicesGrid {...servicesData} />
-      <ProcessSection {...processData} />
+      <ProcessTabbedSection {...processData} visual={<ServiceProcessVisual type="audit" />} visualBg="ink" />
       <CaseStudyDark {...caseStudyData} />
       <FeatureCardsSection {...toolsData} />
       <PricingSection {...pricingData} />

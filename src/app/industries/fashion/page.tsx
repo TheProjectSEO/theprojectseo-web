@@ -8,6 +8,7 @@ import { FAQDarkSection } from '@/components/faq-dark-section'
 import { TestimonialQuoteSection } from '@/components/testimonial-quote-section'
 import { HeroAnimation } from '@/components/hero-animation'
 import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { IndustryProcessVisual } from '@/components/industry-process-visual'
 import { CTAFormSection } from '@/components/service-page-sections'
 import {
   SparklesIcon,
@@ -694,7 +695,7 @@ function PricingContextSection() {
 
           <div className="border border-border-strong rounded-none p-8 mb-8">
             <p className="font-heading text-lg font-semibold text-ink mb-4">
-              Starting at $1,997/month
+              Starting at $2,200/month
             </p>
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-sm text-stone">
@@ -836,6 +837,8 @@ export default function FashionIndustrySEO() {
         subheading="Our Process"
         heading="How we drive fashion SEO results"
         steps={processSteps}
+        visual={<IndustryProcessVisual type="fashion" />}
+        visualBg="ink"
       />
       <TechnicalSEOSection />
       <CaseStudySection />

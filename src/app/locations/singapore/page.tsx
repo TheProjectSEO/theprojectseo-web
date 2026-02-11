@@ -9,6 +9,7 @@ import { CTAFormSection } from '@/components/service-page-sections'
 import { FAQDarkSection } from '@/components/faq-dark-section'
 import { TestimonialQuoteSection } from '@/components/testimonial-quote-section'
 import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { LocationProcessVisual } from '@/components/location-process-visual'
 import {
   MapPinIcon,
   LanguageIcon,
@@ -612,6 +613,8 @@ export default function SingaporeSEOServices() {
         subheading="Our Process"
         heading="How we drive SEO results in Singapore"
         steps={processSteps}
+        visual={<LocationProcessVisual type="singapore" />}
+        visualBg="accent"
       />
       <CaseStudySection />
       <CitiesSection />

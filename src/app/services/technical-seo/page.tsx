@@ -19,6 +19,7 @@ import {
   CTAFormSection,
 } from '@/components/service-page-sections'
 import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { ServiceProcessVisual } from '@/components/service-process-visual'
 import {
   Zap,
   Search,
@@ -306,7 +307,7 @@ const pricingData = {
   tiers: [
     {
       name: 'Starter',
-      price: '$2,000',
+      price: '$2,200',
       period: '/month',
       description: 'For small to mid-size sites (under 5,000 pages).',
       features: [
@@ -402,7 +403,7 @@ const faqData = [
   {
     question: 'How much do technical SEO services cost?',
     answer:
-      'Technical SEO services typically range from $1,000-$5,000 per month for ongoing retainers, with one-time audits ranging from $3,000-$8,000. Our Starter plan begins at $2,000/month for sites under 5,000 pages, our Professional plan is $4,500/month for mid-size sites, and Enterprise pricing is custom. The investment depends on site size, platform complexity, and the scope of issues. Most clients see positive ROI within 3-4 months as improved technical performance directly impacts rankings and traffic.',
+      'Technical SEO services typically range from $1,000-$5,000 per month for ongoing retainers, with one-time audits ranging from $3,000-$8,000. Our Starter plan begins at $2,200/month for sites under 5,000 pages, our Professional plan is $4,500/month for mid-size sites, and Enterprise pricing is custom. The investment depends on site size, platform complexity, and the scope of issues. Most clients see positive ROI within 3-4 months as improved technical performance directly impacts rankings and traffic.',
   },
   {
     question: 'How long does technical SEO take to show results?',
@@ -557,7 +558,7 @@ export default function TechnicalSEOPage() {
       <ServiceHero {...heroData} />
       <StatsBar stats={statsData} />
       <ServicesGrid {...servicesData} />
-      <ProcessTabbedSection {...processData} />
+      <ProcessTabbedSection {...processData} visual={<ServiceProcessVisual type="audit" />} visualBg="ink" />
       <CaseStudyDark {...caseStudyData} />
       <FeatureCardsSection {...toolsData} />
       <ComparisonTableSection />

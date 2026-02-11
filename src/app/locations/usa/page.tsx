@@ -9,6 +9,7 @@ import { CTAFormSection } from '@/components/service-page-sections'
 import { FAQDarkSection } from '@/components/faq-dark-section'
 import { TestimonialQuoteSection } from '@/components/testimonial-quote-section'
 import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { LocationProcessVisual } from '@/components/location-process-visual'
 import { MapPinIcon, ClockIcon, LanguageIcon, ChartBarIcon } from '@heroicons/react/24/outline'
 import { JsonLd } from '@/components/json-ld'
 import type { Metadata } from 'next'
@@ -608,6 +609,8 @@ export default function USASEOServices() {
         subheading="Our Process"
         heading="How we drive US SEO results"
         steps={processSteps}
+        visual={<LocationProcessVisual type="usa" />}
+        visualBg="accent"
       />
       <CaseStudySection />
       <CitiesSection />

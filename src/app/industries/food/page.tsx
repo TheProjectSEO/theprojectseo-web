@@ -8,6 +8,7 @@ import { FAQDarkSection } from '@/components/faq-dark-section'
 import { TestimonialQuoteSection } from '@/components/testimonial-quote-section'
 import { HeroAnimation } from '@/components/hero-animation'
 import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { IndustryProcessVisual } from '@/components/industry-process-visual'
 import { CTAFormSection } from '@/components/service-page-sections'
 import {
   MapPinIcon,
@@ -636,7 +637,7 @@ function PricingSection() {
         <div className="mt-10 inline-block border border-border-strong bg-white p-8">
           <div className="font-mono text-xs font-medium uppercase tracking-[0.1em] text-ash mb-2">Starting at</div>
           <div className="flex items-baseline justify-center gap-1">
-            <span className="font-mono text-[48px] font-bold text-ink">$997</span>
+            <span className="font-mono text-[48px] font-bold text-ink">$2,200</span>
             <span className="text-ash">/month</span>
           </div>
           <p className="text-sm text-slate mt-4 max-w-md">
@@ -756,6 +757,8 @@ export default function FoodBeverageSEO() {
         subheading="Our Process"
         heading="How we grow your restaurant's online presence"
         steps={processSteps}
+        visual={<IndustryProcessVisual type="food" />}
+        visualBg="ink"
       />
       {/* Section 6: Technical SEO */}
       <TechnicalSEOSection />

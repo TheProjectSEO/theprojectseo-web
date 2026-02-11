@@ -8,6 +8,7 @@ import { CTAFormSection } from '@/components/service-page-sections'
 import { FAQAccordion } from '@/components/faq-accordion'
 import { HeroAnimation } from '@/components/hero-animation'
 import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { ServiceProcessVisual } from '@/components/service-process-visual'
 import {
   BarChart3,
   Link2,
@@ -44,7 +45,7 @@ const services = [
       'Content gap analysis',
       'Monthly keyword tracking',
     ],
-    pricing: 'Starting at $497/month',
+    pricing: 'Starting at $797/month',
   },
   {
     name: 'On-Page Optimization',
@@ -59,7 +60,7 @@ const services = [
       'Image optimization & alt text',
       'Schema markup implementation',
     ],
-    pricing: 'Starting at $397/month',
+    pricing: 'Starting at $597/month',
   },
   {
     name: 'Technical SEO',
@@ -74,7 +75,7 @@ const services = [
       'Robots.txt configuration',
       'Core Web Vitals improvement',
     ],
-    pricing: 'Starting at $697/month',
+    pricing: 'Starting at $997/month',
   },
   {
     name: 'Link Building',
@@ -89,7 +90,7 @@ const services = [
       'Competitor backlink analysis',
       'Link quality monitoring',
     ],
-    pricing: 'Starting at $897/month',
+    pricing: 'Starting at $1,197/month',
   },
   {
     name: 'Local SEO',
@@ -104,7 +105,7 @@ const services = [
       'NAP consistency audit',
       'Local content strategy',
     ],
-    pricing: 'Starting at $597/month',
+    pricing: 'Starting at $897/month',
   },
   {
     name: 'SEO Analytics & Reporting',
@@ -168,7 +169,7 @@ const caseStudy = {
 const packages = [
   {
     name: 'SEO Starter',
-    price: '$997',
+    price: '$2,200',
     period: '/month',
     description: 'Essential SEO services for small businesses',
     services: [
@@ -187,7 +188,7 @@ const packages = [
   },
   {
     name: 'SEO Growth',
-    price: '$1,997',
+    price: '$3,500',
     period: '/month',
     description: 'Comprehensive SEO for growing businesses',
     services: [
@@ -715,6 +716,8 @@ export default function SEOServices() {
         subheading="Our Process"
         heading="How we deliver results"
         steps={processSteps}
+        visual={<ServiceProcessVisual type="audit" />}
+        visualBg="ink"
       />
       <CaseStudySection />
       <PackagesSection />
