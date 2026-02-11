@@ -122,7 +122,7 @@ function flushPageView(
   const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
   if (!supabaseUrl || !anonKey) return
 
-  const url = `${supabaseUrl}/rest/v1/page_views`
+  const url = `${supabaseUrl}/rest/v1/tps_page_views`
   const body = JSON.stringify(payload)
 
   try {
@@ -160,7 +160,7 @@ export function SessionTracker() {
       const { source, query } = parseReferrer(document.referrer)
       const deviceType = getDeviceType(window.innerWidth)
 
-      supabase.from('search_sessions').insert({
+      supabase.from('tps_sessions').insert({
         session_id: sessionId,
         landing_page: pagePath,
         referrer: document.referrer || null,
