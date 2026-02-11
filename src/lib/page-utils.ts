@@ -3,6 +3,7 @@
  * Used by session tracker to categorize page views.
  */
 export function getPageType(path: string): string {
+  if (path.startsWith('/admin')) return 'admin'
   if (path === '/') return 'home'
   if (path === '/blog') return 'blog'
   if (path.startsWith('/blog/')) return 'blog-post'

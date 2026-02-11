@@ -146,8 +146,12 @@ export function SessionTracker() {
   const flushedRef = useRef(false)
 
   useEffect(() => {
-    const sessionId = getOrCreateSessionId()
     const pagePath = window.location.pathname
+
+    // Don't track admin pages
+    if (pagePath.startsWith('/admin')) return
+
+    const sessionId = getOrCreateSessionId()
     const pageType = getPageType(pagePath)
     const enteredAt = Date.now()
     const cleanupScrollDepth = getMaxScrollDepth()
