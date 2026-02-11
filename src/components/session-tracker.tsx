@@ -168,8 +168,6 @@ export function SessionTracker() {
         search_query: query,
         device_type: deviceType,
         screen_width: window.innerWidth,
-      }).then(() => {
-        // fire-and-forget
       })
     }
 
