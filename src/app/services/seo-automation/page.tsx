@@ -15,6 +15,7 @@ import {
   RelatedServicesSection,
   CTAFormSection,
 } from '@/components/service-page-sections'
+import { AIAgentsShowcase } from '@/components/ai-agents-showcase'
 import { ProcessTabbedSection } from '@/components/process-tabbed-section'
 import { ServiceProcessVisual } from '@/components/service-process-visual'
 import {
@@ -487,6 +488,11 @@ export default function SEOAutomationPage() {
       <FeatureCardsSection {...challengesData} />
       <ServicesGrid {...servicesData} />
       <ProcessTabbedSection {...processData} visual={<ServiceProcessVisual type="implementation" />} visualBg="ink" />
+      <AIAgentsShowcase
+        subheading="Meet the Agents"
+        heading="8 specialized AI agents powering your SEO automation."
+        lead="Our proprietary AI agents are purpose-built for SEO workflows. Each one handles a specific domain — from internal linking to competitor monitoring — and they're constantly evolving as SEO changes."
+      />
       <CaseStudyDark {...caseStudyData} />
       <FeatureCardsSection {...toolsData} />
       <PricingSection {...pricingData} />

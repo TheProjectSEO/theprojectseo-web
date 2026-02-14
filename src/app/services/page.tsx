@@ -7,7 +7,9 @@ import { Heading, Lead, Subheading } from '@/components/text'
 import { CheckIcon } from '@/components/check-icon'
 import { CTAFormSection } from '@/components/service-page-sections'
 import { FAQAccordion } from '@/components/faq-accordion'
-import { ProcessSectionAnimated } from '@/components/process-section-animated'
+import { AIAgentsShowcase } from '@/components/ai-agents-showcase'
+import { ProcessTabbedSection } from '@/components/process-tabbed-section'
+import { ServiceProcessVisual } from '@/components/service-process-visual'
 import {
   BarChart3,
   Link2,
@@ -176,7 +178,7 @@ const caseStudy = {
 const packages = [
   {
     name: 'Starter',
-    price: '$997/mo',
+    price: '$2,200/mo',
     description: 'For small businesses ready to build a strong SEO foundation.',
     features: [
       'Initial SEO audit & strategy',
@@ -689,10 +691,17 @@ export default function Services() {
       <Header />
       <StatsBar />
       <ServicesGrid />
-      <ProcessSectionAnimated
+      <ProcessTabbedSection
         subheading="Our Process"
         heading="How we deliver SEO results."
         steps={processSteps}
+        visual={<ServiceProcessVisual type="audit" />}
+        visualBg="ink"
+      />
+      <AIAgentsShowcase
+        subheading="AI-Powered SEO"
+        heading="What powers our services — AI agents working 24/7."
+        lead="Behind every service is a team of 8 specialized AI agents handling internal links, schema markup, content optimization, competitor intelligence, and more — around the clock."
       />
       <CaseStudySection />
       <PackagesSection />

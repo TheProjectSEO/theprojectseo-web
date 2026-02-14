@@ -7,6 +7,7 @@ import { Link } from '@/components/link'
 import { Navbar } from '@/components/navbar'
 import { Heading, Lead, Subheading } from '@/components/text'
 import { FAQAccordion } from '@/components/faq-accordion'
+import { AIAgentsShowcase } from '@/components/ai-agents-showcase'
 import { TestimonialQuoteSection } from '@/components/testimonial-quote-section'
 import { CheckIcon } from '@heroicons/react/16/solid'
 import type { Metadata } from 'next'
@@ -801,6 +802,11 @@ export default function Pricing() {
       </Container>
       <Header />
       <SEOPricing />
+      <AIAgentsShowcase
+        subheading="Included in Every SEO Plan"
+        heading="8 AI agents powering your SEO — at no extra cost."
+        lead="Every SEO retainer includes our full AI agent fleet. They monitor rankings, optimize content, track competitors, and flag issues automatically — so your investment works harder around the clock."
+      />
       <DevelopmentPricing />
       <AutomationPricing />
       <ContentPricing />

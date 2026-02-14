@@ -7,6 +7,7 @@ import { CheckIcon } from '@/components/check-icon'
 import { CTAFormSection } from '@/components/service-page-sections'
 import { FAQAccordion } from '@/components/faq-accordion'
 import { HeroAnimation } from '@/components/hero-animation'
+import { AIAgentsShowcase } from '@/components/ai-agents-showcase'
 import { ProcessTabbedSection } from '@/components/process-tabbed-section'
 import { ServiceProcessVisual } from '@/components/service-process-visual'
 import {
@@ -718,6 +719,11 @@ export default function SEOServices() {
         steps={processSteps}
         visual={<ServiceProcessVisual type="audit" />}
         visualBg="ink"
+      />
+      <AIAgentsShowcase
+        subheading="AI-Powered SEO"
+        heading="AI agents powering every SEO service we deliver."
+        lead="Every service is backed by 8 specialized AI agents that handle link mapping, schema generation, content optimization, and more — working 24/7 so your SEO never sleeps."
       />
       <CaseStudySection />
       <PackagesSection />

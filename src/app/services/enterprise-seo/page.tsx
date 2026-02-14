@@ -16,6 +16,7 @@ import {
   CTAFormSection,
   TextContentSection,
 } from '@/components/service-page-sections'
+import { AIAgentsShowcase } from '@/components/ai-agents-showcase'
 import { ProcessTabbedSection } from '@/components/process-tabbed-section'
 import { ServiceProcessVisual } from '@/components/service-process-visual'
 import {
@@ -482,6 +483,11 @@ export default function EnterpriseSEOPage() {
 
       <ProcessTabbedSection {...processData} visual={<ServiceProcessVisual type="strategy" />} visualBg="ink" />
 
+      <AIAgentsShowcase
+        subheading="AI at Enterprise Scale"
+        heading="AI agents that scale across your entire domain portfolio."
+        lead="Managing hundreds of thousands of pages requires AI. Our agents monitor crawl budgets, track competitors, optimize content, and flag issues across every domain in your portfolio — continuously. And the fleet keeps growing."
+      />
       <CaseStudyDark {...caseStudyData} />
 
       <TextContentSection {...toolsData} />

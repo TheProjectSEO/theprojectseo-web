@@ -194,17 +194,6 @@ function LeadFormInner({
         </p>
       </div>
 
-      {/* Social proof */}
-      <div className="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
-        <div className="flex items-center gap-1.5 text-xs text-ash">
-          <div className="size-1.5 rounded-full bg-green-500" />
-          <span>Average response time: <span className="font-semibold text-ink">under 2 hours</span></span>
-        </div>
-        <div className="flex items-center gap-1.5 text-xs text-ash">
-          <CheckCircleIcon className="size-3.5 text-accent flex-shrink-0" />
-          <span>Rated <span className="font-semibold text-ink">4.7/5</span> by our clients</span>
-        </div>
-      </div>
     </form>
   )
 }

@@ -5,6 +5,7 @@ import { Navbar } from '@/components/navbar'
 import { Heading, Subheading } from '@/components/text'
 import { FAQAccordion } from '@/components/faq-accordion'
 import { HeroAnimation } from '@/components/hero-animation'
+import { AIAgentsShowcase } from '@/components/ai-agents-showcase'
 import { ProcessTabbedSection } from '@/components/process-tabbed-section'
 import { ServiceProcessVisual } from '@/components/service-process-visual'
 import {
@@ -841,6 +842,11 @@ export default function SEOConsulting() {
         visualBg="ink"
       />
       <CaseStudySection />
+      <AIAgentsShowcase
+        subheading="AI-Powered Consulting"
+        heading="Our AI agents support every consulting engagement."
+        lead="When you work with us, you get more than expert advice — you get 8 AI agents that execute technical audits, monitor rankings, and optimize content while we focus on strategy."
+      />
       <TestimonialsSection />
       <ConsultingPackages />
       <FAQSection />

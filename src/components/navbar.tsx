@@ -78,6 +78,8 @@ const locationLinks = [
 ]
 
 const links = [
+  { href: '/case-studies', label: 'Case Studies' },
+  { href: '/methodology', label: 'Our Process' },
   { href: '/pricing', label: 'Pricing' },
   { href: '/company', label: 'About' },
   { href: '/blog', label: 'Blog' },

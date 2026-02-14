@@ -7,6 +7,10 @@ import { Container } from '@/components/container'
 import { Footer } from '@/components/footer'
 import { Navbar } from '@/components/navbar'
 import { Heading, Lead, Subheading } from '@/components/text'
+import { AIAgentsShowcase } from '@/components/ai-agents-showcase'
+import { Linkedin } from 'lucide-react'
+import Image from 'next/image'
+import { testimonials } from '@/data/testimonials'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -89,52 +93,95 @@ function Header() {
   )
 }
 
-function Person({
-  name,
-  description,
-  img,
-}: {
-  name: string
-  description: string
-  img: string
-}) {
-  return (
-    <li className="flex items-center gap-4">
-      <div className={`size-12 rounded-none ${img} flex items-center justify-center text-white font-heading font-medium text-sm`}>
-        {name.split(' ').map(n => n[0]).join('')}
-      </div>
-      <div className="text-sm/6">
-        <h3 className="font-heading font-medium text-ink">{name}</h3>
-        <p className="font-mono text-xs uppercase tracking-[0.1em] text-accent">{description}</p>
-      </div>
-    </li>
-  )
-}
+const teamMembers = [
+  {
+    name: 'Aditya Aman',
+    role: 'Founder & SEO Consultant',
+    focus: 'Systems & Processes',
+    bio: 'With 10+ years in SEO, Aditya has helped 500+ websites achieve top rankings. He focuses on building repeatable systems and processes that deliver predictable organic growth.',
+    image: '/team/aditya-aman.png',
+    linkedin: 'https://www.linkedin.com/in/adityaaman/',
+  },
+  {
+    name: 'Siraj Akmal',
+    role: 'Technical Lead',
+    focus: 'Technical SEO',
+    bio: 'Siraj leads our technical SEO practice — from site architecture and crawl optimization to Core Web Vitals and schema implementation.',
+    image: '/team/siraj-akmal.png',
+    linkedin: 'https://www.linkedin.com/in/shiraz100/',
+  },
+  {
+    name: 'Vaibhav Singh',
+    role: 'Project Lead',
+    focus: 'Strategy & Delivery',
+    bio: 'Vaibhav manages client engagements end-to-end, ensuring every project stays on track and delivers against KPIs.',
+    image: '/team/vaibhav-singh.png',
+    linkedin: 'https://www.linkedin.com/in/vaibhav-singh-2522b3174/',
+  },
+  {
+    name: 'Smit Dholakiya',
+    role: 'SEO Executive',
+    focus: 'On-Page & Content',
+    bio: 'Smit specializes in on-page optimization and content strategy, turning keyword research into high-ranking content.',
+    image: '/team/smit-dholakiya.png',
+    linkedin: 'https://www.linkedin.com/in/smit-dholakiya/',
+  },
+  {
+    name: 'Mohd. Rushan',
+    role: 'SEO Executive',
+    focus: 'Link Building & Outreach',
+    bio: 'Rushan drives our link building campaigns, securing high-quality backlinks through strategic outreach and digital PR.',
+    image: '/team/mohd-rushan.jpeg',
+    linkedin: 'https://www.linkedin.com/in/mohd-rushan/',
+  },
+]
 
 function Team() {
   return (
     <Container className="mt-32">
       <Subheading>Meet the team</Subheading>
       <Heading as="h3" className="mt-2">
-        Founded by SEO experts who deliver.
+        A lean team that delivers outsized results.
       </Heading>
       <Lead className="mt-6 max-w-3xl">
-        TheProjectSEO is founded by seasoned SEO professionals with a combined 25+ years
-        of experience helping businesses dominate search rankings.
+        We&apos;re not a bloated agency with layers of account managers between you and the
+        people doing the work. You get direct access to the specialists driving your growth.
       </Lead>
-      <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-2">
+
+      {/* Founder spotlight */}
+      <div className="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-2 items-center">
+        <div className="max-lg:order-last">
+          <a href={teamMembers[0].linkedin} target="_blank" rel="noopener noreferrer" className="group block">
+            <div className="overflow-hidden border border-border-strong">
+              <div className="aspect-[4/3] relative">
+                <Image
+                  src="/team/aditya-aman.png"
+                  alt="Aditya Aman"
+                  fill
+                  className="object-cover object-top"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-ink/80 to-transparent p-6 pt-16">
+                  <div className="flex items-center gap-2">
+                    <div className="font-heading text-lg font-semibold text-white">Aditya Aman</div>
+                    <Linkedin className="size-4 text-white opacity-0 transition-opacity group-hover:opacity-100" />
+                  </div>
+                  <div className="font-mono text-xs uppercase tracking-[0.15em] text-accent">Founder & SEO Consultant</div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
         <div className="max-w-lg">
           <p className="text-sm/6 font-sans text-ash">
-            Our founder, Alex Rodriguez, started in SEO over 12 years ago when Google&apos;s
-            algorithm was much simpler. Through countless algorithm updates, from Panda
-            and Penguin to BERT and Core Web Vitals, Alex has consistently stayed ahead
-            of the curve, helping businesses not just survive but thrive in search results.
+            Aditya started in SEO over 10 years ago. Through countless algorithm updates —
+            from Panda and Penguin to BERT, Helpful Content, and AI Overviews — he has
+            consistently stayed ahead of the curve, helping businesses not just survive
+            but thrive in search results.
           </p>
           <p className="mt-8 text-sm/6 font-sans text-ash">
-            Today, TheProjectSEO combines cutting-edge SEO technology with time-tested
-            strategies. Our team of SEO specialists, content strategists, and technical
-            experts work together to deliver results that matter – increased organic
-            traffic, higher search rankings, and most importantly, more revenue for your business.
+            His focus is on building systems and processes that make SEO predictable.
+            Every strategy at TheProjectSEO is built on data, tested rigorously, and
+            designed to deliver bottom-line results — not just traffic vanity metrics.
           </p>
           <div className="mt-6">
             <Button className="w-full sm:w-auto" href="/contact">
@@ -142,76 +189,31 @@ function Team() {
             </Button>
           </div>
         </div>
-        <div className="max-lg:order-first max-lg:max-w-lg">
-          <div className="aspect-3/2 overflow-hidden rounded-none shadow-xl border border-border-strong bg-gradient-to-br from-accent/10 to-accent/5 flex items-center justify-center p-12">
-            <div className="grid grid-cols-3 gap-4 w-full">
-              {[...Array(9)].map((_, i) => (
-                <div
-                  key={i}
-                  className="aspect-square rounded-none bg-accent/20 flex items-center justify-center"
-                  style={{ animationDelay: `${i * 0.05}s` }}
-                >
-                  <div className="size-8 rounded-full bg-accent/40" />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
       </div>
+
+      {/* Rest of team */}
       <Subheading as="h3" className="mt-24">
         The team
       </Subheading>
       <hr className="mt-6 border-t border-border" />
-      <ul
-        role="list"
-        className="mx-auto mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
-      >
-        <Person
-          name="Alex Rodriguez"
-          description="Founder & Lead SEO Strategist"
-          img="bg-accent"
-        />
-        <Person
-          name="Sarah Kim"
-          description="Technical SEO Director"
-          img="bg-ink"
-        />
-        <Person
-          name="Michael Chen"
-          description="Content Strategy Manager"
-          img="bg-accent"
-        />
-        <Person
-          name="Jessica Taylor"
-          description="Local SEO Specialist"
-          img="bg-ink"
-        />
-        <Person
-          name="David Park"
-          description="SEO Analytics Expert"
-          img="bg-accent"
-        />
-        <Person
-          name="Emily Johnson"
-          description="Link Building Manager"
-          img="bg-ink"
-        />
-        <Person
-          name="Robert Martinez"
-          description="E-commerce SEO Lead"
-          img="bg-accent"
-        />
-        <Person
-          name="Lisa Wong"
-          description="International SEO Consultant"
-          img="bg-ink"
-        />
-        <Person
-          name="James Wilson"
-          description="SEO Tools & Automation"
-          img="bg-accent"
-        />
-      </ul>
+      <div className="mt-12 grid grid-cols-1 gap-px bg-border-strong sm:grid-cols-2 lg:grid-cols-4">
+        {teamMembers.slice(1).map((member) => (
+          <div key={member.name} className="group bg-paper p-8">
+            <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="block">
+              <div className="relative mb-5 size-20 overflow-hidden rounded-full border-2 border-accent/20">
+                <Image src={member.image} alt={member.name} width={80} height={80} className="size-full object-cover" />
+                <div className="absolute inset-0 flex items-center justify-center bg-ink/0 transition-all group-hover:bg-ink/40">
+                  <Linkedin className="size-4 text-white opacity-0 transition-opacity group-hover:opacity-100" />
+                </div>
+              </div>
+              <h3 className="font-heading text-base font-semibold text-ink">{member.name}</h3>
+            </a>
+            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.15em] text-accent mt-1">{member.role}</p>
+            <p className="text-xs text-ash mt-1 mb-4">{member.focus}</p>
+            <p className="text-sm text-slate leading-relaxed">{member.bio}</p>
+          </div>
+        ))}
+      </div>
     </Container>
   )
 }
@@ -273,6 +275,8 @@ function WhyWe() {
 }
 
 function Testimonial() {
+  const t = testimonials[0] // Caleb Hoon
+
   return (
     <div className="relative flex aspect-square flex-col justify-end overflow-hidden rounded-none sm:aspect-5/4 lg:aspect-3/4">
         <HeroAnimation />
@@ -284,15 +288,14 @@ function Testimonial() {
       <figure className="relative p-10">
         <blockquote>
           <p className="relative font-display italic text-xl/7 text-white lg:text-4xl">
-            TheProjectSEO increased our organic traffic by 340% in just 8 months.
-            The ROI has been incredible.
+            {t.quote.length > 200 ? t.quote.slice(0, 200).trim() + '...' : t.quote}
           </p>
         </blockquote>
         <figcaption className="mt-6 border-t border-white/20 pt-6">
-          <p className="text-sm/6 font-heading font-medium text-white">David Thompson</p>
+          <p className="text-sm/6 font-heading font-medium text-white">{t.author}</p>
           <p className="text-sm/6 font-mono">
             <span className="text-white/70">
-              CEO, GrowthTech Solutions
+              {t.role}, {t.company}
             </span>
           </p>
         </figcaption>
@@ -392,6 +395,11 @@ export default function Company() {
       <Header />
       <Team />
       <WhyWe />
+      <AIAgentsShowcase
+        subheading="AI-Powered SEO"
+        heading="Human expertise amplified by AI agents."
+        lead="Our team is backed by 8 specialized AI agents that execute, monitor, and optimize around the clock — giving you the advantage of tireless, data-driven SEO at every level."
+      />
       <GetStarted />
       <Footer />
     </main>

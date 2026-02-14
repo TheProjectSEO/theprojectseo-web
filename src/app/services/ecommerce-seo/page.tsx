@@ -16,6 +16,7 @@ import {
   CTAFormSection,
   TextContentSection,
 } from '@/components/service-page-sections'
+import { AIAgentsShowcase } from '@/components/ai-agents-showcase'
 import { ProcessTabbedSection } from '@/components/process-tabbed-section'
 import { ServiceProcessVisual } from '@/components/service-process-visual'
 import {
@@ -461,6 +462,12 @@ export default function EcommerceSEOPage() {
       <TextContentSection {...toolsData} />
 
       <ProcessTabbedSection {...processData} visual={<ServiceProcessVisual type="optimization" />} visualBg="ink" />
+
+      <AIAgentsShowcase
+        subheading="AI-Powered E-commerce SEO"
+        heading="AI agents optimizing thousands of product pages at scale."
+        lead="Our 8 AI agents handle the scale challenges of e-commerce SEO — from schema deployment across thousands of products to internal link optimization and real-time technical monitoring."
+      />
 
       <CaseStudyDark {...caseStudyData} />
 

@@ -13,7 +13,25 @@ import {
   MapPin,
   Settings,
   CheckCircle,
+  ShoppingCart,
+  Cloud,
+  HeartPulse,
+  Landmark,
+  Building2,
+  Cpu,
+  GraduationCap,
+  Scale,
+  Car,
+  Plane,
+  UtensilsCrossed,
+  Heart,
+  Linkedin,
 } from 'lucide-react'
+import Image from 'next/image'
+import { AgentAvatar } from '@/components/agent-avatar'
+import { StarRating } from '@/components/star-rating'
+import { testimonials } from '@/data/testimonials'
+import { getAggregateRatingSchema } from '@/data/schema'
 import { CTAFormSection } from '@/components/service-page-sections'
 import { FAQAccordion } from '@/components/faq-accordion'
 import { JsonLd } from '@/components/json-ld'
@@ -58,39 +76,43 @@ function Hero() {
 
           {/* Right floating card - 40% */}
           <div className="lg:col-span-2">
-            <div className="rounded-lg border border-border-strong bg-white p-6 shadow-lg">
-              <div className="mb-4 flex items-center gap-3">
-                <div className="flex size-10 items-center justify-center rounded-md bg-accent-soft">
-                  <BarChart3 className="size-5 text-accent" />
-                </div>
-                <div>
-                  <div className="font-heading text-sm font-semibold text-ink">Performance Gap</div>
-                  <div className="font-mono text-xs text-ash">vs. top competitor</div>
-                </div>
-              </div>
-              <div className="space-y-3">
-                <div>
-                  <div className="mb-1 flex justify-between text-xs text-slate">
-                    <span>Your site</span>
-                    <span className="font-mono">34%</span>
-                  </div>
-                  <div className="h-2 w-full rounded-full bg-cream">
-                    <div className="h-2 rounded-full bg-ash/40" style={{ width: '34%' }} />
+            <div className="space-y-3">
+              {/* Main results card */}
+              <div className="rounded-lg border border-border-strong bg-white p-6 shadow-lg">
+                <div className="flex items-center justify-between mb-5">
+                  <div className="font-mono text-[10px] font-semibold uppercase tracking-[0.15em] text-accent">Client Results</div>
+                  <div className="flex items-center gap-1.5">
+                    <StarRating size="sm" />
+                    <span className="font-mono text-xs text-ash">9 reviews</span>
                   </div>
                 </div>
-                <div>
-                  <div className="mb-1 flex justify-between text-xs text-slate">
-                    <span>After TheProjectSEO</span>
-                    <span className="font-mono text-accent">92%</span>
-                  </div>
-                  <div className="h-2 w-full rounded-full bg-cream">
-                    <div className="h-2 rounded-full bg-accent" style={{ width: '92%' }} />
-                  </div>
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    { value: '243%', label: 'Revenue growth', client: 'E-commerce' },
+                    { value: '$2.1M', label: 'Pipeline from organic', client: 'B2B SaaS' },
+                    { value: '3x', label: 'More organic leads', client: 'Helpling' },
+                    { value: '60%', label: 'Lower acquisition cost', client: 'Home Services' },
+                  ].map((r) => (
+                    <div key={r.label} className="border-l-2 border-accent/30 pl-3">
+                      <div className="font-mono text-xl font-bold text-ink leading-none">{r.value}</div>
+                      <div className="text-[11px] text-slate mt-1">{r.label}</div>
+                      <div className="font-mono text-[10px] text-ash">{r.client}</div>
+                    </div>
+                  ))}
                 </div>
               </div>
-              <p className="mt-4 text-xs text-ash">
-                Average visibility score improvement across our clients
-              </p>
+              {/* Mini testimonial */}
+              <div className="rounded-lg border border-border-strong bg-white p-4 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <Image src="/testimonials/james-lim.png" alt="James Lim" width={36} height={36} className="size-9 rounded-full object-cover flex-shrink-0" />
+                  <div>
+                    <p className="font-display text-sm italic leading-snug text-ink">
+                      &ldquo;We hit our KPIs in less than 3 months. Moved key pages to #1 and #2.&rdquo;
+                    </p>
+                    <p className="mt-1.5 font-mono text-[10px] text-ash">James Lim, CEO — Helpling APAC</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -215,7 +237,59 @@ function StatsSection() {
   )
 }
 
+function AIAgentsSection() {
+  const agents = [
+    { type: 'nexus' as const, name: 'NEXUS', role: 'Internal Links Agent', desc: 'Maps and builds internal link architecture for maximum topical relevance and crawl efficiency.' },
+    { type: 'atlas' as const, name: 'ATLAS', role: 'Schema Markup Agent', desc: 'Generates and validates JSON-LD structured data for every page type automatically.' },
+    { type: 'vector' as const, name: 'VECTOR', role: 'Content Optimization Agent', desc: 'Uses embeddings and semantic analysis to optimize content for topical completeness.' },
+    { type: 'herald' as const, name: 'HERALD', role: 'Digital PR Agent', desc: 'Identifies high-authority outreach targets and tracks placement success for link acquisition.' },
+    { type: 'sentinel' as const, name: 'SENTINEL', role: 'Technical SEO Agent', desc: 'Monitors site health, Core Web Vitals, and indexation issues around the clock.' },
+    { type: 'oracle' as const, name: 'ORACLE', role: 'Keyword Intelligence Agent', desc: 'Discovers untapped keyword opportunities and prioritizes targets by traffic potential.' },
+    { type: 'phantom' as const, name: 'PHANTOM', role: 'Competitor Intelligence Agent', desc: 'Monitors competitor rankings, content changes, and backlink acquisitions silently.' },
+    { type: 'forge' as const, name: 'FORGE', role: 'Content Strategy Agent', desc: 'Builds topical authority maps, plans content clusters, and identifies content gaps.' },
+  ]
+
+  return (
+    <Container className="py-24">
+      <div className="text-center mb-16">
+        <Subheading>AI-Powered SEO</Subheading>
+        <Heading as="h3" className="mt-2 max-w-3xl mx-auto">
+          8 AI agents working on your SEO — around the clock.
+        </Heading>
+        <p className="mt-6 text-lg leading-[1.65] text-slate max-w-2xl mx-auto">
+          Our proprietary AI agents augment the team&apos;s expertise, handling repetitive analysis
+          and monitoring so we can focus on strategy that moves the needle.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-2 gap-px bg-border-strong lg:grid-cols-4">
+        {agents.map((agent) => (
+          <div
+            key={agent.name}
+            className="bg-paper p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
+          >
+            <div className="mb-4 flex size-12 items-center justify-center rounded-md bg-accent-soft">
+              <AgentAvatar type={agent.type} />
+            </div>
+            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.15em] text-accent">
+              {agent.name}
+            </p>
+            <h3 className="font-heading text-sm font-semibold text-ink mt-1">{agent.role}</h3>
+            <p className="text-xs leading-relaxed text-slate mt-2">{agent.desc}</p>
+          </div>
+        ))}
+      </div>
+    </Container>
+  )
+}
+
 function TestimonialsSection() {
+  const featured = [
+    testimonials.find((t) => t.id === 'james-lim')!,
+    testimonials.find((t) => t.id === 'elizabeth-ching')!,
+    testimonials.find((t) => t.id === 'sho-dewan')!,
+  ]
+
   return (
     <Container className="py-24">
       <Subheading className="text-center">Testimonials</Subheading>
@@ -224,33 +298,17 @@ function TestimonialsSection() {
       </Heading>
 
       <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3">
-        {[
-          {
-            quote: 'TheProjectSEO helped us achieve #1 rankings for our most important keywords. Our organic traffic increased by 240% in just 6 months.',
-            name: 'Sarah Johnson',
-            role: 'CEO, TechStartup Inc.',
-          },
-          {
-            quote: 'The ROI from their SEO work has been incredible. We\'ve closed deals worth $2M+ directly from organic search traffic.',
-            name: 'Michael Chen',
-            role: 'Founder, E-commerce Pro',
-          },
-          {
-            quote: 'Their local SEO strategies helped us dominate our market. We now get 50+ qualified leads per month from Google.',
-            name: 'Lisa Rodriguez',
-            role: 'Owner, Local Business',
-          },
-        ].map((t) => (
-          <div key={t.name} className="border border-border-strong p-8">
-            <div className="mb-4 font-display text-2xl leading-none text-accent">&ldquo;</div>
-            <blockquote className="font-display text-lg italic leading-relaxed text-ink mb-6">
+        {featured.map((t) => (
+          <div key={t.id} className="flex flex-col border border-border-strong p-8">
+            <StarRating size="sm" />
+            <blockquote className="mt-5 font-display text-lg italic leading-relaxed text-ink">
               {t.quote}
             </blockquote>
-            <div className="flex items-center gap-3">
-              <div className="size-10 rounded-full bg-cream" />
+            <div className="mt-auto flex items-center gap-3 pt-8">
+              <Image src={t.image} alt={t.author} width={44} height={44} className="size-11 rounded-full object-cover" />
               <div>
-                <div className="font-heading text-sm font-semibold text-ink">{t.name}</div>
-                <div className="text-xs text-ash">{t.role}</div>
+                <div className="font-heading text-sm font-medium text-ink">{t.author}</div>
+                <div className="text-xs text-ash">{t.role}, {t.company}</div>
               </div>
             </div>
           </div>
@@ -261,40 +319,43 @@ function TestimonialsSection() {
 }
 
 function TeamSection() {
+  const team = [
+    { name: 'Aditya Aman', role: 'Founder & SEO Consultant', focus: 'Systems & Processes', image: '/team/aditya-aman.png', linkedin: 'https://www.linkedin.com/in/adityaaman/' },
+    { name: 'Siraj Akmal', role: 'Technical Lead', focus: 'Technical SEO', image: '/team/siraj-akmal.png', linkedin: 'https://www.linkedin.com/in/shiraz100/' },
+    { name: 'Vaibhav Singh', role: 'Project Lead', focus: 'Strategy & Delivery', image: '/team/vaibhav-singh.png', linkedin: 'https://www.linkedin.com/in/vaibhav-singh-2522b3174/' },
+    { name: 'Smit Dholakiya', role: 'SEO Executive', focus: 'On-Page & Content', image: '/team/smit-dholakiya.png', linkedin: 'https://www.linkedin.com/in/smit-dholakiya/' },
+    { name: 'Mohd. Rushan', role: 'SEO Executive', focus: 'Link Building & Outreach', image: '/team/mohd-rushan.jpeg', linkedin: 'https://www.linkedin.com/in/mohd-rushan/' },
+  ]
+
   return (
     <Container className="py-24">
-      <div className="grid grid-cols-1 gap-16 items-center lg:grid-cols-2">
-        <div>
-          <Subheading>Meet the Team</Subheading>
-          <Heading as="h2" className="mt-2">
-            We don&apos;t just grow traffic — we grow businesses.
-          </Heading>
-          <p className="mt-6 text-lg leading-[1.65] text-slate">
-            Our team combines technical expertise with creative strategy to deliver SEO results
-            that drive real business growth.
-          </p>
-          <div className="mt-8 grid grid-cols-2 gap-8">
-            <div>
-              <div className="font-mono text-[28px] font-semibold text-ink">10+</div>
-              <div className="font-mono text-xs uppercase tracking-[0.1em] text-ash">Years Experience</div>
-            </div>
-            <div>
-              <div className="font-mono text-[28px] font-semibold text-ink">10K+</div>
-              <div className="font-mono text-xs uppercase tracking-[0.1em] text-ash">Keywords Ranked</div>
-            </div>
-          </div>
-        </div>
+      <div className="text-center mb-16">
+        <Subheading>Meet the Team</Subheading>
+        <Heading as="h2" className="mt-2">
+          We don&apos;t just grow traffic — we grow businesses.
+        </Heading>
+        <p className="mt-6 text-lg leading-[1.65] text-slate max-w-2xl mx-auto">
+          A lean team of SEO specialists who combine technical expertise
+          with strategic thinking to deliver measurable results.
+        </p>
+      </div>
 
-        <div className="grid grid-cols-2 gap-4">
-          <div className="space-y-4">
-            <div className="aspect-square bg-cream border border-border" />
-            <div className="aspect-[4/3] bg-cream border border-border" />
+      <div className="grid grid-cols-2 gap-px bg-border-strong md:grid-cols-3 lg:grid-cols-5">
+        {team.map((member) => (
+          <div key={member.name} className="group bg-paper p-6 text-center">
+            <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="block">
+              <div className="relative mx-auto mb-4 size-24 overflow-hidden rounded-full border-2 border-accent/20">
+                <Image src={member.image} alt={member.name} width={96} height={96} className="size-full object-cover" />
+                <div className="absolute inset-0 flex items-center justify-center bg-ink/0 transition-all group-hover:bg-ink/40">
+                  <Linkedin className="size-5 text-white opacity-0 transition-opacity group-hover:opacity-100" />
+                </div>
+              </div>
+              <h3 className="font-heading text-sm font-semibold text-ink">{member.name}</h3>
+            </a>
+            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.15em] text-accent mt-1">{member.role}</p>
+            <p className="text-xs text-ash mt-1">{member.focus}</p>
           </div>
-          <div className="mt-8 space-y-4">
-            <div className="aspect-[4/3] bg-cream border border-border" />
-            <div className="aspect-square bg-cream border border-border" />
-          </div>
-        </div>
+        ))}
       </div>
     </Container>
   )
@@ -302,18 +363,18 @@ function TeamSection() {
 
 function IndustriesSection() {
   const industries = [
-    { name: 'E-commerce', href: '/industries/ecommerce' },
-    { name: 'SaaS', href: '/industries/saas' },
-    { name: 'Healthcare', href: '/industries/healthcare' },
-    { name: 'Finance', href: '/industries/finance' },
-    { name: 'Real Estate', href: '/industries/realestate' },
-    { name: 'Technology', href: '/industries/technology' },
-    { name: 'Education', href: '/industries/education' },
-    { name: 'Legal', href: '/industries/legal' },
-    { name: 'Automotive', href: '/industries/automotive' },
-    { name: 'Travel', href: '/industries/travel' },
-    { name: 'Food & Beverage', href: '/industries/food' },
-    { name: 'Non-profit', href: '/industries/nonprofit' },
+    { name: 'E-commerce', href: '/industries/ecommerce', icon: ShoppingCart },
+    { name: 'SaaS', href: '/industries/saas', icon: Cloud },
+    { name: 'Healthcare', href: '/industries/healthcare', icon: HeartPulse },
+    { name: 'Finance', href: '/industries/finance', icon: Landmark },
+    { name: 'Real Estate', href: '/industries/realestate', icon: Building2 },
+    { name: 'Technology', href: '/industries/technology', icon: Cpu },
+    { name: 'Education', href: '/industries/education', icon: GraduationCap },
+    { name: 'Legal', href: '/industries/legal', icon: Scale },
+    { name: 'Automotive', href: '/industries/automotive', icon: Car },
+    { name: 'Travel', href: '/industries/travel', icon: Plane },
+    { name: 'Food & Beverage', href: '/industries/food', icon: UtensilsCrossed },
+    { name: 'Non-profit', href: '/industries/nonprofit', icon: Heart },
   ]
 
   return (
@@ -331,16 +392,21 @@ function IndustriesSection() {
         </div>
 
         <div className="grid grid-cols-2 gap-px bg-border-strong md:grid-cols-3 lg:grid-cols-6">
-          {industries.map((industry) => (
-            <Link
-              key={industry.name}
-              href={industry.href}
-              className="flex flex-col items-center bg-cream p-6 text-center transition-all hover:-translate-y-1 hover:bg-paper hover:shadow-md"
-            >
-              <div className="mb-3 size-8 rounded-md bg-accent-soft" />
-              <h3 className="font-heading text-sm font-medium text-ink">{industry.name}</h3>
-            </Link>
-          ))}
+          {industries.map((industry) => {
+            const Icon = industry.icon
+            return (
+              <Link
+                key={industry.name}
+                href={industry.href}
+                className="flex flex-col items-center bg-cream p-6 text-center transition-all hover:-translate-y-1 hover:bg-paper hover:shadow-md"
+              >
+                <div className="mb-3 flex size-10 items-center justify-center rounded-md bg-accent-soft">
+                  <Icon className="size-5 text-accent" />
+                </div>
+                <h3 className="font-heading text-sm font-medium text-ink">{industry.name}</h3>
+              </Link>
+            )
+          })}
         </div>
 
         <div className="mt-12 text-center">
@@ -383,6 +449,7 @@ export default function Home() {
             contactType: 'sales',
             url: 'https://theprojectseo.com/contact',
           },
+          aggregateRating: getAggregateRatingSchema(),
         }}
       />
       <JsonLd
@@ -399,6 +466,7 @@ export default function Home() {
         <TrustSection />
         <ServicesSection />
         <StatsSection />
+        <AIAgentsSection />
         <TestimonialsSection />
         <TeamSection />
         <IndustriesSection />

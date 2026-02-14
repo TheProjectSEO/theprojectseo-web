@@ -18,6 +18,7 @@ import {
   TestimonialQuoteSection,
   CTAFormSection,
 } from '@/components/service-page-sections'
+import { AIAgentsShowcase } from '@/components/ai-agents-showcase'
 import { ProcessTabbedSection } from '@/components/process-tabbed-section'
 import { ServiceProcessVisual } from '@/components/service-process-visual'
 import {
@@ -560,6 +561,11 @@ export default function TechnicalSEOPage() {
       <ServicesGrid {...servicesData} />
       <ProcessTabbedSection {...processData} visual={<ServiceProcessVisual type="audit" />} visualBg="ink" />
       <CaseStudyDark {...caseStudyData} />
+      <AIAgentsShowcase
+        subheading="AI-Powered Monitoring"
+        heading="AI agents that never stop watching your site's health."
+        lead="Our AI agents continuously monitor Core Web Vitals, crawl errors, indexation issues, and schema validity — catching problems before they impact rankings. We're constantly deploying new agents as technical SEO evolves."
+      />
       <FeatureCardsSection {...toolsData} />
       <ComparisonTableSection />
       <PricingSection {...pricingData} />

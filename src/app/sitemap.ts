@@ -179,12 +179,45 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
+  // Case studies & methodology pages
+  const caseStudySlugs = [
+    'home-services-seo',
+    'travel-seo',
+    'travel-affiliate-seo',
+    'saas-seo',
+    'ecommerce-seo',
+    'automobile-seo',
+    'emd-seo',
+  ]
+
+  const caseStudyPages = [
+    {
+      url: `${baseUrl}/methodology`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/case-studies`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.9,
+    },
+    ...caseStudySlugs.map((slug) => ({
+      url: `${baseUrl}/case-studies/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    })),
+  ]
+
   return [
     ...corePages,
     ...servicePages,
     ...industryPages,
     ...locationPages,
     ...countrySEOPages,
+    ...caseStudyPages,
     ...blogPages,
     ...legalPages,
   ]
