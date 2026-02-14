@@ -83,10 +83,10 @@ export function ProcessTabbedSection({
           </div>
 
           {/* Right: Image/Visual */}
-          <div className={`rounded-none border border-border-strong p-8 flex items-center justify-center min-h-[500px] ${
-            visualBg === 'accent' ? 'bg-accent' :
-            visualBg === 'ink' ? 'bg-ink' :
-            'bg-white'
+          <div className={`rounded-none p-8 flex items-center justify-center min-h-[500px] ${
+            visualBg === 'accent' ? 'bg-accent border border-border-strong' :
+            visualBg === 'ink' ? 'bg-accent/[0.06] border-2 border-accent/20' :
+            'bg-white border border-border-strong'
           }`}>
             <AnimatePresence mode="wait">
               <motion.div
@@ -107,22 +107,14 @@ export function ProcessTabbedSection({
                   />
                 ) : (
                   <div className="space-y-6 text-center">
-                    <div className={`size-20 mx-auto rounded-full flex items-center justify-center ${
-                      visualBg === 'ink' ? 'bg-stone' : 'bg-accent'
-                    }`}>
-                      <CheckCircle className={`size-10 ${
-                        visualBg === 'ink' ? 'text-paper' : 'text-white'
-                      }`} />
+                    <div className="size-20 mx-auto rounded-full flex items-center justify-center bg-accent">
+                      <CheckCircle className="size-10 text-white" />
                     </div>
                     <div>
-                      <h4 className={`font-heading text-2xl font-semibold mb-3 ${
-                        visualBg === 'ink' ? 'text-paper' : 'text-ink'
-                      }`}>
+                      <h4 className="font-heading text-2xl font-semibold mb-3 text-ink">
                         {steps[activeStep].title}
                       </h4>
-                      <p className={`leading-relaxed max-w-md mx-auto ${
-                        visualBg === 'ink' ? 'text-ash' : 'text-slate'
-                      }`}>
+                      <p className="leading-relaxed max-w-md mx-auto text-slate">
                         {steps[activeStep].description}
                       </p>
                     </div>
