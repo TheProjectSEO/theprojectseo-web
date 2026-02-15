@@ -524,16 +524,13 @@ function TestimonialSection() {
             Client Testimonial
           </p>
           <blockquote className="font-display text-xl italic leading-relaxed text-ink">
-            &ldquo;TheProjectSEO understood the nuances of marketing AI technology in a way no other
-            agency could. They built a content strategy that spoke to both our developer audience and
-            enterprise buyers simultaneously. Within 6 months, organic became our top acquisition
-            channel, surpassing paid by 3x. Our developer signups tripled, and the quality of
-            inbound leads improved dramatically because the content attracted people who actually
-            understood what our platform does.&rdquo;
+            &ldquo;We successfully migrated our blog from Medium to Goodnotes.com/blog without losing
+            traffic. We also solved tech SEO problems for the Thailand, Japan, Taiwan, and Hong Kong
+            sites, doubling the traffic with minimal efforts.&rdquo;
           </blockquote>
           <div className="mt-8">
-            <p className="font-heading text-base font-semibold text-ink">Dr. James Liu</p>
-            <p className="text-sm text-slate mt-1">VP of Growth, NeuralPath AI</p>
+            <p className="font-heading text-base font-semibold text-ink">Elizabeth Ching</p>
+            <p className="text-sm text-slate mt-1">Marketing, Goodnotes</p>
           </div>
         </div>
       </Container>
@@ -565,7 +562,7 @@ function PricingContextSection() {
 
           <div className="border border-border-strong rounded-none p-8 mb-8">
             <p className="font-heading text-lg font-semibold text-ink mb-4">
-              Investment starts at $2,497/month
+              Investment starts at $1,800/month
             </p>
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-sm text-stone">
@@ -600,10 +597,10 @@ function TestimonialAndFAQSection() {
   return (
     <>
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
-        role="CEO"
-        company="GrowthTech Solutions"
+        quote="Working with Aditya in our journey to rank our website has been a great pleasure. Aditya possesses an exceptional skill set and a deep understanding of SEO strategies and techniques. He has an uncanny ability to analyze complex data and identify critical opportunities to improve organic search rankings and drive targeted website traffic. I wholeheartedly recommend Aditya for any SEO-related position or project."
+        author="Caleb Hoon"
+        role="Head of Community and Operations"
+        company="OFFEO"
       />
       <FAQDarkSection title="AI SEO frequently asked questions" items={faqItems} />
     </>

@@ -306,36 +306,46 @@ const pricingData = {
   heading: 'Reporting automation packages',
   tiers: [
     {
-      name: 'Essential',
-      price: '$3,000',
-      description: 'For basic reporting needs',
+      name: 'Simple Workflow',
+      price: '$500',
+      description: 'One-time setup for basic reporting',
       features: [
-        '3-5 automated reports',
+        'Single report automation',
         'Up to 5 data sources',
         'Email/Slack delivery',
         'Weekly scheduling',
         'Basic dashboards',
-        '1 month support',
       ],
     },
     {
-      name: 'Professional',
-      price: '$6,500',
-      description: 'For comprehensive reporting',
+      name: 'Multi-System',
+      price: '$2,500',
+      description: 'One-time setup for comprehensive reporting',
       features: [
-        '10-15 automated reports',
+        'Multi-step reporting workflows',
         'Up to 15 data sources',
         'Advanced SQL queries',
         'Looker Studio integration',
         'Real-time KPI alerts',
         'Custom chart generation',
-        'Team training',
-        '3 months support',
       ],
       featured: true,
     },
     {
-      name: 'Enterprise',
+      name: 'AI-Powered',
+      price: '$5,000',
+      description: 'One-time setup with AI capabilities',
+      features: [
+        'AI-powered reporting automation',
+        'Unlimited data sources',
+        'Custom BI integrations',
+        'Advanced anomaly detection',
+        'Multi-tenant reporting',
+        'Team training included',
+      ],
+    },
+    {
+      name: 'Enterprise Orchestration',
       price: 'Custom',
       description: 'For complex reporting needs',
       features: [
@@ -346,7 +356,7 @@ const pricingData = {
         'Multi-tenant reporting',
         'Dedicated automation architect',
         'Priority support',
-        '12 months support',
+        'SLA guarantee',
       ],
     },
   ],
@@ -358,24 +368,24 @@ const testimonialsData = {
   testimonials: [
     {
       quote:
-        'N8n cut our reporting time from 40 hours to 2 hours per month. Clients get real-time dashboards instead of weekly PDFs.',
-      author: 'Jessica Martin',
-      role: 'Operations Director',
-      company: 'Marketing Agency',
+        'Aditya is highly skilled in SEO and has a strong drive for making positive changes. He has successfully led SEO efforts for GrowthSpot and our clients. I highly recommend him to anyone seeking assistance with SEO.',
+      author: 'Randal Hung',
+      role: 'Founder',
+      company: 'GrowthSpot',
     },
     {
       quote:
-        'The automated SQL reports saved our data team 20 hours weekly. Everything just works and data is always current.',
-      author: 'Ryan Cooper',
-      role: 'Head of Analytics',
-      company: 'E-commerce Company',
+        'He helped us with market research, define the right topics along with the content brief and SEO framework. He did an extensive site audit and helped us weed out the loopholes. This helped us scale our traffic and also improved our Google ranking. Aditya was always ready to help and introduced me to a lot of concepts in SEO.',
+      author: 'Shubhangi',
+      role: 'Content',
+      company: 'Adapt.io',
     },
     {
       quote:
-        'Real-time KPI alerts changed how we operate. We catch issues within minutes instead of discovering them in weekly reports.',
-      author: 'Emma Davis',
-      role: 'VP Operations',
-      company: 'SaaS Startup',
+        'Aditya went above and beyond when he helped us with our SEO strategy. Everything from keyword research to on-page optimization was extremely helpful. He was proactive and has the technical SEO knowledge that any business looking to grow their online presence would benefit from.',
+      author: 'Wendy Chan',
+      role: 'Co-Founder & CEO',
+      company: 'PackMojo',
     },
   ],
 }
@@ -492,10 +502,10 @@ export default function ReportingAutomationPage() {
       <PricingSection {...pricingData} />
       <TestimonialSection {...testimonialsData} />
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
-        role="CEO"
-        company="GrowthTech Solutions"
+        quote="We successfully migrated our blog from Medium to Goodnotes.com/blog without losing traffic. We also solved tech SEO problems for the Thailand, Japan, Taiwan, and Hong Kong sites, doubling the traffic with minimal efforts."
+        author="Elizabeth Ching"
+        role="Marketing"
+        company="Goodnotes"
       />
       <FAQDarkSection title="Reporting automation FAQ" items={faqData} />
       <RelatedServicesSection

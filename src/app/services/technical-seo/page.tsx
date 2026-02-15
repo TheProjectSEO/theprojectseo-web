@@ -307,8 +307,8 @@ const pricingData = {
   heading: 'Transparent technical SEO pricing.',
   tiers: [
     {
-      name: 'Starter',
-      price: '$2,200',
+      name: 'Foundation',
+      price: '$1,800',
       period: '/month',
       description: 'For small to mid-size sites (under 5,000 pages).',
       features: [
@@ -322,12 +322,12 @@ const pricingData = {
       ],
     },
     {
-      name: 'Professional',
-      price: '$4,500',
+      name: 'Growth',
+      price: '$3,500',
       period: '/month',
       description: 'For established sites and e-commerce (5K-100K pages).',
       features: [
-        'Everything in Starter',
+        'Everything in Foundation',
         'Advanced speed optimization',
         'JavaScript SEO & rendering fixes',
         'Crawl budget optimization',
@@ -344,7 +344,7 @@ const pricingData = {
       price: 'Custom',
       description: 'For large sites with complex architectures.',
       features: [
-        'Everything in Professional',
+        'Everything in Growth',
         'Custom technical solutions',
         'Platform migration management',
         'Multi-site technical oversight',
@@ -363,24 +363,24 @@ const testimonialsData = {
   testimonials: [
     {
       quote:
-        'They fixed Core Web Vitals issues our dev team couldn\'t solve. Load time dropped from 6s to 2s and rankings improved across the board within weeks.',
-      author: 'Tom Bradley',
-      role: 'CTO',
-      company: 'Enterprise SaaS Platform',
+        'We successfully migrated our blog from Medium to Goodnotes.com/blog without losing traffic. We also solved tech SEO problems for the Thailand, Japan, Taiwan, and Hong Kong sites, doubling the traffic with minimal efforts.',
+      author: 'Elizabeth Ching',
+      role: 'Marketing',
+      company: 'Goodnotes',
     },
     {
       quote:
-        'The technical SEO work during our Next.js migration was flawless. Zero ranking drops and we actually gained traffic during the transition. That never happens.',
-      author: 'Sarah Kim',
-      role: 'VP Product',
-      company: 'E-commerce Company',
+        'Working with Aditya in our journey to rank our website has been a great pleasure. Aditya possesses an exceptional skill set and a deep understanding of SEO strategies and techniques. He has an uncanny ability to analyze complex data and identify critical opportunities to improve organic search rankings and drive targeted website traffic. I wholeheartedly recommend Aditya for any SEO-related position or project.',
+      author: 'Caleb Hoon',
+      role: 'Head of Community and Operations',
+      company: 'OFFEO',
     },
     {
       quote:
-        'Best technical SEO team we\'ve worked with. They understand both SEO and development, which is rare. Our crawl efficiency improved 70% and index coverage went from 60% to 95%.',
-      author: 'Michael Torres',
-      role: 'Engineering Manager',
-      company: 'Publishing Platform',
+        'I had the pleasure of working with Aditya. He is a true SEO specialist. He knows how to layout the SEO strategy together with a timeline and a list of tasks to be done.',
+      author: 'Eyal Gerber',
+      role: 'Founder & CEO',
+      company: 'Novodes',
     },
   ],
 }
@@ -404,7 +404,7 @@ const faqData = [
   {
     question: 'How much do technical SEO services cost?',
     answer:
-      'Technical SEO services typically range from $1,000-$5,000 per month for ongoing retainers, with one-time audits ranging from $3,000-$8,000. Our Starter plan begins at $2,200/month for sites under 5,000 pages, our Professional plan is $4,500/month for mid-size sites, and Enterprise pricing is custom. The investment depends on site size, platform complexity, and the scope of issues. Most clients see positive ROI within 3-4 months as improved technical performance directly impacts rankings and traffic.',
+      'Technical SEO services typically range from $1,000-$5,000 per month for ongoing retainers, with one-time audits ranging from $3,000-$8,000. Our Foundation plan begins at $1,800/month for sites under 5,000 pages, our Growth plan is $3,500/month for mid-size sites, and Enterprise pricing is custom. The investment depends on site size, platform complexity, and the scope of issues. Most clients see positive ROI within 3-4 months as improved technical performance directly impacts rankings and traffic.',
   },
   {
     question: 'How long does technical SEO take to show results?',
@@ -571,10 +571,10 @@ export default function TechnicalSEOPage() {
       <PricingSection {...pricingData} />
       <TestimonialSection {...testimonialsData} />
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
-        role="CEO"
-        company="GrowthTech Solutions"
+        quote="He helped us with market research, define the right topics along with the content brief and SEO framework. He did an extensive site audit and helped us weed out the loopholes. This helped us scale our traffic and also improved our Google ranking. Aditya was always ready to help and introduced me to a lot of concepts in SEO."
+        author="Shubhangi"
+        role="Content"
+        company="Adapt.io"
       />
       <FAQDarkSection title="Technical SEO frequently asked questions" items={faqData} />
       <CTAFormSection {...ctaData} />

@@ -655,15 +655,14 @@ function TestimonialSection() {
             Client Testimonial
           </p>
           <blockquote className="font-display text-xl italic leading-relaxed text-ink">
-            &ldquo;TheProjectSEO understood something our previous agencies never did: fashion SEO
-            isn&apos;t just about keywords, it&apos;s about timing, visual storytelling, and
-            understanding how people actually discover style online. Within six months, organic
-            became our fastest-growing channel and our customer acquisition cost dropped by
-            40%.&rdquo;
+            &ldquo;He helped us with market research, define the right topics along with the content
+            brief and SEO framework. He did an extensive site audit and helped us weed out the
+            loopholes. This helped us scale our traffic and also improved our Google ranking.
+            Aditya was always ready to help and introduced me to a lot of concepts in SEO.&rdquo;
           </blockquote>
           <div className="mt-8">
-            <p className="font-heading text-base font-semibold text-ink">Priya Mehta</p>
-            <p className="text-sm text-slate mt-1">Founder & Creative Director, Maison Soleil</p>
+            <p className="font-heading text-base font-semibold text-ink">Shubhangi</p>
+            <p className="text-sm text-slate mt-1">Content, Adapt.io</p>
           </div>
         </div>
       </Container>
@@ -695,7 +694,7 @@ function PricingContextSection() {
 
           <div className="border border-border-strong rounded-none p-8 mb-8">
             <p className="font-heading text-lg font-semibold text-ink mb-4">
-              Starting at $2,200/month
+              Starting at $1,800/month
             </p>
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-sm text-stone">
@@ -730,10 +729,10 @@ function TestimonialAndFAQSection() {
   return (
     <>
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
-        role="CEO"
-        company="GrowthTech Solutions"
+        quote="Aditya went above and beyond when he helped us with our SEO strategy. Everything from keyword research to on-page optimization was extremely helpful. He was proactive and has the technical SEO knowledge that any business looking to grow their online presence would benefit from."
+        author="Wendy Chan"
+        role="Co-Founder &amp; CEO"
+        company="PackMojo"
       />
       <FAQDarkSection title="Fashion SEO frequently asked questions" items={faqItems} />
     </>

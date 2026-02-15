@@ -439,20 +439,20 @@ function TestimonialsSection() {
   const testimonials = [
     {
       quote: "Aditya&apos;s SEO expertise transformed our business. His strategic approach helped us achieve #1 rankings for our most competitive keywords, resulting in 340% increase in organic traffic.",
-      author: "Sarah Johnson",
-      title: "CEO, TechStartup Inc.",
+      author: "Sho Dewan",
+      title: "Founder, Workhap",
       results: "+340% Traffic"
     },
     {
       quote: "The ROI from Aditya&apos;s consulting has been incredible. We&apos;ve closed deals worth $2M+ directly from the organic search traffic his strategies generated.",
-      author: "Michael Chen",
-      title: "Founder, E-commerce Pro",
+      author: "Wendy Chan",
+      title: "CMO, PackMojo",
       results: "$2M+ Revenue"
     },
     {
       quote: "Aditya doesn&apos;t just provide recommendations - he ensures you understand the &apos;why&apos; behind every strategy. His training helped our team become SEO-capable internally.",
-      author: "Lisa Rodriguez",
-      title: "Marketing Director, SaaS Company",
+      author: "Elizabeth Ching",
+      title: "SEO Manager, Goodnotes",
       results: "+250% Rankings"
     }
   ]
@@ -520,7 +520,7 @@ function ConsultingPackages() {
     },
     {
       name: "Monthly Consulting",
-      price: "$2,200",
+      price: "$1,800",
       duration: "Per month",
       description: "Ongoing monthly consulting with strategic guidance and implementation support.",
       features: [

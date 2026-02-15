@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     description: 'Learn how to optimize Core Web Vitals (LCP, INP, CLS) to improve page speed, user experience, and search engine rankings.',
     type: 'article',
     publishedTime: '2024-12-10T00:00:00.000Z',
-    authors: ['Sarah Kim'],
+    authors: ['Aditya Aman'],
   },
 }
 
@@ -32,8 +32,8 @@ const post = {
   title: 'Core Web Vitals Optimization: Boost Your Page Speed & Rankings',
   publishedAt: '2024-12-10',
   author: {
-    name: 'Sarah Kim',
-    role: 'Technical SEO Specialist',
+    name: 'Aditya Aman',
+    role: 'Founder & SEO Consultant',
     image: 'bg-green-500'
   },
   category: 'Technical SEO',
@@ -616,10 +616,10 @@ export default function BlogPost() {
       <ArticleHeader />
       <ArticleContent />
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
-        role="CEO"
-        company="GrowthTech Solutions"
+        quote="We successfully migrated our blog from Medium to Goodnotes.com/blog without losing traffic. We also solved tech SEO problems for the Thailand, Japan, Taiwan, and Hong Kong sites, doubling the traffic with minimal efforts."
+        author="Elizabeth Ching"
+        role="Marketing"
+        company="Goodnotes"
       />
       <RelatedPosts />
       <Footer />

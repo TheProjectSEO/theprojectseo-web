@@ -289,8 +289,8 @@ const pricingData = {
   heading: 'AI SEO agent packages.',
   tiers: [
     {
-      name: 'AI Content Optimizer',
-      price: '$5,000',
+      name: 'AI Chatbot',
+      price: '$3,000',
       description: 'Optimize existing content with AI agents.',
       features: [
         'Content analysis AI agent',
@@ -304,11 +304,11 @@ const pricingData = {
       ],
     },
     {
-      name: 'Full AI SEO Agent',
-      price: '$12,000',
+      name: 'Custom AI',
+      price: '$6,000',
       description: 'Complete AI SEO automation at scale.',
       features: [
-        'Everything in Content Optimizer',
+        'Everything in AI Chatbot',
         'Unlimited page optimization',
         'AI keyword research agent',
         'Content gap analysis',
@@ -321,11 +321,11 @@ const pricingData = {
       featured: true,
     },
     {
-      name: 'Enterprise AI Platform',
-      price: '$30,000+',
+      name: 'Enterprise AI',
+      price: '$10,000',
       description: 'Custom AI SEO platform for enterprise.',
       features: [
-        'Everything in Full AI Agent',
+        'Everything in Custom AI',
         'Multi-domain support',
         'Custom AI agent development',
         'GEO (Generative Engine Optimization)',
@@ -344,24 +344,24 @@ const testimonialsData = {
   testimonials: [
     {
       quote:
-        'The AI agent optimized our entire content library in 3 months. Organic traffic tripled and we saved countless hours of manual work.',
-      author: 'Lauren Mitchell',
-      role: 'Head of Content',
-      company: 'TechInsights',
+        'Working with Aditya in our journey to rank our website has been a great pleasure. Aditya possesses an exceptional skill set and a deep understanding of SEO strategies and techniques. He has an uncanny ability to analyze complex data and identify critical opportunities to improve organic search rankings and drive targeted website traffic. I wholeheartedly recommend Aditya for any SEO-related position or project.',
+      author: 'Caleb Hoon',
+      role: 'Head of Community and Operations',
+      company: 'OFFEO',
     },
     {
       quote:
-        'Best SEO investment we have ever made. The AI finds opportunities we would have never discovered manually and the quality is exceptional.',
-      author: 'Ryan Patterson',
-      role: 'VP of Marketing',
-      company: 'CloudScale SaaS',
+        'There&apos;s not enough room here for me to write about all the amazing things Aditya did for our Workhap website & Marketing team! He&apos;s an expert when it comes to everything SEO-related and went above & beyond our initial scope of work. He is someone you can absolutely trust and know has your best interest in mind. 10/10 highly recommend Aditya for all your SEO and marketing needs.',
+      author: 'Sho Dewan',
+      role: 'CEO',
+      company: 'Workhap',
     },
     {
       quote:
-        'We scaled from optimizing 10 articles per week to 100 per day. The AI maintains our brand voice perfectly while improving SEO performance.',
-      author: 'Amanda Zhao',
-      role: 'Editor-in-Chief',
-      company: 'HealthNews Daily',
+        'Aditya went above and beyond when he helped us with our SEO strategy. Everything from keyword research to on-page optimization was extremely helpful. He was proactive and has the technical SEO knowledge that any business looking to grow their online presence would benefit from.',
+      author: 'Wendy Chan',
+      role: 'Co-Founder & CEO',
+      company: 'PackMojo',
     },
   ],
 }
@@ -572,10 +572,10 @@ export default function AISEOAgentPage() {
       </div>
       <TestimonialSection {...testimonialsData} />
       <TestimonialQuoteSection
-        quote="The AI agent optimized 5,000+ articles in 14 weeks. Our organic traffic went from 85K to 297K monthly sessions. The ROI has been extraordinary."
-        author="Lauren Mitchell"
-        role="Head of Content"
-        company="TechInsights"
+        quote="We hit our KPIs in less than 3 months. Working with Aditya, we moved our key revenue-driving pages to positions #1 and #2, where we were previously ranking at #6 or #7."
+        author="James Lim"
+        role="CEO"
+        company="Helpling APAC"
       />
       <FAQDarkSection title="AI SEO agent frequently asked questions" items={faqData} />
       <CTAFormSection {...ctaData} />

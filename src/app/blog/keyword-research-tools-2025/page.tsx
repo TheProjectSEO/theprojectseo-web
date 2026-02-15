@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     description: 'Compare the best keyword research tools for 2025 including Ahrefs, SEMrush, Moz, Google Keyword Planner, and Ubersuggest.',
     type: 'article',
     publishedTime: '2024-11-28T00:00:00.000Z',
-    authors: ['Michael Chen'],
+    authors: ['Aditya Aman'],
   },
 }
 
@@ -32,8 +32,8 @@ const post = {
   title: 'Best Keyword Research Tools for 2025: Complete Comparison',
   publishedAt: '2024-11-28',
   author: {
-    name: 'Michael Chen',
-    role: 'SEO Analyst',
+    name: 'Aditya Aman',
+    role: 'Founder & SEO Consultant',
     image: 'bg-blue-500'
   },
   category: 'SEO Tools',
@@ -682,10 +682,10 @@ export default function BlogPost() {
       <ArticleHeader />
       <ArticleContent />
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
-        role="CEO"
-        company="GrowthTech Solutions"
+        quote="Working with Aditya in our journey to rank our website has been a great pleasure. Aditya possesses an exceptional skill set and a deep understanding of SEO strategies and techniques. He has an uncanny ability to analyze complex data and identify critical opportunities to improve organic search rankings and drive targeted website traffic. I wholeheartedly recommend Aditya for any SEO-related position or project."
+        author="Caleb Hoon"
+        role="Head of Community and Operations"
+        company="OFFEO"
       />
       <RelatedPosts />
       <Footer />

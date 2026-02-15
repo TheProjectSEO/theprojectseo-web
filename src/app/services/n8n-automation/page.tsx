@@ -385,36 +385,46 @@ const pricingData = {
   heading: 'Transparent pricing for every scale',
   tiers: [
     {
-      name: 'Starter Pack',
-      price: '$3,500',
-      description: 'Perfect for small businesses',
+      name: 'Simple Workflow',
+      price: '$500',
+      description: 'One-time setup for basic automations',
       features: [
-        '3-5 basic workflows',
-        'Up to 10 app integrations',
+        'Single workflow setup',
+        'Up to 2 app integrations',
         'Error handling setup',
         'Documentation',
         'Self-hosted setup assistance',
-        '1 month support',
       ],
     },
     {
-      name: 'Professional',
-      price: '$8,500',
-      description: 'For growing businesses',
+      name: 'Multi-System',
+      price: '$2,500',
+      description: 'One-time setup for complex workflows',
       features: [
-        '10-15 complex workflows',
-        'Up to 30 app integrations',
+        'Multi-step workflow design',
+        'Up to 10 app integrations',
         'Advanced logic & branching',
         'Custom API integrations',
         'Monitoring & alerts',
         'Training for your team',
-        '3 months support',
-        'Cloud deployment',
       ],
       featured: true,
     },
     {
-      name: 'Enterprise',
+      name: 'AI-Powered',
+      price: '$5,000',
+      description: 'One-time setup with AI capabilities',
+      features: [
+        'AI-powered workflow automation',
+        'Unlimited app integrations',
+        'Custom node development',
+        'Multi-environment setup',
+        'Advanced security & compliance',
+        'Dedicated automation architect',
+      ],
+    },
+    {
+      name: 'Enterprise Orchestration',
       price: 'Custom',
       description: 'For large organizations',
       features: [
@@ -425,7 +435,6 @@ const pricingData = {
         'Advanced security & compliance',
         'Dedicated automation architect',
         'Priority support',
-        '12 months support',
         'SLA guarantee',
       ],
     },
@@ -438,24 +447,24 @@ const testimonialsData = {
   testimonials: [
     {
       quote:
-        'N8n automation saved our team 40 hours per week. The ROI was immediate and continues to grow as we scale.',
-      author: 'Marcus Johnson',
-      role: 'Operations Director',
-      company: 'Digital Marketing Pro',
-    },
-    {
-      quote:
-        'We tried Zapier but the costs were unsustainable. N8n gives us more control and saves us $3,000/month.',
-      author: 'Sophie Chen',
-      role: 'CTO',
-      company: 'GrowthTech Solutions',
-    },
-    {
-      quote:
-        'The workflows are rock-solid. We process 10,000+ transactions daily without a single error.',
-      author: 'David Martinez',
+        "There's not enough room here for me to write about all the amazing things Aditya did for our Workhap website & Marketing team! He's an expert when it comes to everything SEO-related and went above & beyond our initial scope of work. He is someone you can absolutely trust and know has your best interest in mind. 10/10 highly recommend Aditya for all your SEO and marketing needs.",
+      author: 'Sho Dewan',
       role: 'CEO',
-      company: 'E-commerce Innovations',
+      company: 'Workhap',
+    },
+    {
+      quote:
+        'I had the pleasure of working with Aditya. He is a true SEO specialist. He knows how to layout the SEO strategy together with a timeline and a list of tasks to be done.',
+      author: 'Eyal Gerber',
+      role: 'Founder & CEO',
+      company: 'Novodes',
+    },
+    {
+      quote:
+        'Working with Aditya in our journey to rank our website has been a great pleasure. Aditya possesses an exceptional skill set and a deep understanding of SEO strategies and techniques. He has an uncanny ability to analyze complex data and identify critical opportunities to improve organic search rankings and drive targeted website traffic. I wholeheartedly recommend Aditya for any SEO-related position or project.',
+      author: 'Caleb Hoon',
+      role: 'Head of Community and Operations',
+      company: 'OFFEO',
     },
   ],
 }
@@ -612,10 +621,10 @@ export default function N8nAutomationPage() {
       <PricingSection {...pricingData} />
       <TestimonialSection {...testimonialsData} />
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
+        quote="We hit our KPIs in less than 3 months. Working with Aditya, we moved our key revenue-driving pages to positions #1 and #2, where we were previously ranking at #6 or #7."
+        author="James Lim"
         role="CEO"
-        company="GrowthTech Solutions"
+        company="Helpling APAC"
       />
       <FAQDarkSection title="Frequently asked questions" items={faqData} />
       <RelatedServicesSection

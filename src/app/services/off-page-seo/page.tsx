@@ -294,12 +294,11 @@ const pricingData = {
   heading: 'How much does off-page SEO cost?',
   tiers: [
     {
-      name: 'Starter',
-      price: '$2,200',
+      name: 'Foundation',
+      price: '$1,800',
       period: '/month',
       description: 'For startups and small businesses building initial authority.',
       features: [
-        '8-12 high-quality backlinks/month',
         'Brand mention monitoring',
         'Unlinked mention outreach',
         'Basic digital PR outreach',
@@ -309,13 +308,12 @@ const pricingData = {
       ],
     },
     {
-      name: 'Professional',
-      price: '$4,800',
+      name: 'Growth',
+      price: '$3,500',
       period: '/month',
       description: 'For established brands scaling authority and market share.',
       features: [
-        'Everything in Starter',
-        '20-30 high-quality backlinks/month',
+        'Everything in Foundation',
         'Digital PR campaigns (data studies)',
         'Guest posting on DR 50+ sites',
         'HARO/Connectively campaigns',
@@ -332,8 +330,7 @@ const pricingData = {
       price: 'Custom',
       description: 'For competitive industries requiring aggressive authority growth.',
       features: [
-        'Everything in Professional',
-        '40+ high-quality backlinks/month',
+        'Everything in Growth',
         'Custom digital PR campaigns',
         'Influencer partnership development',
         'Community building strategy',
@@ -352,24 +349,24 @@ const testimonialsData = {
   testimonials: [
     {
       quote:
-        'They built our domain authority from scratch. We went from invisible to ranking alongside industry giants in under a year. The link quality is genuinely exceptional -- real publications, real traffic.',
-      author: 'Kevin Patterson',
+        'Aditya is highly skilled in SEO and has a strong drive for making positive changes. He has successfully led SEO efforts for GrowthSpot and our clients. I highly recommend him to anyone seeking assistance with SEO.',
+      author: 'Randal Hung',
       role: 'Founder',
-      company: 'B2B SaaS Startup',
+      company: 'GrowthSpot',
     },
     {
       quote:
-        'The digital PR campaigns got us featured in publications we never thought would cover us. Brand awareness and authority both skyrocketed. Our competitors are still trying to figure out how we did it.',
-      author: 'Nicole Chen',
-      role: 'CMO',
-      company: 'B2B Technology Company',
+        'There&apos;s not enough room here for me to write about all the amazing things Aditya did for our Workhap website & Marketing team! He&apos;s an expert when it comes to everything SEO-related and went above & beyond our initial scope of work. He is someone you can absolutely trust and know has your best interest in mind. 10/10 highly recommend Aditya for all your SEO and marketing needs.',
+      author: 'Sho Dewan',
+      role: 'CEO',
+      company: 'Workhap',
     },
     {
       quote:
-        'Finally an agency that focuses on sustainable, white-hat off-page SEO. No spam, no shortcuts, no PBNs. Just genuine relationship building and quality content that earns real links.',
-      author: 'Robert Martinez',
-      role: 'Director of Marketing',
-      company: 'E-commerce Brand',
+        'Aditya was brought in as a consultant to help my department improve our SEO practices. His advice was invaluable and he was always on hand to answer questions, offer insights, and he gave us a number of great suggestions for SEO tools that would help us in our day to day SEO content production. I can&apos;t recommend Aditya&apos;s services highly enough. Very professional and reliable throughout our working relationship.',
+      author: 'Frederick J\u00e9quier',
+      role: 'Senior Content Editor',
+      company: 'GoTeamUp',
     },
   ],
 }
@@ -385,7 +382,7 @@ const faqData = [
   },
   {
     question: 'How much does off-page SEO cost?',
-    answer: 'Off-page SEO retainers typically range from $1,000-$5,000 per month for comprehensive services. Individual high-quality links cost $500-$1,250 each on average. Digital PR campaigns run $5,000-$15,000 per month. Our Starter plan begins at $2,200/month (8-12 links), Professional at $4,800/month (20-30 links + digital PR), and Enterprise is custom-quoted. The investment reflects the real cost of quality outreach, content creation, and relationship building required for white-hat link acquisition.',
+    answer: 'Off-page SEO retainers typically range from $1,800-$3,500 per month for comprehensive services. Individual high-quality links are priced by domain rating: DR 10-20 at $80/link, DR 30-40 at $120/link, DR 50-60 at $200/link, and DR 70+ at $350/link. Our Foundation plan begins at $1,800/month, Growth at $3,500/month (with digital PR and dedicated strategist), and Enterprise is custom-quoted. The investment reflects the real cost of quality outreach, content creation, and relationship building required for white-hat link acquisition.',
   },
   {
     question: 'What are unlinked mentions and why do they matter?',

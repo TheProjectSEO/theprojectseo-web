@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     description: 'A comprehensive SEO content optimization checklist covering research, on-page SEO, keyword placement, internal linking, image optimization, and post-publishing tactics to rank higher in 2025.',
     type: 'article',
     publishedTime: '2024-11-10T00:00:00.000Z',
-    authors: ['Lisa Wong'],
+    authors: ['Aditya Aman'],
   },
 }
 
@@ -32,8 +32,8 @@ const post = {
   title: 'SEO Content Optimization Checklist: Rank Higher in 2025',
   publishedAt: '2024-11-10',
   author: {
-    name: 'Lisa Wong',
-    role: 'Content Strategy Lead',
+    name: 'Aditya Aman',
+    role: 'Founder & SEO Consultant',
     image: 'bg-blue-500'
   },
   category: 'Content SEO',
@@ -668,10 +668,10 @@ export default function BlogPost() {
       <ArticleHeader />
       <ArticleContent />
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
-        role="CEO"
-        company="GrowthTech Solutions"
+        quote="He helped us with market research, define the right topics along with the content brief and SEO framework. He did an extensive site audit and helped us weed out the loopholes. This helped us scale our traffic and also improved our Google ranking. Aditya was always ready to help and introduced me to a lot of concepts in SEO."
+        author="Shubhangi"
+        role="Content"
+        company="Adapt.io"
       />
       <RelatedPosts />
       <Footer />

@@ -672,18 +672,18 @@ function TestimonialSection() {
         <div className="mx-auto max-w-3xl text-center">
           <div className="mb-6 font-display text-3xl leading-none text-accent">&ldquo;</div>
           <blockquote className="font-display text-xl italic leading-relaxed text-ink">
-            TheProjectSEO completely transformed our digital strategy. Within eight months, our direct bookings
-            overtook OTA referrals for the first time in our hotel&apos;s history. Their understanding of travel
-            search behavior is unmatched &mdash; they don&apos;t just optimize pages, they understand how
-            travelers actually search and book.
+            There&apos;s not enough room here for me to write about all the amazing things Aditya did for our
+            Workhap website & Marketing team! He&apos;s an expert when it comes to everything SEO-related
+            and went above & beyond our initial scope of work. He is someone you can absolutely trust and
+            know has your best interest in mind. 10/10 highly recommend Aditya for all your SEO and marketing needs.
           </blockquote>
           <div className="mt-8 flex items-center justify-center gap-4">
             <div className="size-12 rounded-none bg-accent-soft flex items-center justify-center">
-              <span className="font-heading text-sm font-semibold text-accent">RP</span>
+              <span className="font-heading text-sm font-semibold text-accent">SD</span>
             </div>
             <div className="text-left">
-              <div className="font-heading text-sm font-semibold text-ink">Rachel Pemberton</div>
-              <div className="text-xs text-ash">Marketing Director, Coastal Boutique Hotels</div>
+              <div className="font-heading text-sm font-semibold text-ink">Sho Dewan</div>
+              <div className="text-xs text-ash">CEO, Workhap</div>
             </div>
           </div>
         </div>
@@ -759,10 +759,10 @@ function TestimonialAndFAQSection() {
   return (
     <>
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
-        role="CEO"
-        company="GrowthTech Solutions"
+        quote="We successfully migrated our blog from Medium to Goodnotes.com/blog without losing traffic. We also solved tech SEO problems for the Thailand, Japan, Taiwan, and Hong Kong sites, doubling the traffic with minimal efforts."
+        author="Elizabeth Ching"
+        role="Marketing"
+        company="Goodnotes"
       />
       <FAQDarkSection title="Travel SEO frequently asked questions" items={faqs} />
     </>

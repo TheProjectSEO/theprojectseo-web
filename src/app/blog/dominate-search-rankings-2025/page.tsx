@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     description: 'Discover the latest SEO strategies and algorithm updates that will help your website rank #1 on Google in 2025.',
     type: 'article',
     publishedTime: '2024-12-15T00:00:00.000Z',
-    authors: ['Alex Rodriguez'],
+    authors: ['Aditya Aman'],
   },
 }
 
@@ -32,8 +32,8 @@ const post = {
   title: 'How to Dominate Search Rankings in 2025: The Complete Guide',
   publishedAt: '2024-12-15',
   author: {
-    name: 'Alex Rodriguez',
-    role: 'Founder & Lead SEO Strategist',
+    name: 'Aditya Aman',
+    role: 'Founder & SEO Consultant',
     image: 'bg-blue-500'
   },
   category: 'SEO Strategy',
@@ -614,10 +614,10 @@ export default function BlogPost() {
       <ArticleHeader />
       <ArticleContent />
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
+        quote="There&apos;s not enough room here for me to write about all the amazing things Aditya did for our Workhap website & Marketing team! He&apos;s an expert when it comes to everything SEO-related and went above & beyond our initial scope of work. He is someone you can absolutely trust and know has your best interest in mind. 10/10 highly recommend Aditya for all your SEO and marketing needs."
+        author="Sho Dewan"
         role="CEO"
-        company="GrowthTech Solutions"
+        company="Workhap"
       />
       <RelatedPosts />
       <Footer />

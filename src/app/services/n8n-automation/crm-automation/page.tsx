@@ -306,36 +306,46 @@ const pricingData = {
   heading: 'CRM automation packages',
   tiers: [
     {
-      name: 'Essential',
-      price: '$3,500',
-      description: 'For single CRM automation',
+      name: 'Simple Workflow',
+      price: '$500',
+      description: 'One-time setup for basic CRM automation',
       features: [
-        '5-7 core workflows',
+        'Single workflow setup',
         'Contact sync automation',
         'Activity logging',
         'Basic data enrichment',
         'Duplicate detection',
-        '1 month support',
       ],
     },
     {
-      name: 'Professional',
-      price: '$7,500',
-      description: 'For multi-CRM environments',
+      name: 'Multi-System',
+      price: '$2,500',
+      description: 'One-time setup for multi-CRM environments',
       features: [
-        '12-15 advanced workflows',
+        'Multi-step workflow design',
         'Multi-CRM synchronization',
         'Bi-directional sync',
         'Advanced data enrichment',
         'Custom field automation',
         'Data quality workflows',
-        'Team training',
-        '3 months support',
       ],
       featured: true,
     },
     {
-      name: 'Enterprise',
+      name: 'AI-Powered',
+      price: '$5,000',
+      description: 'One-time setup with AI capabilities',
+      features: [
+        'AI-powered data management',
+        '3+ CRM integrations',
+        'Master data management',
+        'GDPR compliance automation',
+        'Custom security rules',
+        'Team training included',
+      ],
+    },
+    {
+      name: 'Enterprise Orchestration',
       price: 'Custom',
       description: 'For complex CRM ecosystems',
       features: [
@@ -346,7 +356,7 @@ const pricingData = {
         'Custom security rules',
         'Dedicated automation architect',
         'Priority support',
-        '12 months support',
+        'SLA guarantee',
       ],
     },
   ],
@@ -358,24 +368,24 @@ const testimonialsData = {
   testimonials: [
     {
       quote:
-        'N8n saved us 25 hours per week syncing Salesforce and HubSpot. Our data is finally accurate and our teams trust the CRM again.',
-      author: 'David Kim',
-      role: 'Director of Sales Operations',
-      company: 'B2B Software Company',
+        'Aditya went above and beyond when he helped us with our SEO strategy. Everything from keyword research to on-page optimization was extremely helpful. He was proactive and has the technical SEO knowledge that any business looking to grow their online presence would benefit from.',
+      author: 'Wendy Chan',
+      role: 'Co-Founder & CEO',
+      company: 'PackMojo',
     },
     {
       quote:
-        'The automatic data enrichment and activity logging transformed our CRM. Every contact record is complete and up-to-date.',
-      author: 'Rachel Green',
-      role: 'VP Operations',
-      company: 'Marketing Agency',
+        'We hit our KPIs in less than 3 months. Working with Aditya, we moved our key revenue-driving pages to positions #1 and #2, where we were previously ranking at #6 or #7.',
+      author: 'James Lim',
+      role: 'CEO',
+      company: 'Helpling APAC',
     },
     {
       quote:
-        'We went from 95% data accuracy to 100% with N8n automation. Duplicate records are a thing of the past.',
-      author: 'Tom Anderson',
-      role: 'CRM Administrator',
-      company: 'Services Firm',
+        'I had the pleasure of working with Aditya. He is a true SEO specialist. He knows how to layout the SEO strategy together with a timeline and a list of tasks to be done.',
+      author: 'Eyal Gerber',
+      role: 'Founder & CEO',
+      company: 'Novodes',
     },
   ],
 }
@@ -492,10 +502,10 @@ export default function CRMAutomationPage() {
       <PricingSection {...pricingData} />
       <TestimonialSection {...testimonialsData} />
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
-        role="CEO"
-        company="GrowthTech Solutions"
+        quote="Working with Aditya in our journey to rank our website has been a great pleasure. Aditya possesses an exceptional skill set and a deep understanding of SEO strategies and techniques. He has an uncanny ability to analyze complex data and identify critical opportunities to improve organic search rankings and drive targeted website traffic. I wholeheartedly recommend Aditya for any SEO-related position or project."
+        author="Caleb Hoon"
+        role="Head of Community and Operations"
+        company="OFFEO"
       />
       <FAQDarkSection title="CRM automation FAQ" items={faqData} />
       <RelatedServicesSection

@@ -142,22 +142,22 @@ const services = [
 
 const testimonials = [
   {
-    quote: "TheProjectSEO helped our NYC-based SaaS company achieve #1 rankings for highly competitive B2B keywords. Our organic traffic increased 380% in 10 months, generating $4.2M in additional ARR.",
-    author: "Michael Thompson",
-    company: "CloudScale Technologies",
-    role: "VP of Marketing"
+    quote: "Working with Aditya in our journey to rank our website has been a great pleasure. Aditya possesses an exceptional skill set and a deep understanding of SEO strategies and techniques. He has an uncanny ability to analyze complex data and identify critical opportunities to improve organic search rankings and drive targeted website traffic. I wholeheartedly recommend Aditya for any SEO-related position or project.",
+    author: "Caleb Hoon",
+    company: "OFFEO",
+    role: "Head of Community and Operations"
   },
   {
-    quote: "As a Los Angeles-based e-commerce brand, we needed SEO experts who could compete with Amazon and major retailers. TheProjectSEO delivered exceptional results - we now rank #1 for our primary product categories.",
-    author: "Sarah Johnson",
-    company: "West Coast Lifestyle Co.",
-    role: "CEO & Founder"
+    quote: "We hit our KPIs in less than 3 months. Working with Aditya, we moved our key revenue-driving pages to positions #1 and #2, where we were previously ranking at #6 or #7.",
+    author: "James Lim",
+    company: "Helpling APAC",
+    role: "CEO"
   },
   {
-    quote: "Our Chicago law firm's online presence was transformed by TheProjectSEO. We now dominate local legal searches across the Midwest and generate 150+ qualified leads monthly from organic search.",
-    author: "Attorney David Rodriguez",
-    company: "Rodriguez & Partners LLP",
-    role: "Managing Partner"
+    quote: "Aditya was brought in as a consultant to help my department improve our SEO practices. His advice was invaluable and he was always on hand to answer questions, offer insights, and he gave us a number of great suggestions for SEO tools that would help us in our day to day SEO content production. I can\u0027t recommend Aditya\u0027s services highly enough. Very professional and reliable throughout our working relationship.",
+    author: "Frederick J\u00e9quier",
+    company: "GoTeamUp",
+    role: "Senior Content Editor"
   }
 ]
 
@@ -562,10 +562,10 @@ function TestimonialAndFAQSection() {
   return (
     <>
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
-        role="CEO"
-        company="GrowthTech Solutions"
+        quote="Working with Aditya in our journey to rank our website has been a great pleasure. Aditya possesses an exceptional skill set and a deep understanding of SEO strategies and techniques. He has an uncanny ability to analyze complex data and identify critical opportunities to improve organic search rankings and drive targeted website traffic. I wholeheartedly recommend Aditya for any SEO-related position or project."
+        author="Caleb Hoon"
+        role="Head of Community and Operations"
+        company="OFFEO"
       />
       <FAQDarkSection
         title="USA SEO frequently asked questions"

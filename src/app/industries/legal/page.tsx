@@ -787,19 +787,19 @@ function TestimonialSection() {
         <div className="max-w-3xl mx-auto text-center">
           <div className="mb-6 font-display text-4xl leading-none text-accent">&ldquo;</div>
           <blockquote className="font-display text-xl italic leading-relaxed text-ink sm:text-2xl">
-            TheProjectSEO transformed our firm&apos;s online presence. Within eight months we went
-            from virtually invisible on Google to ranking on the first page for our most
-            competitive practice area keywords. The leads we generate from organic search now
-            account for over 40% of our new case intake — and at a fraction of what we were
-            spending on pay-per-click.
+            Working with Aditya in our journey to rank our website has been a great pleasure.
+            Aditya possesses an exceptional skill set and a deep understanding of SEO strategies
+            and techniques. He has an uncanny ability to analyze complex data and identify critical
+            opportunities to improve organic search rankings and drive targeted website traffic.
+            I wholeheartedly recommend Aditya for any SEO-related position or project.
           </blockquote>
           <div className="mt-8 flex items-center justify-center gap-4">
             <div className="size-12 rounded-none bg-ink flex items-center justify-center">
-              <span className="font-heading text-sm font-medium text-white">RH</span>
+              <span className="font-heading text-sm font-medium text-white">CH</span>
             </div>
             <div className="text-left">
-              <div className="font-heading text-sm font-semibold text-ink">Robert Hartfield</div>
-              <div className="text-sm text-slate">Managing Partner, Hartfield &amp; Associates</div>
+              <div className="font-heading text-sm font-semibold text-ink">Caleb Hoon</div>
+              <div className="text-sm text-slate">Head of Community and Operations, OFFEO</div>
             </div>
           </div>
         </div>
@@ -856,10 +856,10 @@ function TestimonialAndFAQSection() {
   return (
     <>
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
-        role="CEO"
-        company="GrowthTech Solutions"
+        quote="I had the pleasure of working with Aditya. He is a true SEO specialist. He knows how to layout the SEO strategy together with a timeline and a list of tasks to be done."
+        author="Eyal Gerber"
+        role="Founder &amp; CEO"
+        company="Novodes"
       />
       <FAQDarkSection title="Legal SEO frequently asked questions" items={legalFAQs} />
     </>

@@ -306,36 +306,46 @@ const pricingData = {
   heading: 'Customer service automation packages',
   tiers: [
     {
-      name: 'Essential',
-      price: '$3,500',
-      description: 'For small support teams',
+      name: 'Simple Workflow',
+      price: '$500',
+      description: 'One-time setup for basic support automation',
       features: [
-        '5-7 core workflows',
+        'Single workflow setup',
         'Ticket routing automation',
         'Auto-response templates',
         'Basic escalation rules',
         'CSAT survey automation',
-        '1 month support',
       ],
     },
     {
-      name: 'Professional',
-      price: '$7,500',
-      description: 'For growing support teams',
+      name: 'Multi-System',
+      price: '$2,500',
+      description: 'One-time setup for growing support teams',
       features: [
-        '12-15 advanced workflows',
+        'Multi-step workflow design',
         'Intelligent routing',
         'Multi-channel support',
         'SLA monitoring',
         'Knowledge base integration',
         'Advanced escalation logic',
-        'Team training',
-        '3 months support',
       ],
       featured: true,
     },
     {
-      name: 'Enterprise',
+      name: 'AI-Powered',
+      price: '$5,000',
+      description: 'One-time setup with AI capabilities',
+      features: [
+        'AI-powered ticket routing',
+        'Custom routing logic',
+        'AI sentiment analysis',
+        'Multi-language support',
+        'Advanced analytics',
+        'Team training included',
+      ],
+    },
+    {
+      name: 'Enterprise Orchestration',
       price: 'Custom',
       description: 'For large support organizations',
       features: [
@@ -346,7 +356,7 @@ const pricingData = {
         'Advanced analytics',
         'Dedicated automation architect',
         'Priority support',
-        '12 months support',
+        'SLA guarantee',
       ],
     },
   ],
@@ -358,24 +368,24 @@ const testimonialsData = {
   testimonials: [
     {
       quote:
-        'N8n automation cut our response time from 6 hours to under 5 minutes. Our CSAT score jumped 40% and the team is much less stressed.',
-      author: 'Monica Harris',
-      role: 'Head of Customer Success',
-      company: 'SaaS Platform',
+        "There's not enough room here for me to write about all the amazing things Aditya did for our Workhap website & Marketing team! He's an expert when it comes to everything SEO-related and went above & beyond our initial scope of work. He is someone you can absolutely trust and know has your best interest in mind. 10/10 highly recommend Aditya for all your SEO and marketing needs.",
+      author: 'Sho Dewan',
+      role: 'CEO',
+      company: 'Workhap',
     },
     {
       quote:
-        'The intelligent routing ensures tickets go to the right specialist instantly. We handle 3x more tickets with the same team size.',
-      author: 'Daniel Park',
-      role: 'Support Manager',
-      company: 'E-commerce Company',
+        'Working with Aditya in our journey to rank our website has been a great pleasure. Aditya possesses an exceptional skill set and a deep understanding of SEO strategies and techniques. He has an uncanny ability to analyze complex data and identify critical opportunities to improve organic search rankings and drive targeted website traffic. I wholeheartedly recommend Aditya for any SEO-related position or project.',
+      author: 'Caleb Hoon',
+      role: 'Head of Community and Operations',
+      company: 'OFFEO',
     },
     {
       quote:
-        'Automated CSAT surveys and escalations transformed our support quality. We catch issues before they become problems.',
-      author: 'Sarah Wilson',
-      role: 'VP Customer Experience',
-      company: 'Tech Startup',
+        'He helped us with market research, define the right topics along with the content brief and SEO framework. He did an extensive site audit and helped us weed out the loopholes. This helped us scale our traffic and also improved our Google ranking. Aditya was always ready to help and introduced me to a lot of concepts in SEO.',
+      author: 'Shubhangi',
+      role: 'Content',
+      company: 'Adapt.io',
     },
   ],
 }
@@ -492,10 +502,10 @@ export default function CustomerServiceAutomationPage() {
       <PricingSection {...pricingData} />
       <TestimonialSection {...testimonialsData} />
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
-        role="CEO"
-        company="GrowthTech Solutions"
+        quote="Aditya was brought in as a consultant to help my department improve our SEO practices. His advice was invaluable and he was always on hand to answer questions, offer insights, and he gave us a number of great suggestions for SEO tools that would help us in our day to day SEO content production. I can't recommend Aditya's services highly enough. Very professional and reliable throughout our working relationship."
+        author="Frederick Jéquier"
+        role="Senior Content Editor"
+        company="GoTeamUp"
       />
       <FAQDarkSection title="Customer service automation FAQ" items={faqData} />
       <RelatedServicesSection

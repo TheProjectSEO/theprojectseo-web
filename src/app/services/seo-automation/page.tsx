@@ -307,28 +307,27 @@ const pricingData = {
   heading: 'SEO automation packages',
   tiers: [
     {
-      name: 'Essential',
-      price: '$2,500',
-      description: 'For small SEO teams',
+      name: 'Simple',
+      price: '$500',
+      description: 'Single workflow automation',
       features: [
         'Rank tracking automation',
         'Weekly reporting',
-        'Backlink monitoring',
         'Basic alert setup',
-        'Up to 500 keywords',
+        'Up to 100 keywords',
         '1 month support',
       ],
     },
     {
-      name: 'Professional',
-      price: '$5,500',
+      name: 'Multi-System',
+      price: '$2,500',
       description: 'For agencies & in-house teams',
       features: [
         'Advanced rank tracking',
         'Client report automation',
+        'Backlink monitoring',
         'Content workflow automation',
         'Link monitoring & outreach',
-        'Technical audit scheduling',
         'Up to 5,000 keywords',
         'Team training',
         '3 months support',
@@ -336,18 +335,18 @@ const pricingData = {
       featured: true,
     },
     {
-      name: 'Enterprise',
-      price: 'Custom',
-      description: 'For large agencies',
+      name: 'AI-Powered',
+      price: '$5,000',
+      description: 'AI-enhanced automation',
       features: [
-        'Unlimited keywords',
-        'Multi-client automation',
-        'Custom integrations',
+        'Everything in Multi-System',
+        'AI-driven insights',
+        'Technical audit scheduling',
         'Advanced analytics',
         'White-label reporting',
+        'Unlimited keywords',
         'Dedicated automation architect',
-        'Priority support',
-        '12 months support',
+        '6 months support',
       ],
     },
   ],
@@ -359,24 +358,24 @@ const testimonialsData = {
   testimonials: [
     {
       quote:
-        'SEO automation saved our team 20 hours weekly. Clients get reports automatically and we catch ranking drops instantly via Slack.',
-      author: 'Michael Torres',
-      role: 'SEO Director',
-      company: 'Digital Marketing Agency',
+        'We hit our KPIs in less than 3 months. Working with Aditya, we moved our key revenue-driving pages to positions #1 and #2, where we were previously ranking at #6 or #7.',
+      author: 'James Lim',
+      role: 'CEO',
+      company: 'Helpling APAC',
     },
     {
       quote:
-        'The rank tracking automation and competitor monitoring transformed our workflow. We operate 45% more efficiently now.',
-      author: 'Jennifer Lee',
-      role: 'Head of SEO',
-      company: 'E-commerce Company',
+        'I had the pleasure of working with Aditya. He is a true SEO specialist. He knows how to layout the SEO strategy together with a timeline and a list of tasks to be done.',
+      author: 'Eyal Gerber',
+      role: 'Founder & CEO',
+      company: 'Novodes',
     },
     {
       quote:
-        'Automated content workflows and keyword research cut our content production cycle in half. Best investment we made.',
-      author: 'Ryan Cooper',
-      role: 'Content Director',
-      company: 'SaaS Platform',
+        'Aditya is highly skilled in SEO and has a strong drive for making positive changes. He has successfully led SEO efforts for GrowthSpot and our clients. I highly recommend him to anyone seeking assistance with SEO.',
+      author: 'Randal Hung',
+      role: 'Founder',
+      company: 'GrowthSpot',
     },
   ],
 }
@@ -498,10 +497,10 @@ export default function SEOAutomationPage() {
       <PricingSection {...pricingData} />
       <TestimonialSection {...testimonialsData} />
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
-        role="CEO"
-        company="GrowthTech Solutions"
+        quote="Aditya went above and beyond when he helped us with our SEO strategy. Everything from keyword research to on-page optimization was extremely helpful. He was proactive and has the technical SEO knowledge that any business looking to grow their online presence would benefit from."
+        author="Wendy Chan"
+        role="Co-Founder & CEO"
+        company="PackMojo"
       />
       <FAQDarkSection title="SEO automation FAQ" items={faqData} />
       <RelatedServicesSection

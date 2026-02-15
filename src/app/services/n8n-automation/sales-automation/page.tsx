@@ -306,36 +306,46 @@ const pricingData = {
   heading: 'Sales automation packages',
   tiers: [
     {
-      name: 'Essential',
-      price: '$4,000',
-      description: 'For small sales teams',
+      name: 'Simple Workflow',
+      price: '$500',
+      description: 'One-time setup for basic sales automation',
       features: [
-        '5-7 core workflows',
+        'Single workflow setup',
         'Lead routing automation',
-        'Email follow-up sequences',
+        'Email follow-up sequence',
         'CRM sync & logging',
         'Meeting scheduling',
-        '1 month support',
       ],
     },
     {
-      name: 'Professional',
-      price: '$8,500',
-      description: 'For growing sales teams',
+      name: 'Multi-System',
+      price: '$2,500',
+      description: 'One-time setup for growing sales teams',
       features: [
-        '12-15 advanced workflows',
+        'Multi-step workflow design',
         'Lead qualification scoring',
         'Multi-touch cadences',
         'Proposal generation',
         'Pipeline automation',
         'Deal acceleration workflows',
-        'Team training',
-        '3 months support',
       ],
       featured: true,
     },
     {
-      name: 'Enterprise',
+      name: 'AI-Powered',
+      price: '$5,000',
+      description: 'One-time setup with AI capabilities',
+      features: [
+        'AI-powered lead scoring',
+        'Territory management',
+        'Revenue forecasting',
+        'Multi-CRM orchestration',
+        'Custom integrations',
+        'Team training included',
+      ],
+    },
+    {
+      name: 'Enterprise Orchestration',
       price: 'Custom',
       description: 'For sales organizations',
       features: [
@@ -346,7 +356,7 @@ const pricingData = {
         'Custom integrations',
         'Dedicated automation architect',
         'Priority support',
-        '12 months support',
+        'SLA guarantee',
       ],
     },
   ],
@@ -358,24 +368,24 @@ const testimonialsData = {
   testimonials: [
     {
       quote:
-        'Our response time went from hours to under 2 minutes. We close 45% more deals now because we never miss a hot lead.',
-      author: 'Michael Chen',
-      role: 'VP Sales',
-      company: 'B2B Services Co',
+        'We hit our KPIs in less than 3 months. Working with Aditya, we moved our key revenue-driving pages to positions #1 and #2, where we were previously ranking at #6 or #7.',
+      author: 'James Lim',
+      role: 'CEO',
+      company: 'Helpling APAC',
     },
     {
       quote:
-        'N8n automation saved our team 20 hours per week. No more manual CRM updates or forgotten follow-ups. Game changer.',
-      author: 'Amanda Rodriguez',
-      role: 'Sales Director',
-      company: 'Tech Startup',
+        'Aditya is highly skilled in SEO and has a strong drive for making positive changes. He has successfully led SEO efforts for GrowthSpot and our clients. I highly recommend him to anyone seeking assistance with SEO.',
+      author: 'Randal Hung',
+      role: 'Founder',
+      company: 'GrowthSpot',
     },
     {
       quote:
-        'The lead routing and qualification automation ensures every rep gets high-quality leads instantly. Our close rate doubled.',
-      author: 'James Parker',
-      role: 'Head of Sales',
-      company: 'SaaS Company',
+        'Aditya went above and beyond when he helped us with our SEO strategy. Everything from keyword research to on-page optimization was extremely helpful. He was proactive and has the technical SEO knowledge that any business looking to grow their online presence would benefit from.',
+      author: 'Wendy Chan',
+      role: 'Co-Founder & CEO',
+      company: 'PackMojo',
     },
   ],
 }
@@ -492,10 +502,10 @@ export default function SalesAutomationPage() {
       <PricingSection {...pricingData} />
       <TestimonialSection {...testimonialsData} />
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
-        role="CEO"
-        company="GrowthTech Solutions"
+        quote="I had the pleasure of working with Aditya. He is a true SEO specialist. He knows how to layout the SEO strategy together with a timeline and a list of tasks to be done."
+        author="Eyal Gerber"
+        role="Founder & CEO"
+        company="Novodes"
       />
       <FAQDarkSection title="Sales automation FAQ" items={faqData} />
       <RelatedServicesSection

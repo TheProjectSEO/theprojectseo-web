@@ -606,15 +606,18 @@ function TestimonialSection() {
           <Subheading>What Our Clients Say</Subheading>
           <div className="mt-8 mb-4 font-display text-2xl leading-none text-accent">&ldquo;</div>
           <blockquote className="font-display text-xl italic leading-relaxed text-ink mb-8">
-            TheProjectSEO completely transformed our online presence. Before working with them, we were buried on page three of Google.
-            Now we&apos;re the top result for every major dining keyword in our area. Our reservations have tripled and delivery orders
-            keep climbing month after month. They truly understand the restaurant business.
+            There&apos;s not enough room here for me to write about all the amazing things Aditya did for our
+            Workhap website & Marketing team! He&apos;s an expert when it comes to everything SEO-related
+            and went above & beyond our initial scope of work. He is someone you can absolutely trust and
+            know has your best interest in mind. 10/10 highly recommend Aditya for all your SEO and marketing needs.
           </blockquote>
           <div className="flex items-center justify-center gap-3">
-            <div className="size-10 rounded-full bg-ink/10" />
+            <div className="size-10 rounded-full bg-accent-soft flex items-center justify-center">
+              <span className="font-heading text-xs font-medium text-accent">SD</span>
+            </div>
             <div className="text-left">
-              <div className="font-heading text-sm font-semibold text-ink">Marco Pellegrini</div>
-              <div className="text-xs text-ash">Owner, Pellegrini Restaurant Group</div>
+              <div className="font-heading text-sm font-semibold text-ink">Sho Dewan</div>
+              <div className="text-xs text-ash">CEO, Workhap</div>
             </div>
           </div>
         </div>
@@ -659,10 +662,10 @@ function TestimonialAndFAQSection() {
   return (
     <>
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
-        role="CEO"
-        company="GrowthTech Solutions"
+        quote="Working with Aditya in our journey to rank our website has been a great pleasure. Aditya possesses an exceptional skill set and a deep understanding of SEO strategies and techniques. He has an uncanny ability to analyze complex data and identify critical opportunities to improve organic search rankings and drive targeted website traffic. I wholeheartedly recommend Aditya for any SEO-related position or project."
+        author="Caleb Hoon"
+        role="Head of Community and Operations"
+        company="OFFEO"
       />
       <FAQDarkSection title="Restaurant SEO questions answered" items={faqItems} />
     </>

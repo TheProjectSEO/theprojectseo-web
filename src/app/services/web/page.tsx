@@ -44,7 +44,7 @@ const services = [
       'Fast loading times',
       'Mobile-first responsive design',
     ],
-    pricing: 'Starting at $4,997',
+    pricing: 'Starting at $6,000',
   },
   {
     name: 'Core Web Vitals Optimization',
@@ -483,8 +483,8 @@ function TestimonialSection() {
             websites &mdash; they build growth engines.&rdquo;
           </blockquote>
           <div className="mt-8">
-            <p className="font-heading text-base font-semibold text-ink">James Rivera</p>
-            <p className="text-sm text-slate mt-1">CTO, Meridian Commerce</p>
+            <p className="font-heading text-base font-semibold text-ink">Randal Hung</p>
+            <p className="text-sm text-slate mt-1">SEO Lead, GrowthSpot</p>
           </div>
         </div>
       </Container>

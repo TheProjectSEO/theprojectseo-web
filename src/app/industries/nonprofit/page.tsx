@@ -569,15 +569,15 @@ function TestimonialSection() {
           <div className="mt-8">
             <div className="mb-4 font-display text-4xl leading-none text-accent">&ldquo;</div>
             <blockquote className="font-display text-xl italic leading-relaxed text-ink">
-              TheProjectSEO transformed our online presence. Within eight months, we went from being virtually invisible in search results to ranking for over 100 mission-related keywords. Our online donations have more than tripled, and we&apos;re reaching supporters we never could have found through traditional outreach alone.
+              Aditya is highly skilled in SEO and has a strong drive for making positive changes. He has successfully led SEO efforts for GrowthSpot and our clients. I highly recommend him to anyone seeking assistance with SEO.
             </blockquote>
             <div className="mt-8 flex items-center justify-center gap-4">
               <div className="size-12 rounded-none bg-accent-soft flex items-center justify-center">
-                <span className="font-heading text-sm font-medium text-accent">RM</span>
+                <span className="font-heading text-sm font-medium text-accent">RH</span>
               </div>
               <div className="text-left">
-                <div className="font-heading text-sm font-semibold text-ink">Rachel Martinez</div>
-                <div className="text-xs text-ash">Executive Director, GreenFuture Foundation</div>
+                <div className="font-heading text-sm font-semibold text-ink">Randal Hung</div>
+                <div className="text-xs text-ash">Founder, GrowthSpot</div>
               </div>
             </div>
           </div>
@@ -604,7 +604,7 @@ function PricingSection() {
       <div className="max-w-2xl mx-auto">
         <div className="rounded-none border border-border-strong bg-paper p-10 text-center">
           <p className="font-mono text-xs uppercase tracking-[0.1em] text-accent mb-4">Nonprofit SEO</p>
-          <div className="font-mono text-4xl font-bold text-ink mb-2">Starting at $2,200/month</div>
+          <div className="font-mono text-4xl font-bold text-ink mb-2">Starting at $1,800/month</div>
           <p className="text-sm text-ash mb-8">Nonprofit-friendly pricing with flexible packages</p>
 
           <ul className="space-y-3 text-left max-w-md mx-auto mb-10">
@@ -639,10 +639,10 @@ function TestimonialAndFAQSection() {
   return (
     <>
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
-        role="CEO"
-        company="GrowthTech Solutions"
+        quote="Aditya was brought in as a consultant to help my department improve our SEO practices. His advice was invaluable and he was always on hand to answer questions, offer insights, and he gave us a number of great suggestions for SEO tools that would help us in our day to day SEO content production. I can&apos;t recommend Aditya&apos;s services highly enough. Very professional and reliable throughout our working relationship."
+        author="Frederick J&#233;quier"
+        role="Senior Content Editor"
+        company="GoTeamUp"
       />
       <FAQDarkSection title="Nonprofit SEO FAQs" items={nonprofitFAQs} />
     </>

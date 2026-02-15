@@ -624,10 +624,10 @@ export default function GermanySEOServices() {
       />
       <RelatedLocationsSection />
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
-        role="CEO"
-        company="GrowthTech Solutions"
+        quote="Aditya was brought in as a consultant to help my department improve our SEO practices. His advice was invaluable and he was always on hand to answer questions, offer insights, and he gave us a number of great suggestions for SEO tools that would help us in our day to day SEO content production. I can&apos;t recommend Aditya&apos;s services highly enough. Very professional and reliable throughout our working relationship."
+        author="Frederick J&eacute;quier"
+        role="Senior Content Editor"
+        company="GoTeamUp"
       />
       <CTAFormSection
         subheading="Ready to Dominate German Search Results?"

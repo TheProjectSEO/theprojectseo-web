@@ -616,10 +616,10 @@ export default function HongKongSEOServices() {
       />
       <RelatedLocationsSection />
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
+        quote="We hit our KPIs in less than 3 months. Working with Aditya, we moved our key revenue-driving pages to positions #1 and #2, where we were previously ranking at #6 or #7."
+        author="James Lim"
         role="CEO"
-        company="GrowthTech Solutions"
+        company="Helpling APAC"
       />
       <CTAFormSection
         subheading="Ready to Dominate Hong Kong Search Results?"

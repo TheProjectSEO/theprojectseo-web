@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     description: 'A comprehensive breakdown of every major Google algorithm update in 2024, including the March core update, spam policies, helpful content changes, and how to recover.',
     type: 'article',
     publishedTime: '2024-11-15T00:00:00.000Z',
-    authors: ['Emily Johnson'],
+    authors: ['Aditya Aman'],
   },
 }
 
@@ -32,8 +32,8 @@ const post = {
   title: 'Google Algorithm Updates 2024: What You Need to Know',
   publishedAt: '2024-11-15',
   author: {
-    name: 'Emily Johnson',
-    role: 'SEO Research Lead',
+    name: 'Aditya Aman',
+    role: 'Founder & SEO Consultant',
     image: 'bg-blue-500'
   },
   category: 'Algorithm Updates',
@@ -608,10 +608,10 @@ export default function BlogPost() {
       <ArticleHeader />
       <ArticleContent />
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
+        quote="We hit our KPIs in less than 3 months. Working with Aditya, we moved our key revenue-driving pages to positions #1 and #2, where we were previously ranking at #6 or #7."
+        author="James Lim"
         role="CEO"
-        company="GrowthTech Solutions"
+        company="Helpling APAC"
       />
       <RelatedPosts />
       <Footer />

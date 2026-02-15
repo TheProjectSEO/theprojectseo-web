@@ -41,7 +41,7 @@ const featuredPosts = [
     publishedAt: '2024-12-15',
     category: 'SEO Strategy',
     author: {
-      name: 'Alex Rodriguez',
+      name: 'Aditya Aman',
       image: 'bg-cream',
     },
     featured: true,
@@ -54,7 +54,7 @@ const featuredPosts = [
     publishedAt: '2024-12-10',
     category: 'Technical SEO',
     author: {
-      name: 'Sarah Kim',
+      name: 'Aditya Aman',
       image: 'bg-cream',
     },
     featured: true,
@@ -67,7 +67,7 @@ const featuredPosts = [
     publishedAt: '2024-12-05',
     category: 'Local SEO',
     author: {
-      name: 'Jessica Taylor',
+      name: 'Aditya Aman',
       image: 'bg-cream',
     },
     featured: true,
@@ -84,7 +84,7 @@ const allPosts = [
     publishedAt: '2024-11-28',
     category: 'SEO Tools',
     author: {
-      name: 'Michael Chen',
+      name: 'Aditya Aman',
       image: 'bg-cream',
     },
   },
@@ -96,7 +96,7 @@ const allPosts = [
     publishedAt: '2024-11-20',
     category: 'E-commerce SEO',
     author: {
-      name: 'David Park',
+      name: 'Aditya Aman',
       image: 'bg-cream',
     },
   },
@@ -108,7 +108,7 @@ const allPosts = [
     publishedAt: '2024-11-15',
     category: 'Algorithm Updates',
     author: {
-      name: 'Emily Johnson',
+      name: 'Aditya Aman',
       image: 'bg-cream',
     },
   },
@@ -120,7 +120,7 @@ const allPosts = [
     publishedAt: '2024-11-10',
     category: 'Content SEO',
     author: {
-      name: 'Lisa Wong',
+      name: 'Aditya Aman',
       image: 'bg-cream',
     },
   },
@@ -132,7 +132,7 @@ const allPosts = [
     publishedAt: '2024-11-01',
     category: 'Technical SEO',
     author: {
-      name: 'Robert Martinez',
+      name: 'Aditya Aman',
       image: 'bg-cream',
     },
   },

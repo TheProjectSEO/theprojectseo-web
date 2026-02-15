@@ -179,6 +179,19 @@ const devServices: DevService[] = [
     ],
     href: '/services/data-engineering',
   },
+  {
+    name: 'Data Visualization',
+    price: '$8,000',
+    description:
+      'Custom dashboards and reporting that turn your data into actionable insights.',
+    highlights: [
+      'Custom dashboard design & development',
+      'SEO & business intelligence reporting',
+      'Real-time analytics integration',
+      'Interactive data storytelling',
+    ],
+    href: '/services/data-visualization',
+  },
 ]
 
 /* ─── Automation Tiers ─── */
@@ -812,10 +825,10 @@ export default function Pricing() {
       <ContentPricing />
       <CustomSection />
       <TestimonialQuoteSection
-        quote="TheProjectSEO delivered a custom SEO strategy that increased our organic traffic by 340% in 8 months. The ROI has been incredible."
-        author="David Thompson"
+        quote="We hit our KPIs in less than 3 months. Working with Aditya, we moved our key revenue-driving pages to positions #1 and #2, where we were previously ranking at #6 or #7."
+        author="James Lim"
         role="CEO"
-        company="GrowthTech Solutions"
+        company="Helpling APAC"
       />
       <FAQ />
       <CTASection />

@@ -632,15 +632,13 @@ function TestimonialSection() {
             Client Testimonial
           </p>
           <blockquote className="font-display text-xl italic leading-relaxed text-ink">
-            &ldquo;TheProjectSEO understood our space from day one. They didn&apos;t just write generic
-            security content; they built a content engine that our own threat researchers respect.
-            Within 10 months, organic became our largest pipeline source, surpassing paid search and
-            events combined. Their approach to E-E-A-T and technical authority is exactly what
-            cybersecurity companies need.&rdquo;
+            &ldquo;We hit our KPIs in less than 3 months. Working with Aditya, we moved our key
+            revenue-driving pages to positions #1 and #2, where we were previously ranking at
+            #6 or #7.&rdquo;
           </blockquote>
           <div className="mt-8">
-            <p className="font-heading text-base font-semibold text-ink">Marcus Torres</p>
-            <p className="text-sm text-slate mt-1">VP of Marketing, ShieldLayer Security</p>
+            <p className="font-heading text-base font-semibold text-ink">James Lim</p>
+            <p className="text-sm text-slate mt-1">CEO, Helpling APAC</p>
           </div>
         </div>
       </Container>
@@ -672,7 +670,7 @@ function PricingContextSection() {
 
           <div className="border border-border-strong rounded-none p-8 mb-8">
             <p className="font-heading text-lg font-semibold text-ink mb-4">
-              Investment starts at $2,200/month
+              Investment starts at $1,800/month
             </p>
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-sm text-stone">
@@ -707,10 +705,10 @@ function TestimonialAndFAQSection() {
   return (
     <>
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
-        role="CEO"
-        company="GrowthTech Solutions"
+        quote="I had the pleasure of working with Aditya. He is a true SEO specialist. He knows how to layout the SEO strategy together with a timeline and a list of tasks to be done."
+        author="Eyal Gerber"
+        role="Founder &amp; CEO"
+        company="Novodes"
       />
       <FAQDarkSection title="Cybersecurity SEO frequently asked questions" items={faqItems} />
     </>

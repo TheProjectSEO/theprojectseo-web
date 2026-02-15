@@ -68,7 +68,7 @@ const statsData = [
   { value: '8 weeks', label: 'Avg Launch Time' },
   { value: '30+', label: 'MVPs Launched' },
   { value: '90%', label: 'Raise Funding' },
-  { value: '$75K', label: 'Starting Price' },
+  { value: '$3K', label: 'Starting Price' },
 ]
 
 const challengesData = {
@@ -306,7 +306,7 @@ const pricingData = {
   tiers: [
     {
       name: 'Landing Page + Waitlist',
-      price: '$5K',
+      price: '$1,500',
       description: 'Validate demand before building',
       features: [
         '1-2 week delivery',
@@ -318,7 +318,7 @@ const pricingData = {
     },
     {
       name: 'Full MVP',
-      price: '$75K',
+      price: '$3,000',
       description: 'Complete product launch',
       features: [
         '8-10 week delivery',
@@ -334,7 +334,7 @@ const pricingData = {
     },
     {
       name: 'MVP + Growth',
-      price: '$125K',
+      price: '$6,000',
       description: 'Launch with growth features',
       features: [
         '12-14 week delivery',
@@ -356,24 +356,24 @@ const testimonialsData = {
   testimonials: [
     {
       quote:
-        'They launched our MVP in 8 weeks. 6 months later we hit $50K MRR and raised $1.5M. Best decision we made.',
-      author: 'Jessica Chen',
+        'I had the pleasure of working with Aditya. He is a true SEO specialist. He knows how to layout the SEO strategy together with a timeline and a list of tasks to be done.',
+      author: 'Eyal Gerber',
       role: 'Founder & CEO',
-      company: 'SaaS Startup',
+      company: 'Novodes',
     },
     {
       quote:
-        'The team moved fast but never sacrificed quality. Clean code, great design, and they understood our vision perfectly.',
-      author: 'Ryan Cooper',
-      role: 'Co-Founder',
-      company: 'FinTech Platform',
+        'There&apos;s not enough room here for me to write about all the amazing things Aditya did for our Workhap website & Marketing team! He&apos;s an expert when it comes to everything SEO-related and went above & beyond our initial scope of work. He is someone you can absolutely trust and know has your best interest in mind. 10/10 highly recommend Aditya for all your SEO and marketing needs.',
+      author: 'Sho Dewan',
+      role: 'CEO',
+      company: 'Workhap',
     },
     {
       quote:
-        'We tried building in-house for 9 months and made zero progress. They delivered in 10 weeks and we launched to customers.',
-      author: 'Sarah Martinez',
-      role: 'Founder',
-      company: 'EdTech Startup',
+        'Aditya went above and beyond when he helped us with our SEO strategy. Everything from keyword research to on-page optimization was extremely helpful. He was proactive and has the technical SEO knowledge that any business looking to grow their online presence would benefit from.',
+      author: 'Wendy Chan',
+      role: 'Co-Founder & CEO',
+      company: 'PackMojo',
     },
   ],
 }
@@ -412,7 +412,7 @@ const faqData = [
   {
     question: 'How much does MVP development cost?',
     answer:
-      'Full MVPs start at $75K for 8-10 weeks of work. Landing page + waitlist starts at $5K. Complex MVPs with multiple integrations, mobile apps, or advanced features cost $100K-$150K. Enterprise MVPs with compliance requirements (HIPAA, SOC 2) cost $150K-$300K. Cost depends on feature complexity, integrations, design requirements, and timeline. We provide fixed-price quotes after discovery.',
+      'Full MVPs start at $3,000 for 8-10 weeks of work. Landing page + waitlist starts at $1,500. MVPs with growth features, A/B testing, and mobile apps start at $6,000. Cost depends on feature complexity, integrations, design requirements, and timeline. We provide fixed-price quotes after discovery.',
   },
   {
     question: 'Can you help with product strategy and validation?',
@@ -490,10 +490,10 @@ export default function MVPDevelopmentPage() {
       <PricingSection {...pricingData} />
       <TestimonialSection {...testimonialsData} />
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
-        role="CEO"
-        company="GrowthTech Solutions"
+        quote="Aditya was brought in as a consultant to help my department improve our SEO practices. His advice was invaluable and he was always on hand to answer questions, offer insights, and he gave us a number of great suggestions for SEO tools that would help us in our day to day SEO content production. I can&apos;t recommend Aditya&apos;s services highly enough. Very professional and reliable throughout our working relationship."
+        author={"Frederick J\u00e9quier"}
+        role="Senior Content Editor"
+        company="GoTeamUp"
       />
       <FAQDarkSection title="MVP development FAQ" items={faqData} />
       <RelatedServicesSection

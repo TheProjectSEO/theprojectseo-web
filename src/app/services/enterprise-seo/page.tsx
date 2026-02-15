@@ -288,31 +288,31 @@ const comparisonData = {
 const pricingData = {
   subheading: 'Enterprise SEO Pricing',
   heading: 'Transparent pricing for enterprise scale',
-  lead: 'Enterprise SEO investment typically ranges from $5,000 to $25,000+ per month, depending on the number of domains, page count, technical complexity, and international scope. With average CPC values of $12-18 for enterprise SEO keywords, even modest organic ranking improvements deliver significant ROI. Most enterprise clients achieve 5-10x return on SEO investment within the first year through reduced paid acquisition costs and increased organic revenue.',
+  lead: 'Enterprise SEO is custom-quoted based on the number of domains, page count, technical complexity, and international scope. With average CPC values of $12-18 for enterprise SEO keywords, even modest organic ranking improvements deliver significant ROI. Most enterprise clients achieve 5-10x return on SEO investment within the first year through reduced paid acquisition costs and increased organic revenue.',
   tiers: [
     {
-      name: 'Growth',
-      price: '$5,000',
+      name: 'Foundation',
+      price: '$1,800',
       period: '/month',
       description: 'For growing organizations starting enterprise-scale SEO.',
       features: [
-        'Up to 50,000 pages',
+        'Comprehensive SEO audit',
         'Monthly strategy sessions',
         'Technical SEO monitoring',
         'Crawl budget optimization',
         'Content optimization',
-        'Quarterly reporting',
+        'Monthly reporting',
       ],
       ctaText: 'Schedule Consultation',
       ctaHref: '/contact',
     },
     {
-      name: 'Scale',
-      price: '$15,000',
+      name: 'Growth',
+      price: '$3,500',
       period: '/month',
       description: 'For established enterprises with complex multi-domain needs.',
       features: [
-        'Up to 500,000 pages',
+        'Everything in Foundation',
         'Weekly strategy sessions',
         'Custom executive dashboards',
         'Multi-domain management',
@@ -327,10 +327,11 @@ const pricingData = {
     },
     {
       name: 'Enterprise',
-      price: '$25,000+',
-      period: '/month',
+      price: 'Custom',
+      period: '',
       description: 'For large organizations with millions of pages and global operations.',
       features: [
+        'Everything in Growth',
         'Unlimited pages and domains',
         'Dedicated enterprise SEO team',
         'Custom platform integrations',
@@ -352,10 +353,10 @@ const testimonialData = {
   testimonials: [
     {
       quote:
-        'TheProjectSEO transformed our organic search program from a fragmented effort across 30 international sites into a unified growth engine. Their governance framework alone saved us months of wasted engineering cycles, and the crawl budget optimization work uncovered indexation issues we had been blind to for years. Organic revenue is up 200% and organic is now our most efficient acquisition channel.',
-      author: 'Katherine Mercer',
-      role: 'VP of Digital Marketing',
-      company: 'Global Retail Corporation',
+        'We hit our KPIs in less than 3 months. Working with Aditya, we moved our key revenue-driving pages to positions #1 and #2, where we were previously ranking at #6 or #7.',
+      author: 'James Lim',
+      role: 'CEO',
+      company: 'Helpling APAC',
     },
   ],
 }
@@ -369,7 +370,7 @@ const faqData = [
   {
     question: 'How much does enterprise SEO cost?',
     answer:
-      'Enterprise SEO services typically range from $5,000 to $25,000+ per month depending on the scope, number of domains, page count, and complexity of your technical environment. The average CPC for enterprise SEO keywords is $12-18, meaning even modest organic traffic gains deliver substantial ROI. Most enterprise clients see 5-10x return on their SEO investment within the first 12 months through reduced paid acquisition costs and increased organic revenue.',
+      'Enterprise SEO services start at $1,800/month for the Foundation plan, $3,500/month for the Growth plan, and custom pricing for large-scale Enterprise engagements depending on the scope, number of domains, page count, and complexity of your technical environment. The average CPC for enterprise SEO keywords is $12-18, meaning even modest organic traffic gains deliver substantial ROI. Most enterprise clients see 5-10x return on their SEO investment within the first 12 months through reduced paid acquisition costs and increased organic revenue.',
   },
   {
     question: 'What tools are used for enterprise SEO?',
@@ -547,10 +548,10 @@ export default function EnterpriseSEOPage() {
       <TestimonialSection {...testimonialData} />
 
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
+        quote="We hit our KPIs in less than 3 months. Working with Aditya, we moved our key revenue-driving pages to positions #1 and #2, where we were previously ranking at #6 or #7."
+        author="James Lim"
         role="CEO"
-        company="GrowthTech Solutions"
+        company="Helpling APAC"
       />
 
       <FAQDarkSection title="Enterprise SEO frequently asked questions" items={faqData} />

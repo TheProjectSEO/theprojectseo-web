@@ -306,36 +306,46 @@ const pricingData = {
   heading: 'Data pipeline automation packages',
   tiers: [
     {
-      name: 'Essential',
-      price: '$4,000',
-      description: 'For basic data pipelines',
+      name: 'Simple Workflow',
+      price: '$500',
+      description: 'One-time setup for basic data pipelines',
       features: [
-        '3-5 data pipelines',
+        'Single pipeline setup',
         'Up to 10k records/day',
         'Database sync automation',
         'Basic transformations',
         'Error handling',
-        '1 month support',
       ],
     },
     {
-      name: 'Professional',
-      price: '$8,500',
-      description: 'For complex data flows',
+      name: 'Multi-System',
+      price: '$2,500',
+      description: 'One-time setup for complex data flows',
       features: [
-        '10-15 data pipelines',
+        'Multi-step pipeline design',
         'Up to 100k records/day',
         'Real-time sync',
         'Advanced transformations',
         'Data warehouse integration',
         'Quality validation',
-        'Team training',
-        '3 months support',
       ],
       featured: true,
     },
     {
-      name: 'Enterprise',
+      name: 'AI-Powered',
+      price: '$5,000',
+      description: 'One-time setup with AI capabilities',
+      features: [
+        'AI-powered data pipelines',
+        '1M+ records/day',
+        'Multi-region deployment',
+        'Custom transformation logic',
+        'Advanced monitoring',
+        'Team training included',
+      ],
+    },
+    {
+      name: 'Enterprise Orchestration',
       price: 'Custom',
       description: 'For large-scale data operations',
       features: [
@@ -346,7 +356,7 @@ const pricingData = {
         'Advanced monitoring',
         'Dedicated data engineer',
         'Priority support',
-        '12 months support',
+        'SLA guarantee',
       ],
     },
   ],
@@ -358,24 +368,24 @@ const testimonialsData = {
   testimonials: [
     {
       quote:
-        'N8n pipelines process 100k orders daily with zero failures. We went from 24-hour data lag to real-time analytics.',
-      author: 'Kevin Zhang',
-      role: 'Head of Data Engineering',
-      company: 'E-commerce Platform',
+        'We successfully migrated our blog from Medium to Goodnotes.com/blog without losing traffic. We also solved tech SEO problems for the Thailand, Japan, Taiwan, and Hong Kong sites, doubling the traffic with minimal efforts.',
+      author: 'Elizabeth Ching',
+      role: 'Marketing',
+      company: 'Goodnotes',
     },
     {
       quote:
-        'The data warehouse integration saved our analysts 15 hours weekly. Data flows automatically from 12 sources to BigQuery.',
-      author: 'Laura Mitchell',
-      role: 'VP Analytics',
-      company: 'SaaS Company',
+        'Working with Aditya in our journey to rank our website has been a great pleasure. Aditya possesses an exceptional skill set and a deep understanding of SEO strategies and techniques. He has an uncanny ability to analyze complex data and identify critical opportunities to improve organic search rankings and drive targeted website traffic. I wholeheartedly recommend Aditya for any SEO-related position or project.',
+      author: 'Caleb Hoon',
+      role: 'Head of Community and Operations',
+      company: 'OFFEO',
     },
     {
       quote:
-        'We migrated 5 million records with zero data loss. The N8n pipelines are rock solid and handle edge cases perfectly.',
-      author: 'Alex Johnson',
-      role: 'CTO',
-      company: 'FinTech Startup',
+        'I had the pleasure of working with Aditya. He is a true SEO specialist. He knows how to layout the SEO strategy together with a timeline and a list of tasks to be done.',
+      author: 'Eyal Gerber',
+      role: 'Founder & CEO',
+      company: 'Novodes',
     },
   ],
 }
@@ -492,10 +502,10 @@ export default function DataPipelineAutomationPage() {
       <PricingSection {...pricingData} />
       <TestimonialSection {...testimonialsData} />
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
+        quote="We hit our KPIs in less than 3 months. Working with Aditya, we moved our key revenue-driving pages to positions #1 and #2, where we were previously ranking at #6 or #7."
+        author="James Lim"
         role="CEO"
-        company="GrowthTech Solutions"
+        company="Helpling APAC"
       />
       <FAQDarkSection title="Data pipeline automation FAQ" items={faqData} />
       <RelatedServicesSection

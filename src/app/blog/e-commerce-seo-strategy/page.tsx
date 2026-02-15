@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     description: 'Learn proven e-commerce SEO strategies to dramatically increase your online store traffic.',
     type: 'article',
     publishedTime: '2024-11-20T00:00:00.000Z',
-    authors: ['David Park'],
+    authors: ['Aditya Aman'],
   },
 }
 
@@ -32,8 +32,8 @@ const post = {
   title: 'E-commerce SEO Strategy: Increase Online Store Traffic by 300%',
   publishedAt: '2024-11-20',
   author: {
-    name: 'David Park',
-    role: 'E-commerce SEO Specialist',
+    name: 'Aditya Aman',
+    role: 'Founder & SEO Consultant',
     image: 'bg-blue-500'
   },
   category: 'E-commerce SEO',
@@ -705,10 +705,10 @@ export default function BlogPost() {
       <ArticleHeader />
       <ArticleContent />
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
-        role="CEO"
-        company="GrowthTech Solutions"
+        quote="Aditya went above and beyond when he helped us with our SEO strategy. Everything from keyword research to on-page optimization was extremely helpful. He was proactive and has the technical SEO knowledge that any business looking to grow their online presence would benefit from."
+        author="Wendy Chan"
+        role="Co-Founder & CEO"
+        company="PackMojo"
       />
       <RelatedPosts />
       <Footer />

@@ -608,15 +608,15 @@ function TestimonialSection() {
         <div className="max-w-3xl mx-auto text-center">
           <div className="mb-4 font-display text-2xl leading-none text-accent">&ldquo;</div>
           <blockquote className="font-display text-xl italic leading-relaxed text-ink mb-8">
-            TheProjectSEO transformed our online presence completely. We went from barely getting any organic leads to having our agents rank on the first page for every major neighborhood in our market. Our organic lead volume has more than quadrupled, and the quality of those leads is significantly higher than what we get from paid portals. They truly understand real estate.
+            Aditya is highly skilled in SEO and has a strong drive for making positive changes. He has successfully led SEO efforts for GrowthSpot and our clients. I highly recommend him to anyone seeking assistance with SEO.
           </blockquote>
           <div className="flex items-center justify-center gap-3">
             <div className="size-10 rounded-none bg-accent-soft flex items-center justify-center">
-              <span className="font-heading text-sm font-medium text-accent">JR</span>
+              <span className="font-heading text-sm font-medium text-accent">RH</span>
             </div>
             <div className="text-left">
-              <div className="font-heading text-sm font-semibold text-ink">Jennifer Reeves</div>
-              <div className="text-xs text-ash">Managing Broker, Reeves Realty Group</div>
+              <div className="font-heading text-sm font-semibold text-ink">Randal Hung</div>
+              <div className="text-xs text-ash">Founder, GrowthSpot</div>
             </div>
           </div>
         </div>
@@ -681,10 +681,10 @@ function TestimonialAndFAQSection() {
   return (
     <>
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
-        role="CEO"
-        company="GrowthTech Solutions"
+        quote="Aditya is highly skilled in SEO and has a strong drive for making positive changes. He has successfully led SEO efforts for GrowthSpot and our clients. I highly recommend him to anyone seeking assistance with SEO."
+        author="Randal Hung"
+        role="Founder"
+        company="GrowthSpot"
       />
       <FAQDarkSection title="Real estate SEO questions, answered" items={faqItems} />
     </>

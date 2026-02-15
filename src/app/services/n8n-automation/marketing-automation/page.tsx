@@ -310,37 +310,46 @@ const pricingData = {
   heading: 'Marketing automation packages',
   tiers: [
     {
-      name: 'Essential',
-      price: '$4,500',
-      description: 'For small marketing teams',
+      name: 'Simple Workflow',
+      price: '$500',
+      description: 'One-time setup for basic marketing automation',
       features: [
-        '5-7 core workflows',
+        'Single workflow setup',
         'Lead capture to CRM automation',
         'Email marketing integration',
         'Basic lead scoring',
         'Social media scheduling',
-        'Campaign reporting',
-        '1 month support',
       ],
     },
     {
-      name: 'Professional',
-      price: '$9,500',
-      description: 'For growing marketing teams',
+      name: 'Multi-System',
+      price: '$2,500',
+      description: 'One-time setup for growing marketing teams',
       features: [
-        '12-15 advanced workflows',
+        'Multi-step workflow design',
         'Multi-channel lead capture',
         'Advanced lead scoring',
         'Multi-touch attribution',
         'Ad platform integration',
         'Custom API connections',
-        'Team training included',
-        '3 months support',
       ],
       featured: true,
     },
     {
-      name: 'Enterprise',
+      name: 'AI-Powered',
+      price: '$5,000',
+      description: 'One-time setup with AI capabilities',
+      features: [
+        'AI-powered marketing automation',
+        'Account-based marketing automation',
+        'Custom attribution models',
+        'Multi-CRM orchestration',
+        'Advanced segmentation',
+        'Team training included',
+      ],
+    },
+    {
+      name: 'Enterprise Orchestration',
       price: 'Custom',
       description: 'For marketing departments',
       features: [
@@ -351,7 +360,7 @@ const pricingData = {
         'Advanced segmentation',
         'Dedicated automation architect',
         'Priority support',
-        '12 months support',
+        'SLA guarantee',
       ],
     },
   ],
@@ -363,24 +372,24 @@ const testimonialsData = {
   testimonials: [
     {
       quote:
-        'N8n automation transformed our lead process. We went from 2-hour response times to under 2 minutes. Conversion rates tripled.',
-      author: 'Jennifer Lee',
-      role: 'VP Marketing',
-      company: 'SaaS Growth Co',
+        'He helped us with market research, define the right topics along with the content brief and SEO framework. He did an extensive site audit and helped us weed out the loopholes. This helped us scale our traffic and also improved our Google ranking. Aditya was always ready to help and introduced me to a lot of concepts in SEO.',
+      author: 'Shubhangi',
+      role: 'Content',
+      company: 'Adapt.io',
     },
     {
       quote:
-        'We saved $2,500/month switching from Zapier to N8n. The workflows are more powerful and cost a fraction of what we were paying.',
-      author: 'Marcus Williams',
-      role: 'Marketing Director',
-      company: 'E-commerce Brand',
+        "Aditya was brought in as a consultant to help my department improve our SEO practices. His advice was invaluable and he was always on hand to answer questions, offer insights, and he gave us a number of great suggestions for SEO tools that would help us in our day to day SEO content production. I can't recommend Aditya's services highly enough. Very professional and reliable throughout our working relationship.",
+      author: 'Frederick J\u00e9quier',
+      role: 'Senior Content Editor',
+      company: 'GoTeamUp',
     },
     {
       quote:
-        'Our marketing team was drowning in manual work. Now everything happens automatically and we can focus on strategy instead of data entry.',
-      author: 'Sarah Thompson',
-      role: 'Head of Growth',
-      company: 'Tech Startup',
+        'Aditya is highly skilled in SEO and has a strong drive for making positive changes. He has successfully led SEO efforts for GrowthSpot and our clients. I highly recommend him to anyone seeking assistance with SEO.',
+      author: 'Randal Hung',
+      role: 'Founder',
+      company: 'GrowthSpot',
     },
   ],
 }
@@ -501,10 +510,10 @@ export default function MarketingAutomationPage() {
       <PricingSection {...pricingData} />
       <TestimonialSection {...testimonialsData} />
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
+        quote="There's not enough room here for me to write about all the amazing things Aditya did for our Workhap website & Marketing team! He's an expert when it comes to everything SEO-related and went above & beyond our initial scope of work. He is someone you can absolutely trust and know has your best interest in mind. 10/10 highly recommend Aditya for all your SEO and marketing needs."
+        author="Sho Dewan"
         role="CEO"
-        company="GrowthTech Solutions"
+        company="Workhap"
       />
       <FAQDarkSection title="Marketing automation FAQ" items={faqData} />
       <RelatedServicesSection

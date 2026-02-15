@@ -298,8 +298,8 @@ const pricingData = {
   heading: 'How much does local SEO cost?',
   tiers: [
     {
-      name: 'Starter',
-      price: '$2,200',
+      name: 'Foundation',
+      price: '$1,800',
       period: '/month',
       description: 'For single-location businesses building local presence.',
       features: [
@@ -313,12 +313,12 @@ const pricingData = {
       ],
     },
     {
-      name: 'Professional',
-      price: '$2,500',
+      name: 'Growth',
+      price: '$3,500',
       period: '/month',
       description: 'For established local businesses or 2-3 locations.',
       features: [
-        'Everything in Starter',
+        'Everything in Foundation',
         '50+ local citation submissions',
         'Review response management',
         'Local content creation (2 pages)',
@@ -334,7 +334,7 @@ const pricingData = {
       price: 'Custom',
       description: 'For multi-location businesses (4+ locations).',
       features: [
-        'Everything in Professional',
+        'Everything in Growth',
         'Unlimited locations',
         'Custom location page strategy',
         'Centralized review management',
@@ -352,24 +352,24 @@ const testimonialsData = {
   testimonials: [
     {
       quote:
-        'We went from invisible on Google Maps to dominating the local pack for every neighborhood we serve. Store visits from local search tripled in six months.',
-      author: 'David Thompson',
-      role: 'Owner',
-      company: 'Multi-Location Retailer',
+        'We hit our KPIs in less than 3 months. Working with Aditya, we moved our key revenue-driving pages to positions #1 and #2, where we were previously ranking at #6 or #7.',
+      author: 'James Lim',
+      role: 'CEO',
+      company: 'Helpling APAC',
     },
     {
       quote:
-        'The review generation strategy transformed our online reputation. We went from 40 reviews to 300+ with a 4.7-star average, and our phone calls increased dramatically.',
-      author: 'Maria Gonzalez',
-      role: 'Marketing Director',
-      company: 'Professional Services Firm',
+        'Aditya went above and beyond when he helped us with our SEO strategy. Everything from keyword research to on-page optimization was extremely helpful. He was proactive and has the technical SEO knowledge that any business looking to grow their online presence would benefit from.',
+      author: 'Wendy Chan',
+      role: 'Co-Founder & CEO',
+      company: 'PackMojo',
     },
     {
       quote:
-        'They optimized our Google Business Profile and built citations we did not even know existed. Our local pack rankings improved from position 8 to position 2 for our primary service area.',
-      author: 'James Park',
-      role: 'Owner',
-      company: 'Home Services Business',
+        'Aditya is highly skilled in SEO and has a strong drive for making positive changes. He has successfully led SEO efforts for GrowthSpot and our clients. I highly recommend him to anyone seeking assistance with SEO.',
+      author: 'Randal Hung',
+      role: 'Founder',
+      company: 'GrowthSpot',
     },
   ],
 }
@@ -381,7 +381,7 @@ const faqData = [
   },
   {
     question: 'How much do local SEO services cost?',
-    answer: 'Local SEO services typically range from $2,200-$5,000 per month depending on the number of locations and competitive landscape. Our Starter plan begins at $2,200/month for single-location businesses, Professional at $2,500/month for 2-3 locations with advanced features, and Enterprise is custom-quoted for multi-location businesses. One-time local SEO audits range from $500-$1,500. The investment delivers strong ROI as local search drives high-intent traffic with immediate purchase intent.',
+    answer: 'Local SEO services typically range from $1,800-$3,500 per month depending on the number of locations and competitive landscape. Our Foundation plan begins at $1,800/month for single-location businesses, Growth at $3,500/month for 2-3 locations with advanced features, and Enterprise is custom-quoted for multi-location businesses. One-time local SEO audits range from $500-$1,500. The investment delivers strong ROI as local search drives high-intent traffic with immediate purchase intent.',
   },
   {
     question: 'What is Google Business Profile and why does it matter?',

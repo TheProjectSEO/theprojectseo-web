@@ -175,8 +175,8 @@ const caseStudy = {
 
 const aeoPackages = [
   {
-    name: 'AEO Starter',
-    price: '$2,200',
+    name: 'AEO Foundation',
+    price: '$1,800',
     period: '/month',
     description:
       'Essential answer engine optimization for growing businesses',
@@ -189,8 +189,8 @@ const aeoPackages = [
     ],
   },
   {
-    name: 'AEO Professional',
-    price: '$3,997',
+    name: 'AEO Growth',
+    price: '$3,500',
     period: '/month',
     description:
       'Comprehensive answer engine optimization for established companies',
@@ -206,7 +206,7 @@ const aeoPackages = [
   },
   {
     name: 'AEO Enterprise',
-    price: '$7,997',
+    price: 'Custom',
     period: '/month',
     description:
       'Full-scale answer engine domination for industry leaders',

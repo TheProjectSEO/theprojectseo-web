@@ -155,10 +155,10 @@ export default function Contact() {
         </div>
       </Container>
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
-        role="CEO"
-        company="GrowthTech Solutions"
+        quote="I had the pleasure of working with Aditya. He is a true SEO specialist. He knows how to layout the SEO strategy together with a timeline and a list of tasks to be done."
+        author="Eyal Gerber"
+        role="Founder & CEO"
+        company="Novodes"
       />
       <FAQSection />
       <Footer />

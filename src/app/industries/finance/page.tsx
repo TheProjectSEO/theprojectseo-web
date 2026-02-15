@@ -617,12 +617,12 @@ function TestimonialSection() {
           <Subheading>Client Testimonial</Subheading>
           <blockquote className="mt-8">
             <p className="font-heading text-xl leading-relaxed text-ink sm:text-2xl">
-              &ldquo;TheProjectSEO understood the compliance constraints we operate under and still delivered exceptional results. Our organic leads have tripled, and every piece of content passes our compliance review on the first submission. They&apos;re not just an SEO agency &mdash; they&apos;re a strategic partner who speaks the language of financial services.&rdquo;
+              &ldquo;I had the pleasure of working with Aditya. He is a true SEO specialist. He knows how to layout the SEO strategy together with a timeline and a list of tasks to be done.&rdquo;
             </p>
           </blockquote>
           <div className="mt-8">
-            <p className="font-heading text-sm font-semibold text-ink">Managing Partner</p>
-            <p className="text-sm text-ash">Registered Investment Advisory Firm &middot; $2.1B AUM</p>
+            <p className="font-heading text-sm font-semibold text-ink">Eyal Gerber</p>
+            <p className="text-sm text-ash">Founder & CEO, Novodes</p>
           </div>
         </div>
       </Container>
@@ -637,7 +637,7 @@ function PricingSection() {
       <div className="mx-auto max-w-3xl text-center">
         <Subheading>Financial Services SEO Investment</Subheading>
         <Heading as="h2" className="mt-2">
-          Investment starts at $2,997/month.
+          Investment starts at $1,800/month.
         </Heading>
         <Lead className="mt-6">
           Financial services SEO commands a premium because of the compliance workflows, YMYL content standards, and specialized expertise required. The investment pays for itself quickly given the high lifetime value of financial services clients.
@@ -676,10 +676,10 @@ function TestimonialAndFAQSection() {
   return (
     <>
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
+        quote="We hit our KPIs in less than 3 months. Working with Aditya, we moved our key revenue-driving pages to positions #1 and #2, where we were previously ranking at #6 or #7."
+        author="James Lim"
         role="CEO"
-        company="GrowthTech Solutions"
+        company="Helpling APAC"
       />
       <FAQDarkSection title="Financial services SEO questions" items={faqs} />
     </>

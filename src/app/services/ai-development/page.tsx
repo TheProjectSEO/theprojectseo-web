@@ -305,8 +305,8 @@ const pricingData = {
   heading: 'AI development packages',
   tiers: [
     {
-      name: 'POC/Prototype',
-      price: '$25K',
+      name: 'AI Chatbot',
+      price: '$3,000',
       description: 'Validate your AI use case',
       features: [
         '2-3 week timeline',
@@ -318,8 +318,8 @@ const pricingData = {
       ],
     },
     {
-      name: 'Production MVP',
-      price: '$75K',
+      name: 'Custom AI',
+      price: '$6,000',
       description: 'Launch to production',
       features: [
         '6-8 week timeline',
@@ -334,8 +334,8 @@ const pricingData = {
       featured: true,
     },
     {
-      name: 'Enterprise',
-      price: 'Custom',
+      name: 'Enterprise AI',
+      price: '$10,000',
       description: 'Full-scale AI platform',
       features: [
         'Custom timeline',
@@ -357,24 +357,24 @@ const testimonialsData = {
   testimonials: [
     {
       quote:
-        'They built our RAG system in 8 weeks. It processes contracts in 2 minutes with 95% accuracy and saved us $500K annually.',
-      author: 'Sarah Johnson',
-      role: 'VP Product',
-      company: 'Legal Tech Platform',
+        'Working with Aditya in our journey to rank our website has been a great pleasure. Aditya possesses an exceptional skill set and a deep understanding of SEO strategies and techniques. He has an uncanny ability to analyze complex data and identify critical opportunities to improve organic search rankings and drive targeted website traffic. I wholeheartedly recommend Aditya for any SEO-related position or project.',
+      author: 'Caleb Hoon',
+      role: 'Head of Community and Operations',
+      company: 'OFFEO',
     },
     {
       quote:
-        'The AI agent they built automates 70% of our customer support. Response quality is exceptional and customers are happier.',
-      author: 'Michael Chen',
-      role: 'CTO',
-      company: 'SaaS Company',
+        'We hit our KPIs in less than 3 months. Working with Aditya, we moved our key revenue-driving pages to positions #1 and #2, where we were previously ranking at #6 or #7.',
+      author: 'James Lim',
+      role: 'CEO',
+      company: 'Helpling APAC',
     },
     {
       quote:
-        'Best AI development team we have worked with. They understand both the technology and our business requirements deeply.',
-      author: 'Emily Rodriguez',
-      role: 'Chief Innovation Officer',
-      company: 'Financial Services',
+        'He helped us with market research, define the right topics along with the content brief and SEO framework. He did an extensive site audit and helped us weed out the loopholes. This helped us scale our traffic and also improved our Google ranking. Aditya was always ready to help and introduced me to a lot of concepts in SEO.',
+      author: 'Shubhangi',
+      role: 'Content',
+      company: 'Adapt.io',
     },
   ],
 }
@@ -491,10 +491,10 @@ export default function AIDevelopmentPage() {
       <PricingSection {...pricingData} />
       <TestimonialSection {...testimonialsData} />
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
-        role="CEO"
-        company="GrowthTech Solutions"
+        quote="We successfully migrated our blog from Medium to Goodnotes.com/blog without losing traffic. We also solved tech SEO problems for the Thailand, Japan, Taiwan, and Hong Kong sites, doubling the traffic with minimal efforts."
+        author="Elizabeth Ching"
+        role="Marketing"
+        company="Goodnotes"
       />
       <FAQDarkSection title="AI development FAQ" items={faqData} />
       <RelatedServicesSection

@@ -11,6 +11,7 @@ import {
   FeatureCardsSection,
   PricingSection,
   TestimonialSection,
+  TestimonialQuoteSection,
   CTAFormSection,
 } from '@/components/service-page-sections'
 import { ProcessTabbedSection } from '@/components/process-tabbed-section'
@@ -288,8 +289,8 @@ const pricingData = {
   heading: 'How much does international SEO cost?',
   tiers: [
     {
-      name: 'Starter',
-      price: '$3,500',
+      name: 'Foundation',
+      price: '$1,800',
       period: '/month',
       description: 'For businesses expanding to 2-3 countries.',
       features: [
@@ -301,12 +302,12 @@ const pricingData = {
       ],
     },
     {
-      name: 'Professional',
-      price: '$6,500',
+      name: 'Growth',
+      price: '$3,500',
       period: '/month',
       description: 'For businesses expanding to 4-8 countries.',
       features: [
-        'Everything in Starter',
+        'Everything in Foundation',
         'Up to 8 markets',
         'Full content localization',
         'International link building',
@@ -320,7 +321,7 @@ const pricingData = {
       price: 'Custom',
       description: 'For global enterprises (9+ countries).',
       features: [
-        'Everything in Professional',
+        'Everything in Growth',
         'Unlimited markets',
         'Custom domain strategy',
         'Multi-language content strategy',
@@ -337,24 +338,24 @@ const testimonialsData = {
   testimonials: [
     {
       quote:
-        'They handled our European expansion flawlessly. Hreflang implementation was perfect, content localization was culturally appropriate, and we&apos;re now generating 40% of revenue from international markets.',
-      author: 'Mark Stevens',
-      role: 'VP International',
-      company: 'B2B SaaS Company',
+        'We successfully migrated our blog from Medium to Goodnotes.com/blog without losing traffic. We also solved tech SEO problems for the Thailand, Japan, Taiwan, and Hong Kong sites, doubling the traffic with minimal efforts.',
+      author: 'Elizabeth Ching',
+      role: 'Marketing',
+      company: 'Goodnotes',
     },
     {
       quote:
-        'The international keyword research revealed massive opportunities we would have missed with direct translation. Each market has unique search behavior that they understood perfectly.',
-      author: 'Sophie Dubois',
-      role: 'Marketing Director',
-      company: 'E-commerce Brand',
+        'We hit our KPIs in less than 3 months. Working with Aditya, we moved our key revenue-driving pages to positions #1 and #2, where we were previously ranking at #6 or #7.',
+      author: 'James Lim',
+      role: 'CEO',
+      company: 'Helpling APAC',
     },
     {
       quote:
-        'They optimized our site for Baidu and Yandex, not just Google. That expertise in regional search engines was critical for our Asia and Russia expansion.',
-      author: 'James Park',
-      role: 'Global SEO Manager',
-      company: 'Enterprise Technology',
+        'Aditya was brought in as a consultant to help my department improve our SEO practices. His advice was invaluable and he was always on hand to answer questions, offer insights, and he gave us a number of great suggestions for SEO tools that would help us in our day to day SEO content production. I can&apos;t recommend Aditya&apos;s services highly enough. Very professional and reliable throughout our working relationship.',
+      author: 'Frederick J\u00e9quier',
+      role: 'Senior Content Editor',
+      company: 'GoTeamUp',
     },
   ],
 }
@@ -374,7 +375,7 @@ const faqData = [
   },
   {
     question: 'How much does international SEO cost?',
-    answer: 'International SEO services typically range from $3,000-$10,000+ per month depending on number of countries and languages. Our Starter plan for 2-3 markets is $3,500/month, Professional for 4-8 markets is $6,500/month, and Enterprise for global expansion is custom-quoted. Costs include hreflang implementation, content localization, international keyword research, technical setup, and ongoing optimization. Investment scales with market complexity and content volume.',
+    answer: 'International SEO services typically range from $1,800-$10,000+ per month depending on number of countries and languages. Our Foundation plan for 2-3 markets is $1,800/month, Growth for 4-8 markets is $3,500/month, and Enterprise for global expansion is custom-quoted. Costs include hreflang implementation, content localization, international keyword research, technical setup, and ongoing optimization. Investment scales with market complexity and content volume.',
   },
   {
     question: 'Do I need native speakers for content localization?',
@@ -431,6 +432,12 @@ export default function InternationalSEOPage() {
       <FeatureCardsSection {...toolsData} />
       <PricingSection {...pricingData} />
       <TestimonialSection {...testimonialsData} />
+      <TestimonialQuoteSection
+        quote="Working with Aditya in our journey to rank our website has been a great pleasure. Aditya possesses an exceptional skill set and a deep understanding of SEO strategies and techniques. He has an uncanny ability to analyze complex data and identify critical opportunities to improve organic search rankings and drive targeted website traffic. I wholeheartedly recommend Aditya for any SEO-related position or project."
+        author="Caleb Hoon"
+        role="Head of Community and Operations"
+        company="OFFEO"
+      />
       <Container className="py-24">
         <FAQAccordion title="International SEO frequently asked questions" items={faqData} />
       </Container>

@@ -625,10 +625,10 @@ export default function SingaporeSEOServices() {
       />
       <RelatedLocationsSection />
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
+        quote="There&apos;s not enough room here for me to write about all the amazing things Aditya did for our Workhap website & Marketing team! He&apos;s an expert when it comes to everything SEO-related and went above & beyond our initial scope of work. He is someone you can absolutely trust and know has your best interest in mind. 10/10 highly recommend Aditya for all your SEO and marketing needs."
+        author="Sho Dewan"
         role="CEO"
-        company="GrowthTech Solutions"
+        company="Workhap"
       />
       <CTAFormSection
         subheading="Ready to Dominate Singapore Search Results?"

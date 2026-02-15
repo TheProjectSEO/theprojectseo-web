@@ -136,22 +136,22 @@ const services = [
 
 const testimonials = [
   {
-    quote: "TheProjectSEO transformed our Mumbai-based fintech startup\u2019s online presence. We achieved #1 rankings for competitive financial keywords and increased organic traffic by 450%, generating \u20B98.5 crores in additional revenue.",
-    author: "Rajesh Sharma",
-    company: "FinTech Innovations Pvt Ltd",
-    role: "CEO & Co-founder"
+    quote: "He helped us with market research, define the right topics along with the content brief and SEO framework. He did an extensive site audit and helped us weed out the loopholes. This helped us scale our traffic and also improved our Google ranking. Aditya was always ready to help and introduced me to a lot of concepts in SEO.",
+    author: "Shubhangi",
+    company: "Adapt.io",
+    role: "Content"
   },
   {
-    quote: "As a Bangalore-based SaaS company, we needed SEO experts who understood both the Indian market and global reach. TheProjectSEO delivered exceptional results - we now rank higher than international competitors.",
-    author: "Priya Patel",
-    company: "CloudTech Solutions",
-    role: "Head of Marketing"
+    quote: "We hit our KPIs in less than 3 months. Working with Aditya, we moved our key revenue-driving pages to positions #1 and #2, where we were previously ranking at #6 or #7.",
+    author: "James Lim",
+    company: "Helpling APAC",
+    role: "CEO"
   },
   {
-    quote: "Our Delhi healthcare clinic\u2019s online visibility skyrocketed after working with TheProjectSEO. We now dominate local medical searches and receive 100+ qualified patient inquiries monthly from Google.",
-    author: "Dr. Arjun Singh",
-    company: "Advanced Medical Care",
-    role: "Medical Director"
+    quote: "I had the pleasure of working with Aditya. He is a true SEO specialist. He knows how to layout the SEO strategy together with a timeline and a list of tasks to be done.",
+    author: "Eyal Gerber",
+    company: "Novodes",
+    role: "Founder & CEO"
   }
 ]
 
@@ -541,10 +541,10 @@ function TestimonialAndFAQSection() {
   return (
     <>
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
-        role="CEO"
-        company="GrowthTech Solutions"
+        quote="He helped us with market research, define the right topics along with the content brief and SEO framework. He did an extensive site audit and helped us weed out the loopholes. This helped us scale our traffic and also improved our Google ranking. Aditya was always ready to help and introduced me to a lot of concepts in SEO."
+        author="Shubhangi"
+        role="Content"
+        company="Adapt.io"
       />
       <FAQDarkSection
         title="India SEO frequently asked questions"

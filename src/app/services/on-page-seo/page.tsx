@@ -308,7 +308,7 @@ const pricingData = {
   heading: 'How much does on-page SEO cost?',
   tiers: [
     {
-      name: 'Starter',
+      name: 'Foundation',
       price: '$1,800',
       period: '/month',
       description: 'For small sites and local businesses with up to 50 pages.',
@@ -324,12 +324,12 @@ const pricingData = {
       ],
     },
     {
-      name: 'Professional',
-      price: '$3,800',
+      name: 'Growth',
+      price: '$3,500',
       period: '/month',
       description: 'For established businesses and e-commerce sites with 50-500 pages.',
       features: [
-        'Everything in Starter',
+        'Everything in Foundation',
         'Up to 50 pages optimized/month',
         'E-E-A-T signal implementation',
         'Semantic SEO & NLP optimization',
@@ -348,7 +348,7 @@ const pricingData = {
       price: 'Custom',
       description: 'For large sites with hundreds or thousands of pages.',
       features: [
-        'Everything in Professional',
+        'Everything in Growth',
         'Unlimited page optimization',
         'Custom content strategy',
         'Multi-language on-page optimization',
@@ -367,24 +367,24 @@ const testimonialsData = {
   testimonials: [
     {
       quote:
-        'They optimized our product pages and conversions tripled. Not just traffic -- actual paying customers from organic search. The ROI has been extraordinary.',
-      author: 'Amanda Foster',
-      role: 'E-commerce Director',
-      company: 'Specialty Retailer',
+        'Aditya went above and beyond when he helped us with our SEO strategy. Everything from keyword research to on-page optimization was extremely helpful. He was proactive and has the technical SEO knowledge that any business looking to grow their online presence would benefit from.',
+      author: 'Wendy Chan',
+      role: 'Co-Founder & CEO',
+      company: 'PackMojo',
     },
     {
       quote:
-        'The content optimization combined with E-E-A-T improvements completely transformed our rankings. We went from page 3 to featured snippets in under 6 months.',
-      author: 'James Liu',
-      role: 'VP Marketing',
-      company: 'B2B SaaS Company',
+        'Working with Aditya in our journey to rank our website has been a great pleasure. Aditya possesses an exceptional skill set and a deep understanding of SEO strategies and techniques. He has an uncanny ability to analyze complex data and identify critical opportunities to improve organic search rankings and drive targeted website traffic. I wholeheartedly recommend Aditya for any SEO-related position or project.',
+      author: 'Caleb Hoon',
+      role: 'Head of Community and Operations',
+      company: 'OFFEO',
     },
     {
       quote:
-        'Finally an SEO team that understands conversion optimization. They do not just get you traffic -- they restructure the entire on-page experience to generate revenue.',
-      author: 'Christine Rodriguez',
-      role: 'VP Growth',
-      company: 'FinTech Startup',
+        'He helped us with market research, define the right topics along with the content brief and SEO framework. He did an extensive site audit and helped us weed out the loopholes. This helped us scale our traffic and also improved our Google ranking. Aditya was always ready to help and introduced me to a lot of concepts in SEO.',
+      author: 'Shubhangi',
+      role: 'Content',
+      company: 'Adapt.io',
     },
   ],
 }
@@ -396,7 +396,7 @@ const faqData = [
   },
   {
     question: 'How much do on-page SEO services cost?',
-    answer: 'On-page SEO pricing typically ranges from $50-$300 per page for one-time optimization, or $1,000-$5,000 per month for ongoing retainers that include monitoring, updates, and iterative improvement. Our Starter plan begins at $1,800/month (20 pages), Professional at $3,800/month (50 pages with advanced optimization), and Enterprise is custom-quoted. Per-page pricing is available for specific optimization projects. The investment depends on the number of pages, competitive landscape, and whether new content creation is needed.',
+    answer: 'On-page SEO pricing typically ranges from $1,800-$3,500 per month for ongoing retainers that include monitoring, updates, and iterative improvement. Our Foundation plan begins at $1,800/month (20 pages), Growth at $3,500/month (50 pages with advanced optimization), and Enterprise is custom-quoted. Per-page pricing is available for specific optimization projects. The investment depends on the number of pages, competitive landscape, and whether new content creation is needed.',
   },
   {
     question: 'What is the difference between on-page and off-page SEO?',

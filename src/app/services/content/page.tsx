@@ -161,40 +161,40 @@ const caseStudy = {
 
 const packages = [
   {
-    name: 'Content Starter',
-    price: '$2,200',
+    name: 'Content Package',
+    price: '$500',
     period: '/month',
-    description: 'Essential content services for small businesses',
+    description: '8 SEO-optimized articles per month for consistent content growth',
     features: [
-      '4 blog posts per month',
-      'Basic keyword research',
+      '8 blog articles per month',
+      'SEO keyword targeting',
       'On-page optimization',
-      'Content strategy consultation',
+      'Content calendar',
       'Monthly performance report',
     ],
   },
   {
-    name: 'Content Growth',
-    price: '$3,500',
+    name: 'Full Content Marketing',
+    price: '$2,000',
     period: '/month',
-    description: 'Comprehensive content marketing for growing businesses',
+    description: 'Complete content marketing with strategy, production, and distribution',
     features: [
-      '8 blog posts per month',
-      'Advanced keyword research',
-      'Content optimization',
+      '8 SEO-optimized articles per month',
+      'Content strategy & planning',
+      'Reddit & forum promotion',
+      'Social distribution',
       'Topic cluster development',
-      'Landing page content',
-      'Content performance tracking',
+      'Monthly performance reporting',
     ],
     featured: true,
   },
   {
     name: 'Content Enterprise',
-    price: '$4,997',
-    period: '/month',
+    price: 'Custom',
+    period: '',
     description: 'Full-scale content marketing for large organizations',
     features: [
-      '16+ blog posts per month',
+      '16+ articles per month',
       'Comprehensive content strategy',
       'Multi-format content creation',
       'Advanced optimization',
@@ -524,8 +524,8 @@ function TestimonialSection() {
             over time. The ROI has been remarkable.&rdquo;
           </blockquote>
           <div className="mt-8">
-            <p className="font-heading text-base font-semibold text-ink">James Harrington</p>
-            <p className="text-sm text-slate mt-1">Director of Marketing, Nexora Systems</p>
+            <p className="font-heading text-base font-semibold text-ink">James Lim</p>
+            <p className="text-sm text-slate mt-1">Head of Growth, Helpling APAC</p>
           </div>
         </div>
       </Container>

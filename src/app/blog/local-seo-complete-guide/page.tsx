@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     description: 'Master local SEO with our complete guide. Learn Google Business Profile optimization, local keyword research, citation building, review management, and more.',
     type: 'article',
     publishedTime: '2024-12-05T00:00:00.000Z',
-    authors: ['Jessica Taylor'],
+    authors: ['Aditya Aman'],
   },
 }
 
@@ -32,8 +32,8 @@ const post = {
   title: 'Local SEO Complete Guide: Dominate Local Search Results',
   publishedAt: '2024-12-05',
   author: {
-    name: 'Jessica Taylor',
-    role: 'Local SEO Specialist',
+    name: 'Aditya Aman',
+    role: 'Founder & SEO Consultant',
     image: 'bg-blue-500'
   },
   category: 'Local SEO',
@@ -734,10 +734,10 @@ export default function BlogPost() {
       <ArticleHeader />
       <ArticleContent />
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
-        role="CEO"
-        company="GrowthTech Solutions"
+        quote="Aditya went above and beyond when he helped us with our SEO strategy. Everything from keyword research to on-page optimization was extremely helpful. He was proactive and has the technical SEO knowledge that any business looking to grow their online presence would benefit from."
+        author="Wendy Chan"
+        role="Co-Founder & CEO"
+        company="PackMojo"
       />
       <RelatedPosts />
       <Footer />

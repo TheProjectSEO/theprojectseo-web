@@ -177,8 +177,8 @@ const caseStudy = {
 
 const packages = [
   {
-    name: 'Starter',
-    price: '$2,200/mo',
+    name: 'Foundation',
+    price: '$1,800/mo',
     description: 'For small businesses ready to build a strong SEO foundation.',
     features: [
       'Initial SEO audit & strategy',
@@ -193,7 +193,7 @@ const packages = [
   },
   {
     name: 'Growth',
-    price: '$2,497/mo',
+    price: '$3,500/mo',
     description: 'For scaling businesses that need comprehensive SEO across all channels.',
     features: [
       'Everything in Starter, plus:',
@@ -210,7 +210,7 @@ const packages = [
   },
   {
     name: 'Enterprise',
-    price: '$4,997/mo',
+    price: 'Custom',
     description: 'For established businesses that demand market dominance and full-service SEO.',
     features: [
       'Everything in Growth, plus:',
@@ -578,8 +578,8 @@ function TestimonialSection() {
             build growth engines.&rdquo;
           </blockquote>
           <div className="mt-8">
-            <p className="font-heading text-base font-semibold text-ink">James Whitfield</p>
-            <p className="text-sm text-slate mt-1">CMO, Meridian Commerce</p>
+            <p className="font-heading text-base font-semibold text-ink">Frederick J&eacute;quier</p>
+            <p className="text-sm text-slate mt-1">CEO, GoTeamUp</p>
           </div>
         </div>
       </Container>

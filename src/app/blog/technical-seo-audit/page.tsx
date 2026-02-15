@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     description: 'Learn how to perform a comprehensive technical SEO audit to identify and fix crawlability, indexation, site speed, and security issues that are hurting your search rankings.',
     type: 'article',
     publishedTime: '2024-11-01T00:00:00.000Z',
-    authors: ['Robert Martinez'],
+    authors: ['Aditya Aman'],
   },
 }
 
@@ -32,8 +32,8 @@ const post = {
   title: 'Technical SEO Audit: Find & Fix Issues Hurting Your Rankings',
   publishedAt: '2024-11-01',
   author: {
-    name: 'Robert Martinez',
-    role: 'Technical SEO Lead',
+    name: 'Aditya Aman',
+    role: 'Founder & SEO Consultant',
     image: 'bg-blue-500'
   },
   category: 'Technical SEO',
@@ -756,10 +756,10 @@ export default function BlogPost() {
       <ArticleHeader />
       <ArticleContent />
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
-        role="CEO"
-        company="GrowthTech Solutions"
+        quote="We successfully migrated our blog from Medium to Goodnotes.com/blog without losing traffic. We also solved tech SEO problems for the Thailand, Japan, Taiwan, and Hong Kong sites, doubling the traffic with minimal efforts."
+        author="Elizabeth Ching"
+        role="Marketing"
+        company="Goodnotes"
       />
       <RelatedPosts />
       <Footer />

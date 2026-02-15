@@ -556,17 +556,16 @@ function TestimonialSection() {
         <div className="max-w-3xl mx-auto text-center">
           <div className="mb-4 font-display text-2xl leading-none text-accent">&ldquo;</div>
           <blockquote className="font-display text-xl italic leading-relaxed text-ink mb-8">
-            TheProjectSEO transformed our organic presence. Their understanding of developer search behavior
-            and enterprise buying cycles helped us 4x our organic demo pipeline in under a year.
-            They don&apos;t just do SEO — they understand technology.
+            I had the pleasure of working with Aditya. He is a true SEO specialist. He knows
+            how to layout the SEO strategy together with a timeline and a list of tasks to be done.
           </blockquote>
           <div className="flex items-center justify-center gap-3">
             <div className="size-10 rounded-full bg-accent-soft flex items-center justify-center">
-              <span className="font-heading text-xs font-medium text-accent">RK</span>
+              <span className="font-heading text-xs font-medium text-accent">EG</span>
             </div>
             <div className="text-left">
-              <div className="font-heading text-sm font-semibold text-ink">Rahul Kumar</div>
-              <div className="text-xs text-ash">CTO, CloudScale Technologies</div>
+              <div className="font-heading text-sm font-semibold text-ink">Eyal Gerber</div>
+              <div className="text-xs text-ash">Founder & CEO, Novodes</div>
             </div>
           </div>
         </div>
@@ -631,10 +630,10 @@ function TestimonialAndFAQSection() {
   return (
     <>
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
+        quote="We hit our KPIs in less than 3 months. Working with Aditya, we moved our key revenue-driving pages to positions #1 and #2, where we were previously ranking at #6 or #7."
+        author="James Lim"
         role="CEO"
-        company="GrowthTech Solutions"
+        company="Helpling APAC"
       />
       <FAQDarkSection title="Technology SEO frequently asked questions" items={faqs} />
     </>

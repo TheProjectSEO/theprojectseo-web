@@ -147,22 +147,22 @@ const industries = [
 
 const testimonials = [
   {
-    quote: "TheProjectSEO helped our Manila-based startup achieve #1 rankings for competitive keywords. Our organic traffic increased 320% in 8 months, leading to \u20B12.5M in additional revenue.",
-    author: "Maria Santos",
-    company: "TechStart Manila",
-    role: "CEO & Founder"
+    quote: "He helped us with market research, define the right topics along with the content brief and SEO framework. He did an extensive site audit and helped us weed out the loopholes. This helped us scale our traffic and also improved our Google ranking. Aditya was always ready to help and introduced me to a lot of concepts in SEO.",
+    author: "Shubhangi",
+    company: "Adapt.io",
+    role: "Content"
   },
   {
-    quote: "As a Cebu-based e-commerce company, we needed SEO experts who understood the Philippine market. TheProjectSEO delivered beyond expectations - we now outrank national competitors.",
-    author: "Carlos Reyes",
-    company: "Island Commerce Co.",
-    role: "Marketing Director"
+    quote: "We successfully migrated our blog from Medium to Goodnotes.com/blog without losing traffic. We also solved tech SEO problems for the Thailand, Japan, Taiwan, and Hong Kong sites, doubling the traffic with minimal efforts.",
+    author: "Elizabeth Ching",
+    company: "Goodnotes",
+    role: "Marketing"
   },
   {
-    quote: "Working with TheProjectSEO transformed our Davao law firm's online presence. We now dominate local legal searches and get 50+ qualified leads monthly from Google.",
-    author: "Attorney Jennifer Cruz",
-    company: "Cruz & Associates Law",
-    role: "Senior Partner"
+    quote: "Aditya went above and beyond when he helped us with our SEO strategy. Everything from keyword research to on-page optimization was extremely helpful. He was proactive and has the technical SEO knowledge that any business looking to grow their online presence would benefit from.",
+    author: "Wendy Chan",
+    company: "PackMojo",
+    role: "Co-Founder & CEO"
   }
 ]
 
@@ -548,10 +548,10 @@ function TestimonialAndFAQSection() {
   return (
     <>
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
-        role="CEO"
-        company="GrowthTech Solutions"
+        quote="He helped us with market research, define the right topics along with the content brief and SEO framework. He did an extensive site audit and helped us weed out the loopholes. This helped us scale our traffic and also improved our Google ranking. Aditya was always ready to help and introduced me to a lot of concepts in SEO."
+        author="Shubhangi"
+        role="Content"
+        company="Adapt.io"
       />
       <FAQDarkSection
         title="Philippines SEO frequently asked questions"

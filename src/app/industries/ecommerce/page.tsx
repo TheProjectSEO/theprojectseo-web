@@ -632,14 +632,15 @@ function TestimonialSection() {
             Client Testimonial
           </p>
           <blockquote className="font-display text-xl italic leading-relaxed text-ink">
-            &ldquo;TheProjectSEO completely transformed our organic channel. Within 10 months,
-            organic revenue surpassed our paid ads, and we&apos;re now ranking for over 2,000 product
-            keywords. They understand e-commerce inside and out, from fixing our faceted navigation
-            nightmare to building seasonal content that converts. Our best marketing investment by far.&rdquo;
+            &ldquo;Working with Aditya in our journey to rank our website has been a great pleasure.
+            Aditya possesses an exceptional skill set and a deep understanding of SEO strategies
+            and techniques. He has an uncanny ability to analyze complex data and identify critical
+            opportunities to improve organic search rankings and drive targeted website traffic.
+            I wholeheartedly recommend Aditya for any SEO-related position or project.&rdquo;
           </blockquote>
           <div className="mt-8">
-            <p className="font-heading text-base font-semibold text-ink">James Whitfield</p>
-            <p className="text-sm text-slate mt-1">Marketing Director, Evergreen Apparel Co.</p>
+            <p className="font-heading text-base font-semibold text-ink">Caleb Hoon</p>
+            <p className="text-sm text-slate mt-1">Head of Community and Operations, OFFEO</p>
           </div>
         </div>
       </Container>
@@ -671,7 +672,7 @@ function PricingContextSection() {
 
           <div className="border border-border-strong rounded-none p-8 mb-8">
             <p className="font-heading text-lg font-semibold text-ink mb-4">
-              Investment starts at $2,200/month
+              Investment starts at $1,800/month
             </p>
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-sm text-stone">
@@ -706,10 +707,10 @@ function TestimonialAndFAQSection() {
   return (
     <>
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
-        role="CEO"
-        company="GrowthTech Solutions"
+        quote="Aditya went above and beyond when he helped us with our SEO strategy. Everything from keyword research to on-page optimization was extremely helpful. He was proactive and has the technical SEO knowledge that any business looking to grow their online presence would benefit from."
+        author="Wendy Chan"
+        role="Co-Founder &amp; CEO"
+        company="PackMojo"
       />
       <FAQDarkSection title="E-commerce SEO frequently asked questions" items={faqItems} />
     </>

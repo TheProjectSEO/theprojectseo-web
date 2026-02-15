@@ -548,11 +548,11 @@ function TestimonialSection() {
           <Subheading>What Our Clients Say</Subheading>
           <blockquote className="mt-8">
             <p className="font-display text-xl font-light leading-relaxed text-ink sm:text-2xl">
-              &ldquo;TheProjectSEO transformed our digital enrollment strategy. Within six months, our program pages were ranking on the first page for competitive education keywords. We&apos;ve seen a measurable increase in qualified inquiries and application starts directly from organic search.&rdquo;
+              &ldquo;He helped us with market research, define the right topics along with the content brief and SEO framework. He did an extensive site audit and helped us weed out the loopholes. This helped us scale our traffic and also improved our Google ranking. Aditya was always ready to help and introduced me to a lot of concepts in SEO.&rdquo;
             </p>
             <footer className="mt-8">
-              <p className="font-heading text-base font-semibold text-ink">Sarah Mitchell</p>
-              <p className="text-sm text-slate">Director of Marketing, Westbridge University</p>
+              <p className="font-heading text-base font-semibold text-ink">Shubhangi</p>
+              <p className="text-sm text-slate">Content, Adapt.io</p>
             </footer>
           </blockquote>
         </div>
@@ -574,7 +574,7 @@ function PricingSection() {
             Our education SEO packages are designed to deliver measurable enrollment results for institutions and EdTech companies of all sizes.
           </Lead>
           <div className="mt-8">
-            <p className="font-display text-4xl font-medium text-ink">Starting at $2,200/month</p>
+            <p className="font-display text-4xl font-medium text-ink">Starting at $1,800/month</p>
             <p className="mt-3 text-sm text-slate">Custom plans available based on program count, target markets, and enrollment goals.</p>
           </div>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:justify-center">
@@ -593,10 +593,10 @@ function TestimonialAndFAQSection() {
   return (
     <>
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
-        role="CEO"
-        company="GrowthTech Solutions"
+        quote="Aditya was brought in as a consultant to help my department improve our SEO practices. His advice was invaluable and he was always on hand to answer questions, offer insights, and he gave us a number of great suggestions for SEO tools that would help us in our day to day SEO content production. I can&apos;t recommend Aditya&apos;s services highly enough. Very professional and reliable throughout our working relationship."
+        author="Frederick J&#233;quier"
+        role="Senior Content Editor"
+        company="GoTeamUp"
       />
       <FAQDarkSection title="Education SEO frequently asked questions" items={educationFAQs} />
     </>

@@ -11,6 +11,7 @@ import {
   FeatureCardsSection,
   PricingSection,
   TestimonialSection,
+  TestimonialQuoteSection,
   CTAFormSection,
 } from '@/components/service-page-sections'
 import { ProcessTabbedSection } from '@/components/process-tabbed-section'
@@ -258,8 +259,8 @@ const pricingData = {
   heading: 'Transparent pricing for every stage.',
   tiers: [
     {
-      name: 'MVP Launch',
-      price: '$15,000',
+      name: 'Starter',
+      price: '$6,000',
       description: 'For startups validating ideas',
       features: [
         'Core features development',
@@ -274,10 +275,10 @@ const pricingData = {
     },
     {
       name: 'Professional',
-      price: '$35,000',
+      price: '$15,000',
       description: 'For growing businesses',
       features: [
-        'Everything in MVP Launch',
+        'Everything in Starter',
         'REST API development',
         'Admin dashboard',
         'Third-party integrations',
@@ -316,24 +317,24 @@ const testimonialsData = {
   testimonials: [
     {
       quote:
-        'TheProjectSEO delivered a complex web application 2 weeks ahead of schedule. The code quality and attention to performance is exceptional.',
-      author: 'Sarah Chen',
-      role: 'CTO',
-      company: 'HealthTech Solutions',
+        'There&apos;s not enough room here for me to write about all the amazing things Aditya did for our Workhap website & Marketing team! He&apos;s an expert when it comes to everything SEO-related and went above & beyond our initial scope of work. He is someone you can absolutely trust and know has your best interest in mind. 10/10 highly recommend Aditya for all your SEO and marketing needs.',
+      author: 'Sho Dewan',
+      role: 'CEO',
+      company: 'Workhap',
     },
     {
       quote:
-        'We tried 3 other agencies before finding TheProjectSEO. They understood our requirements immediately and built exactly what we needed.',
-      author: 'Michael Rodriguez',
+        'Aditya is highly skilled in SEO and has a strong drive for making positive changes. He has successfully led SEO efforts for GrowthSpot and our clients. I highly recommend him to anyone seeking assistance with SEO.',
+      author: 'Randal Hung',
       role: 'Founder',
-      company: 'RetailHub',
+      company: 'GrowthSpot',
     },
     {
       quote:
-        'The application handles 50,000 concurrent users without breaking a sweat. Their architecture decisions were spot-on.',
-      author: 'Jennifer Park',
-      role: 'VP of Engineering',
-      company: 'Financial Insights Inc',
+        'He helped us with market research, define the right topics along with the content brief and SEO framework. He did an extensive site audit and helped us weed out the loopholes. This helped us scale our traffic and also improved our Google ranking. Aditya was always ready to help and introduced me to a lot of concepts in SEO.',
+      author: 'Shubhangi',
+      role: 'Content',
+      company: 'Adapt.io',
     },
   ],
 }
@@ -484,7 +485,7 @@ export default function WebAppDevelopment() {
               name: 'How much does web app development cost?',
               acceptedAnswer: {
                 '@type': 'Answer',
-                text: 'Simple web apps cost $10K-$25K, medium complexity $25K-$75K, complex applications $75K-$150K, and enterprise platforms $200K+.',
+                text: 'Web apps start from $6,000 for starter projects, $15,000 for professional applications, and custom pricing for enterprise platforms.',
               },
             },
             {
@@ -507,6 +508,12 @@ export default function WebAppDevelopment() {
       <FeatureCardsSection {...technologyData} />
       <PricingSection {...pricingData} />
       <TestimonialSection {...testimonialsData} />
+      <TestimonialQuoteSection
+        quote="I had the pleasure of working with Aditya. He is a true SEO specialist. He knows how to layout the SEO strategy together with a timeline and a list of tasks to be done."
+        author="Eyal Gerber"
+        role="Founder & CEO"
+        company="Novodes"
+      />
       <Container className="py-24">
         <FAQAccordion title="Web application development FAQ" items={faqData} />
       </Container>

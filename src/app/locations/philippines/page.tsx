@@ -622,10 +622,10 @@ export default function PhilippinesSEOServices() {
       />
       <RelatedLocationsSection />
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
-        role="CEO"
-        company="GrowthTech Solutions"
+        quote="He helped us with market research, define the right topics along with the content brief and SEO framework. He did an extensive site audit and helped us weed out the loopholes. This helped us scale our traffic and also improved our Google ranking. Aditya was always ready to help and introduced me to a lot of concepts in SEO."
+        author="Shubhangi"
+        role="Content"
+        company="Adapt.io"
       />
       <CTAFormSection
         subheading="Ready to Dominate Philippine Search Results?"

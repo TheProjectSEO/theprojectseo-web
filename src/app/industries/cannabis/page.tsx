@@ -632,15 +632,12 @@ function TestimonialSection() {
             Client Testimonial
           </p>
           <blockquote className="font-display text-xl italic leading-relaxed text-ink">
-            &ldquo;With every advertising platform shutting us out, organic search was our lifeline.
-            TheProjectSEO understood our industry&apos;s challenges from day one. Their compliance-first
-            approach gave us confidence, and the results speak for themselves: a 480% increase in
-            organic traffic across all our dispensary locations. They didn&apos;t just improve our
-            rankings; they built a sustainable growth engine that keeps delivering month after month.&rdquo;
+            &ldquo;I had the pleasure of working with Aditya. He is a true SEO specialist. He knows
+            how to layout the SEO strategy together with a timeline and a list of tasks to be done.&rdquo;
           </blockquote>
           <div className="mt-8">
-            <p className="font-heading text-base font-semibold text-ink">Jason Mitchell</p>
-            <p className="text-sm text-slate mt-1">CEO, GreenLeaf Holdings</p>
+            <p className="font-heading text-base font-semibold text-ink">Eyal Gerber</p>
+            <p className="text-sm text-slate mt-1">Founder & CEO, Novodes</p>
           </div>
         </div>
       </Container>
@@ -672,7 +669,7 @@ function PricingContextSection() {
 
           <div className="border border-border-strong rounded-none p-8 mb-8">
             <p className="font-heading text-lg font-semibold text-ink mb-4">
-              Investment starts at $2,200/month
+              Investment starts at $1,800/month
             </p>
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-sm text-stone">
@@ -707,10 +704,10 @@ function TestimonialAndFAQSection() {
   return (
     <>
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
+        quote="There&apos;s not enough room here for me to write about all the amazing things Aditya did for our Workhap website &amp; Marketing team! He&apos;s an expert when it comes to everything SEO-related and went above &amp; beyond our initial scope of work. He is someone you can absolutely trust and know has your best interest in mind. 10/10 highly recommend Aditya for all your SEO and marketing needs."
+        author="Sho Dewan"
         role="CEO"
-        company="GrowthTech Solutions"
+        company="Workhap"
       />
       <FAQDarkSection title="Cannabis SEO frequently asked questions" items={faqItems} />
     </>

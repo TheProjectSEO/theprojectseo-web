@@ -297,8 +297,9 @@ const pricingData = {
   heading: 'How much does an SEO audit cost?',
   tiers: [
     {
-      name: 'Starter',
-      price: '$1,500',
+      name: 'Foundation',
+      price: '$1,800',
+      period: '/month',
       description: 'For small sites (under 500 pages).',
       features: [
         'Technical SEO audit',
@@ -311,11 +312,12 @@ const pricingData = {
       ],
     },
     {
-      name: 'Professional',
+      name: 'Growth',
       price: '$3,500',
+      period: '/month',
       description: 'For established sites (500-5,000 pages).',
       features: [
-        'Everything in Starter',
+        'Everything in Foundation',
         'Comprehensive technical audit',
         'Full-site on-page review',
         'Deep backlink audit with toxic link report',
@@ -331,7 +333,7 @@ const pricingData = {
       price: 'Custom',
       description: 'For large sites (5,000+ pages).',
       features: [
-        'Everything in Professional',
+        'Everything in Growth',
         'Enterprise-scale crawling',
         'Multi-site audit',
         'International SEO audit',
@@ -350,24 +352,24 @@ const testimonialsData = {
   testimonials: [
     {
       quote:
-        'The audit uncovered critical technical issues that three other agencies had missed. After fixing them, our traffic increased 300% in four months. Best investment we made.',
-      author: 'Rachel Kim',
-      role: 'VP Marketing',
-      company: 'E-commerce Company',
+        'We successfully migrated our blog from Medium to Goodnotes.com/blog without losing traffic. We also solved tech SEO problems for the Thailand, Japan, Taiwan, and Hong Kong sites, doubling the traffic with minimal efforts.',
+      author: 'Elizabeth Ching',
+      role: 'Marketing',
+      company: 'Goodnotes',
     },
     {
       quote:
-        'Incredibly thorough. They identified over 150 issues with clear prioritization and implementation steps. The roadmap made it easy for our dev team to execute the fixes.',
-      author: 'Daniel Foster',
-      role: 'CTO',
-      company: 'SaaS Platform',
+        'He helped us with market research, define the right topics along with the content brief and SEO framework. He did an extensive site audit and helped us weed out the loopholes. This helped us scale our traffic and also improved our Google ranking. Aditya was always ready to help and introduced me to a lot of concepts in SEO.',
+      author: 'Shubhangi',
+      role: 'Content',
+      company: 'Adapt.io',
     },
     {
       quote:
-        'The competitive analysis was eye-opening. We learned exactly why competitors were outranking us and what we needed to do to catch up. Extremely actionable.',
-      author: 'Lisa Chen',
-      role: 'Marketing Director',
-      company: 'B2B Technology',
+        'I had the pleasure of working with Aditya. He is a true SEO specialist. He knows how to layout the SEO strategy together with a timeline and a list of tasks to be done.',
+      author: 'Eyal Gerber',
+      role: 'Founder & CEO',
+      company: 'Novodes',
     },
   ],
 }
@@ -379,7 +381,7 @@ const faqData = [
   },
   {
     question: 'How much does an SEO audit cost?',
-    answer: 'SEO audit pricing typically ranges from $500-$5,000 depending on site size and audit depth. Our Starter audit for small sites (under 500 pages) is $1,500, Professional audit for established sites (500-5,000 pages) is $3,500, and Enterprise audits for large or complex sites are custom-quoted. The investment pays for itself quickly as implementing audit recommendations typically produces 100-300% traffic increases within 3-6 months.',
+    answer: 'SEO audit pricing typically ranges from $1,800-$3,500 per month depending on site size and audit depth. Our Foundation plan for small sites (under 500 pages) is $1,800/month, Growth for established sites (500-5,000 pages) is $3,500/month, and Enterprise audits for large or complex sites are custom-quoted. The investment pays for itself quickly as implementing audit recommendations typically produces 100-300% traffic increases within 3-6 months.',
   },
   {
     question: 'How long does an SEO audit take?',

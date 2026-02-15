@@ -169,8 +169,8 @@ const caseStudy = {
 
 const packages = [
   {
-    name: 'SEO Starter',
-    price: '$2,200',
+    name: 'Foundation',
+    price: '$1,800',
     period: '/month',
     description: 'Essential SEO services for small businesses',
     services: [
@@ -209,8 +209,8 @@ const packages = [
     featured: true,
   },
   {
-    name: 'SEO Enterprise',
-    price: '$4,997',
+    name: 'Enterprise',
+    price: 'Custom',
     period: '/month',
     description: 'Advanced SEO solutions for large businesses',
     services: [
@@ -605,10 +605,10 @@ function TestimonialSection() {
           </blockquote>
           <div className="mt-8">
             <p className="font-heading text-base font-semibold text-ink">
-              Sarah Johnson
+              Caleb Hoon
             </p>
             <p className="text-sm text-slate mt-1">
-              Marketing Director, TechCorp
+              Co-founder, OFFEO
             </p>
           </div>
         </div>

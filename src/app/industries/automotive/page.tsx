@@ -645,16 +645,17 @@ function TestimonialSection() {
         <div className="mx-auto max-w-3xl text-center">
           <div className="mb-4 font-display text-2xl leading-none text-accent">&ldquo;</div>
           <blockquote className="font-display text-xl italic leading-relaxed text-ink mb-8">
-            TheProjectSEO completely transformed our online presence. We went from barely showing up in local searches
-            to dominating the first page for every model we carry. Test drive requests from organic search are up over
-            200% and our service department is booked solid. They understand the automotive business in a way no other
-            SEO agency we&apos;ve worked with ever has.
+            Aditya went above and beyond when he helped us with our SEO strategy. Everything from keyword
+            research to on-page optimization was extremely helpful. He was proactive and has the technical
+            SEO knowledge that any business looking to grow their online presence would benefit from.
           </blockquote>
           <div className="flex items-center justify-center gap-3">
-            <div className="size-10 rounded-full bg-ink/10" />
+            <div className="size-10 rounded-full bg-accent-soft flex items-center justify-center">
+              <span className="font-heading text-xs font-medium text-accent">WC</span>
+            </div>
             <div className="text-left">
-              <div className="font-heading text-sm font-semibold text-ink">Mike Trevino</div>
-              <div className="text-xs text-ash">General Manager, Trevino Auto Group</div>
+              <div className="font-heading text-sm font-semibold text-ink">Wendy Chan</div>
+              <div className="text-xs text-ash">Co-Founder & CEO, PackMojo</div>
             </div>
           </div>
         </div>
@@ -675,7 +676,7 @@ function PricingSection() {
             <span className="text-ash">/month</span>
           </div>
           <p className="mt-4 text-sm leading-relaxed text-slate max-w-lg mx-auto">
-            Our automotive SEO packages start at $2,200/month and include dealer website optimization, inventory SEO,
+            Our automotive SEO packages start at $1,800/month and include dealer website optimization, inventory SEO,
             local search management, and monthly reporting. Custom enterprise plans available for multi-location groups.
           </p>
           <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:justify-center">
@@ -695,10 +696,10 @@ function TestimonialAndFAQSection() {
   return (
     <>
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
-        role="CEO"
-        company="GrowthTech Solutions"
+        quote="Aditya is highly skilled in SEO and has a strong drive for making positive changes. He has successfully led SEO efforts for GrowthSpot and our clients. I highly recommend him to anyone seeking assistance with SEO."
+        author="Randal Hung"
+        role="Founder"
+        company="GrowthSpot"
       />
       <FAQDarkSection title="Automotive SEO frequently asked questions" items={faqItems} />
     </>

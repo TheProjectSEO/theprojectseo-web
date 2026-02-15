@@ -306,7 +306,7 @@ const pricingData = {
   tiers: [
     {
       name: 'Shopify Starter',
-      price: '$15K',
+      price: '$3,000',
       description: 'For new stores',
       features: [
         'Custom Shopify theme',
@@ -319,7 +319,7 @@ const pricingData = {
     },
     {
       name: 'WooCommerce Pro',
-      price: '$25K',
+      price: '$9,000',
       description: 'For WordPress users',
       features: [
         'Custom WooCommerce theme',
@@ -335,7 +335,7 @@ const pricingData = {
     },
     {
       name: 'Custom Platform',
-      price: 'Custom',
+      price: '$15,000',
       description: 'For unique requirements',
       features: [
         'Headless commerce',
@@ -357,24 +357,24 @@ const testimonialsData = {
   testimonials: [
     {
       quote:
-        'They rebuilt our Shopify store and conversion jumped from 0.9% to 3.5%. Revenue increased 290% in 4 months. Incredible ROI.',
-      author: 'Emily Carter',
-      role: 'Founder',
-      company: 'Fashion Brand',
+        'Aditya went above and beyond when he helped us with our SEO strategy. Everything from keyword research to on-page optimization was extremely helpful. He was proactive and has the technical SEO knowledge that any business looking to grow their online presence would benefit from.',
+      author: 'Wendy Chan',
+      role: 'Co-Founder & CEO',
+      company: 'PackMojo',
     },
     {
       quote:
-        'The WooCommerce store they built handles 1,000+ orders daily without any issues. Performance is exceptional.',
-      author: 'Michael Zhang',
+        'We hit our KPIs in less than 3 months. Working with Aditya, we moved our key revenue-driving pages to positions #1 and #2, where we were previously ranking at #6 or #7.',
+      author: 'James Lim',
       role: 'CEO',
-      company: 'Electronics Retailer',
+      company: 'Helpling APAC',
     },
     {
       quote:
-        'Best e-commerce developers we have worked with. They understand conversion optimization and SEO deeply.',
-      author: 'Sarah Johnson',
-      role: 'Marketing Director',
-      company: 'Beauty Brand',
+        'Aditya is highly skilled in SEO and has a strong drive for making positive changes. He has successfully led SEO efforts for GrowthSpot and our clients. I highly recommend him to anyone seeking assistance with SEO.',
+      author: 'Randal Hung',
+      role: 'Founder',
+      company: 'GrowthSpot',
     },
   ],
 }
@@ -491,10 +491,10 @@ export default function EcommerceDevelopmentPage() {
       <PricingSection {...pricingData} />
       <TestimonialSection {...testimonialsData} />
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
+        quote="There&apos;s not enough room here for me to write about all the amazing things Aditya did for our Workhap website & Marketing team! He&apos;s an expert when it comes to everything SEO-related and went above & beyond our initial scope of work. He is someone you can absolutely trust and know has your best interest in mind. 10/10 highly recommend Aditya for all your SEO and marketing needs."
+        author="Sho Dewan"
         role="CEO"
-        company="GrowthTech Solutions"
+        company="Workhap"
       />
       <FAQDarkSection title="E-commerce development FAQ" items={faqData} />
       <RelatedServicesSection

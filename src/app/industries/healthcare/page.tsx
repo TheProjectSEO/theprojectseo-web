@@ -672,15 +672,17 @@ function TestimonialSection() {
         <div className="mx-auto max-w-3xl text-center">
           <blockquote>
             <p className="font-display text-xl italic leading-relaxed text-ink">
-              &ldquo;TheProjectSEO transformed our online presence. Within six months we went from
-              invisible to ranking in the top three for our most important local keywords. New
-              patient inquiries from organic search have more than tripled, and their team
-              understands the compliance nuances that other agencies simply don&apos;t.&rdquo;
+              &ldquo;Aditya was brought in as a consultant to help my department improve our SEO
+              practices. His advice was invaluable and he was always on hand to answer questions,
+              offer insights, and he gave us a number of great suggestions for SEO tools that
+              would help us in our day to day SEO content production. I can&apos;t recommend
+              Aditya&apos;s services highly enough. Very professional and reliable throughout
+              our working relationship.&rdquo;
             </p>
           </blockquote>
           <div className="mt-8">
-            <p className="font-heading text-sm font-semibold text-ink">Dr. Sarah Mitchell</p>
-            <p className="text-sm text-slate">Chief Medical Officer, Pacific Coast Medical Group</p>
+            <p className="font-heading text-sm font-semibold text-ink">Frederick J&#233;quier</p>
+            <p className="text-sm text-slate">Senior Content Editor, GoTeamUp</p>
           </div>
         </div>
       </Container>
@@ -697,7 +699,7 @@ function PricingContextSection() {
         <div className="mx-auto max-w-2xl text-center">
           <Subheading>Investment</Subheading>
           <Heading as="h2" className="mt-2">
-            Investment starts at $2,497/month
+            Investment starts at $1,800/month
           </Heading>
           <ul className="mt-8 space-y-3">
             {[
@@ -729,10 +731,10 @@ function TestimonialAndFAQSection() {
   return (
     <>
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
-        role="CEO"
-        company="GrowthTech Solutions"
+        quote="He helped us with market research, define the right topics along with the content brief and SEO framework. He did an extensive site audit and helped us weed out the loopholes. This helped us scale our traffic and also improved our Google ranking. Aditya was always ready to help and introduced me to a lot of concepts in SEO."
+        author="Shubhangi"
+        role="Content"
+        company="Adapt.io"
       />
       <FAQDarkSection title="Healthcare SEO frequently asked questions" items={healthcareFAQs} />
     </>

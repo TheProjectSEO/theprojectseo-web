@@ -239,8 +239,8 @@ const pricingData = {
   lead: 'E-commerce SEO investment varies by catalog size, platform complexity, and competitive landscape. With average CPCs of $8-14 for commercial e-commerce keywords, organic rankings deliver substantial ROI compared to paid acquisition. Most clients see 5-10x return on their e-commerce SEO investment within 12 months.',
   tiers: [
     {
-      name: 'Starter',
-      price: '$2,500',
+      name: 'Foundation',
+      price: '$1,800',
       period: '/month',
       description: 'Perfect for small to mid-size online stores with up to 1,000 products.',
       features: [
@@ -257,12 +257,12 @@ const pricingData = {
       ctaHref: '/contact',
     },
     {
-      name: 'Professional',
-      price: '$5,500',
+      name: 'Growth',
+      price: '$3,500',
       period: '/month',
       description: 'Ideal for growing e-commerce businesses with 1,000-5,000 products.',
       features: [
-        'Everything in Starter',
+        'Everything in Foundation',
         'Up to 5,000 products optimized',
         'Advanced schema (Product, Review, FAQ)',
         'Faceted navigation optimization',
@@ -282,7 +282,7 @@ const pricingData = {
       period: '',
       description: 'For large catalogs (10,000+ products) and complex multi-platform setups.',
       features: [
-        'Everything in Professional',
+        'Everything in Growth',
         'Unlimited products',
         'Multi-region / multi-language optimization',
         'Custom platform integrations',
@@ -304,21 +304,21 @@ const testimonialsData = {
   testimonials: [
     {
       quote:
-        'Our organic revenue tripled in less than a year. They understand Shopify SEO at a level we have never seen from other agencies. Product pages now rank with rich snippets and organic is our top revenue channel.',
-      author: 'Sarah Thompson',
-      role: 'CEO, Fashion E-commerce Brand',
+        'We hit our KPIs in less than 3 months. Working with Aditya, we moved our key revenue-driving pages to positions #1 and #2, where we were previously ranking at #6 or #7.',
+      author: 'James Lim',
+      role: 'CEO, Helpling APAC',
     },
     {
       quote:
-        'They fixed Core Web Vitals issues our dev team could not figure out, optimized our WooCommerce product feed, and got us into Google Shopping free listings. Traffic and conversions are through the roof.',
-      author: 'Mike Anderson',
-      role: 'E-commerce Director, Electronics Retailer',
+        'Aditya went above and beyond when he helped us with our SEO strategy. Everything from keyword research to on-page optimization was extremely helpful. He was proactive and has the technical SEO knowledge that any business looking to grow their online presence would benefit from.',
+      author: 'Wendy Chan',
+      role: 'Co-Founder & CEO, PackMojo',
     },
     {
       quote:
-        'Finally an SEO team that understands faceted navigation, product schema, and e-commerce platform constraints. Revenue grew 260% in Q4 alone thanks to their seasonal SEO strategy.',
-      author: 'Jennifer Lee',
-      role: 'VP Marketing, Home Goods Store',
+        'We successfully migrated our blog from Medium to Goodnotes.com/blog without losing traffic. We also solved tech SEO problems for the Thailand, Japan, Taiwan, and Hong Kong sites, doubling the traffic with minimal efforts.',
+      author: 'Elizabeth Ching',
+      role: 'Marketing, Goodnotes',
     },
   ],
 }
@@ -332,7 +332,7 @@ const faqData = [
   {
     question: 'How much does e-commerce SEO cost?',
     answer:
-      'E-commerce SEO pricing typically ranges from $2,500/month for small stores (under 1,000 products) to $5,500/month for mid-size catalogs (1,000-5,000 products) and custom pricing for enterprise catalogs with 10,000+ products. The average CPC for e-commerce SEO keywords ranges from $8-14, meaning organic rankings deliver substantial ROI compared to paid advertising. Our clients typically see 5-10x return on their e-commerce SEO investment within the first 12 months.',
+      'E-commerce SEO pricing typically ranges from $1,800/month for small stores (under 1,000 products) to $3,500/month for mid-size catalogs (1,000-5,000 products) and custom pricing for enterprise catalogs with 10,000+ products. The average CPC for e-commerce SEO keywords ranges from $8-14, meaning organic rankings deliver substantial ROI compared to paid advertising. Our clients typically see 5-10x return on their e-commerce SEO investment within the first 12 months.',
   },
   {
     question: 'Which e-commerce platform is best for SEO: Shopify, WooCommerce, or Magento?',
@@ -502,10 +502,10 @@ export default function EcommerceSEOPage() {
       </div>
 
       <TestimonialQuoteSection
-        quote="TheProjectSEO increased our organic traffic by 340% in just 8 months. The ROI has been incredible."
-        author="David Thompson"
+        quote="There&apos;s not enough room here for me to write about all the amazing things Aditya did for our Workhap website & Marketing team! He&apos;s an expert when it comes to everything SEO-related and went above & beyond our initial scope of work. He is someone you can absolutely trust and know has your best interest in mind. 10/10 highly recommend Aditya for all your SEO and marketing needs."
+        author="Sho Dewan"
         role="CEO"
-        company="GrowthTech Solutions"
+        company="Workhap"
       />
 
       <FAQDarkSection title="E-commerce SEO questions answered" items={faqData} />
