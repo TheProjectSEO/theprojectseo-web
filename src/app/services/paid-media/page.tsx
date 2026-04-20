@@ -10,6 +10,7 @@ import {
   ServicesGrid,
   CaseStudyDark,
   CTAFormSection,
+  RelatedServicesSection,
 } from '@/components/service-page-sections'
 import {
   Target,
@@ -421,6 +422,27 @@ export default function PaidMediaPage() {
       <CaseStudyDark {...caseStudyData} />
       <WhoIsThisForSection />
       <FAQSection />
+      <RelatedServicesSection
+        subheading="Related Services"
+        heading="You might also need"
+        services={[
+          {
+            title: 'SEO Services',
+            description: 'Organic growth that reduces your dependence on paid spend over time.',
+            href: '/services/seo',
+          },
+          {
+            title: 'AI Search Optimization',
+            description: 'Capture zero-click and AI-driven impressions that paid ads cannot buy.',
+            href: '/services/ai-search',
+          },
+          {
+            title: 'Analytics & Reporting',
+            description: 'Unified paid + organic reporting in BigQuery so you see true channel ROI.',
+            href: '/services/analytics',
+          },
+        ]}
+      />
       <CTAFormSection
         subheading="Ready to Audit Your Paid Accounts?"
         heading="Tell us where your budget is going. We will tell you where it should go."

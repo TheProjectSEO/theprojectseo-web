@@ -10,6 +10,7 @@ import {
   StatsBar,
   CaseStudyDark,
   CTAFormSection,
+  RelatedServicesSection,
 } from '@/components/service-page-sections'
 import { CheckIcon } from '@/components/check-icon'
 import {
@@ -394,6 +395,27 @@ export default function AISearchPage() {
       <WhyDistinctSection />
       <CaseStudyDark {...caseStudyData} />
       <FAQSection />
+      <RelatedServicesSection
+        subheading="Related Services"
+        heading="You might also need"
+        services={[
+          {
+            title: 'SEO Services',
+            description: 'Traditional search rankings remain the foundation for LLM citation authority.',
+            href: '/services/seo',
+          },
+          {
+            title: 'Content Services',
+            description: 'Authoritative, well-structured content is what LLMs cite most often.',
+            href: '/services/content',
+          },
+          {
+            title: 'Analytics & Reporting',
+            description: 'Track LLM citation share, brand mention trends, and AI-driven traffic.',
+            href: '/services/analytics',
+          },
+        ]}
+      />
       <CTAFormSection
         subheading="Start with a Free AI Search Audit"
         heading="Find out where your brand stands across every major LLM."

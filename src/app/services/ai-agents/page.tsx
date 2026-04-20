@@ -10,6 +10,7 @@ import {
   StatsBar,
   CaseStudyDark,
   CTAFormSection,
+  RelatedServicesSection,
 } from '@/components/service-page-sections'
 import {
   Search,
@@ -558,6 +559,27 @@ export default function AIAgentsHubPage() {
           />
         </Container>
       </div>
+      <RelatedServicesSection
+        subheading="Related Services"
+        heading="You might also need"
+        services={[
+          {
+            title: 'Claude Consulting',
+            description: 'Custom Claude-powered agents and workflows built to your specifications.',
+            href: '/services/claude',
+          },
+          {
+            title: 'SEO Services',
+            description: 'The organic channel that agents monitor, optimize, and report on daily.',
+            href: '/services/seo',
+          },
+          {
+            title: 'AI Search Optimization',
+            description: 'AI agents that track your brand citation share across every major LLM.',
+            href: '/services/ai-search',
+          },
+        ]}
+      />
       <CTAFormSection
         subheading="Ready to Deploy?"
         heading="Start with one agent or the full suite."

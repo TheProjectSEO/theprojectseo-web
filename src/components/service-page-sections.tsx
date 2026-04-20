@@ -22,6 +22,7 @@ import { Navbar } from '@/components/navbar'
 import { ScrollReveal, ScrollRevealGrid } from '@/components/scroll-reveal'
 import { Heading, Lead, Subheading } from '@/components/text'
 import type { ReactNode } from 'react'
+import Link from 'next/link'
 
 // Re-export TestimonialQuoteSection for convenience
 export { TestimonialQuoteSection } from '@/components/testimonial-quote-section'
@@ -589,7 +590,7 @@ export function RelatedServicesSection({
 
         <div className="grid grid-cols-1 gap-px bg-border-strong sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => (
-            <a
+            <Link
               key={service.href}
               href={service.href}
               className="group bg-paper p-8 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
@@ -609,7 +610,7 @@ export function RelatedServicesSection({
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </Container>

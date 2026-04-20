@@ -389,6 +389,28 @@ const INDUSTRY_SERVICE_VALUE_PROPS: ValueProp[] = [
   },
 ]
 
+/**
+ * Convert the CombinationContent.valueProps string[] (written in "Title: body" or
+ * plain-string format per industries.ts/locations.ts) to ValueProp[] the template
+ * renders. Falls back to first 5 words as title when no colon separator exists.
+ */
+function stringValuePropsToValueProps(strings: string[]): ValueProp[] {
+  return strings.map((s) => {
+    const colonIdx = s.indexOf(':')
+    if (colonIdx === -1 || colonIdx > 80) {
+      const words = s.split(' ')
+      return {
+        title: words.slice(0, 5).join(' ') + (words.length > 5 ? '…' : ''),
+        body: s,
+      }
+    }
+    return {
+      title: s.slice(0, colonIdx).trim(),
+      body: s.slice(colonIdx + 1).trim(),
+    }
+  })
+}
+
 const CITY_SERVICE_VALUE_PROPS: ValueProp[] = [
   {
     title: 'Hyperlocal content',
@@ -662,13 +684,24 @@ function deriveContent(props: EntityPageProps): EntityContent {
 
     case 'industry-service': {
       const { industry, service } = props
+      // Prefer per-combination enriched content from industries.ts; fall back to generic.
+      const enriched = industry.serviceContent?.[service.slug]
+      const heroDescription =
+        enriched?.heroDescription ??
+        `${service.shortDescription} We apply this service specifically to the ${industry.name} competitive landscape, targeting the keywords, links, and content types that move rankings in your vertical.`
+      const valueProps =
+        enriched?.valueProps && enriched.valueProps.length > 0
+          ? stringValuePropsToValueProps(enriched.valueProps)
+          : INDUSTRY_SERVICE_VALUE_PROPS
+      const faqItems =
+        enriched?.faqs && enriched.faqs.length > 0 ? enriched.faqs : INDUSTRY_SERVICE_FAQS
       return {
         heroLabel: `${industry.name.toUpperCase()} + ${service.name.toUpperCase()}`,
         heroH1: `${service.name} for`,
         heroAccent: `${industry.name} businesses.`,
-        heroDescription: `${service.shortDescription} We apply this service specifically to the ${industry.name} competitive landscape — targeting the keywords, links, and content types that move rankings in your vertical.`,
-        valueProps: INDUSTRY_SERVICE_VALUE_PROPS,
-        faqItems: INDUSTRY_SERVICE_FAQS,
+        heroDescription,
+        valueProps,
+        faqItems,
         faqTitle: `${service.name} for ${industry.name} — frequently asked questions`,
         relatedLinks: [
           {
@@ -693,13 +726,24 @@ function deriveContent(props: EntityPageProps): EntityContent {
 
     case 'city-service': {
       const { country, city, service } = props
+      // Prefer per-combination enriched content from locations.ts; fall back to generic.
+      const enriched = city.serviceContent?.[service.slug]
+      const heroDescription =
+        enriched?.heroDescription ??
+        `${service.shortDescription} Serving businesses in ${city.name}, ${country.name} with city-specific keyword targeting, local link building, and Google Business Profile management.`
+      const valueProps =
+        enriched?.valueProps && enriched.valueProps.length > 0
+          ? stringValuePropsToValueProps(enriched.valueProps)
+          : CITY_SERVICE_VALUE_PROPS
+      const faqItems =
+        enriched?.faqs && enriched.faqs.length > 0 ? enriched.faqs : CITY_SERVICE_FAQS
       return {
         heroLabel: `${service.name.toUpperCase()} IN ${city.name.toUpperCase()}`,
         heroH1: `${service.name} in`,
         heroAccent: `${city.name}.`,
-        heroDescription: `${service.shortDescription} Serving businesses in ${city.name}, ${country.name} with city-specific keyword targeting, local link building, and Google Business Profile management.`,
-        valueProps: CITY_SERVICE_VALUE_PROPS,
-        faqItems: CITY_SERVICE_FAQS,
+        heroDescription,
+        valueProps,
+        faqItems,
         faqTitle: `${service.name} in ${city.name} — frequently asked questions`,
         relatedLinks: [
           {

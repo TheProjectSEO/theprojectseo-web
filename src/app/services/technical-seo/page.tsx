@@ -17,6 +17,7 @@ import {
   TestimonialSection,
   TestimonialQuoteSection,
   CTAFormSection,
+  RelatedServicesSection,
 } from '@/components/service-page-sections'
 import { AIAgentsShowcase } from '@/components/ai-agents-showcase'
 import { ProcessTabbedSection } from '@/components/process-tabbed-section'
@@ -577,6 +578,27 @@ export default function TechnicalSEOPage() {
         company="Adapt.io"
       />
       <FAQDarkSection title="Technical SEO frequently asked questions" items={faqData} />
+      <RelatedServicesSection
+        subheading="Related Services"
+        heading="You might also need"
+        services={[
+          {
+            title: 'SEO Services',
+            description: 'Full-service organic search strategy built on solid technical foundations.',
+            href: '/services/seo',
+          },
+          {
+            title: 'AI Search Optimization',
+            description: 'Ensure crawlers, LLMs, and AI overviews can read and cite your pages.',
+            href: '/services/ai-search',
+          },
+          {
+            title: 'Analytics & Reporting',
+            description: 'Track Core Web Vitals, crawl coverage, and indexation trends over time.',
+            href: '/services/analytics',
+          },
+        ]}
+      />
       <CTAFormSection {...ctaData} />
       <Footer />
     </main>

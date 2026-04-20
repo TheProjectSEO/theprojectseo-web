@@ -10,6 +10,7 @@ import {
  StatsBar,
  CaseStudyDark,
  CTAFormSection,
+ RelatedServicesSection,
 } from '@/components/service-page-sections'
 import { CheckIcon } from '@/components/check-icon'
 import { ArrowRight } from 'lucide-react'
@@ -428,6 +429,22 @@ export default function ClaudePillarPage() {
  <NewServicesSection />
  <WhyTPSSection />
  <FAQSection />
+ <RelatedServicesSection
+        subheading="Related Services"
+        heading="You might also need"
+        services={[
+          {
+            title: 'AI Agents',
+            description: 'Production-grade marketing and SEO agents built on the Claude Agent SDK.',
+            href: '/services/ai-agents',
+          },
+          {
+            title: 'AI Search Optimization',
+            description: 'Ensure your brand is cited by the very LLMs you are now building with.',
+            href: '/services/ai-search',
+          },
+        ]}
+      />
  <CTAFormSection
  subheading="Ready to Adopt the Anthropic Stack?"
  heading="Tell us what you want to build."

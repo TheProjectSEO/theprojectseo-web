@@ -264,11 +264,11 @@ const faqItems = [
 ]
 
 const relatedServices = [
-  { name: 'AEO Services', href: '/services/aeo' },
-  { name: 'Content Marketing', href: '/services/content' },
-  { name: 'Web Development', href: '/services/web' },
-  { name: 'SEO Consulting', href: '/services/seo-consulting' },
-  { name: 'All Services', href: '/services' },
+  { name: 'Technical SEO', href: '/services/technical-seo' },
+  { name: 'AI Search Optimization', href: '/services/ai-search' },
+  { name: 'Content Services', href: '/services/content' },
+  { name: 'Paid Media', href: '/services/paid-media' },
+  { name: 'Analytics & Reporting', href: '/services/analytics' },
 ]
 
 /* -------------------------------------------------------------------------- */
