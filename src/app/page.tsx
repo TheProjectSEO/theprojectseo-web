@@ -5,6 +5,7 @@ import { Link } from '@/components/link'
 import { Navbar } from '@/components/navbar'
 import { Heading, Subheading } from '@/components/text'
 import { HeroAnimation } from '@/components/hero-animation'
+import { LiveAuditPreview } from '@/components/live-audit-preview'
 import {
   BarChart3,
   Search,
@@ -74,33 +75,10 @@ function Hero() {
 
           </div>
 
-          {/* Right floating card - 40% */}
+          {/* Right column - 40% — interactive audit + testimonial */}
           <div className="lg:col-span-2">
             <div className="space-y-3">
-              {/* Main results card */}
-              <div className="rounded-lg border border-border-strong bg-white p-6 shadow-lg">
-                <div className="flex items-center justify-between mb-5">
-                  <div className="font-mono text-[10px] font-semibold uppercase tracking-[0.15em] text-accent">Client Results</div>
-                  <div className="flex items-center gap-1.5">
-                    <StarRating size="sm" />
-                    <span className="font-mono text-xs text-ash">9 reviews</span>
-                  </div>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  {[
-                    { value: '243%', label: 'Revenue growth', client: 'E-commerce' },
-                    { value: '$2.1M', label: 'Pipeline from organic', client: 'B2B SaaS' },
-                    { value: '3x', label: 'More organic leads', client: 'Helpling' },
-                    { value: '60%', label: 'Lower acquisition cost', client: 'Home Services' },
-                  ].map((r) => (
-                    <div key={r.label} className="border-l-2 border-accent/30 pl-3">
-                      <div className="font-mono text-xl font-bold text-ink leading-none">{r.value}</div>
-                      <div className="text-[11px] text-slate mt-1">{r.label}</div>
-                      <div className="font-mono text-[10px] text-ash">{r.client}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <LiveAuditPreview />
               {/* Mini testimonial */}
               <div className="rounded-lg border border-border-strong bg-white p-4 shadow-sm">
                 <div className="flex items-start gap-3">
@@ -284,11 +262,9 @@ function AIAgentsSection() {
 }
 
 function TestimonialsSection() {
-  const featured = [
-    testimonials.find((t) => t.id === 'james-lim')!,
-    testimonials.find((t) => t.id === 'elizabeth-ching')!,
-    testimonials.find((t) => t.id === 'sho-dewan')!,
-  ]
+  const featured = ['james-lim', 'elizabeth-ching', 'sho-dewan']
+    .map((id) => testimonials.find((t) => t.id === id))
+    .filter((t): t is NonNullable<typeof t> => Boolean(t))
 
   return (
     <Container className="py-24">
