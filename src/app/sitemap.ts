@@ -62,6 +62,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Automation & AI
     'services/seo-automation',
     'services/ai-seo-agent',
+    // Claude / Anthropic Stack Services
+    'services/claude',
+    'services/claude/claude-agency',
+    'services/claude/claude-code-consulting',
+    'services/claude/claude-skills-development',
+    'services/claude/mcp-server-development',
+    'services/claude/claude-agent-sdk-development',
     // Specialized Services
     'services/data-visualization',
     'services/data-engineering',
@@ -179,37 +186,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-  // Case studies & methodology pages
-  const caseStudySlugs = [
-    'home-services-seo',
-    'travel-seo',
-    'travel-affiliate-seo',
-    'saas-seo',
-    'ecommerce-seo',
-    'automobile-seo',
-    'emd-seo',
-  ]
-
-  const caseStudyPages = [
-    {
-      url: `${baseUrl}/methodology`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/case-studies`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.9,
-    },
-    ...caseStudySlugs.map((slug) => ({
-      url: `${baseUrl}/case-studies/${slug}`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    })),
-  ]
+  // NOTE: /methodology and /case-studies/* URLs were previously declared here
+  // but no page.tsx files exist — Google was crawling 404s. Stripped 2026-04-19
+  // per IA redesign plan. Will be re-added once pages are built in Phase 1.
+  // See ~/.claude/plans/do-a-comprehensive-research-expressive-pebble.md §A7
 
   return [
     ...corePages,
@@ -217,7 +197,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...industryPages,
     ...locationPages,
     ...countrySEOPages,
-    ...caseStudyPages,
     ...blogPages,
     ...legalPages,
   ]
