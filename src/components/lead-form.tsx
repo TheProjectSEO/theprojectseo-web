@@ -2,6 +2,7 @@
 
 import { Suspense, useActionState, useEffect, useRef } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
+import Link from 'next/link'
 import { submitLead, type LeadFormState } from '@/app/actions/submit-lead'
 import { Button } from '@/components/button'
 import { Field, Input, Label, Select, Textarea } from '@headlessui/react'
@@ -189,7 +190,7 @@ function LeadFormInner({
         </Button>
         <p className="mt-3 font-sans text-xs text-ash text-center">
           By submitting this form, you agree to our{' '}
-          <a href="/privacy" className="underline hover:text-slate">privacy policy</a>.
+          <Link href="/privacy" className="underline hover:text-slate">privacy policy</Link>.
           We&apos;ll never spam you.
         </p>
       </div>

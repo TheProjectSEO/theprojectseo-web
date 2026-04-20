@@ -8,7 +8,7 @@
  */
 
 import { Container } from '@/components/container'
-import { FAQAccordion, type FAQItem } from '@/components/faq-accordion'
+import { type FAQItem } from '@/components/faq-accordion'
 
 interface FAQDarkSectionProps {
   title?: string

@@ -20,7 +20,6 @@ import { HeroAnimation } from '@/components/hero-animation'
 import { LeadForm } from '@/components/lead-form'
 import { Navbar } from '@/components/navbar'
 import { ScrollReveal, ScrollRevealGrid } from '@/components/scroll-reveal'
-import { TestimonialQuoteSection } from '@/components/testimonial-quote-section'
 import { Heading, Lead, Subheading } from '@/components/text'
 import type { ReactNode } from 'react'
 
