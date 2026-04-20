@@ -28,8 +28,8 @@ import {
   Heart,
   Linkedin,
 } from 'lucide-react'
-import Image from 'next/image'
 import { AgentAvatar } from '@/components/agent-avatar'
+import { Avatar } from '@/components/avatar'
 import { StarRating } from '@/components/star-rating'
 import { testimonials } from '@/data/testimonials'
 import { getAggregateRatingSchema } from '@/data/schema'
@@ -82,7 +82,7 @@ function Hero() {
               {/* Mini testimonial */}
               <div className="rounded-lg border border-border-strong bg-white p-4 shadow-sm">
                 <div className="flex items-start gap-3">
-                  <Image src="/testimonials/james-lim.png" alt="James Lim" width={36} height={36} className="size-9 rounded-full object-cover flex-shrink-0" />
+                  <Avatar name="James Lim" src="/testimonials/james-lim.png" size={36} className="flex-shrink-0" />
                   <div>
                     <p className="font-display text-sm italic leading-snug text-ink">
                       &ldquo;We hit our KPIs in less than 3 months. Moved key pages to #1 and #2.&rdquo;
@@ -281,7 +281,7 @@ function TestimonialsSection() {
               {t.quote}
             </blockquote>
             <div className="mt-auto flex items-center gap-3 pt-8">
-              <Image src={t.image} alt={t.author} width={44} height={44} className="size-11 rounded-full object-cover" />
+              <Avatar name={t.author} src={t.image} size={44} />
               <div>
                 <div className="font-heading text-sm font-medium text-ink">{t.author}</div>
                 <div className="text-xs text-ash">{t.role}, {t.company}</div>
@@ -321,7 +321,7 @@ function TeamSection() {
           <div key={member.name} className="group bg-paper p-6 text-center">
             <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="block">
               <div className="relative mx-auto mb-4 size-24 overflow-hidden rounded-full border-2 border-accent/20">
-                <Image src={member.image} alt={member.name} width={96} height={96} className="size-full object-cover" />
+                <Avatar name={member.name} src={member.image} size={96} className="absolute inset-0" />
                 <div className="absolute inset-0 flex items-center justify-center bg-ink/0 transition-all group-hover:bg-ink/40">
                   <Linkedin className="size-5 text-white opacity-0 transition-opacity group-hover:opacity-100" />
                 </div>

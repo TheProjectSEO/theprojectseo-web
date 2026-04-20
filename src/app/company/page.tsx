@@ -9,8 +9,8 @@ import { Navbar } from '@/components/navbar'
 import { Heading, Lead, Subheading } from '@/components/text'
 import { AIAgentsShowcase } from '@/components/ai-agents-showcase'
 import { Linkedin } from 'lucide-react'
-import Image from 'next/image'
 import { testimonials } from '@/data/testimonials'
+import { Avatar } from '@/components/avatar'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -153,13 +153,8 @@ function Team() {
         <div className="max-lg:order-last">
           <a href={teamMembers[0].linkedin} target="_blank" rel="noopener noreferrer" className="group block">
             <div className="overflow-hidden border border-border-strong">
-              <div className="aspect-[4/3] relative">
-                <Image
-                  src="/team/aditya-aman.png"
-                  alt="Aditya Aman"
-                  fill
-                  className="object-cover object-top"
-                />
+              <div className="aspect-[4/3] relative bg-gradient-to-br from-accent/25 via-accent/10 to-paper flex items-center justify-center">
+                <span className="font-heading text-[120px] font-semibold text-ink/90 tracking-tight select-none" aria-label="Aditya Aman">AA</span>
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-ink/80 to-transparent p-6 pt-16">
                   <div className="flex items-center gap-2">
                     <div className="font-heading text-lg font-semibold text-white">Aditya Aman</div>
@@ -201,7 +196,7 @@ function Team() {
           <div key={member.name} className="group bg-paper p-8">
             <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="block">
               <div className="relative mb-5 size-20 overflow-hidden rounded-full border-2 border-accent/20">
-                <Image src={member.image} alt={member.name} width={80} height={80} className="size-full object-cover" />
+                <Avatar name={member.name} src={member.image} size={80} className="absolute inset-0" />
                 <div className="absolute inset-0 flex items-center justify-center bg-ink/0 transition-all group-hover:bg-ink/40">
                   <Linkedin className="size-4 text-white opacity-0 transition-opacity group-hover:opacity-100" />
                 </div>
