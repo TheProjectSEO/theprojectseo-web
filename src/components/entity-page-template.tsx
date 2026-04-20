@@ -21,6 +21,12 @@
  * <EntityPageTemplate type="location" country={country} relatedServices={relatedServices} />
  * ```
  *
+ * @example City hub page
+ * ```tsx
+ * // src/app/[lang]/locations/[country]/[city]/page.tsx
+ * <EntityPageTemplate type="location" country={country} city={city} relatedServices={relatedServices} />
+ * ```
+ *
  * @example Industry × Service intersection page
  * ```tsx
  * // src/app/[lang]/industries/[industry]/[service]/page.tsx
@@ -59,7 +65,7 @@ import type { City, Country, Industry, Service } from '@/data/types'
 export type EntityPageProps =
   | { type: 'service'; service: Service; pillarServices: Service[] }
   | { type: 'industry'; industry: Industry; relatedServices: Service[] }
-  | { type: 'location'; country: Country; relatedServices: Service[] }
+  | { type: 'location'; country: Country; city?: City; relatedServices: Service[] }
   | { type: 'industry-service'; industry: Industry; service: Service }
   | { type: 'city-service'; country: Country; city: City; service: Service }
 
@@ -436,7 +442,27 @@ function buildIndustrySchema(industry: Industry): Record<string, unknown> {
   }
 }
 
-function buildLocationSchema(country: Country): Record<string, unknown> {
+function buildLocationSchema(country: Country, city?: City): Record<string, unknown> {
+  if (city) {
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'LocalBusiness',
+      '@id': `${SITE_URL}/locations/${country.slug}/${city.slug}/#localbusiness`,
+      name: `TheProjectSEO — SEO Services in ${city.name}`,
+      description: `AI-native SEO and digital marketing services for businesses in ${city.name}, ${country.name}.`,
+      url: `${SITE_URL}/locations/${country.slug}/${city.slug}`,
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: city.name,
+        addressCountry: country.slug === 'india' ? 'IN' : country.slug.toUpperCase(),
+      },
+      parentOrganization: ORGANIZATION_REF,
+      areaServed: {
+        '@type': 'City',
+        name: city.name,
+      },
+    }
+  }
   return {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
@@ -590,7 +616,29 @@ function deriveContent(props: EntityPageProps): EntityContent {
     }
 
     case 'location': {
-      const { country, relatedServices } = props
+      const { country, city, relatedServices } = props
+      if (city) {
+        return {
+          heroLabel: `SEO IN ${city.name.toUpperCase()}, ${country.name.toUpperCase()}`,
+          heroH1: `SEO services in`,
+          heroAccent: `${city.name}.`,
+          heroDescription: `Data-driven SEO, AEO, and content marketing for businesses in ${city.name}. City-specific keyword targeting, local link acquisition, and Google Business Profile management.`,
+          valueProps: LOCATION_VALUE_PROPS,
+          faqItems: LOCATION_FAQS,
+          faqTitle: `SEO in ${city.name} — frequently asked questions`,
+          relatedLinks: relatedServices.slice(0, 8).map((s) => ({
+            title: s.name,
+            description: s.shortDescription,
+            href: `/services/${s.pillar}/${s.slug}`,
+          })),
+          subpageNavHeading: `Services we offer in ${city.name}`,
+          subpageNavLinks: country.priorityServiceSlugs.slice(0, 6).map((slug) => ({
+            title: slug.replace(/-/g, ' '),
+            href: `/locations/${country.slug}/${city.slug}/${slug}`,
+          })),
+          jsonLdData: buildLocationSchema(country, city),
+        }
+      }
       return {
         heroLabel: `SEO IN ${country.name.toUpperCase()}`,
         heroH1: `SEO services in`,

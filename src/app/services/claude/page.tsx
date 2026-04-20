@@ -89,16 +89,52 @@ const builtServices = [
  },
 ]
 
-const plannedServices = [
- { title: 'Claude for Customer Support', description: 'Deploy Claude-powered support agents trained on your product knowledge base.' },
- { title: 'Claude Prompt Engineering', description: 'Advanced prompt architecture. system prompts, caching strategies, structured outputs.' },
- { title: 'Claude API Integration', description: 'Integrate Claude API into your SaaS product. Streaming, tool use, multi-turn conversations.' },
- { title: 'Claude Compliance & Security Review', description: 'Audit your Claude deployment for data handling, PII exposure, and enterprise policy compliance.' },
- { title: 'Claude Fine-Tuning Advisory', description: 'When fine-tuning is worth it, when it is not, and how to do it right.' },
- { title: 'Claude for Content Operations', description: 'Scale content production with Claude-native workflows. validated, brand-consistent, measurable.' },
- { title: 'Claude Model Evaluation', description: 'Systematic evaluation frameworks: evals, benchmarks, regression testing for production deployments.' },
- { title: 'Multi-Agent Orchestration', description: 'Architect complex multi-agent systems with proper handoffs, state management, and error recovery.' },
- { title: 'Claude Training & Workshops', description: 'Structured training programs for product, engineering, and marketing teams adopting Claude.' },
+const newlyBuiltServices = [
+ {
+   href: '/services/claude/claude-hooks-development',
+   title: 'Claude Code Hooks Development',
+   description: 'Pre/post-tool-use hooks that enforce team policies, run QA checks, inject context, and trigger external systems at defined points in the agent loop.',
+ },
+ {
+   href: '/services/claude/claude-plugin-development',
+   title: 'Claude Plugin Development',
+   description: 'Custom Claude Code Plugins: slash commands, tool definitions, agent templates, and Skill libraries that extend the CLI for your specific team workflows.',
+ },
+ {
+   href: '/services/claude/anthropic-api-consulting',
+   title: 'Anthropic API Consulting',
+   description: 'Full Anthropic API surface: prompt caching, extended thinking, tool use, batch API, files API, citations, and Claude 3.5 to 4.x migration.',
+ },
+ {
+   href: '/services/claude/claude-prompt-engineering',
+   title: 'Claude Prompt Engineering',
+   description: 'Production-grade prompt design with evals. System prompts, caching strategy, example-based prompting, structured output, and eval frameworks.',
+ },
+ {
+   href: '/services/claude/claude-workflows',
+   title: 'Claude Agentic Workflows',
+   description: 'Productized agentic workflows: research agents, content refresh agents, SEO monitoring, n8n orchestration, and automated reporting pipelines.',
+ },
+ {
+   href: '/services/claude/anthropic-model-migration',
+   title: 'Anthropic Model Migration',
+   description: 'Migrate Claude integrations between model generations safely. Eval, regression detection, prompt adaptation, and staged rollout with rollback plans.',
+ },
+ {
+   href: '/services/claude/claude-rag-systems',
+   title: 'Claude RAG Systems',
+   description: 'RAG pipelines on the Anthropic stack: Supabase pgvector, hybrid search, Anthropic citations. We run seo_query_kb at 100% citation rate.',
+ },
+ {
+   href: '/services/claude/claude-code-training',
+   title: 'Claude Code Training',
+   description: 'Structured team enablement for engineering organisations adopting Claude Code. Three curriculum levels from fundamentals to multi-agent systems.',
+ },
+ {
+   href: '/services/claude/agentic-seo-systems',
+   title: 'Agentic SEO Systems',
+   description: 'Claude-powered SEO operating systems for in-house teams. Reference our 67-skill system, seo_query_kb RAG, and 120 n8n automation workflows.',
+ },
 ]
 
 const caseStudyData = {
@@ -140,7 +176,7 @@ const faqItems = [
  {
  question: 'Do you offer training for our team alongside the build?',
  answer:
- 'Yes. Every build engagement includes a walkthrough and documentation session. For teams that want formal training. structured workshops on Claude Code, prompt engineering, or agent architecture. that is a separate service currently in development (listed as "Coming soon" above).',
+ 'Yes. Every build engagement includes a walkthrough and documentation session. For teams that want formal training. structured workshops on Claude Code, prompt engineering, or agent architecture. we offer a dedicated Claude Code Training service covering three curriculum levels from fundamentals to multi-agent systems.',
  },
  {
  question: 'How does pricing work for Claude services?',
@@ -160,7 +196,7 @@ function ServicesSection() {
  <div className="text-center mb-16">
  <Subheading>Available Now</Subheading>
  <Heading as="h2" className="mt-2 max-w-3xl mx-auto">
- Five Claude services ready to deploy.
+ Five core Claude services ready to deploy.
  </Heading>
  <Lead className="mt-6 max-w-2xl mx-auto">
  Each service is built on direct operating experience with the Anthropic stack. not research, not documentation, not conference slides.
@@ -193,38 +229,41 @@ function ServicesSection() {
 }
 
 /* -------------------------------------------------------------------------- */
-/* Coming Soon Section */
+/* New Services Section */
 /* -------------------------------------------------------------------------- */
 
-function ComingSoonSection() {
+function NewServicesSection() {
  return (
  <div className="bg-cream py-24">
  <Container>
  <div className="text-center mb-16">
- <Subheading>In Development</Subheading>
+ <Subheading>Now Available</Subheading>
  <Heading as="h2" className="mt-2">
- Nine more Claude services coming this quarter.
+ Nine more Claude services, live now.
  </Heading>
  <Lead className="mt-6 max-w-2xl mx-auto">
- We build the service internally before we offer it to clients. These nine are in active internal use and will be packaged for client delivery soon.
+ Each of these services was built internally before being offered to clients. All nine are in active production use across our 15-client stack.
  </Lead>
  </div>
 
  <div className="grid grid-cols-1 gap-px bg-border-strong sm:grid-cols-2 lg:grid-cols-3">
- {plannedServices.map((service, index) => (
- <div key={index} className="bg-paper p-8">
- <div className="flex items-start justify-between gap-4 mb-3">
- <h3 className="font-heading text-base font-semibold text-ink">
+ {newlyBuiltServices.map((service) => (
+ <Link
+ key={service.href}
+ href={service.href}
+ className="group bg-paper p-8 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
+ >
+ <h3 className="font-heading text-base font-semibold text-ink group-hover:text-accent mb-3">
  {service.title}
  </h3>
- <span className="shrink-0 font-mono text-xs uppercase tracking-[0.1em] text-ash border border-border px-2 py-0.5">
- Soon
- </span>
- </div>
- <p className="text-sm leading-relaxed text-slate">
+ <p className="text-sm leading-relaxed text-slate mb-5">
  {service.description}
  </p>
+ <div className="flex items-center gap-2 text-sm font-medium text-accent">
+ Learn more
+ <ArrowRight className="size-4" />
  </div>
+ </Link>
  ))}
  </div>
  </Container>
@@ -386,7 +425,7 @@ export default function ClaudePillarPage() {
  <StatsBar stats={statsData} />
  <ServicesSection />
  <CaseStudyDark {...caseStudyData} />
- <ComingSoonSection />
+ <NewServicesSection />
  <WhyTPSSection />
  <FAQSection />
  <CTAFormSection

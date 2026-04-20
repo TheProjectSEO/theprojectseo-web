@@ -22,5 +22,16 @@ export const redirects: Redirect[] = [
   { source: '/usa-seo-services', destination: '/locations/usa', permanent: true },
   { source: '/philippines-seo-services', destination: '/locations/philippines', permanent: true },
 
-  // Future IA redirects added per plan §Redirect table go here
+  // Phase B pillar consolidation — shipped 2026-04-19
+  // Old single pages replaced by dedicated pillars under new paths.
+
+  // AI Search pillar (replaces single /services/aeo)
+  { source: '/services/aeo', destination: '/services/ai-search/aeo', permanent: true },
+
+  // Analytics pillar (replaces data-engineering + data-visualization)
+  { source: '/services/data-engineering', destination: '/services/analytics/gsc-bigquery-setup', permanent: true },
+  { source: '/services/data-visualization', destination: '/services/analytics/custom-dashboards', permanent: true },
+
+  // AI Agents pillar (existing ai-seo-agent relocated inside the new pillar)
+  { source: '/services/ai-seo-agent', destination: '/services/ai-agents/ai-seo-agent', permanent: true },
 ];
