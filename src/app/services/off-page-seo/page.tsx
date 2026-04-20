@@ -295,7 +295,7 @@ const pricingData = {
   tiers: [
     {
       name: 'Foundation',
-      price: '$1,800',
+      price: '$2,500',
       period: '/month',
       description: 'For startups and small businesses building initial authority.',
       features: [
@@ -382,7 +382,7 @@ const faqData = [
   },
   {
     question: 'How much does off-page SEO cost?',
-    answer: 'Off-page SEO retainers typically range from $1,800-$3,500 per month for comprehensive services. Individual high-quality links are priced by domain rating: DR 10-20 at $80/link, DR 30-40 at $120/link, DR 50-60 at $200/link, and DR 70+ at $350/link. Our Foundation plan begins at $1,800/month, Growth at $3,500/month (with digital PR and dedicated strategist), and Enterprise is custom-quoted. The investment reflects the real cost of quality outreach, content creation, and relationship building required for white-hat link acquisition.',
+    answer: 'Off-page SEO retainers typically range from $2,500-$5,000 per month for comprehensive services. Individual high-quality links are priced by domain rating: DR 10-20 at $80/link, DR 30-40 at $120/link, DR 50-60 at $200/link, and DR 70+ at $350/link. Our Foundation plan begins at $2,500/month, Growth at $4,500/month (with digital PR and dedicated strategist), and Enterprise is custom-quoted. The investment reflects the real cost of quality outreach, content creation, and relationship building required for white-hat link acquisition.',
   },
   {
     question: 'What are unlinked mentions and why do they matter?',

@@ -240,7 +240,7 @@ const pricingData = {
   tiers: [
     {
       name: 'Foundation',
-      price: '$1,800',
+      price: '$2,500',
       period: '/month',
       description: 'Perfect for small to mid-size online stores with up to 1,000 products.',
       features: [
@@ -332,7 +332,7 @@ const faqData = [
   {
     question: 'How much does e-commerce SEO cost?',
     answer:
-      'E-commerce SEO pricing typically ranges from $1,800/month for small stores (under 1,000 products) to $3,500/month for mid-size catalogs (1,000-5,000 products) and custom pricing for enterprise catalogs with 10,000+ products. The average CPC for e-commerce SEO keywords ranges from $8-14, meaning organic rankings deliver substantial ROI compared to paid advertising. Our clients typically see 5-10x return on their e-commerce SEO investment within the first 12 months.',
+      'E-commerce SEO pricing typically ranges from $2,500/month for small stores (under 1,000 products) to $4,500/month for mid-size catalogs (1,000-5,000 products) and custom pricing for enterprise catalogs with 10,000+ products. The average CPC for e-commerce SEO keywords ranges from $8-14, meaning organic rankings deliver substantial ROI compared to paid advertising. Our clients typically see 5-10x return on their e-commerce SEO investment within the first 12 months.',
   },
   {
     question: 'Which e-commerce platform is best for SEO: Shopify, WooCommerce, or Magento?',

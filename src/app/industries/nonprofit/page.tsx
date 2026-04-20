@@ -604,7 +604,7 @@ function PricingSection() {
       <div className="max-w-2xl mx-auto">
         <div className="rounded-none border border-border-strong bg-paper p-10 text-center">
           <p className="font-mono text-xs uppercase tracking-[0.1em] text-accent mb-4">Nonprofit SEO</p>
-          <div className="font-mono text-4xl font-bold text-ink mb-2">Starting at $1,800/month</div>
+          <div className="font-mono text-4xl font-bold text-ink mb-2">Starting at $2,500/month</div>
           <p className="text-sm text-ash mb-8">Nonprofit-friendly pricing with flexible packages</p>
 
           <ul className="space-y-3 text-left max-w-md mx-auto mb-10">

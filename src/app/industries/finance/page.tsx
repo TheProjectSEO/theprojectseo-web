@@ -637,7 +637,7 @@ function PricingSection() {
       <div className="mx-auto max-w-3xl text-center">
         <Subheading>Financial Services SEO Investment</Subheading>
         <Heading as="h2" className="mt-2">
-          Investment starts at $1,800/month.
+          Investment starts at $2,500/month.
         </Heading>
         <Lead className="mt-6">
           Financial services SEO commands a premium because of the compliance workflows, YMYL content standards, and specialized expertise required. The investment pays for itself quickly given the high lifetime value of financial services clients.

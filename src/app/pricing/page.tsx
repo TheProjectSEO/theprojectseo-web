@@ -15,7 +15,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Pricing | SEO, Development & Automation Services | TheProjectSEO',
   description:
-    'Transparent pricing for SEO, web development, AI solutions, and automation. Every project is custom-built. SEO from $1,800/mo, development from $3,000, content from $70/article.',
+    'Transparent pricing for SEO, web development, AI solutions, and automation. Every project is custom-built. SEO from $2,500/mo, development from $3,000, content from $70/article.',
   alternates: {
     canonical: '/pricing',
   },
@@ -46,7 +46,7 @@ interface SEOTier {
 const seoTiers: SEOTier[] = [
   {
     name: 'Foundation',
-    price: '$1,800',
+    price: '$2,500',
     period: '/mo',
     description:
       'For businesses building their organic presence from the ground up.',

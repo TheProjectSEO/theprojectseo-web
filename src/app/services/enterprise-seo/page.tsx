@@ -292,7 +292,7 @@ const pricingData = {
   tiers: [
     {
       name: 'Foundation',
-      price: '$1,800',
+      price: '$2,500',
       period: '/month',
       description: 'For growing organizations starting enterprise-scale SEO.',
       features: [
@@ -370,7 +370,7 @@ const faqData = [
   {
     question: 'How much does enterprise SEO cost?',
     answer:
-      'Enterprise SEO services start at $1,800/month for the Foundation plan, $3,500/month for the Growth plan, and custom pricing for large-scale Enterprise engagements depending on the scope, number of domains, page count, and complexity of your technical environment. The average CPC for enterprise SEO keywords is $12-18, meaning even modest organic traffic gains deliver substantial ROI. Most enterprise clients see 5-10x return on their SEO investment within the first 12 months through reduced paid acquisition costs and increased organic revenue.',
+      'Enterprise SEO services start at $2,500/month for the Foundation plan, $4,500/month for the Growth plan, and custom pricing for large-scale Enterprise engagements depending on the scope, number of domains, page count, and complexity of your technical environment. The average CPC for enterprise SEO keywords is $12-18, meaning even modest organic traffic gains deliver substantial ROI. Most enterprise clients see 5-10x return on their SEO investment within the first 12 months through reduced paid acquisition costs and increased organic revenue.',
   },
   {
     question: 'What tools are used for enterprise SEO?',

@@ -574,7 +574,7 @@ function PricingSection() {
             Our education SEO packages are designed to deliver measurable enrollment results for institutions and EdTech companies of all sizes.
           </Lead>
           <div className="mt-8">
-            <p className="font-display text-4xl font-medium text-ink">Starting at $1,800/month</p>
+            <p className="font-display text-4xl font-medium text-ink">Starting at $2,500/month</p>
             <p className="mt-3 text-sm text-slate">Custom plans available based on program count, target markets, and enrollment goals.</p>
           </div>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:justify-center">

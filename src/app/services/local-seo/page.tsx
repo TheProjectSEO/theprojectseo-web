@@ -299,7 +299,7 @@ const pricingData = {
   tiers: [
     {
       name: 'Foundation',
-      price: '$1,800',
+      price: '$2,500',
       period: '/month',
       description: 'For single-location businesses building local presence.',
       features: [
@@ -381,7 +381,7 @@ const faqData = [
   },
   {
     question: 'How much do local SEO services cost?',
-    answer: 'Local SEO services typically range from $1,800-$3,500 per month depending on the number of locations and competitive landscape. Our Foundation plan begins at $1,800/month for single-location businesses, Growth at $3,500/month for 2-3 locations with advanced features, and Enterprise is custom-quoted for multi-location businesses. One-time local SEO audits range from $500-$1,500. The investment delivers strong ROI as local search drives high-intent traffic with immediate purchase intent.',
+    answer: 'Local SEO services typically range from $2,500-$5,000 per month depending on the number of locations and competitive landscape. Our Foundation plan begins at $2,500/month for single-location businesses, Growth at $4,500/month for 2-3 locations with advanced features, and Enterprise is custom-quoted for multi-location businesses. One-time local SEO audits range from $500-$1,500. The investment delivers strong ROI as local search drives high-intent traffic with immediate purchase intent.',
   },
   {
     question: 'What is Google Business Profile and why does it matter?',

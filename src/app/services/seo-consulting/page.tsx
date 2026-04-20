@@ -520,7 +520,7 @@ function ConsultingPackages() {
     },
     {
       name: "Monthly Consulting",
-      price: "$1,800",
+      price: "$2,500",
       duration: "Per month",
       description: "Ongoing monthly consulting with strategic guidance and implementation support.",
       features: [

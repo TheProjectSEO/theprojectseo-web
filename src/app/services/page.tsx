@@ -49,7 +49,7 @@ const services = [
       'Mobile-first indexing review',
       'Site architecture analysis',
     ],
-    pricing: 'Starting at $497',
+    pricing: 'Starting at $2,500',
     href: '/contact',
   },
   {
@@ -65,7 +65,7 @@ const services = [
       'Search volume analysis',
       'Content cluster planning',
     ],
-    pricing: 'Starting at $297',
+    pricing: 'Starting at $2,500',
     href: '/contact',
   },
   {
@@ -81,7 +81,7 @@ const services = [
       'Canonical tag setup',
       'Internal linking structure',
     ],
-    pricing: 'Starting at $697',
+    pricing: 'Starting at $2,500',
     href: '/contact',
   },
   {
@@ -97,7 +97,7 @@ const services = [
       'Content refresh & updates',
       'User experience improvements',
     ],
-    pricing: 'Starting at $397',
+    pricing: 'Starting at $2,500',
     href: '/contact',
   },
   {
@@ -113,7 +113,7 @@ const services = [
       'NAP consistency audit',
       'Local link building',
     ],
-    pricing: 'Starting at $597',
+    pricing: 'Starting at $2,500',
     href: '/contact',
   },
   {
@@ -129,7 +129,7 @@ const services = [
       'Competitor backlink analysis',
       'Authority building strategy',
     ],
-    pricing: 'Starting at $497',
+    pricing: 'Starting at $3,500',
     href: '/contact',
   },
 ]
@@ -178,7 +178,7 @@ const caseStudy = {
 const packages = [
   {
     name: 'Foundation',
-    price: '$1,800/mo',
+    price: '$2,500/mo',
     description: 'For small businesses ready to build a strong SEO foundation.',
     features: [
       'Initial SEO audit & strategy',

@@ -46,7 +46,7 @@ const services = [
       'Content gap analysis',
       'Monthly keyword tracking',
     ],
-    pricing: 'Starting at $797/month',
+    pricing: 'Starting at $2,500/month',
   },
   {
     name: 'On-Page Optimization',
@@ -61,7 +61,7 @@ const services = [
       'Image optimization & alt text',
       'Schema markup implementation',
     ],
-    pricing: 'Starting at $597/month',
+    pricing: 'Starting at $2,500/month',
   },
   {
     name: 'Technical SEO',
@@ -76,7 +76,7 @@ const services = [
       'Robots.txt configuration',
       'Core Web Vitals improvement',
     ],
-    pricing: 'Starting at $997/month',
+    pricing: 'Starting at $2,500/month',
   },
   {
     name: 'Link Building',
@@ -91,7 +91,7 @@ const services = [
       'Competitor backlink analysis',
       'Link quality monitoring',
     ],
-    pricing: 'Starting at $1,197/month',
+    pricing: 'Starting at $3,500/month',
   },
   {
     name: 'Local SEO',
@@ -106,7 +106,7 @@ const services = [
       'NAP consistency audit',
       'Local content strategy',
     ],
-    pricing: 'Starting at $897/month',
+    pricing: 'Starting at $2,500/month',
   },
   {
     name: 'SEO Analytics & Reporting',
@@ -170,7 +170,7 @@ const caseStudy = {
 const packages = [
   {
     name: 'Foundation',
-    price: '$1,800',
+    price: '$2,500',
     period: '/month',
     description: 'Essential SEO services for small businesses',
     services: [

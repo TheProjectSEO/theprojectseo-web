@@ -290,7 +290,7 @@ const pricingData = {
   tiers: [
     {
       name: 'Foundation',
-      price: '$1,800',
+      price: '$2,500',
       period: '/month',
       description: 'For businesses expanding to 2-3 countries.',
       features: [
@@ -375,7 +375,7 @@ const faqData = [
   },
   {
     question: 'How much does international SEO cost?',
-    answer: 'International SEO services typically range from $1,800-$10,000+ per month depending on number of countries and languages. Our Foundation plan for 2-3 markets is $1,800/month, Growth for 4-8 markets is $3,500/month, and Enterprise for global expansion is custom-quoted. Costs include hreflang implementation, content localization, international keyword research, technical setup, and ongoing optimization. Investment scales with market complexity and content volume.',
+    answer: 'International SEO services typically range from $2,500-$10,000+ per month depending on number of countries and languages. Our Foundation plan for 2-3 markets is $2,500/month, Growth for 4-8 markets is $4,500/month, and Enterprise for global expansion is custom-quoted. Costs include hreflang implementation, content localization, international keyword research, technical setup, and ongoing optimization. Investment scales with market complexity and content volume.',
   },
   {
     question: 'Do I need native speakers for content localization?',

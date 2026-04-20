@@ -676,7 +676,7 @@ function PricingSection() {
             <span className="text-ash">/month</span>
           </div>
           <p className="mt-4 text-sm leading-relaxed text-slate max-w-lg mx-auto">
-            Our automotive SEO packages start at $1,800/month and include dealer website optimization, inventory SEO,
+            Our automotive SEO packages start at $2,500/month and include dealer website optimization, inventory SEO,
             local search management, and monthly reporting. Custom enterprise plans available for multi-location groups.
           </p>
           <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:justify-center">

@@ -155,9 +155,7 @@ function LeadFormInner({
         <div className="relative">
           <Select name="monthlyBudget" className={clsx(inputStyles, 'appearance-none pr-8')}>
             <option value="">Select budget range</option>
-            <option value="under-1k">Under $1,000/mo</option>
-            <option value="1k-3k">$1,000 - $3,000/mo</option>
-            <option value="3k-5k">$3,000 - $5,000/mo</option>
+            <option value="2500-5k">$2,500 - $5,000/mo</option>
             <option value="5k-10k">$5,000 - $10,000/mo</option>
             <option value="10k-25k">$10,000 - $25,000/mo</option>
             <option value="25k+">$25,000+/mo</option>

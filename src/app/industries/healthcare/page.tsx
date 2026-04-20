@@ -699,7 +699,7 @@ function PricingContextSection() {
         <div className="mx-auto max-w-2xl text-center">
           <Subheading>Investment</Subheading>
           <Heading as="h2" className="mt-2">
-            Investment starts at $1,800/month
+            Investment starts at $2,500/month
           </Heading>
           <ul className="mt-8 space-y-3">
             {[

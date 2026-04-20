@@ -713,7 +713,7 @@ function PricingSection() {
               Travel SEO packages
             </p>
             <div className="font-mono text-4xl font-bold text-ink">
-              Starting at $2,200<span className="text-base font-normal text-ash">/month</span>
+              Starting at $2,500<span className="text-base font-normal text-ash">/month</span>
             </div>
             <p className="mt-4 text-sm text-slate max-w-md mx-auto">
               Includes destination keyword research, content strategy, technical optimization,

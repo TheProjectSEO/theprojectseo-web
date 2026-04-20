@@ -308,7 +308,7 @@ const pricingData = {
   tiers: [
     {
       name: 'Foundation',
-      price: '$1,800',
+      price: '$2,500',
       period: '/month',
       description: 'For small to mid-size sites (under 5,000 pages).',
       features: [
@@ -404,7 +404,7 @@ const faqData = [
   {
     question: 'How much do technical SEO services cost?',
     answer:
-      'Technical SEO services typically range from $1,000-$5,000 per month for ongoing retainers, with one-time audits ranging from $3,000-$8,000. Our Foundation plan begins at $1,800/month for sites under 5,000 pages, our Growth plan is $3,500/month for mid-size sites, and Enterprise pricing is custom. The investment depends on site size, platform complexity, and the scope of issues. Most clients see positive ROI within 3-4 months as improved technical performance directly impacts rankings and traffic.',
+      'Technical SEO services typically range from $2,500-$8,000 per month for ongoing retainers, with one-time audits ranging from $3,500-$10,000. Our Foundation plan begins at $2,500/month for sites under 5,000 pages, our Growth plan is $4,500/month for mid-size sites, and Enterprise pricing is custom. The investment depends on site size, platform complexity, and the scope of issues. Most clients see positive ROI within 3-4 months as improved technical performance directly impacts rankings and traffic.',
   },
   {
     question: 'How long does technical SEO take to show results?',

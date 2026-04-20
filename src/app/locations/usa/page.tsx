@@ -177,7 +177,7 @@ const faqItems = [
   {
     question: 'How much does SEO cost in the United States?',
     answer:
-      'SEO pricing in the US market varies based on competitiveness, scope, and business size. For small to mid-size businesses, monthly retainers typically range from $1,500 to $5,000. Enterprise and highly competitive verticals can range from $5,000 to $15,000+ per month. Our engagements are priced based on the complexity of your market, the number of target locations, and the aggressiveness of your growth goals. We provide transparent pricing with clear deliverables and measurable KPIs tied to organic traffic, rankings, and revenue attribution.',
+      'SEO pricing in the US market varies based on competitiveness, scope, and business size. For small to mid-size businesses, monthly retainers typically range from $2,500 to $5,000. Enterprise and highly competitive verticals can range from $5,000 to $15,000+ per month. Our engagements are priced based on the complexity of your market, the number of target locations, and the aggressiveness of your growth goals. We provide transparent pricing with clear deliverables and measurable KPIs tied to organic traffic, rankings, and revenue attribution.',
   },
   {
     question: 'How long does SEO take to show results for US businesses?',

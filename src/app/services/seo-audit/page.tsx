@@ -298,7 +298,7 @@ const pricingData = {
   tiers: [
     {
       name: 'Foundation',
-      price: '$1,800',
+      price: '$2,500',
       period: '/month',
       description: 'For small sites (under 500 pages).',
       features: [
@@ -381,7 +381,7 @@ const faqData = [
   },
   {
     question: 'How much does an SEO audit cost?',
-    answer: 'SEO audit pricing typically ranges from $1,800-$3,500 per month depending on site size and audit depth. Our Foundation plan for small sites (under 500 pages) is $1,800/month, Growth for established sites (500-5,000 pages) is $3,500/month, and Enterprise audits for large or complex sites are custom-quoted. The investment pays for itself quickly as implementing audit recommendations typically produces 100-300% traffic increases within 3-6 months.',
+    answer: 'SEO audit pricing typically ranges from $2,500-$5,000 per month depending on site size and audit depth. Our Foundation plan for small sites (under 500 pages) is $2,500/month, Growth for established sites (500-5,000 pages) is $4,500/month, and Enterprise audits for large or complex sites are custom-quoted. The investment pays for itself quickly as implementing audit recommendations typically produces 100-300% traffic increases within 3-6 months.',
   },
   {
     question: 'How long does an SEO audit take?',

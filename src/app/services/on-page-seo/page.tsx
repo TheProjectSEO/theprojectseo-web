@@ -309,7 +309,7 @@ const pricingData = {
   tiers: [
     {
       name: 'Foundation',
-      price: '$1,800',
+      price: '$2,500',
       period: '/month',
       description: 'For small sites and local businesses with up to 50 pages.',
       features: [
@@ -396,7 +396,7 @@ const faqData = [
   },
   {
     question: 'How much do on-page SEO services cost?',
-    answer: 'On-page SEO pricing typically ranges from $1,800-$3,500 per month for ongoing retainers that include monitoring, updates, and iterative improvement. Our Foundation plan begins at $1,800/month (20 pages), Growth at $3,500/month (50 pages with advanced optimization), and Enterprise is custom-quoted. Per-page pricing is available for specific optimization projects. The investment depends on the number of pages, competitive landscape, and whether new content creation is needed.',
+    answer: 'On-page SEO pricing typically ranges from $2,500-$5,000 per month for ongoing retainers that include monitoring, updates, and iterative improvement. Our Foundation plan begins at $2,500/month (20 pages), Growth at $4,500/month (50 pages with advanced optimization), and Enterprise is custom-quoted. Per-page pricing is available for specific optimization projects. The investment depends on the number of pages, competitive landscape, and whether new content creation is needed.',
   },
   {
     question: 'What is the difference between on-page and off-page SEO?',

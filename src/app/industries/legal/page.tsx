@@ -827,7 +827,7 @@ function PricingSection() {
               Law Firm SEO
             </p>
             <div className="font-display text-5xl font-medium text-ink">
-              Starting at $2,497
+              Starting at $2,500
               <span className="text-lg text-slate font-normal">/month</span>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-slate max-w-lg mx-auto">
