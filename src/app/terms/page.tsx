@@ -4,6 +4,7 @@ import { JsonLd } from '@/components/json-ld'
 import { Footer } from '@/components/footer'
 import { Navbar } from '@/components/navbar'
 import { Heading, Subheading } from '@/components/text'
+import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -525,7 +526,7 @@ export default function TermsOfService() {
               </li>
               <li>
                 <strong>Website:</strong>{' '}
-                <a href="/contact">theprojectseo.com/contact</a>
+                <Link href="/contact">theprojectseo.com/contact</Link>
               </li>
             </ul>
 
