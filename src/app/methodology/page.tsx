@@ -12,14 +12,14 @@ import { CheckIcon } from '@/components/check-icon'
 export const metadata: Metadata = {
   title: 'Our Methodology: How We Win SEO in the AI-Native Era | TheProjectSEO',
   description:
-    'The operating system behind TheProjectSEO: 67-skill agent stack, fine-tuned Qwen3.5-27B SEO model, OpenClaw 12-agent framework, BigQuery data infrastructure, and n8n automation. How we deliver for 15 clients using the same stack we sell.',
+    'The operating system behind TheProjectSEO: 67-skill agent stack, fine-tuned SEO model, OpenClaw 12-agent framework, BigQuery data infrastructure, AEO citation tracking, and n8n automation. How we deliver for 15 clients using the same stack we sell.',
   alternates: {
     canonical: '/methodology',
   },
   openGraph: {
     title: 'Our Methodology: How We Win SEO in the AI-Native Era | TheProjectSEO',
     description:
-      '67 skills, 12 agents, 1 fine-tuned model, 100% citation rate. How a six-person agency runs 15 client engagements through an AI-native operating system built on Claude Code, Qwen3.5-27B, and n8n.',
+      '67 skills, 12 agents, 1 fine-tuned SEO model, 100% citation rate. How a six-person agency runs 15 client engagements through an AI-native operating system built on Claude Code, BigQuery, and n8n.',
     url: 'https://theprojectseo.com/methodology',
     siteName: 'TheProjectSEO',
     locale: 'en_US',
@@ -32,30 +32,48 @@ export const metadata: Metadata = {
 /* -------------------------------------------------------------------------- */
 
 function WhyPlaybooksBreakSection() {
+  const problems = [
+    {
+      stat: '3 wks',
+      label: 'Data lag',
+      line: 'Reports assembled monthly from 5 tools that don\'t talk to each other.',
+      fix: 'BigQuery joins GSC + GA4 + Ads + CRM. Answer in one query.',
+    },
+    {
+      stat: '10×',
+      label: 'Wrong AI layer',
+      line: 'Generic LLM produces content indistinct from the 10 pages already ranking.',
+      fix: '12-stage pipeline. Data first, model second. Every claim cites a source.',
+    },
+    {
+      stat: '$0',
+      label: 'Attribution gap',
+      line: 'Most agencies can\'t trace an organic visit to the deal that closed Tuesday.',
+      fix: 'CRM ingestion pipeline joins organic sessions to pipeline and revenue.',
+    },
+  ]
+
   return (
     <div className="bg-cream py-24">
       <Container>
-        <div className="max-w-3xl">
-          <Subheading as="h2" className="mb-6">
-            The Shifting Ground
-          </Subheading>
-          <div className="space-y-6 text-base leading-relaxed text-slate">
-            <p>
-              The SEO playbook that worked from 2015 to 2022 was a content volume game. Publish enough articles on enough keywords, build enough links, fix enough technical issues, and organic traffic eventually follows. Teams that did this well and consistently won. The underlying system rewarded persistence and scale.
-            </p>
-            <p>
-              That system is still partly intact. Technical SEO fundamentals have not changed: crawlability, indexability, Core Web Vitals, schema markup, internal linking architecture. Google still needs pages to load fast and make structural sense. But the content side of the equation has shifted in ways that most agencies have not internalized yet.
-            </p>
-            <p>
-              Two things happened in close succession. First, large language models got good enough that generating competent, generic content became trivially cheap. This flooded the index with material that was technically adequate but structurally indistinct from ten other pages ranking on the same keyword. Second, Google started adjusting its quality signals to respond to this. EEAT requirements, helpfulness signals, and the increasing weight of first-hand expertise are not coincidental. They are direct responses to a world where the cost of content production hit zero.
-            </p>
-            <p>
-              The result: generic content is getting harder to rank, not easier. Which means the agencies still competing on content volume are running faster on a treadmill that is tilting against them. The advantage now lives in specificity, depth, and demonstrable expertise. These are things that require actual knowledge of the subject and the client.
-            </p>
-            <p>
-              We built TheProjectSEO's operating system around this reality. Not by avoiding AI, but by using it at the layer where it actually helps: research synthesis, structured output, data analysis, and workflow automation. The parts that require genuine expertise and client knowledge stay with humans. The parts that are genuinely mechanical get automated. If you want to see how this looks applied to an actual client, the <Link href="/case-studies" className="text-accent underline underline-offset-2 hover:text-ink transition-colors">case studies section</Link> has eight active engagements worth reviewing.
-            </p>
-          </div>
+        <div className="text-center mb-16">
+          <Subheading as="h2">The Problem We&apos;re Solving</Subheading>
+          <Heading as="h3" className="mt-2 max-w-2xl mx-auto">
+            Three gaps every SEO agency has. We closed them.
+          </Heading>
+        </div>
+
+        <div className="grid grid-cols-1 gap-px bg-border-strong lg:grid-cols-3">
+          {problems.map((p) => (
+            <div key={p.label} className="bg-cream p-10">
+              <div className="font-mono text-[56px] font-black text-accent leading-none mb-3">{p.stat}</div>
+              <h3 className="font-heading text-lg font-semibold text-ink mb-2">{p.label}</h3>
+              <p className="text-sm text-slate mb-5 leading-relaxed">{p.line}</p>
+              <div className="border-l-2 border-accent pl-4">
+                <p className="text-sm font-medium text-ink">{p.fix}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </Container>
     </div>
@@ -69,29 +87,34 @@ function WhyPlaybooksBreakSection() {
 function OperatingSystemSection() {
   const stackItems = [
     {
-      label: '67-Skill Agent Stack',
-      detail:
-        'Every repeatable function in our workflow has a corresponding Skill: keyword research, content brief generation, on-page optimization, schema markup, competitor gap analysis, blog writing, validation scoring, schema generation, and reporting. Each Skill is a self-contained agent module with a defined input format, a defined output format, and built-in quality checks. When a team member starts a task, they invoke the Skill, not a blank context window.',
+      number: '67',
+      label: 'Skills in production',
+      detail: 'Every task has a Skill. Every Skill loads the client\'s context, voice rules, and strategy before a word is written.',
     },
     {
-      label: 'seo_query_kb: Fine-Tuned SEO Model',
-      detail:
-        'We trained a Qwen3.5-27B model on curated SEO knowledge from Ahrefs, Backlinko, Moz, Search Engine Journal, and Google Search Central documentation. It runs locally on our M4 Pro at 5-6 tokens per second and is accessible via an MCP server called seo_query_kb. Every SEO question routes through it before general knowledge. The model returns citation-grounded answers with a 100% citation rate, which means nothing gets fabricated. When confidence is low, it flags for escalation to live data sources.',
+      number: '80MB',
+      label: 'SEO knowledge corpus',
+      detail: 'Fine-tuned model trained on Ahrefs, Backlinko, Moz, SEJ, Google Search Central. 100% citation rate. Zero fabrication.',
     },
     {
-      label: 'OpenClaw: 12-Agent Orchestration',
-      detail:
-        'OpenClaw is our internal 12-agent framework built on the Claude Agent SDK. Each agent handles a specific domain: technical audit, content research, content writing, content editing, schema generation, link prospecting, reporting, and several others. Agents pass structured context to each other rather than starting fresh each time. This is what allows us to run complex multi-step campaigns without losing thread continuity between sessions.',
+      number: '12',
+      label: 'Agents in OpenClaw',
+      detail: 'Guardian runs every 60 seconds. SEO Sentinel every 6 hours. Competitor Watcher daily. Each on a fixed schedule with health checks.',
     },
     {
-      label: 'Claude Code as the CLI Backbone',
-      detail:
-        'Every client session runs through Claude Code CLI. CLAUDE.md files at both the project root and client level inject the right context automatically: client ICP, keyword targets, brand voice rules, technical configuration, active strategy, and current deliverables. A team member opening a session for any client has the full context loaded before they type a single command.',
+      number: '1',
+      label: 'CLAUDE.md per client',
+      detail: 'Keywords, positions, brand rules, banned terms, active strategy — loaded automatically before the first keystroke of every session.',
     },
     {
-      label: 'n8n Automation Workflows',
-      detail:
-        'We have mapped 120 SEO workflows to n8n automation blueprints covering GSC data pulls, GA4 ingestion, BigQuery loading, Ahrefs rank tracking, Slack reporting, and content pipeline triggers. The automation layer does not replace judgment. It removes the tedious data-gathering and formatting work that used to consume hours before any actual analysis could begin.',
+      number: '120',
+      label: 'Automated workflows',
+      detail: 'GSC weekly, GA4 nightly, Ads daily, rank tracking, crawl triggers, Slack reporting. Mechanical work is gone before analysis starts.',
+    },
+    {
+      number: '3',
+      label: 'AI platforms tracked',
+      detail: 'Google AI Overview, ChatGPT, Perplexity. Citation presence per commercial query, per client. Reportable, not anecdotal.',
     },
   ]
 
@@ -108,22 +131,71 @@ function OperatingSystemSection() {
           </Lead>
         </div>
 
-        <div className="max-w-4xl mx-auto space-y-0 divide-y divide-border">
-          {stackItems.map((item, i) => (
-            <div key={i} className="py-10 first:pt-0">
-              <div className="flex items-start gap-6">
-                <div className="font-mono text-2xl font-black text-accent shrink-0 w-8">
-                  {String(i + 1).padStart(2, '0')}
-                </div>
+        <div className="grid grid-cols-1 gap-px bg-border-strong sm:grid-cols-2 lg:grid-cols-3">
+          {stackItems.map((item) => (
+            <div key={item.label} className="bg-paper p-8">
+              <div className="font-mono text-[48px] font-black text-accent leading-none mb-3">{item.number}</div>
+              <h3 className="font-heading text-base font-semibold text-ink mb-2">{item.label}</h3>
+              <p className="text-sm leading-relaxed text-slate">{item.detail}</p>
+            </div>
+          ))}
+        </div>
+      </Container>
+    </div>
+  )
+}
+
+/* -------------------------------------------------------------------------- */
+/* Section: Research protocol                                                   */
+/* -------------------------------------------------------------------------- */
+
+function ResearchProtocolSection() {
+  const stages = [
+    { n: '01', label: 'Keyword resolve', detail: 'BigQuery first. If no data history, DataForSEO. Never gut feel.' },
+    { n: '02', label: 'Live SERP', detail: 'Top 10 via DataForSEO API — titles, lengths, SERP features, AI Overview presence.' },
+    { n: '03', label: 'Scrape top 10', detail: 'Scrapling extracts heading hierarchy, entities, schema types. Structured JSON, not raw HTML.' },
+    { n: '04', label: 'Content gap analysis', detail: 'What the top-10 pages have that ours doesn\'t. Content gap, not keyword gap.' },
+    { n: '05', label: 'BigQuery historical context', detail: 'Client\'s own GSC + paid conversion data. This overrides external assumptions.' },
+    { n: '06', label: 'SEO KB grounding', detail: 'seo_query_kb returns citation-grounded best practice. CONFIDENCE: ESCALATE → switch to live data.' },
+    { n: '07', label: 'Evidence brief', detail: 'Stages 1–6 synthesised into a single brief. Writer drafts from this — never a vague prompt.' },
+    { n: '08–09', label: 'Write + anti-AI edit', detail: 'Client writer skill drafts. 8-dimension validator strips 50+ AI-tell words and patterns.' },
+    { n: '10', label: 'Brand voice edit', detail: 'Client editor enforces tone, banned terminology, competitor rules.' },
+    { n: '11', label: 'Validation gate', detail: '85/100 minimum. Pipeline halts below threshold and lists specific fixes.' },
+    { n: '12', label: 'Schema generation', detail: 'JSON-LD for the page type. 4-layer validation before deploy.' },
+  ]
+
+  return (
+    <div className="bg-ink py-24">
+      <Container>
+        <div className="text-center mb-16">
+          <Subheading dark as="h2">The Research Protocol</Subheading>
+          <Heading as="h3" dark className="mt-2 max-w-3xl mx-auto">
+            12 stages. Data first, model second. No shortcuts.
+          </Heading>
+          <p className="mt-6 text-lg leading-relaxed text-white/60 max-w-2xl mx-auto">
+            Every piece of content runs this sequence in full. The order is fixed because each stage invalidates assumptions the previous one could not see. Skipping Stage 5 means you write for what ranks generally, not what converts for this specific client.
+          </p>
+        </div>
+
+        <div className="max-w-4xl mx-auto grid grid-cols-1 gap-px bg-white/10 sm:grid-cols-2">
+          {stages.map((s) => (
+            <div key={s.n} className="bg-ink p-8">
+              <div className="flex items-start gap-4">
+                <span className="font-mono text-xs font-black text-accent shrink-0 w-8 pt-0.5">{s.n}</span>
                 <div>
-                  <h3 className="font-heading text-xl font-semibold text-ink mb-3">
-                    {item.label}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-slate">{item.detail}</p>
+                  <h3 className="font-heading text-sm font-semibold text-white mb-2">{s.label}</h3>
+                  <p className="text-xs leading-relaxed text-white/55">{s.detail}</p>
                 </div>
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="max-w-3xl mx-auto mt-12 border border-white/10 p-8">
+          <p className="font-mono text-xs uppercase tracking-[0.12em] text-accent mb-4">BOFU Phase Gate</p>
+          <p className="text-sm leading-relaxed text-white/70">
+            Before any content enters Stage 1, we confirm a phase gate: does the client have live pages for at least two competitor alternatives articles, one head-to-head comparison, and one &ldquo;best [category] for [niche]&rdquo; listicle? If not, the requested content must be one of those types — or it is deferred. At any moment, only ~5% of your target market is actively in-market. BOFU content captures that 5%, which converts at 10x the rate of cold informational traffic. Informational content before BOFU is live is traffic without pipeline.
+          </p>
         </div>
       </Container>
     </div>
@@ -138,38 +210,33 @@ function EngagementFlowSection() {
   const phases = [
     {
       number: '01',
-      title: 'Baseline and audit',
-      weeks: 'Weeks 1-4',
-      description:
-        'Technical audit using our automated audit skill plus Screaming Frog for crawl data. GSC and GA4 baseline pulled via OAuth scripts and loaded into BigQuery. Keyword clustering run against the client\'s existing ranking keywords plus competitor gap analysis. The output is a prioritized issue list and a 6-month roadmap. No recommendations before the data is in.',
+      title: 'Baseline + audit',
+      weeks: 'Weeks 1–4',
+      deliverables: ['Screaming Frog crawl → CSV', 'GSC + GA4 → BigQuery', 'P0 / P1 / P2 issue list', '6-month roadmap'],
     },
     {
       number: '02',
-      title: 'Technical fixes and architecture',
-      weeks: 'Weeks 2-8',
-      description:
-        'Technical issues addressed in priority order: crawl efficiency first, then indexability, then on-page structure. Internal linking architecture review. Schema markup implementation for the relevant entity types. Where content structure is the underlying problem, we fix the architecture before adding new content.',
+      title: 'Technical fixes + data infra',
+      weeks: 'Weeks 2–8',
+      deliverables: ['P0 → P1 → P2 sequence', 'GA4 events fixed Week 1', 'Schema 4-layer validated', 'Internal linking reviewed'],
     },
     {
       number: '03',
-      title: 'Content production',
-      weeks: 'Weeks 4-ongoing',
-      description:
-        'Content brief generated by our brief-generator skill using the fine-tuned SEO model. Brief goes to the client-specific writer skill, which has the client\'s ICP, brand voice, and competitor context loaded. Output goes through our anti-AI validator (8 dimensions, pass threshold of 85/100). Content that does not pass does not go to the client. Editor reviews the validated draft. No generic articles go out under our name.',
+      title: 'BOFU content first',
+      weeks: 'Weeks 4–ongoing',
+      deliverables: ['Competitor alternatives', 'Head-to-head comparisons', 'Category listicles', '12-stage pipeline starts'],
     },
     {
       number: '04',
-      title: 'Link building',
-      weeks: 'Weeks 6-ongoing',
-      description:
-        'BOFU-first approach: external listicle placements in industry directories before any outreach. Competitor backlink gap analysis using Ahrefs via MCP. Outreach email drafts generated by our outreach skill with personalization pulled from live prospect research. Volume is secondary to relevance and domain quality.',
+      title: 'Link building: 2 tracks',
+      weeks: 'Weeks 6–ongoing',
+      deliverables: ['Track 2: external listicles (priority)', 'DA50+ links + LLM citations', 'Track 1: DR40+ outreach', 'Ahrefs competitor gap'],
     },
     {
       number: '05',
-      title: 'Measurement and reporting',
+      title: 'Measurement + reporting',
       weeks: 'Weekly cadence',
-      description:
-        'Automated weekly GSC pull into BigQuery. Rank tracking via Ahrefs. Attribution views connecting organic sessions to CRM pipeline data where integrations exist. Reports generated by our reporting automation, reviewed by the account lead, and delivered on a fixed schedule. No manual assembly, no missed weeks.',
+      deliverables: ['GSC weekly → BigQuery', 'GA4 events nightly', 'CRM-organic join (if access)', 'Fixed weekly report'],
     },
   ]
 
@@ -179,26 +246,96 @@ function EngagementFlowSection() {
         <div className="text-center mb-16">
           <Subheading as="h2">How an Engagement Flows</Subheading>
           <Heading as="h3" className="mt-2">
-            Five phases, no ambiguity.
+            5 phases. Fixed sequence. No exceptions.
           </Heading>
         </div>
 
-        <div className="max-w-3xl mx-auto">
-          {phases.map((phase, index) => (
-            <div
-              key={phase.number}
-              className={`py-8 ${index < phases.length - 1 ? 'border-b border-border' : ''}`}
-            >
-              <div className="flex items-center gap-3 mb-3">
-                <p className="font-mono text-xs uppercase tracking-[0.1em] text-accent font-medium">
-                  Phase {phase.number}
-                </p>
-                <span className="font-mono text-xs text-ash">{phase.weeks}</span>
+        <div className="grid grid-cols-1 gap-px bg-border-strong sm:grid-cols-5">
+          {phases.map((phase) => (
+            <div key={phase.number} className="bg-cream p-6 flex flex-col">
+              <div className="font-mono text-[40px] font-black text-accent leading-none mb-3">
+                {phase.number}
               </div>
-              <h3 className="font-heading text-xl font-semibold text-ink mb-3">
-                {phase.title}
-              </h3>
-              <p className="text-sm leading-relaxed text-slate">{phase.description}</p>
+              <h3 className="font-heading text-sm font-semibold text-ink mb-1">{phase.title}</h3>
+              <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-ash mb-4">{phase.weeks}</p>
+              <div className="flex flex-col gap-1.5 mt-auto">
+                {phase.deliverables.map((d) => (
+                  <span key={d} className="inline-block bg-white border border-border px-2 py-0.5 font-mono text-[10px] text-slate leading-relaxed">
+                    {d}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </Container>
+    </div>
+  )
+}
+
+/* -------------------------------------------------------------------------- */
+/* Section: Quality gates                                                        */
+/* -------------------------------------------------------------------------- */
+
+function QualityGatesSection() {
+  const gates = [
+    {
+      number: '01',
+      title: 'Brand validation',
+      threshold: '>75',
+      unit: '/ 100',
+      line: 'Voice, banned terms, CTA rules, ICP fit. Per-client validator — not a shared template.',
+    },
+    {
+      number: '02',
+      title: 'SEO compliance',
+      threshold: '>80',
+      unit: '/ 100',
+      line: 'Title, meta, heading hierarchy, keyword density, schema type, OG tags. No critical failures.',
+    },
+    {
+      number: '03',
+      title: 'Anti-AI validation',
+      threshold: '>85',
+      unit: '/ 100',
+      line: '50+ banned words, 8 dimensions. "leverage", "seamless", "meticulously" each trigger a block.',
+    },
+    {
+      number: '04',
+      title: '4-layer schema',
+      threshold: '100%',
+      unit: 'pass',
+      line: 'JSON-LD parse → Rich Results rules → HTML embed → Search Console confirms. One fail = no deploy.',
+    },
+    {
+      number: '05',
+      title: 'Data traceability',
+      threshold: 'Every',
+      unit: 'number',
+      line: 'Every stat traces to a Python script in the project directory. AI cannot estimate a measured number.',
+    },
+  ]
+
+  return (
+    <div className="bg-cream py-24">
+      <Container>
+        <div className="text-center mb-16">
+          <Subheading as="h2">Quality Gates</Subheading>
+          <Heading as="h3" className="mt-2 max-w-3xl mx-auto">
+            5 checks. <code className="font-mono text-[0.75em] bg-white border border-border px-2 py-0.5 not-italic">/deliver</code> blocks automatically.
+          </Heading>
+        </div>
+
+        <div className="grid grid-cols-1 gap-px bg-border-strong sm:grid-cols-2 lg:grid-cols-5">
+          {gates.map((g) => (
+            <div key={g.number} className="bg-cream p-6 flex flex-col">
+              <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-ash mb-3">{g.number}</p>
+              <div className="mb-4">
+                <span className="font-mono text-[32px] font-black text-accent leading-none">{g.threshold}</span>
+                <span className="font-mono text-xs text-ash ml-1">{g.unit}</span>
+              </div>
+              <h3 className="font-heading text-sm font-semibold text-ink mb-3">{g.title}</h3>
+              <p className="text-xs leading-relaxed text-slate mt-auto">{g.line}</p>
             </div>
           ))}
         </div>
@@ -289,41 +426,67 @@ function HumanVsAgentSection() {
 /* -------------------------------------------------------------------------- */
 
 function DataInfraSection() {
+  const views = [
+    {
+      name: 'v_keyword_unified',
+      question: 'Paid keyword → organic rank. One query.',
+      flags: ['PAID_ORGANIC_OVERLAP', 'SEO_CONTENT_GAP', 'SEO_GROWTH_OPPORTUNITY', 'SEO_PUSH_TO_PAGE1'],
+      value: 'Shows where paid budget is redundant and where content investment closes a proven gap.',
+    },
+    {
+      name: 'v_url_performance',
+      question: 'Every URL: paid spend + organic traffic + GA4 conversions.',
+      flags: ['Paid spend redundant (strong organic rank)', 'Organic traffic, zero GA4 conversions', 'Conversions but no organic traffic', '15–30% paid overlap found on typical client'],
+      value: 'Moves budget decisions from opinion to data. The 15–30% overlap usually funds the SEO retainer.',
+    },
+    {
+      name: 'v_search_term_opportunities',
+      question: 'Converting paid terms with no organic page. Build those.',
+      flags: ['Converting terms with zero organic targeting', 'High conversion count + high CPA', 'Missing-intent: what buyers search vs what tools suggest'],
+      value: 'The content roadmap. Every page idea traces to a term already proven to produce customers.',
+    },
+  ]
+
   return (
     <div className="bg-paper py-24">
       <Container>
-        <div className="max-w-4xl">
-          <Subheading as="h2" className="mb-6">
-            Data Infrastructure
-          </Subheading>
-          <div className="space-y-6 text-base leading-relaxed text-slate">
-            <p>
-              Most SEO reporting is assembled manually, once a month, from five different tools that do not talk to each other. By the time the report arrives, the data is three weeks old and no one knows which metric actually moved the needle. We built a different system.
-            </p>
-            <p>
-              Every client with sufficient data access gets a BigQuery warehouse. GSC data pulls weekly via OAuth scripts into structured tables. GA4 events land in a separate dataset. Where CRM access exists (Freshsales, Salesforce), we run ingestion pipelines that create attribution views connecting organic sessions to actual pipeline and revenue. Google Ads data pipes in for clients running paid alongside organic.
-            </p>
-            <p>
-              The result is a single queryable source of truth. When a client asks whether a title tag change improved CTR, we do not eyeball a GSC screenshot. We run a before/after query against the BigQuery table and produce a specific number. When a campaign lead asks which location pages are generating the most pipeline, we join GSC page data with Salesforce opportunity data and produce a ranked list.
-            </p>
-            <p>
-              This infrastructure takes 4-6 weeks to build for a new client. It is not optional for us. An engagement without data infrastructure is an engagement where we are guessing at impact, and we will not operate that way. If you want to understand how this fits into <Link href="/services/claude/claude-agency" className="text-accent underline underline-offset-2 hover:text-ink transition-colors">a full Claude-native engagement</Link>, the services section covers it in detail.
-            </p>
-          </div>
+        <div className="text-center mb-16">
+          <Subheading as="h2">How We Use BigQuery</Subheading>
+          <Heading as="h3" className="mt-2 max-w-3xl mx-auto">
+            3 views. 5 sources joined. Answers no dashboard gives.
+          </Heading>
+        </div>
 
-          <div className="mt-12 grid grid-cols-2 gap-px bg-border-strong sm:grid-cols-4">
-            {[
-              { source: 'Google Search Console', role: 'Rankings, CTR, impressions' },
-              { source: 'Google Analytics 4', role: 'Session, event, conversion data' },
-              { source: 'BigQuery', role: 'Central warehouse, attribution views' },
-              { source: 'Ahrefs', role: 'Backlinks, competitor keywords, rank tracking' },
-            ].map((item) => (
-              <div key={item.source} className="bg-paper p-6">
-                <p className="font-mono text-xs uppercase tracking-[0.1em] text-ash mb-2">{item.source}</p>
-                <p className="text-sm text-slate">{item.role}</p>
+        <div className="grid grid-cols-1 gap-px bg-border-strong lg:grid-cols-3 mb-10">
+          {views.map((v) => (
+            <div key={v.name} className="bg-paper p-8">
+              <p className="font-mono text-xs font-bold text-accent mb-3 break-all">{v.name}</p>
+              <p className="font-heading text-sm font-semibold text-ink mb-5 leading-snug">{v.question}</p>
+              <div className="flex flex-wrap gap-1.5 mb-5">
+                {v.flags.map((f) => (
+                  <span key={f} className="inline-block border border-border px-2 py-0.5 font-mono text-[10px] text-slate">
+                    {f}
+                  </span>
+                ))}
               </div>
-            ))}
-          </div>
+              <p className="text-xs text-ash border-l-2 border-accent pl-3 leading-relaxed">{v.value}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-2 gap-px bg-border-strong sm:grid-cols-5">
+          {[
+            { source: 'GSC', role: 'Rankings, CTR — weekly' },
+            { source: 'GA4', role: 'Events, conversions — nightly' },
+            { source: 'Google Ads', role: 'Spend, search terms' },
+            { source: 'CRM', role: 'Pipeline + revenue' },
+            { source: 'Ahrefs', role: 'Backlinks, rank tracking' },
+          ].map((item) => (
+            <div key={item.source} className="bg-paper p-5">
+              <p className="font-mono text-xs uppercase tracking-[0.1em] text-ash mb-1.5">{item.source}</p>
+              <p className="text-xs text-slate leading-relaxed">{item.role}</p>
+            </div>
+          ))}
         </div>
       </Container>
     </div>
@@ -337,20 +500,24 @@ function DataInfraSection() {
 function WhyWeWinSection() {
   const points = [
     {
-      title: 'The stack eliminates the scale problem',
-      body: 'A traditional six-person SEO team handling 15 clients would be underwater on reporting alone. The automation layer absorbs the mechanical work so the team focuses on judgment work. We can take on a client at a complexity level that a 20-person agency would need double the headcount to match.',
+      stat: '15–30%',
+      label: 'Paid overlap on typical onboard',
+      line: 'v_keyword_unified flags every keyword you pay for where organic rank ≤ 3 already earns the click free.',
     },
     {
-      title: 'We built for consistency, not for heroics',
-      body: 'Every function has a Skill. Every Skill has a quality check. The content validation system scores against 8 dimensions and blocks output that does not pass. This is not about individual brilliance. It is about a system that produces consistent work regardless of which team member runs the session.',
+      stat: '0',
+      label: 'Guesses on the content roadmap',
+      line: 'Every page idea traces to a converting paid term in v_search_term_opportunities. Proven demand, not prediction.',
     },
     {
-      title: 'We can measure what we claim',
-      body: 'The BigQuery infrastructure means we can show before/after on any metric we claim to have moved. When we say CTR improved, we can show the query. When we say location page traffic grew, we can show the GSC pull with timestamps. This keeps us honest and gives clients a number to hold us to.',
+      stat: '5',
+      label: 'Gates before anything reaches you',
+      line: '/deliver blocks automatically on brand, SEO, anti-AI, schema, and data traceability.',
     },
     {
-      title: 'Our AI knowledge is grounded in citations',
-      body: 'The seo_query_kb model returns 100% citation-grounded answers from our curated knowledge base. This means no fabricated stats, no outdated algorithm claims, no generic advice dressed up as expertise. When the model does not know, it says so and flags for live data lookup. That is a materially different information quality than an agency asking a general LLM.',
+      stat: '10×',
+      label: 'BOFU conversion rate vs informational',
+      line: 'Competitor alternatives are live before blog posts start. At any moment, ~5% of your ICP is actively buying.',
     },
   ]
 
@@ -360,22 +527,16 @@ function WhyWeWinSection() {
         <div className="text-center mb-16">
           <Subheading as="h2">Why the Model Works</Subheading>
           <Heading as="h3" className="mt-2 max-w-3xl mx-auto">
-            Four structural advantages over a conventional agency.
+            4 structural advantages. Each one measured.
           </Heading>
         </div>
 
-        <div className="grid grid-cols-1 gap-px bg-border-strong lg:grid-cols-2">
-          {points.map((point, i) => (
-            <div key={i} className="bg-paper p-10">
-              <div className="flex items-start gap-4">
-                <CheckIcon className="size-5 shrink-0 fill-accent mt-1" />
-                <div>
-                  <h3 className="font-heading text-lg font-semibold text-ink mb-3">
-                    {point.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-slate">{point.body}</p>
-                </div>
-              </div>
+        <div className="grid grid-cols-1 gap-px bg-border-strong sm:grid-cols-2 lg:grid-cols-4">
+          {points.map((p) => (
+            <div key={p.label} className="bg-paper p-8">
+              <div className="font-mono text-[48px] font-black text-accent leading-none mb-3">{p.stat}</div>
+              <h3 className="font-heading text-sm font-semibold text-ink mb-3">{p.label}</h3>
+              <p className="text-xs leading-relaxed text-slate">{p.line}</p>
             </div>
           ))}
         </div>
@@ -398,7 +559,7 @@ export default function MethodologyPage() {
           '@id': 'https://theprojectseo.com/methodology',
           headline: 'Our Methodology: How We Win SEO in the AI-Native Era',
           description:
-            'The operating system behind TheProjectSEO: 67-skill agent stack, fine-tuned Qwen3.5-27B SEO model, OpenClaw 12-agent framework, BigQuery data infrastructure, and n8n automation. How we deliver for 15 clients using the same stack we sell.',
+            'The operating system behind TheProjectSEO: 67-skill agent stack, fine-tuned SEO model, OpenClaw 12-agent framework, BigQuery data infrastructure, and n8n automation. How we deliver for 15 clients using the same stack we sell.',
           author: {
             '@type': 'Organization',
             '@id': 'https://theprojectseo.com/#organization',
@@ -433,7 +594,7 @@ export default function MethodologyPage() {
               <em className="text-accent italic">AI-Native</em> Era
             </h1>
             <p className="mt-6 max-w-2xl text-xl leading-relaxed text-stone">
-              We run the same stack we sell. A 67-skill agent system, a fine-tuned SEO model with 100% citation rate, a 12-agent orchestration framework, and BigQuery data infrastructure connecting GSC, GA4, and CRM data. This page explains how the system works and why it produces better results than a conventional agency model.
+              We run the same stack we sell. A 12-stage content pipeline where data comes before LLM, not after. Three BigQuery cross-channel views that answer business questions no tool dashboard can formulate. Five quality gates that block every deliverable until it passes. This page describes exactly how it works — nothing held back.
             </p>
           </div>
         </Container>
@@ -447,7 +608,7 @@ export default function MethodologyPage() {
               { value: '67', label: 'Skills in production' },
               { value: '12', label: 'Agents in OpenClaw' },
               { value: '100%', label: 'Citation rate, SEO model' },
-              { value: '120', label: 'Automated workflows mapped' },
+              { value: '3', label: 'AI platforms tracked per client' },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <div className="font-mono text-[clamp(36px,5vw,56px)] font-black text-accent">
@@ -464,9 +625,11 @@ export default function MethodologyPage() {
 
       <WhyPlaybooksBreakSection />
       <OperatingSystemSection />
+      <ResearchProtocolSection />
       <EngagementFlowSection />
-      <HumanVsAgentSection />
       <DataInfraSection />
+      <QualityGatesSection />
+      <HumanVsAgentSection />
       <WhyWeWinSection />
 
       {/* Link to case studies */}

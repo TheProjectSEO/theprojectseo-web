@@ -40,7 +40,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   description:
-    'TheProjectSEO helps you dominate search rankings by revealing the exact strategies your competitors use.',
+    'AI-native SEO agency. Fine-tuned SEO model, BigQuery data warehouse, 67 agent skills in production. 15 active clients across B2B SaaS, marketplaces, and e-commerce. Methodology is public.',
   alternates: { canonical: '/' },
 }
 
@@ -53,16 +53,18 @@ function Hero() {
           {/* Left content - 60% */}
           <div className="lg:col-span-3">
             <p className="font-mono text-sm font-semibold uppercase tracking-[0.15em] text-accent mb-6">
-              Data-Driven SEO Agency
+              AI-Native SEO Agency
             </p>
             <h1 className="font-display text-[clamp(48px,6vw,96px)] font-medium leading-[0.95] tracking-[-0.02em] text-ink">
-              We help brands{' '}
-              <em className="text-accent italic">dominate</em>{' '}
-              every search result.
+              The SEO agency that{' '}
+              <em className="text-accent italic">runs</em>{' '}
+              what it sells.
             </h1>
             <p className="mt-6 max-w-2xl text-xl leading-relaxed text-stone">
-              TheProjectSEO reveals the exact strategies your competitors use
-              and builds a roadmap to outrank them — consistently.
+              Fine-tuned SEO model. BigQuery data warehouse. 67 agent skills in production.
+              We built the AI stack first — then opened it to clients. The same system
+              handling 15 engagements is described, in full, on our{' '}
+              <Link href="/methodology" className="underline underline-offset-2 hover:text-ink transition-colors">methodology page</Link>.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button href="/contact">
@@ -111,7 +113,7 @@ function TrustSection() {
             { metric: '4.7/5', label: 'Client Rating' },
             { metric: '10K+', label: 'Keywords Ranked' },
             { metric: '90%', label: 'Client Retention' },
-            { metric: '10+', label: 'Years Experience' },
+            { metric: '15', label: 'Active Clients' },
           ].map((item) => (
             <div key={item.label} className="text-center">
               <div className="font-mono text-[32px] font-semibold text-ink leading-none mb-2">{item.metric}</div>
@@ -185,14 +187,15 @@ function StatsSection() {
               Growth Rate
             </p>
             <div className="font-mono text-[72px] font-black leading-none text-white mb-4">
-              +340%
+              100%
             </div>
             <p className="text-xl font-heading font-medium text-white/80 mb-4">
-              increase in organic traffic within 6 months
+              citation rate on every SEO answer our model returns
             </p>
             <p className="text-sm leading-relaxed text-white/50 max-w-md">
-              Our data-driven SEO strategies consistently deliver exceptional results,
-              with most clients seeing significant improvements within the first 90 days.
+              Our fine-tuned SEO model is trained on Ahrefs, Backlinko, Moz, SEJ, and
+              Google Search Central. Every answer it returns traces to a source.
+              Nothing fabricated. Nothing from general knowledge.
             </p>
           </div>
 
@@ -235,8 +238,9 @@ function AIAgentsSection() {
           8 AI agents working on your SEO — around the clock.
         </Heading>
         <p className="mt-6 text-lg leading-[1.65] text-slate max-w-2xl mx-auto">
-          Our proprietary AI agents augment the team&apos;s expertise, handling repetitive analysis
-          and monitoring so we can focus on strategy that moves the needle.
+          Our proprietary AI agents handle research, analysis, schema, and monitoring. That includes
+          tracking where clients appear — and where they don&apos;t — in Google AI Overviews,
+          ChatGPT, and Perplexity responses for commercial queries.
         </p>
       </div>
 
