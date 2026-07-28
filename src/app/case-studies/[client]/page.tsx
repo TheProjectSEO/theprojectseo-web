@@ -13,6 +13,7 @@ import { Navbar } from '@/components/navbar'
 import { CTAFormSection } from '@/components/service-page-sections'
 import { Heading, Lead, Subheading } from '@/components/text'
 import { caseStudies, getCaseStudyBySlug } from '@/data/case-studies'
+import { getEvidenceAsset } from '@/data/evidence-assets'
 import { ORGANIZATION_REF, SITE_URL } from '@/lib/organization-schema'
 import { ArrowLeft } from 'lucide-react'
 
@@ -381,6 +382,7 @@ export default async function CaseStudyPage({
                 key={item.label}
                 label={item.label}
                 description={item.description}
+                asset={getEvidenceAsset(item.label)}
               />
             ))}
           </div>

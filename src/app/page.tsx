@@ -29,6 +29,7 @@ import { Navbar } from "@/components/navbar";
 import { CTAFormSection } from "@/components/service-page-sections";
 import { Heading } from "@/components/text";
 import { caseStudies } from "@/data/case-studies";
+import { getEvidenceAsset } from "@/data/evidence-assets";
 import { seoTiers } from "@/data/pricing";
 import { testimonials } from "@/data/testimonials";
 
@@ -743,6 +744,9 @@ function ProofSection() {
               <EvidencePlaceholder
                 label="Expressway.PH — Ahrefs organic traffic and keyword trend"
                 description="Reserved for the approved Ahrefs screenshot with Avg. organic traffic selected and the organic keyword trend visible."
+                asset={getEvidenceAsset(
+                  "Expressway.PH — Ahrefs organic traffic and keyword trend",
+                )}
                 className="h-full"
               />
             </div>
@@ -1459,14 +1463,20 @@ function MeasurementSection() {
           <EvidencePlaceholder
             label="Reporting layer — Google Search Console and organic growth"
             description="Reserved for an approved dashboard showing its selected metrics, reporting window, and comparison period."
+            asset={getEvidenceAsset(
+              "Reporting layer — Google Search Console and organic growth",
+            )}
             aspect="wide"
-            className="border-white/20 bg-white/5 [&_div]:border-white/10 [&_div]:bg-white/5 [&_p]:text-white/50 [&_figcaption]:text-white/40"
+            className="border-white/20"
           />
           <EvidencePlaceholder
             label="Reporting layer — AI mention and citation observations"
             description="Reserved for an approved report showing platform, prompt panel, observation date, citations, and competing brands."
+            asset={getEvidenceAsset(
+              "Reporting layer — AI mention and citation observations",
+            )}
             aspect="wide"
-            className="border-white/20 bg-white/5 [&_div]:border-white/10 [&_div]:bg-white/5 [&_p]:text-white/50 [&_figcaption]:text-white/40"
+            className="border-white/20"
           />
         </div>
 

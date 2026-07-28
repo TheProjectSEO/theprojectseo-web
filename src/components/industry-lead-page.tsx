@@ -4,6 +4,7 @@ import { Button } from '@/components/button'
 import { CheckIcon } from '@/components/check-icon'
 import { Container } from '@/components/container'
 import { EvidencePlaceholder } from '@/components/evidence-placeholder'
+import { getEvidenceGraphic } from '@/components/evidence-graphics'
 import { FAQDarkSection } from '@/components/faq-dark-section'
 import { Footer } from '@/components/footer'
 import { HeroAnimation } from '@/components/hero-animation'
@@ -442,15 +443,24 @@ function EvidenceSection({ page }: { page: IndustryLeadPageData }) {
             <p className="mt-8 text-xs leading-relaxed text-white/45">{page.evidence.note}</p>
           </div>
           <div className="grid gap-6">
-            {page.evidence.slots.map((slot) => (
-              <EvidencePlaceholder
-                key={slot.label}
-                label={slot.label}
-                description={slot.description}
-                aspect="wide"
-                className="[&_figcaption]:text-white/55 [&>div]:bg-ink [&>div]:border-white/15 [&_p]:text-white/55"
-              />
-            ))}
+            {page.evidence.slots.map((slot) => {
+              const graphic = getEvidenceGraphic(slot.label)
+
+              return (
+                <EvidencePlaceholder
+                  key={slot.label}
+                  label={slot.label}
+                  description={slot.description}
+                  aspect="wide"
+                  graphic={graphic}
+                  className={
+                    graphic
+                      ? 'border-white/15'
+                      : '[&_figcaption]:text-white/55 [&>div]:bg-ink [&>div]:border-white/15 [&_p]:text-white/55'
+                  }
+                />
+              )
+            })}
           </div>
         </div>
       </Container>
