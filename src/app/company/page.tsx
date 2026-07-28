@@ -43,24 +43,24 @@ const teamMembers = [
     linkedin: 'https://www.linkedin.com/in/adityaaman/',
   },
   {
-    name: 'Siraj Akmal',
+    name: 'Shiraz Akmal',
     role: 'Technical Lead',
     focus: 'Technical SEO, site architecture, implementation, and quality assurance',
-    image: '/team/siraj-akmal.png',
+    image: '/team/shiraz-akmal.png',
     linkedin: 'https://www.linkedin.com/in/shiraz100/',
   },
   {
-    name: 'Vaibhav Singh',
-    role: 'Project Lead',
-    focus: 'Delivery coordination, priorities, stakeholder communication, and review',
-    image: '/team/vaibhav-singh.png',
-    linkedin: 'https://www.linkedin.com/in/vaibhav-singh-2522b3174/',
+    name: 'Akash',
+    role: 'Dev Lead',
+    focus: 'Development leadership, implementation, performance, and technical quality assurance',
+    image: undefined,
+    linkedin: undefined,
   },
   {
     name: 'Smit Dholakiya',
     role: 'SEO Executive',
     focus: 'On-page SEO, research, content operations, and implementation support',
-    image: '/team/smit-dholakiya.png',
+    image: '/team/smit-dholakiya.jpg',
     linkedin: 'https://www.linkedin.com/in/smit-dholakiya/',
   },
   {
@@ -155,7 +155,7 @@ const faqItems = [
   {
     question: 'Who works on TheProjectSEO engagements?',
     answer:
-      'The public team includes Aditya Aman, Siraj Akmal, Vaibhav Singh, Smit Dholakiya, and Mohd. Rushan. The precise people, responsibilities, capacity, specialist review, and client-side owners are defined by the engagement rather than implied through an unsupported team-size or seniority statistic.',
+      'The public team includes Aditya Aman, Shiraz Akmal, Akash, Smit Dholakiya, and Mohd. Rushan. The precise people, responsibilities, capacity, specialist review, and client-side owners are defined by the engagement rather than implied through an unsupported team-size or seniority statistic.',
   },
   {
     question: 'Why does TheProjectSEO call itself AI-native?',
@@ -398,15 +398,17 @@ export default function CompanyPage() {
                   {member.role}
                 </p>
                 <p className="mt-4 text-sm leading-7 text-slate">{member.focus}</p>
-                <a
-                  href={member.linkedin}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-ink underline"
-                >
-                  <Linkedin className="size-4" aria-hidden="true" />
-                  LinkedIn
-                </a>
+                {member.linkedin ? (
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-ink underline"
+                  >
+                    <Linkedin className="size-4" aria-hidden="true" />
+                    LinkedIn
+                  </a>
+                ) : null}
               </article>
             ))}
           </div>
