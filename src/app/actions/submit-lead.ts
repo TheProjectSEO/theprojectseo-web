@@ -158,76 +158,127 @@ async function sendSlackNotification(
   lead: z.infer<typeof leadSchema>,
   fullName: string,
 ) {
+  const botToken = process.env.SLACK_BOT_TOKEN
+  const channelId = process.env.SLACK_LEADS_CHANNEL_ID
   const webhookUrl = process.env.SLACK_WEBHOOK_URL
-  if (!webhookUrl) return
+  const canUseBot = Boolean(botToken && channelId)
 
-  const serviceLabel = lead.serviceInterest || 'Not specified'
-  const discoveryLabel = formatDiscoverySource(lead.discoverySource)
+  if (!canUseBot && !webhookUrl) return
+
+  const serviceLabel = escapeSlackText(
+    lead.serviceInterest || 'Not specified',
+    1_800,
+  )
+  const discoveryLabel = escapeSlackText(
+    formatDiscoverySource(lead.discoverySource),
+  )
   const selectedTier = getSeoTierByFormValue(lead.selectedPlan)
-  const selectedPlanLabel = selectedTier
-    ? getSeoTierFormLabel(selectedTier)
-    : 'No plan selected'
-  const pageLabel = lead.sourcePage || 'Unknown'
-
-  await fetch(webhookUrl, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      blocks: [
+  const selectedPlanLabel = escapeSlackText(
+    selectedTier ? getSeoTierFormLabel(selectedTier) : 'No plan selected',
+  )
+  const pageLabel = escapeSlackText(lead.sourcePage || 'Unknown')
+  const safeFullName = escapeSlackText(fullName)
+  const safeEmail = escapeSlackText(lead.email)
+  const safeCompany = escapeSlackText(lead.company || '-')
+  const safePhone = escapeSlackText(lead.phone || '-')
+  const safeWebsite = escapeSlackText(lead.websiteUrl || '-')
+  const safeDiscoveryDetail = escapeSlackText(lead.discoveryDetail || '-', 1_800)
+  const blocks = [
+    {
+      type: 'header',
+      text: { type: 'plain_text', text: 'New Lead from TheProjectSEO' },
+    },
+    {
+      type: 'section',
+      fields: [
+        { type: 'mrkdwn', text: `*Name:*\n${safeFullName}` },
+        { type: 'mrkdwn', text: `*Email:*\n${safeEmail}` },
+        { type: 'mrkdwn', text: `*Company:*\n${safeCompany}` },
+        { type: 'mrkdwn', text: `*Phone:*\n${safePhone}` },
+        { type: 'mrkdwn', text: `*Website:*\n${safeWebsite}` },
         {
-          type: 'header',
-          text: { type: 'plain_text', text: 'New Lead from TheProjectSEO' },
+          type: 'mrkdwn',
+          text: `*Selected SEO Plan:*\n${selectedPlanLabel}`,
         },
-        {
-          type: 'section',
-          fields: [
-            { type: 'mrkdwn', text: `*Name:*\n${fullName}` },
-            { type: 'mrkdwn', text: `*Email:*\n${lead.email}` },
-            { type: 'mrkdwn', text: `*Company:*\n${lead.company || '-'}` },
-            { type: 'mrkdwn', text: `*Phone:*\n${lead.phone || '-'}` },
-            { type: 'mrkdwn', text: `*Website:*\n${lead.websiteUrl || '-'}` },
-            {
-              type: 'mrkdwn',
-              text: `*Selected SEO Plan:*\n${selectedPlanLabel}`,
-            },
-          ],
-        },
-        {
-          type: 'section',
-          fields: [
-            { type: 'mrkdwn', text: `*Service Interest:*\n${serviceLabel}` },
-            { type: 'mrkdwn', text: `*Source Page:*\n${pageLabel}` },
-            { type: 'mrkdwn', text: `*Found us via:*\n${discoveryLabel}` },
-            {
-              type: 'mrkdwn',
-              text: `*Search / prompt:*\n${lead.discoveryDetail || '-'}`,
-            },
-          ],
-        },
-        ...(lead.message
-          ? [
-              {
-                type: 'section',
-                text: { type: 'mrkdwn', text: `*Message:*\n${lead.message}` },
-              },
-            ]
-          : []),
-        ...(lead.utmSource
-          ? [
-              {
-                type: 'context',
-                elements: [
-                  {
-                    type: 'mrkdwn',
-                    text: `UTM: source=${lead.utmSource || '-'} | medium=${lead.utmMedium || '-'} | campaign=${lead.utmCampaign || '-'} | term=${lead.utmTerm || '-'}`,
-                  },
-                ],
-              },
-            ]
-          : []),
       ],
-    }),
-  })
+    },
+    {
+      type: 'section',
+      fields: [
+        { type: 'mrkdwn', text: `*Service Interest:*\n${serviceLabel}` },
+        { type: 'mrkdwn', text: `*Source Page:*\n${pageLabel}` },
+        { type: 'mrkdwn', text: `*Found us via:*\n${discoveryLabel}` },
+        {
+          type: 'mrkdwn',
+          text: `*Search / prompt:*\n${safeDiscoveryDetail}`,
+        },
+      ],
+    },
+    ...(lead.message
+      ? [
+          {
+            type: 'section',
+            text: {
+              type: 'mrkdwn',
+              text: `*Message:*\n${escapeSlackText(lead.message, 2_800)}`,
+            },
+          },
+        ]
+      : []),
+    ...(lead.utmSource
+      ? [
+          {
+            type: 'context',
+            elements: [
+              {
+                type: 'mrkdwn',
+                text: `UTM: source=${escapeSlackText(lead.utmSource || '-')} | medium=${escapeSlackText(lead.utmMedium || '-')} | campaign=${escapeSlackText(lead.utmCampaign || '-')} | term=${escapeSlackText(lead.utmTerm || '-')}`,
+              },
+            ],
+          },
+        ]
+      : []),
+  ]
+  const payload = {
+    text: `New TheProjectSEO lead: ${fullName} (${lead.email}) from ${lead.sourcePage}`,
+    blocks,
+  }
+
+  if (canUseBot && botToken && channelId) {
+    const response = await fetch('https://slack.com/api/chat.postMessage', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${botToken}`,
+        'Content-Type': 'application/json; charset=utf-8',
+      },
+      body: JSON.stringify({ channel: channelId, ...payload }),
+    })
+    const result = (await response.json()) as {
+      ok?: boolean
+      error?: string
+    }
+
+    if (!response.ok || !result.ok) {
+      throw new Error(
+        `Slack API notification failed: ${result.error || response.statusText}`,
+      )
+    }
+    return
+  }
+
+  if (webhookUrl) {
+    const response = await fetch(webhookUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    })
+
+    if (!response.ok) {
+      throw new Error(
+        `Slack webhook notification failed: ${response.status} ${response.statusText}`,
+      )
+    }
+  }
 }
 
 async function sendEmailNotification(
@@ -286,4 +337,14 @@ function formatDiscoverySource(
   }
 
   return source ? labels[source] : 'Not specified'
+}
+
+function escapeSlackText(value: string, maxLength = 900) {
+  const truncated =
+    value.length > maxLength ? `${value.slice(0, maxLength - 1)}…` : value
+
+  return truncated
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
 }
