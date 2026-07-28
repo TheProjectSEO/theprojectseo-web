@@ -281,33 +281,6 @@ function LeadFormInner({
         </>
       )}
 
-      {/* Monthly Budget */}
-      <Field className="mt-5 space-y-2">
-        <Label className="font-sans text-sm/5 font-medium text-ink">
-          Monthly SEO Budget
-        </Label>
-        <div className="relative">
-          <Select
-            key={requestedTier?.monthlyBudgetValue || 'no-budget'}
-            name="monthlyBudget"
-            defaultValue={requestedTier?.monthlyBudgetValue || ''}
-            className={clsx(inputStyles, 'appearance-none pr-8')}
-          >
-            <option value="">Select budget range</option>
-            <option value="under-3500">Under $3,500/mo</option>
-            <option value="3500-5500">$3,500 - $5,500/mo</option>
-            <option value="5500-10k">$5,500 - $10,000/mo</option>
-            <option value="10k-25k">$10,000 - $25,000/mo</option>
-            <option value="25k+">$25,000+/mo</option>
-            <option value="not-sure">Not sure yet</option>
-          </Select>
-          <ChevronDownIcon
-            className="pointer-events-none absolute right-2.5 top-2.5 size-4 fill-ash"
-            aria-hidden="true"
-          />
-        </div>
-      </Field>
-
       {variant === 'full' && (
         <Field className="mt-5 space-y-2">
           <Label className="font-sans text-sm/5 font-medium text-ink">
@@ -321,6 +294,46 @@ function LeadFormInner({
           />
         </Field>
       )}
+
+      <Field className="mt-5 space-y-2">
+        <Label className="font-sans text-sm/5 font-medium text-ink">
+          How did you find us?
+        </Label>
+        <div className="relative">
+          <Select
+            name="discoverySource"
+            defaultValue=""
+            className={clsx(inputStyles, 'appearance-none pr-8')}
+          >
+            <option value="">Select a source</option>
+            <option value="chatgpt">ChatGPT</option>
+            <option value="google-search">Google Search</option>
+            <option value="google-ai-overview">Google AI Overview</option>
+            <option value="bing-search">Bing Search</option>
+            <option value="perplexity">Perplexity</option>
+            <option value="claude">Claude</option>
+            <option value="linkedin-social">LinkedIn or social media</option>
+            <option value="referral">Referral or word of mouth</option>
+            <option value="other">Other</option>
+          </Select>
+          <ChevronDownIcon
+            className="pointer-events-none absolute right-2.5 top-2.5 size-4 fill-ash"
+            aria-hidden="true"
+          />
+        </div>
+      </Field>
+
+      <Field className="mt-5 space-y-2">
+        <Label className="font-sans text-sm/5 font-medium text-ink">
+          What did you search or ask?
+        </Label>
+        <Input
+          type="text"
+          name="discoveryDetail"
+          placeholder="For example: “AI-native SEO agency” or a question you asked ChatGPT"
+          className={inputStyles}
+        />
+      </Field>
 
       {/* Error message */}
       {state.error && (

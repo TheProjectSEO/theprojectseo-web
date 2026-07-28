@@ -5,7 +5,6 @@ export interface SEOTier {
   price: string
   period: string
   formValue: SeoPlanValue
-  monthlyBudgetValue?: string
   description: string
   featured: boolean
   highlights: string[]
@@ -23,7 +22,6 @@ export const seoTiers: SEOTier[] = [
     price: '$3,500',
     period: '/mo',
     formValue: 'initial-3500',
-    monthlyBudgetValue: '3500-5500',
     description:
       'The starting point for an ongoing engagement concentrated on the highest-priority search constraint.',
     featured: false,
@@ -40,7 +38,6 @@ export const seoTiers: SEOTier[] = [
     price: '$5,500',
     period: '/mo',
     formValue: 'growth-5500',
-    monthlyBudgetValue: '5500-10k',
     description:
       'For teams that need several SEO, content, authority, analytics, and AI-search workstreams in parallel.',
     featured: true,

@@ -1,7 +1,7 @@
 'use server'
 
 import { z, type core } from 'zod'
-import { supabase } from '@/lib/supabase'
+import { getLeadsSupabase } from '@/lib/supabase-leads'
 import { Resend } from 'resend'
 import { getSeoTierByFormValue, getSeoTierFormLabel } from '@/data/pricing'
 
@@ -16,7 +16,20 @@ const leadSchema = z.object({
   selectedPlan: z
     .enum(['initial-3500', 'growth-5500', 'enterprise-custom'])
     .optional(),
-  monthlyBudget: z.string().optional(),
+  discoverySource: z
+    .enum([
+      'chatgpt',
+      'google-search',
+      'google-ai-overview',
+      'bing-search',
+      'perplexity',
+      'claude',
+      'linkedin-social',
+      'referral',
+      'other',
+    ])
+    .optional(),
+  discoveryDetail: z.string().max(300).optional(),
   message: z.string().optional(),
   // Attribution
   sourcePage: z.string(),
@@ -52,7 +65,8 @@ export async function submitLead(
     websiteUrl: str('websiteUrl'),
     serviceInterest: str('serviceInterest'),
     selectedPlan: str('selectedPlan') || undefined,
-    monthlyBudget: str('monthlyBudget'),
+    discoverySource: str('discoverySource') || undefined,
+    discoveryDetail: str('discoveryDetail'),
     message: str('message'),
     sourcePage: str('sourcePage'),
     sourceUrl: str('sourceUrl'),
@@ -84,38 +98,58 @@ export async function submitLead(
     .join(' | ')
 
   // 1. Insert into Supabase
-  const { error: dbError } = await supabase.from('leads').insert({
-    name: fullName,
-    first_name: lead.firstName,
-    last_name: lead.lastName,
-    email: lead.email,
-    company: lead.company || null,
-    phone: lead.phone || null,
-    website_url: lead.websiteUrl || null,
-    service_interest: storedServiceInterest || null,
-    monthly_budget: lead.monthlyBudget || null,
-    message: lead.message || null,
-    source_page: lead.sourcePage,
-    source_url: lead.sourceUrl || null,
-    utm_source: lead.utmSource || null,
-    utm_medium: lead.utmMedium || null,
-    utm_campaign: lead.utmCampaign || null,
-    utm_term: lead.utmTerm || null,
-    utm_content: lead.utmContent || null,
-    referrer: lead.referrer || null,
-    status: 'new',
-  })
+  let dbError: { message?: string } | null = null
+
+  try {
+    const result = await getLeadsSupabase()
+      .from('leads')
+      .insert({
+        name: fullName,
+        first_name: lead.firstName,
+        last_name: lead.lastName,
+        email: lead.email,
+        company: lead.company || null,
+        phone: lead.phone || null,
+        website_url: lead.websiteUrl || null,
+        service_interest: storedServiceInterest || null,
+        selected_plan: lead.selectedPlan || null,
+        selected_plan_label: selectedPlanLabel || null,
+        discovery_source: lead.discoverySource || null,
+        discovery_detail: lead.discoveryDetail || null,
+        message: lead.message || null,
+        source_page: lead.sourcePage,
+        source_url: lead.sourceUrl || null,
+        utm_source: lead.utmSource || null,
+        utm_medium: lead.utmMedium || null,
+        utm_campaign: lead.utmCampaign || null,
+        utm_term: lead.utmTerm || null,
+        utm_content: lead.utmContent || null,
+        referrer: lead.referrer || null,
+        status: 'new',
+      })
+    dbError = result.error
+  } catch (error) {
+    console.error('Supabase configuration error:', error)
+    return { success: false, error: 'Something went wrong. Please try again.' }
+  }
 
   if (dbError) {
     console.error('Supabase insert error:', dbError)
     return { success: false, error: 'Something went wrong. Please try again.' }
   }
 
-  // 2. Send Slack notification (fire-and-forget)
-  sendSlackNotification(lead, fullName).catch(console.error)
+  // Keep the database as the source of truth, but wait for notification
+  // attempts so serverless runtimes do not terminate them early.
+  const notificationResults = await Promise.allSettled([
+    sendSlackNotification(lead, fullName),
+    sendEmailNotification(lead, fullName),
+  ])
 
-  // 3. Send email notification (fire-and-forget)
-  sendEmailNotification(lead, fullName).catch(console.error)
+  for (const result of notificationResults) {
+    if (result.status === 'rejected') {
+      console.error('Lead notification error:', result.reason)
+    }
+  }
 
   return { success: true }
 }
@@ -127,8 +161,8 @@ async function sendSlackNotification(
   const webhookUrl = process.env.SLACK_WEBHOOK_URL
   if (!webhookUrl) return
 
-  const budgetLabel = lead.monthlyBudget || 'Not specified'
   const serviceLabel = lead.serviceInterest || 'Not specified'
+  const discoveryLabel = formatDiscoverySource(lead.discoverySource)
   const selectedTier = getSeoTierByFormValue(lead.selectedPlan)
   const selectedPlanLabel = selectedTier
     ? getSeoTierFormLabel(selectedTier)
@@ -152,7 +186,6 @@ async function sendSlackNotification(
             { type: 'mrkdwn', text: `*Company:*\n${lead.company || '-'}` },
             { type: 'mrkdwn', text: `*Phone:*\n${lead.phone || '-'}` },
             { type: 'mrkdwn', text: `*Website:*\n${lead.websiteUrl || '-'}` },
-            { type: 'mrkdwn', text: `*Budget:*\n${budgetLabel}` },
             {
               type: 'mrkdwn',
               text: `*Selected SEO Plan:*\n${selectedPlanLabel}`,
@@ -164,6 +197,11 @@ async function sendSlackNotification(
           fields: [
             { type: 'mrkdwn', text: `*Service Interest:*\n${serviceLabel}` },
             { type: 'mrkdwn', text: `*Source Page:*\n${pageLabel}` },
+            { type: 'mrkdwn', text: `*Found us via:*\n${discoveryLabel}` },
+            {
+              type: 'mrkdwn',
+              text: `*Search / prompt:*\n${lead.discoveryDetail || '-'}`,
+            },
           ],
         },
         ...(lead.message
@@ -204,6 +242,7 @@ async function sendEmailNotification(
   const selectedPlanLabel = selectedTier
     ? getSeoTierFormLabel(selectedTier)
     : 'No plan selected'
+  const discoveryLabel = formatDiscoverySource(lead.discoverySource)
 
   await resend.emails.send({
     from: 'TheProjectSEO Leads <leads@theprojectseo.com>',
@@ -218,8 +257,9 @@ async function sendEmailNotification(
         <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Phone</td><td style="padding:8px;border-bottom:1px solid #eee;">${lead.phone || '-'}</td></tr>
         <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Website</td><td style="padding:8px;border-bottom:1px solid #eee;">${lead.websiteUrl || '-'}</td></tr>
         <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Selected SEO Plan</td><td style="padding:8px;border-bottom:1px solid #eee;">${selectedPlanLabel}</td></tr>
-        <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Budget</td><td style="padding:8px;border-bottom:1px solid #eee;">${lead.monthlyBudget || 'Not specified'}</td></tr>
         <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Service</td><td style="padding:8px;border-bottom:1px solid #eee;">${lead.serviceInterest || 'Not specified'}</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Found us via</td><td style="padding:8px;border-bottom:1px solid #eee;">${discoveryLabel}</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Search / prompt</td><td style="padding:8px;border-bottom:1px solid #eee;">${lead.discoveryDetail || '-'}</td></tr>
         <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Source Page</td><td style="padding:8px;border-bottom:1px solid #eee;">${lead.sourcePage}</td></tr>
         ${lead.utmSource ? `<tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">UTM Source</td><td style="padding:8px;border-bottom:1px solid #eee;">${lead.utmSource}</td></tr>` : ''}
         ${lead.utmCampaign ? `<tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">UTM Campaign</td><td style="padding:8px;border-bottom:1px solid #eee;">${lead.utmCampaign}</td></tr>` : ''}
@@ -228,4 +268,22 @@ async function sendEmailNotification(
       <p style="margin-top:16px;color:#666;font-size:12px;">This lead was submitted from <strong>${lead.sourcePage}</strong> on theprojectseo.com</p>
     `,
   })
+}
+
+function formatDiscoverySource(
+  source?: z.infer<typeof leadSchema>['discoverySource'],
+) {
+  const labels: Record<NonNullable<typeof source>, string> = {
+    chatgpt: 'ChatGPT',
+    'google-search': 'Google Search',
+    'google-ai-overview': 'Google AI Overview',
+    'bing-search': 'Bing Search',
+    perplexity: 'Perplexity',
+    claude: 'Claude',
+    'linkedin-social': 'LinkedIn or social media',
+    referral: 'Referral or word of mouth',
+    other: 'Other',
+  }
+
+  return source ? labels[source] : 'Not specified'
 }
