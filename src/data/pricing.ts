@@ -1,7 +1,11 @@
+export type SeoPlanValue = 'initial-3500' | 'growth-5500' | 'enterprise-custom'
+
 export interface SEOTier {
   name: string
   price: string
   period: string
+  formValue: SeoPlanValue
+  monthlyBudgetValue?: string
   description: string
   featured: boolean
   highlights: string[]
@@ -18,6 +22,8 @@ export const seoTiers: SEOTier[] = [
     name: 'Initial',
     price: '$3,500',
     period: '/mo',
+    formValue: 'initial-3500',
+    monthlyBudgetValue: '3500-5500',
     description:
       'The starting point for an ongoing engagement concentrated on the highest-priority search constraint.',
     featured: false,
@@ -33,6 +39,8 @@ export const seoTiers: SEOTier[] = [
     name: 'Growth',
     price: '$5,500',
     period: '/mo',
+    formValue: 'growth-5500',
+    monthlyBudgetValue: '5500-10k',
     description:
       'For teams that need several SEO, content, authority, analytics, and AI-search workstreams in parallel.',
     featured: true,
@@ -48,6 +56,7 @@ export const seoTiers: SEOTier[] = [
     name: 'Enterprise',
     price: 'Custom',
     period: '',
+    formValue: 'enterprise-custom',
     description:
       'For large sites, multiple markets, regulated review, migrations, or complex data and governance requirements.',
     featured: false,
@@ -60,3 +69,13 @@ export const seoTiers: SEOTier[] = [
     ],
   },
 ]
+
+export function getSeoTierByFormValue(value: string | null | undefined) {
+  return seoTiers.find((tier) => tier.formValue === value)
+}
+
+export function getSeoTierFormLabel(tier: SEOTier) {
+  return tier.period
+    ? `${tier.name} — ${tier.price}/month`
+    : `${tier.name} — ${tier.price}`
+}

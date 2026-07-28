@@ -548,11 +548,7 @@ function ConversionBridge({
         <div className="home-conversion-bridge-inner">
           <span className="home-conversion-track" aria-hidden="true" />
           <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-            <Button
-              variant="action"
-              href={primaryHref}
-              className="gap-2"
-            >
+            <Button variant="action" href={primaryHref} className="gap-2">
               {primaryText}
               <ArrowRight className="size-4" aria-hidden="true" />
             </Button>
@@ -954,54 +950,54 @@ function PlatformSection() {
         <div className="mt-14 grid grid-cols-1 gap-px bg-border-strong lg:grid-cols-2">
           {platforms.map(
             ({ name, state, summary, actions, href, Icons, brand }) => (
-            <article
-              key={name}
-              className="group bg-paper p-7 transition-colors hover:bg-cream sm:p-9"
-            >
-              <div className="flex items-start justify-between gap-5">
-                <div
-                  className={`home-platform-icon is-${brand} flex size-11 items-center justify-center bg-accent-soft`}
-                >
-                  {Icons.map((BrandIcon, index) => (
-                    <BrandIcon
-                      key={`${brand}-${index}`}
-                      className="home-brand-icon"
-                      aria-hidden="true"
-                    />
-                  ))}
-                </div>
-                <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-ash">
-                  {state}
-                </span>
-              </div>
-              <h3 className="mt-6 font-heading text-xl font-semibold text-ink">
-                {name}
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-slate">
-                {summary}
-              </p>
-              <ul className="mt-6 space-y-2.5">
-                {actions.map((item) => (
-                  <li
-                    key={item}
-                    className="flex gap-3 text-sm leading-relaxed text-slate"
-                  >
-                    <Check
-                      className="mt-0.5 size-4 shrink-0 text-accent"
-                      aria-hidden="true"
-                    />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href={href}
-                className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-accent group-hover:text-ink"
+              <article
+                key={name}
+                className="group bg-paper p-7 transition-colors hover:bg-cream sm:p-9"
               >
-                See the platform playbook
-                <ArrowRight className="size-4" aria-hidden="true" />
-              </Link>
-            </article>
+                <div className="flex items-start justify-between gap-5">
+                  <div
+                    className={`home-platform-icon is-${brand} flex size-11 items-center justify-center bg-accent-soft`}
+                  >
+                    {Icons.map((BrandIcon, index) => (
+                      <BrandIcon
+                        key={`${brand}-${index}`}
+                        className="home-brand-icon"
+                        aria-hidden="true"
+                      />
+                    ))}
+                  </div>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-ash">
+                    {state}
+                  </span>
+                </div>
+                <h3 className="mt-6 font-heading text-xl font-semibold text-ink">
+                  {name}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate">
+                  {summary}
+                </p>
+                <ul className="mt-6 space-y-2.5">
+                  {actions.map((item) => (
+                    <li
+                      key={item}
+                      className="flex gap-3 text-sm leading-relaxed text-slate"
+                    >
+                      <Check
+                        className="mt-0.5 size-4 shrink-0 text-accent"
+                        aria-hidden="true"
+                      />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href={href}
+                  className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-accent group-hover:text-ink"
+                >
+                  See the platform playbook
+                  <ArrowRight className="size-4" aria-hidden="true" />
+                </Link>
+              </article>
             ),
           )}
         </div>
@@ -1099,60 +1095,93 @@ function CaseStudiesSection() {
     <section
       id="case-studies"
       data-home-section="case-studies"
-      data-chapter="06"
-      className="bg-paper py-24"
+      data-chapter="10"
+      className="home-work-section bg-ink py-24 text-white"
     >
       <Container>
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
           <div>
-            <Eyebrow>Client Work</Eyebrow>
-            <Heading as="h2" className="mt-4">
+            <Eyebrow dark>Client Work</Eyebrow>
+            <Heading as="h2" dark className="mt-4">
               SEO Case Studies &amp; Results
             </Heading>
           </div>
-          <p className="max-w-3xl text-lg leading-relaxed text-slate">
+          <p className="max-w-3xl text-lg leading-relaxed text-white/65">
             Approved results from two owned search projects. Each public metric
             names its source and reporting window; private client work remains
             private until publication is explicitly approved.
           </p>
         </div>
 
-        <div className="home-case-study-grid mt-14">
+        <div className="home-work-showcase mt-14">
           {caseStudies.map((study, index) => {
+            const visual =
+              study.slug === "expressway-ph"
+                ? {
+                    label:
+                      "Expressway.PH — Ahrefs organic traffic and keyword trend",
+                    description:
+                      "Reserved for the approved Ahrefs screenshot with Avg. organic traffic selected and the organic keyword trend visible.",
+                  }
+                : {
+                    label:
+                      "TaxCalculator.com.ph — Google Search Console performance",
+                    description:
+                      "Reserved for the approved three-month Search Console screenshot showing total clicks, total impressions, and the full trend.",
+                  };
+
             return (
               <article
                 key={study.slug}
-                className="home-case-study-card is-approved"
+                className={`home-work-card ${index % 2 === 1 ? "is-reverse" : ""}`}
               >
-                <div className="flex items-start justify-between gap-5">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-ash">
-                    {industryLabels[study.industry] ?? study.industry}
+                <div className="home-work-copy">
+                  <div className="flex items-start justify-between gap-5">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-accent">
+                      {industryLabels[study.industry] ?? study.industry}
+                    </p>
+                    <span className="font-mono text-[10px] text-ash">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                  </div>
+                  <h3 className="mt-8 font-display text-[clamp(32px,4vw,54px)] font-medium leading-[1.02] tracking-[-0.035em] text-ink">
+                    {study.client}
+                  </h3>
+                  <p className="mt-5 max-w-xl text-base leading-relaxed text-slate">
+                    {study.headline}
                   </p>
-                  <span className="font-mono text-[10px] text-ash">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                </div>
-                <h3 className="mt-8 font-display text-3xl font-medium leading-tight text-ink">
-                  {study.client}
-                </h3>
-                <p className="mt-4 text-sm leading-relaxed text-slate">
-                  {study.headline}
-                </p>
-                <div className="mt-auto pt-9">
-                  <p className="font-mono text-xs font-semibold uppercase tracking-[0.1em] text-ink">
-                    {study.headlineMetric}
-                  </p>
+                  <div className="mt-9 border-y border-border-strong py-6">
+                    <p className="font-display text-2xl font-medium leading-tight text-ink sm:text-3xl">
+                      {study.headlineMetric}
+                    </p>
+                    <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.12em] text-ash">
+                      {study.reportingDate} · {study.ownership}
+                    </p>
+                  </div>
                   <Link
                     href={`/case-studies/${study.slug}`}
-                    className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-ink"
+                    className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-ink"
                   >
                     View case study
                     <ArrowRight className="size-4" aria-hidden="true" />
                   </Link>
                 </div>
+                <div className="home-work-visual">
+                  <EvidencePlaceholder
+                    label={visual.label}
+                    description={visual.description}
+                    asset={getEvidenceAsset(visual.label)}
+                    className="h-full"
+                  />
+                </div>
               </article>
             );
           })}
+        </div>
+        <div className="mt-10 flex justify-end">
+          <Button variant="action" href="/case-studies">
+            View All Case Studies
+          </Button>
         </div>
       </Container>
     </section>
@@ -1190,7 +1219,7 @@ function OperatingSystemSection() {
   return (
     <section
       data-home-section="operating-system"
-      data-chapter="07"
+      data-chapter="06"
       className="bg-ink py-24 text-white"
     >
       <Container>
@@ -1243,7 +1272,7 @@ function RoadmapSection() {
     <section
       id="process"
       data-home-section="roadmap"
-      data-chapter="08"
+      data-chapter="07"
       className="bg-paper py-24"
     >
       <Container>
@@ -1331,7 +1360,7 @@ function DeliverablesSection() {
   return (
     <section
       data-home-section="deliverables"
-      data-chapter="09"
+      data-chapter="08"
       className="border-y border-border bg-cream py-24"
     >
       <Container>
@@ -1426,7 +1455,7 @@ function MeasurementSection() {
   return (
     <section
       data-home-section="measurement"
-      data-chapter="10"
+      data-chapter="09"
       className="bg-ink py-24 text-white"
     >
       <Container>
@@ -1511,49 +1540,89 @@ function MeasurementSection() {
 }
 
 function TestimonialSection() {
+  const [featuredTestimonial, ...additionalTestimonials] = testimonials;
+
   return (
     <section
       data-home-section="testimonial"
       data-chapter="11"
-      className="home-testimonial-section overflow-hidden bg-signal py-20 sm:py-24"
+      className="home-testimonial-section overflow-hidden py-20 sm:py-24"
     >
       <Container>
-        {testimonials.map((testimonial) => (
-          <figure
-            key={testimonial.id}
-            className="grid grid-cols-1 overflow-hidden border border-ink/15 bg-paper lg:grid-cols-[0.72fr_1.28fr]"
-          >
-            <div className="relative min-h-80 overflow-hidden bg-ink lg:min-h-[560px]">
-              <Image
-                src={testimonial.image}
-                alt={testimonial.author}
-                fill
-                sizes="(min-width: 1024px) 38vw, 100vw"
-                className="object-cover grayscale"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/65 via-transparent to-transparent" />
-              <p className="absolute bottom-6 left-6 font-mono text-xs uppercase tracking-[0.15em] text-white/80">
-                Client Testimonial
-              </p>
+        <div className="mb-12 grid grid-cols-1 gap-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
+          <div>
+            <Eyebrow>Client testimonials</Eyebrow>
+            <Heading as="h2" className="mt-4">
+              What clients say about the work
+            </Heading>
+          </div>
+          <p className="max-w-2xl text-base leading-relaxed text-slate">
+            Real client feedback is published only with explicit sign-off.
+          </p>
+        </div>
+        <div className="home-testimonial-grid">
+          {featuredTestimonial && (
+            <figure
+              key={featuredTestimonial.id}
+              className="home-testimonial-card"
+            >
+              <div className="home-testimonial-portrait">
+                {featuredTestimonial.image && (
+                  <Image
+                    src={featuredTestimonial.image}
+                    alt={featuredTestimonial.author}
+                    fill
+                    sizes="(min-width: 1024px) 32vw, 100vw"
+                    className="object-cover grayscale"
+                  />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/65 via-transparent to-transparent" />
+                <p className="absolute bottom-6 left-6 font-mono text-xs uppercase tracking-[0.15em] text-white/80">
+                  Client Testimonial
+                </p>
+              </div>
+              <div className="home-testimonial-copy">
+                <Quote className="size-9 text-accent" aria-hidden="true" />
+                <blockquote className="my-8 lg:my-10">
+                  <p className="font-display text-[clamp(34px,4vw,58px)] font-medium leading-[1.04] tracking-[-0.035em] text-ink">
+                    “{featuredTestimonial.quote}”
+                  </p>
+                </blockquote>
+                <figcaption className="border-t border-border-strong pt-6">
+                  <p className="font-heading text-base font-semibold text-ink">
+                    {featuredTestimonial.author}
+                  </p>
+                  <p className="mt-1 font-mono text-xs uppercase tracking-[0.1em] text-ash">
+                    {featuredTestimonial.role}, {featuredTestimonial.company}
+                  </p>
+                </figcaption>
+              </div>
+            </figure>
+          )}
+
+          {additionalTestimonials.length > 0 && (
+            <div className="home-testimonial-list">
+              {additionalTestimonials.map((testimonial) => (
+                <figure key={testimonial.id} className="home-testimonial-mini">
+                  <Quote className="size-7 text-accent" aria-hidden="true" />
+                  <blockquote className="my-7">
+                    <p className="font-display text-[clamp(21px,2.4vw,30px)] font-medium leading-[1.3] tracking-[-0.025em] text-ink">
+                      “{testimonial.quote}”
+                    </p>
+                  </blockquote>
+                  <figcaption className="mt-auto border-t border-border-strong pt-5">
+                    <p className="font-heading text-base font-semibold text-ink">
+                      {testimonial.author}
+                    </p>
+                    <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.1em] text-ash">
+                      {testimonial.role}, {testimonial.company}
+                    </p>
+                  </figcaption>
+                </figure>
+              ))}
             </div>
-            <div className="relative flex flex-col justify-between p-8 sm:p-12 lg:p-16">
-              <Quote className="size-10 text-accent" aria-hidden="true" />
-              <blockquote className="my-10">
-                <p className="font-display text-[clamp(36px,5vw,72px)] font-medium leading-[1.02] tracking-[-0.03em] text-ink">
-                  “{testimonial.quote}”
-                </p>
-              </blockquote>
-              <figcaption className="border-t border-border-strong pt-6">
-                <p className="font-heading text-base font-semibold text-ink">
-                  {testimonial.author}
-                </p>
-                <p className="mt-1 font-mono text-xs uppercase tracking-[0.1em] text-ash">
-                  {testimonial.role}, {testimonial.company}
-                </p>
-              </figcaption>
-            </div>
-          </figure>
-        ))}
+          )}
+        </div>
       </Container>
     </section>
   );
@@ -1565,7 +1634,7 @@ function PricingSection() {
       id="pricing"
       data-home-section="pricing"
       data-chapter="12"
-      className="bg-cream py-24"
+      className="home-pricing-section bg-cream py-24"
     >
       <Container>
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
@@ -1620,7 +1689,11 @@ function PricingSection() {
                   </li>
                 ))}
               </ul>
-              <Button variant="action" href="/contact" className="mt-9 w-full">
+              <Button
+                variant="action"
+                href={`/contact?plan=${tier.formValue}#contact-form`}
+                className="mt-9 w-full"
+              >
                 {tier.name === "Enterprise" ? "Contact us" : "Get started"}
               </Button>
             </article>
@@ -1639,7 +1712,7 @@ function FitAndPricingSection() {
       className="bg-paper py-24"
     >
       <Container>
-        <div className="grid grid-cols-1 gap-14 lg:grid-cols-[0.78fr_1.22fr]">
+        <div className="home-fit-shell grid grid-cols-1 gap-14 lg:grid-cols-[1fr_1.08fr]">
           <div>
             <Eyebrow>Fit and investment</Eyebrow>
             <Heading as="h2" className="mt-4">
@@ -1731,47 +1804,59 @@ function CompanySection() {
       className="border-y border-border bg-cream py-24"
     >
       <Container>
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_auto] lg:items-center">
-          <div>
-            <div className="flex items-center gap-3">
-              <Globe2 className="size-5 text-accent" aria-hidden="true" />
-              <Eyebrow>Company and locations</Eyebrow>
-            </div>
-            <Heading as="h2" className="mt-4">
-              Who is accountable for the work, and where do we operate?
-            </Heading>
-            <div className="mt-6 max-w-4xl space-y-5 text-base leading-relaxed text-slate">
-              <p>
-                TheProjectSEO is led by Aditya Aman, an SEO consultant with
-                practitioner experience across technical optimization, content
-                systems, ecommerce, analytics, and programmatic workflows. The
-                team works across India and the Philippines and uses owned
-                projects to test methods before turning them into client
-                recommendations.
-              </p>
-              <p>
-                Our dedicated location coverage is intentionally limited to
-                those two countries. We can work with international companies,
-                but we do not create thin city or country pages to imply a local
-                presence that does not exist. Industry pages follow the same
-                rule: a page needs a distinct search problem, useful expertise,
-                and enough depth to deserve its URL.
-              </p>
-            </div>
+        <div className="home-company-grid grid grid-cols-1 overflow-hidden border border-border-strong bg-paper lg:grid-cols-[0.72fr_1.28fr]">
+          <div className="relative min-h-80 overflow-hidden bg-ink lg:min-h-[620px]">
+            <Image
+              src="/images/human/seo-consultant-strategy-call.webp"
+              alt="An experienced SEO consultant taking notes during a remote strategy session."
+              fill
+              sizes="(min-width: 1024px) 40vw, 100vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink/65 via-transparent to-transparent" />
           </div>
-          <div className="flex min-w-72 flex-col gap-3">
-            <Button variant="ghost" href="/company">
-              Meet TheProjectSEO
-            </Button>
-            <Button variant="ghost" href="/locations/india">
-              SEO Agency in India
-            </Button>
-            <Button variant="ghost" href="/locations/philippines">
-              SEO Agency in the Philippines
-            </Button>
-            <Button variant="ghost" href="/case-studies">
-              View All Case Studies
-            </Button>
+          <div className="p-7 sm:p-10 lg:p-14">
+            <div>
+              <div className="flex items-center gap-3">
+                <Globe2 className="size-5 text-accent" aria-hidden="true" />
+                <Eyebrow>Company and locations</Eyebrow>
+              </div>
+              <Heading as="h2" className="mt-4">
+                Who is accountable for the work, and where do we operate?
+              </Heading>
+              <div className="mt-6 max-w-4xl space-y-5 text-base leading-relaxed text-slate">
+                <p>
+                  TheProjectSEO is led by Aditya Aman, an SEO consultant with
+                  practitioner experience across technical optimization, content
+                  systems, ecommerce, analytics, and programmatic workflows. The
+                  team works across India and the Philippines and uses owned
+                  projects to test methods before turning them into client
+                  recommendations.
+                </p>
+                <p>
+                  Our dedicated location coverage is intentionally limited to
+                  those two countries. We can work with international companies,
+                  but we do not create thin city or country pages to imply a
+                  local presence that does not exist. Industry pages follow the
+                  same rule: a page needs a distinct search problem, useful
+                  expertise, and enough depth to deserve its URL.
+                </p>
+              </div>
+            </div>
+            <div className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-2">
+              <Button variant="ghost" href="/company">
+                Meet TheProjectSEO
+              </Button>
+              <Button variant="ghost" href="/locations/india">
+                SEO Agency in India
+              </Button>
+              <Button variant="ghost" href="/locations/philippines">
+                SEO Agency in the Philippines
+              </Button>
+              <Button variant="ghost" href="/case-studies">
+                View All Case Studies
+              </Button>
+            </div>
           </div>
         </div>
       </Container>
@@ -1802,38 +1887,38 @@ function SourcesSection() {
     <section
       data-home-section="sources"
       data-chapter="15"
-      className="bg-paper py-20"
+      className="home-sources-section bg-ink py-20 text-white"
     >
       <Container>
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.65fr_1.35fr]">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
-            <Eyebrow>Primary sources</Eyebrow>
-            <Heading as="h2" className="mt-4">
+            <Eyebrow dark>Primary sources</Eyebrow>
+            <Heading as="h2" dark className="mt-4">
               Which official guidance supports this approach?
             </Heading>
-            <p className="mt-6 text-sm leading-relaxed text-slate">
+            <p className="mt-6 max-w-xl text-sm leading-relaxed text-white/60">
               Provider documentation changes. These links were reviewed on July
               27, 2026. Where a platform does not publish a claimed ranking
               factor, we describe our method as an observation or test—not a
               fact about the model.
             </p>
           </div>
-          <ul className="border border-border-strong">
+          <ul className="border border-white/15">
             {sources.map((source) => (
               <li
                 key={source.href}
-                className="border-b border-border p-6 last:border-b-0"
+                className="border-b border-white/15 p-6 last:border-b-0"
               >
                 <a
                   href={source.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 font-heading text-base font-semibold text-ink hover:text-accent"
+                  className="inline-flex items-center gap-2 font-heading text-base font-semibold text-white hover:text-action"
                 >
                   {source.name}
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </a>
-                <p className="mt-2 text-sm leading-relaxed text-slate">
+                <p className="mt-2 text-sm leading-relaxed text-white/55">
                   {source.note}
                 </p>
               </li>
@@ -2003,7 +2088,6 @@ export default function Home() {
           secondaryText="Review Pricing"
           secondaryHref="#pricing"
         />
-        <CaseStudiesSection />
         <OperatingSystemSection />
         <RoadmapSection />
         <ConversionBridge
@@ -2015,7 +2099,15 @@ export default function Home() {
         />
         <DeliverablesSection />
         <MeasurementSection />
+        <CaseStudiesSection />
         <TestimonialSection />
+        <ConversionBridge
+          id="after-client-proof"
+          primaryText="Request a Search Review"
+          primaryHref="/contact"
+          secondaryText="View All Case Studies"
+          secondaryHref="/case-studies"
+        />
         <PricingSection />
         <FitAndPricingSection />
         <CompanySection />

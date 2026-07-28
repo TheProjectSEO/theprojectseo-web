@@ -322,7 +322,16 @@ body {
   height: 0.42rem;
   content: "";
   background: var(--color-action);
-  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+  clip-path: polygon(
+    50% 0,
+    62% 38%,
+    100% 50%,
+    62% 62%,
+    50% 100%,
+    38% 62%,
+    0 50%,
+    38% 38%
+  );
 }
 
 .home-chapter-nav {
@@ -410,7 +419,9 @@ body {
 
 .home-page [data-home-section="terminology"]::before,
 .home-page [data-home-section="operating-system"]::before,
-.home-page [data-home-section="measurement"]::before {
+.home-page [data-home-section="measurement"]::before,
+.home-page [data-home-section="case-studies"]::before,
+.home-page [data-home-section="sources"]::before {
   color: rgba(233, 225, 226, 0.07);
 }
 
@@ -499,67 +510,46 @@ body {
   background: white;
 }
 
-.home-case-study-grid {
+.home-work-section {
+  border-top: 6px solid var(--color-action);
+}
+
+.home-work-showcase {
   display: grid;
-  grid-template-columns: 1fr;
-  border-top: 1px solid var(--color-border-strong);
-  border-left: 1px solid var(--color-border-strong);
+  gap: 1.25rem;
 }
 
-.home-case-study-card {
-  display: flex;
-  min-height: 340px;
-  flex-direction: column;
-  padding: 1.7rem;
-  border-right: 1px solid var(--color-border-strong);
-  border-bottom: 1px solid var(--color-border-strong);
+.home-work-card {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
   background: var(--color-paper);
-  transition:
-    color 220ms ease,
-    background-color 220ms ease,
-    transform 220ms ease;
+  box-shadow: 18px 18px 0 rgba(255, 216, 77, 0.08);
 }
 
-.home-case-study-card:hover {
-  z-index: 2;
-  background: var(--color-signal);
-  color: white;
-  transform: translateY(-5px);
+.home-work-copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(1.75rem, 5vw, 4rem);
 }
 
-.home-case-study-card.is-pending:hover h3,
-.home-case-study-card.is-pending:hover .text-ink,
-.home-case-study-card.is-pending:hover .text-slate,
-.home-case-study-card.is-pending:hover .text-ash,
-.home-case-study-card.is-pending:hover .text-accent {
-  color: white;
+.home-work-visual {
+  min-width: 0;
+  padding: clamp(0.85rem, 2vw, 1.5rem);
+  border-top: 1px solid var(--color-border-strong);
+  background:
+    linear-gradient(145deg, rgba(122, 38, 58, 0.08), transparent 48%),
+    var(--color-sage);
 }
 
-.home-case-study-card.is-approved {
-  min-height: 420px;
-  background: var(--color-ink);
+.home-work-visual figure {
+  transition: transform 350ms ease;
 }
 
-.home-case-study-card.is-approved h3,
-.home-case-study-card.is-approved .text-ink {
-  color: white;
-}
-
-.home-case-study-card.is-approved .text-slate,
-.home-case-study-card.is-approved .text-ash {
-  color: rgba(255, 255, 255, 0.62);
-}
-
-.home-case-study-card.is-approved .text-accent {
-  color: #bdcbd4;
-}
-
-.home-case-study-card.is-approved:hover {
-  background: var(--color-accent);
-}
-
-.home-case-study-card.is-approved:hover .text-accent {
-  color: white;
+.home-work-card:hover .home-work-visual figure {
+  transform: translateY(-4px);
 }
 
 .home-page [data-home-section="operating-system"] {
@@ -591,13 +581,11 @@ body {
   transform: translateX(6px);
 }
 
-.home-page [data-home-section="deliverables"] table tbody tr,
-.home-page [data-home-section="sources"] li {
+.home-page [data-home-section="deliverables"] table tbody tr {
   transition: background-color 180ms ease;
 }
 
-.home-page [data-home-section="deliverables"] table tbody tr:hover,
-.home-page [data-home-section="sources"] li:hover {
+.home-page [data-home-section="deliverables"] table tbody tr:hover {
   background: #fffdfb;
 }
 
@@ -624,20 +612,78 @@ body {
 }
 
 .home-testimonial-section {
-  background: var(--color-sage);
+  background:
+    linear-gradient(120deg, rgba(255, 216, 77, 0.13), transparent 34%),
+    var(--color-sage);
 }
 
-.home-testimonial-section figure {
+.home-testimonial-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.home-testimonial-card {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-paper);
   box-shadow: var(--shadow-xl);
 }
 
-.home-testimonial-section figure img {
+.home-testimonial-portrait {
+  position: relative;
+  min-height: 320px;
+  overflow: hidden;
+  background: var(--color-ink);
+}
+
+.home-testimonial-copy {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(2rem, 5vw, 4rem);
+}
+
+.home-testimonial-card img {
   transform: scale(1.025);
   transition: transform 700ms cubic-bezier(0.2, 0.75, 0.3, 1);
 }
 
-.home-testimonial-section figure:hover img {
+.home-testimonial-card:hover img {
   transform: scale(1.075);
+}
+
+.home-testimonial-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.home-testimonial-mini {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: clamp(1.75rem, 4vw, 3rem);
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-paper);
+  box-shadow: var(--shadow-md);
+  transition:
+    border-color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.home-testimonial-mini:hover {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.home-pricing-section {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.48), transparent 20%),
+    var(--color-cream);
 }
 
 .home-pricing-grid {
@@ -653,8 +699,7 @@ body {
   padding: 1.75rem;
   border: 1px solid var(--color-border-strong);
   background: var(--color-paper);
-  transition:
-    border-color 220ms ease;
+  transition: border-color 220ms ease;
 }
 
 .home-pricing-card:hover {
@@ -684,17 +729,22 @@ body {
   border-color: rgba(255, 255, 255, 0.22);
 }
 
-.home-pricing-card.is-featured > a.text-ink {
-  border-color: var(--color-action);
+.home-pricing-card.is-featured a.text-ink {
+  border-color: var(--color-ink);
   background: var(--color-action);
   color: var(--color-ink) !important;
 }
 
-.home-pricing-card.is-featured > a.text-ink:hover,
-.home-pricing-card.is-featured > a.text-ink[data-hover] {
+.home-pricing-card.is-featured a.text-ink:hover,
+.home-pricing-card.is-featured a.text-ink[data-hover] {
   border-color: var(--color-ink);
   background: var(--color-ink);
   color: white !important;
+}
+
+.home-pricing-card a {
+  border-width: 2px;
+  border-color: var(--color-ink);
 }
 
 .home-pricing-card .mt-9 {
@@ -703,15 +753,39 @@ body {
   padding-top: 0;
 }
 
-.home-page [data-home-section="fit"] > div > div {
+.home-fit-shell {
   padding: clamp(1.5rem, 4vw, 4rem);
   border: 1px solid var(--color-border-strong);
   background: white;
   box-shadow: var(--shadow-lg);
 }
 
+.home-fit-shell h2 {
+  font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+  line-height: 1.02;
+}
+
 .home-page [data-home-section="company"] {
   background: var(--color-sage);
+}
+
+.home-company-grid {
+  box-shadow: var(--shadow-xl);
+}
+
+.home-sources-section {
+  border-top: 6px solid var(--color-accent);
+}
+
+.home-sources-section li {
+  transition:
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.home-sources-section li:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateX(4px);
 }
 
 .home-page [data-home-section="faq"] button {
@@ -758,6 +832,10 @@ body {
 
 .home-contact-section svg {
   fill: var(--color-signal);
+}
+
+.home-contact-section ul span {
+  color: white;
 }
 
 .home-contact-section form {
@@ -1051,6 +1129,14 @@ body {
 }
 
 @media (min-width: 768px) {
+  .home-testimonial-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-testimonial-mini:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+
   .home-pricing-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0;
@@ -1078,16 +1164,31 @@ body {
 }
 
 @media (min-width: 1024px) {
-  .home-case-study-grid {
-    grid-template-columns: repeat(12, minmax(0, 1fr));
+  .home-work-card {
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
   }
 
-  .home-case-study-card {
-    grid-column: span 4;
+  .home-work-card.is-reverse .home-work-copy {
+    order: 2;
   }
 
-  .home-case-study-card.is-approved {
-    grid-column: span 6;
+  .home-work-card.is-reverse .home-work-visual {
+    order: 1;
+    border-right: 1px solid var(--color-border-strong);
+    border-left: 0;
+  }
+
+  .home-work-visual {
+    border-top: 0;
+    border-left: 1px solid var(--color-border-strong);
+  }
+
+  .home-testimonial-card {
+    grid-template-columns: minmax(320px, 0.68fr) minmax(0, 1.32fr);
+  }
+
+  .home-testimonial-portrait {
+    min-height: 520px;
   }
 
   .footer-grid {
@@ -1156,17 +1257,21 @@ body {
     line-height: 1.02;
   }
 
-  .home-case-study-card,
-  .home-case-study-card.is-approved {
-    min-height: 330px;
-  }
-
   .home-pricing-card {
     padding: 1.5rem;
   }
 
-  .home-testimonial-section figure > div:last-child {
+  .home-testimonial-copy {
     padding: 2rem;
+  }
+
+  .home-fit-shell {
+    padding: 1.5rem;
+  }
+
+  .home-company-grid h2,
+  .home-sources-section h2 {
+    font-size: clamp(2.35rem, 10vw, 3.15rem);
   }
 }
 

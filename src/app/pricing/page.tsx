@@ -11,6 +11,7 @@ import { JsonLd } from '@/components/json-ld'
 import { Navbar } from '@/components/navbar'
 import { CTAFormSection } from '@/components/service-page-sections'
 import { Heading, Lead, Subheading } from '@/components/text'
+import type { SeoPlanValue } from '@/data/pricing'
 import { ORGANIZATION_REF, SITE_URL } from '@/lib/organization-schema'
 
 const pricingHeroLead =
@@ -42,32 +43,38 @@ const scopeFactors = [
   {
     factor: 'Website and template scale',
     why: 'A 40-page lead-generation site and a marketplace with millions of parameter combinations require different crawl analysis, governance, QA, and implementation capacity.',
-    evidence: 'Indexed URLs, crawlable templates, rendering paths, parameters, languages, properties, and release frequency.',
+    evidence:
+      'Indexed URLs, crawlable templates, rendering paths, parameters, languages, properties, and release frequency.',
   },
   {
     factor: 'Search market and competition',
     why: 'The work changes when a site must displace established publishers, aggregators, marketplaces, or category leaders across several countries.',
-    evidence: 'Relevant competitors, result types, link and entity gaps, content depth, market count, and realistic opportunity bands.',
+    evidence:
+      'Relevant competitors, result types, link and entity gaps, content depth, market count, and realistic opportunity bands.',
   },
   {
     factor: 'Content and subject expertise',
     why: 'Regulated, technical, or multi-product companies need interviews, evidence, specialist review, compliance ownership, and a more controlled publishing process.',
-    evidence: 'Page backlog, review steps, subject-matter access, research burden, update frequency, and approval turnaround.',
+    evidence:
+      'Page backlog, review steps, subject-matter access, research burden, update frequency, and approval turnaround.',
   },
   {
     factor: 'Technical implementation',
     why: 'Advice alone costs less than an engagement in which we write tickets, change templates, test releases, coordinate developers, and verify production outcomes.',
-    evidence: 'CMS, framework, developer access, backlog ownership, testing environments, deployment cadence, and migration risk.',
+    evidence:
+      'CMS, framework, developer access, backlog ownership, testing environments, deployment cadence, and migration risk.',
   },
   {
     factor: 'Authority and digital PR',
     why: 'Authority work is based on relevance, editorial merit, evidence, and outreach—not a fixed number of links bought according to a third-party score.',
-    evidence: 'Existing reputation, original data, expert access, publication fit, risk tolerance, and outreach or research scope.',
+    evidence:
+      'Existing reputation, original data, expert access, publication fit, risk tolerance, and outreach or research scope.',
   },
   {
     factor: 'Measurement and AI-search coverage',
     why: 'Basic Search Console reporting is simpler than joining analytics, CRM, revenue, AI-answer samples, citations, prompts, and competitive share of voice.',
-    evidence: 'Data sources, event quality, CRM access, markets, prompts, platforms, reporting frequency, and attribution questions.',
+    evidence:
+      'Data sources, event quality, CRM access, markets, prompts, platforms, reporting frequency, and attribution questions.',
   },
 ]
 
@@ -104,10 +111,17 @@ const workstreams = [
   },
 ]
 
-const models = [
+const models: Array<{
+  name: string
+  price: string
+  plan: SeoPlanValue
+  fit: string
+  scope: string
+}> = [
   {
     name: 'Initial',
     price: '$3,500/month',
+    plan: 'initial-3500',
     fit: 'For teams that need continuous research, implementation, content or page improvement, authority development, and measurement.',
     scope:
       'A custom mix of technical SEO, content and page architecture, AI-search optimization, analytics, authority, and delivery governance. The proposal states the monthly capacity, priority workstreams, owners, dependencies, and review cadence.',
@@ -115,6 +129,7 @@ const models = [
   {
     name: 'Growth',
     price: '$5,500/month',
+    plan: 'growth-5500',
     fit: 'For teams that need several SEO, content, authority, analytics, and AI-search workstreams in parallel.',
     scope:
       'A custom mix of technical SEO, content and page architecture, AI-search optimization, analytics, authority, and delivery governance. The proposal states the monthly capacity, priority workstreams, owners, dependencies, and review cadence.',
@@ -122,6 +137,7 @@ const models = [
   {
     name: 'Enterprise',
     price: 'Custom',
+    plan: 'enterprise-custom',
     fit: 'For large sites, multiple business units, several markets, regulated review, high release volume, or significant analytics and governance requirements.',
     scope:
       'Capacity and decision rights are designed around the operating environment. The scope may include multiple specialists, workstream leads, developer collaboration, data engineering, executive reporting, and formal QA.',
@@ -329,9 +345,7 @@ export default function PricingPage() {
               SEO and AI-search retainers from{' '}
               <em className="text-accent">$3,500/month.</em>
             </h1>
-            <Lead className="mt-8 max-w-3xl">
-              {pricingHeroLead}
-            </Lead>
+            <Lead className="mt-8 max-w-3xl">{pricingHeroLead}</Lead>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <Button href="/contact">Request a scoped proposal</Button>
               <Button href="/methodology" variant="outline">
@@ -371,11 +385,11 @@ export default function PricingPage() {
               <p>{pricingHeroDetail}</p>
               <p>
                 There is no single responsible market price for SEO. A retainer
-                can mean monitoring one local site, rebuilding a large
-                ecommerce architecture, publishing expert-reviewed decision
-                pages, supporting a migration, or joining Search Console,
-                analytics, CRM, revenue, and AI-answer data. Comparing only the
-                monthly number hides the work.
+                can mean monitoring one local site, rebuilding a large ecommerce
+                architecture, publishing expert-reviewed decision pages,
+                supporting a migration, or joining Search Console, analytics,
+                CRM, revenue, and AI-answer data. Comparing only the monthly
+                number hides the work.
               </p>
               <p>
                 Ahrefs’ 2024 survey of 439 providers reported an average monthly
@@ -405,13 +419,13 @@ export default function PricingPage() {
             </Heading>
             <Lead className="mt-6">
               These models explain how we scope work. Initial and Growth rates
-              are published; Enterprise requirements are custom because they
-              can vary too widely for a credible fixed quote.
+              are published; Enterprise requirements are custom because they can
+              vary too widely for a credible fixed quote.
             </Lead>
           </div>
           <div className="mt-14 grid gap-px bg-border-strong lg:grid-cols-3">
             {models.map((model) => (
-              <article key={model.name} className="bg-paper p-8">
+              <article key={model.name} className="flex flex-col bg-paper p-8">
                 <p className="font-mono text-xs font-semibold uppercase tracking-[0.12em] text-accent">
                   {model.price}
                 </p>
@@ -421,7 +435,15 @@ export default function PricingPage() {
                 <p className="mt-5 text-sm font-medium leading-6 text-ink">
                   {model.fit}
                 </p>
-                <p className="mt-5 text-sm leading-7 text-slate">{model.scope}</p>
+                <p className="mt-5 text-sm leading-7 text-slate">
+                  {model.scope}
+                </p>
+                <Button
+                  href={`/contact?plan=${model.plan}#contact-form`}
+                  className="mt-8 w-full"
+                >
+                  {model.name === 'Enterprise' ? 'Contact us' : 'Get started'}
+                </Button>
               </article>
             ))}
           </div>
@@ -489,7 +511,10 @@ export default function PricingPage() {
               </thead>
               <tbody>
                 {scopeFactors.map((item) => (
-                  <tr key={item.factor} className="border-b border-border last:border-0">
+                  <tr
+                    key={item.factor}
+                    className="border-b border-border last:border-0"
+                  >
                     <th className="p-5 align-top font-heading text-base font-semibold text-ink">
                       {item.factor}
                     </th>
@@ -557,7 +582,10 @@ export default function PricingPage() {
                   'No fixed backlink quota that rewards volume over relevance, editorial merit, and risk.',
                   'No reporting that combines incompatible markets or hides measurement limitations.',
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm leading-7 text-slate">
+                  <li
+                    key={item}
+                    className="flex items-start gap-3 text-sm leading-7 text-slate"
+                  >
                     <CheckIcon className="mt-1 size-4 shrink-0 fill-accent" />
                     {item}
                   </li>
@@ -603,30 +631,59 @@ export default function PricingPage() {
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {[
-              ['Diagnosis', 'Does it name the customer decision, search opportunity, technical constraint, evidence, and assumptions?'],
-              ['People', 'Who makes decisions, researches, writes, reviews, implements, tests, reports, and speaks with your team?'],
-              ['Capacity', 'Which workstreams fit simultaneously, how are priorities changed, and what is explicitly outside scope?'],
-              ['Implementation', 'Does the provider stop at recommendations, or own tickets, changes, QA, and verification?'],
-              ['Measurement', 'Are baselines, conversion cohorts, AI samples, sources, limits, and business outcomes defined?'],
-              ['Risk', 'What does the provider refuse to guarantee, automate, publish, buy, or represent inaccurately?'],
+              [
+                'Diagnosis',
+                'Does it name the customer decision, search opportunity, technical constraint, evidence, and assumptions?',
+              ],
+              [
+                'People',
+                'Who makes decisions, researches, writes, reviews, implements, tests, reports, and speaks with your team?',
+              ],
+              [
+                'Capacity',
+                'Which workstreams fit simultaneously, how are priorities changed, and what is explicitly outside scope?',
+              ],
+              [
+                'Implementation',
+                'Does the provider stop at recommendations, or own tickets, changes, QA, and verification?',
+              ],
+              [
+                'Measurement',
+                'Are baselines, conversion cohorts, AI samples, sources, limits, and business outcomes defined?',
+              ],
+              [
+                'Risk',
+                'What does the provider refuse to guarantee, automate, publish, buy, or represent inaccurately?',
+              ],
             ].map(([title, body]) => (
               <article key={title} className="border border-border-strong p-6">
-                <h3 className="font-heading text-lg font-semibold text-ink">{title}</h3>
+                <h3 className="font-heading text-lg font-semibold text-ink">
+                  {title}
+                </h3>
                 <p className="mt-3 text-sm leading-7 text-slate">{body}</p>
               </article>
             ))}
           </div>
           <p className="mt-10 text-sm leading-7 text-slate">
             See our{' '}
-            <Link className="font-semibold text-accent underline" href="/methodology">
+            <Link
+              className="font-semibold text-accent underline"
+              href="/methodology"
+            >
               methodology
             </Link>
             , review the{' '}
-            <Link className="font-semibold text-accent underline" href="/services">
+            <Link
+              className="font-semibold text-accent underline"
+              href="/services"
+            >
               service architecture
             </Link>
             , or inspect the approved{' '}
-            <Link className="font-semibold text-accent underline" href="/case-studies">
+            <Link
+              className="font-semibold text-accent underline"
+              href="/case-studies"
+            >
               case-study evidence
             </Link>{' '}
             before requesting a proposal.
@@ -643,7 +700,10 @@ export default function PricingPage() {
                 Questions buyers should ask before signing.
               </Heading>
             </div>
-            <FAQAccordion title="SEO agency pricing questions" items={faqItems} />
+            <FAQAccordion
+              title="SEO agency pricing questions"
+              items={faqItems}
+            />
           </div>
         </Container>
       </section>
@@ -673,7 +733,9 @@ export default function PricingPage() {
                 <h3 className="font-heading text-base font-semibold text-ink">
                   {source.label}
                 </h3>
-                <p className="mt-3 text-sm leading-7 text-slate">{source.note}</p>
+                <p className="mt-3 text-sm leading-7 text-slate">
+                  {source.note}
+                </p>
               </a>
             ))}
           </div>

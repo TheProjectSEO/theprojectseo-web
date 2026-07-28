@@ -3,6 +3,7 @@
 import { z, type core } from 'zod'
 import { supabase } from '@/lib/supabase'
 import { Resend } from 'resend'
+import { getSeoTierByFormValue, getSeoTierFormLabel } from '@/data/pricing'
 
 const leadSchema = z.object({
   firstName: z.string().min(1, 'First name is required'),
@@ -12,6 +13,9 @@ const leadSchema = z.object({
   phone: z.string().optional(),
   websiteUrl: z.string().optional(),
   serviceInterest: z.string().optional(),
+  selectedPlan: z
+    .enum(['initial-3500', 'growth-5500', 'enterprise-custom'])
+    .optional(),
   monthlyBudget: z.string().optional(),
   message: z.string().optional(),
   // Attribution
@@ -32,7 +36,7 @@ export type LeadFormState = {
 
 export async function submitLead(
   _prevState: LeadFormState,
-  formData: FormData
+  formData: FormData,
 ): Promise<LeadFormState> {
   const str = (key: string) => {
     const v = formData.get(key)
@@ -47,6 +51,7 @@ export async function submitLead(
     phone: str('phone'),
     websiteUrl: str('websiteUrl'),
     serviceInterest: str('serviceInterest'),
+    selectedPlan: str('selectedPlan') || undefined,
     monthlyBudget: str('monthlyBudget'),
     message: str('message'),
     sourcePage: str('sourcePage'),
@@ -67,6 +72,16 @@ export async function submitLead(
 
   const lead = parsed.data
   const fullName = `${lead.firstName} ${lead.lastName}`
+  const selectedTier = getSeoTierByFormValue(lead.selectedPlan)
+  const selectedPlanLabel = selectedTier
+    ? getSeoTierFormLabel(selectedTier)
+    : undefined
+  const storedServiceInterest = [
+    lead.serviceInterest,
+    selectedPlanLabel ? `Selected SEO plan: ${selectedPlanLabel}` : undefined,
+  ]
+    .filter(Boolean)
+    .join(' | ')
 
   // 1. Insert into Supabase
   const { error: dbError } = await supabase.from('leads').insert({
@@ -77,7 +92,7 @@ export async function submitLead(
     company: lead.company || null,
     phone: lead.phone || null,
     website_url: lead.websiteUrl || null,
-    service_interest: lead.serviceInterest || null,
+    service_interest: storedServiceInterest || null,
     monthly_budget: lead.monthlyBudget || null,
     message: lead.message || null,
     source_page: lead.sourcePage,
@@ -107,13 +122,17 @@ export async function submitLead(
 
 async function sendSlackNotification(
   lead: z.infer<typeof leadSchema>,
-  fullName: string
+  fullName: string,
 ) {
   const webhookUrl = process.env.SLACK_WEBHOOK_URL
   if (!webhookUrl) return
 
   const budgetLabel = lead.monthlyBudget || 'Not specified'
   const serviceLabel = lead.serviceInterest || 'Not specified'
+  const selectedTier = getSeoTierByFormValue(lead.selectedPlan)
+  const selectedPlanLabel = selectedTier
+    ? getSeoTierFormLabel(selectedTier)
+    : 'No plan selected'
   const pageLabel = lead.sourcePage || 'Unknown'
 
   await fetch(webhookUrl, {
@@ -134,6 +153,10 @@ async function sendSlackNotification(
             { type: 'mrkdwn', text: `*Phone:*\n${lead.phone || '-'}` },
             { type: 'mrkdwn', text: `*Website:*\n${lead.websiteUrl || '-'}` },
             { type: 'mrkdwn', text: `*Budget:*\n${budgetLabel}` },
+            {
+              type: 'mrkdwn',
+              text: `*Selected SEO Plan:*\n${selectedPlanLabel}`,
+            },
           ],
         },
         {
@@ -171,12 +194,16 @@ async function sendSlackNotification(
 
 async function sendEmailNotification(
   lead: z.infer<typeof leadSchema>,
-  fullName: string
+  fullName: string,
 ) {
   const apiKey = process.env.RESEND_API_KEY
   if (!apiKey) return
 
   const resend = new Resend(apiKey)
+  const selectedTier = getSeoTierByFormValue(lead.selectedPlan)
+  const selectedPlanLabel = selectedTier
+    ? getSeoTierFormLabel(selectedTier)
+    : 'No plan selected'
 
   await resend.emails.send({
     from: 'TheProjectSEO Leads <leads@theprojectseo.com>',
@@ -190,6 +217,7 @@ async function sendEmailNotification(
         <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Company</td><td style="padding:8px;border-bottom:1px solid #eee;">${lead.company || '-'}</td></tr>
         <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Phone</td><td style="padding:8px;border-bottom:1px solid #eee;">${lead.phone || '-'}</td></tr>
         <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Website</td><td style="padding:8px;border-bottom:1px solid #eee;">${lead.websiteUrl || '-'}</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Selected SEO Plan</td><td style="padding:8px;border-bottom:1px solid #eee;">${selectedPlanLabel}</td></tr>
         <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Budget</td><td style="padding:8px;border-bottom:1px solid #eee;">${lead.monthlyBudget || 'Not specified'}</td></tr>
         <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Service</td><td style="padding:8px;border-bottom:1px solid #eee;">${lead.serviceInterest || 'Not specified'}</td></tr>
         <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Source Page</td><td style="padding:8px;border-bottom:1px solid #eee;">${lead.sourcePage}</td></tr>

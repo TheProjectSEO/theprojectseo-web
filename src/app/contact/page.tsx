@@ -187,13 +187,16 @@ export default function ContactPage() {
             </h1>
             <Lead className="mt-8 max-w-3xl">
               Share the site, market, customer decision, commercial outcome,
-              available evidence, and implementation constraints. We will
-              review the context and recommend the appropriate next step.
+              available evidence, and implementation constraints. We will review
+              the context and recommend the appropriate next step.
             </Lead>
             <div className="mt-10 flex flex-wrap gap-5 text-sm text-slate">
               <span>Ongoing engagements from $3,500/month</span>
               <span aria-hidden="true">·</span>
-              <Link className="font-semibold text-accent underline" href="/pricing">
+              <Link
+                className="font-semibold text-accent underline"
+                href="/pricing"
+              >
                 Review pricing and scope
               </Link>
             </div>
@@ -201,7 +204,10 @@ export default function ContactPage() {
         </Container>
       </div>
 
-      <section className="border-y border-border bg-cream py-24">
+      <section
+        id="contact-form"
+        className="scroll-mt-8 border-y border-border bg-cream py-24"
+      >
         <Container>
           <div className="grid gap-16 lg:grid-cols-[0.8fr_1.2fr]">
             <div>
@@ -210,16 +216,21 @@ export default function ContactPage() {
                 Give us enough context to be useful.
               </Heading>
               <p className="mt-6 text-base leading-8 text-slate">
-                A domain and a target keyword are not a complete brief. The
-                form helps us understand the type of organization, problem,
-                budget, and implementation environment before recommending a
-                call, diagnostic, project, or ongoing engagement.
+                A domain and a target keyword are not a complete brief. The form
+                helps us understand the type of organization, problem, budget,
+                and implementation environment before recommending a call,
+                diagnostic, project, or ongoing engagement.
               </p>
               <div className="mt-10 space-y-5 border-t border-border-strong pt-8">
                 <div className="flex items-start gap-4">
-                  <Mail className="mt-1 size-5 shrink-0 text-accent" aria-hidden="true" />
+                  <Mail
+                    className="mt-1 size-5 shrink-0 text-accent"
+                    aria-hidden="true"
+                  />
                   <div>
-                    <p className="font-heading text-sm font-semibold text-ink">Email</p>
+                    <p className="font-heading text-sm font-semibold text-ink">
+                      Email
+                    </p>
                     <a
                       className="mt-1 inline-block text-sm text-slate underline"
                       href="mailto:hello@theprojectseo.com"
@@ -229,7 +240,10 @@ export default function ContactPage() {
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <MapPin className="mt-1 size-5 shrink-0 text-accent" aria-hidden="true" />
+                  <MapPin
+                    className="mt-1 size-5 shrink-0 text-accent"
+                    aria-hidden="true"
+                  />
                   <div>
                     <p className="font-heading text-sm font-semibold text-ink">
                       Headquarters
@@ -326,9 +340,9 @@ export default function ContactPage() {
               From form submission to a responsible scope.
             </Heading>
             <Lead className="mt-6">
-              The sequence can be shorter for a clearly defined project and
-              more detailed for a complex site or procurement process. The
-              page does not promise an arbitrary two-hour or 48-hour response.
+              The sequence can be shorter for a clearly defined project and more
+              detailed for a complex site or procurement process. The page does
+              not promise an arbitrary two-hour or 48-hour response.
             </Lead>
           </div>
           <div className="mt-14 divide-y divide-border-strong border-y border-border-strong">
@@ -359,7 +373,10 @@ export default function ContactPage() {
                 Before you share the project.
               </Heading>
             </div>
-            <FAQAccordion title="Contact and engagement questions" items={faqItems} />
+            <FAQAccordion
+              title="Contact and engagement questions"
+              items={faqItems}
+            />
           </div>
         </Container>
       </section>
@@ -371,15 +388,24 @@ export default function ContactPage() {
             <span className="font-semibold text-ink">Aditya Aman</span>, Founder
             and SEO Strategist. Last updated July 28, 2026. You can also review
             the{' '}
-            <Link className="font-semibold text-accent underline" href="/methodology">
+            <Link
+              className="font-semibold text-accent underline"
+              href="/methodology"
+            >
               methodology
             </Link>
             ,{' '}
-            <Link className="font-semibold text-accent underline" href="/case-studies">
+            <Link
+              className="font-semibold text-accent underline"
+              href="/case-studies"
+            >
               approved case-study evidence
             </Link>
             , and{' '}
-            <Link className="font-semibold text-accent underline" href="/privacy">
+            <Link
+              className="font-semibold text-accent underline"
+              href="/privacy"
+            >
               privacy policy
             </Link>{' '}
             before submitting.

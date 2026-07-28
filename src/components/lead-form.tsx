@@ -5,6 +5,11 @@ import { usePathname, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { submitLead, type LeadFormState } from '@/app/actions/submit-lead'
 import { Button } from '@/components/button'
+import {
+  getSeoTierByFormValue,
+  getSeoTierFormLabel,
+  seoTiers,
+} from '@/data/pricing'
 import { Field, Input, Label, Select, Textarea } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/16/solid'
 import { CheckCircleIcon } from '@heroicons/react/24/outline'
@@ -24,7 +29,16 @@ interface LeadFormProps {
 
 export function LeadForm(props: LeadFormProps) {
   return (
-    <Suspense fallback={<div className={clsx('rounded-lg bg-paper p-8 border border-border-strong animate-pulse h-96', props.className)} />}>
+    <Suspense
+      fallback={
+        <div
+          className={clsx(
+            'rounded-lg bg-paper p-8 border border-border-strong animate-pulse h-96',
+            props.className,
+          )}
+        />
+      }
+    >
       <LeadFormInner {...props} />
     </Suspense>
   )
@@ -38,11 +52,12 @@ function LeadFormInner({
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const formRef = useRef<HTMLFormElement>(null)
+  const requestedTier = getSeoTierByFormValue(searchParams.get('plan'))
 
-  const [state, formAction, isPending] = useActionState<LeadFormState, FormData>(
-    submitLead,
-    { success: false }
-  )
+  const [state, formAction, isPending] = useActionState<
+    LeadFormState,
+    FormData
+  >(submitLead, { success: false })
 
   useEffect(() => {
     if (state.success && formRef.current) {
@@ -52,7 +67,12 @@ function LeadFormInner({
 
   if (state.success) {
     return (
-      <div className={clsx('rounded-lg bg-paper p-8 border border-border-strong text-center', className)}>
+      <div
+        className={clsx(
+          'rounded-lg bg-paper p-8 border border-border-strong text-center',
+          className,
+        )}
+      >
         <div className="mx-auto size-16 rounded-full bg-green-50 flex items-center justify-center mb-4">
           <CheckCircleIcon className="size-8 text-green-600" />
         </div>
@@ -60,7 +80,8 @@ function LeadFormInner({
           Thank you!
         </h3>
         <p className="font-sans text-slate">
-          We&apos;ll review the site, goal, and constraints you shared, then reply with the appropriate next step.
+          We&apos;ll review the site, goal, and constraints you shared, then
+          reply with the appropriate next step.
         </p>
       </div>
     )
@@ -70,39 +91,132 @@ function LeadFormInner({
     <form
       ref={formRef}
       action={formAction}
-      className={clsx('rounded-lg bg-paper p-8 border border-border-strong', className)}
+      className={clsx(
+        'rounded-lg bg-paper p-8 border border-border-strong',
+        className,
+      )}
     >
       {/* Hidden attribution fields */}
       <input type="hidden" name="sourcePage" value={pathname} />
-      <input type="hidden" name="sourceUrl" value={typeof window !== 'undefined' ? window.location.href : ''} />
-      <input type="hidden" name="utmSource" value={searchParams.get('utm_source') || ''} />
-      <input type="hidden" name="utmMedium" value={searchParams.get('utm_medium') || ''} />
-      <input type="hidden" name="utmCampaign" value={searchParams.get('utm_campaign') || ''} />
-      <input type="hidden" name="utmTerm" value={searchParams.get('utm_term') || ''} />
-      <input type="hidden" name="utmContent" value={searchParams.get('utm_content') || ''} />
-      <input type="hidden" name="referrer" value={typeof document !== 'undefined' ? document.referrer : ''} />
+      <input
+        type="hidden"
+        name="sourceUrl"
+        value={typeof window !== 'undefined' ? window.location.href : ''}
+      />
+      <input
+        type="hidden"
+        name="utmSource"
+        value={searchParams.get('utm_source') || ''}
+      />
+      <input
+        type="hidden"
+        name="utmMedium"
+        value={searchParams.get('utm_medium') || ''}
+      />
+      <input
+        type="hidden"
+        name="utmCampaign"
+        value={searchParams.get('utm_campaign') || ''}
+      />
+      <input
+        type="hidden"
+        name="utmTerm"
+        value={searchParams.get('utm_term') || ''}
+      />
+      <input
+        type="hidden"
+        name="utmContent"
+        value={searchParams.get('utm_content') || ''}
+      />
+      <input
+        type="hidden"
+        name="referrer"
+        value={typeof document !== 'undefined' ? document.referrer : ''}
+      />
+
+      {requestedTier && (
+        <div className="mb-6 border border-accent/25 bg-accent-soft p-4">
+          <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-accent">
+            Pricing selection carried into this form
+          </p>
+          <p className="mt-2 font-heading text-lg font-semibold text-ink">
+            {getSeoTierFormLabel(requestedTier)}
+          </p>
+        </div>
+      )}
+
+      <Field className="mb-6 space-y-2">
+        <Label className="font-sans text-sm/5 font-medium text-ink">
+          Selected SEO Plan
+        </Label>
+        <div className="relative">
+          <Select
+            key={requestedTier?.formValue || 'no-plan'}
+            name="selectedPlan"
+            defaultValue={requestedTier?.formValue || ''}
+            className={clsx(inputStyles, 'appearance-none pr-8')}
+          >
+            <option value="">No plan selected yet</option>
+            {seoTiers.map((tier) => (
+              <option key={tier.formValue} value={tier.formValue}>
+                {getSeoTierFormLabel(tier)}
+              </option>
+            ))}
+          </Select>
+          <ChevronDownIcon
+            className="pointer-events-none absolute right-2.5 top-2.5 size-4 fill-ash"
+            aria-hidden="true"
+          />
+        </div>
+      </Field>
 
       {/* Name row */}
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         <Field className="space-y-2">
-          <Label className="font-sans text-sm/5 font-medium text-ink">First Name *</Label>
-          <Input required type="text" name="firstName" placeholder="John" className={inputStyles} />
+          <Label className="font-sans text-sm/5 font-medium text-ink">
+            First Name *
+          </Label>
+          <Input
+            required
+            type="text"
+            name="firstName"
+            placeholder="John"
+            className={inputStyles}
+          />
         </Field>
         <Field className="space-y-2">
-          <Label className="font-sans text-sm/5 font-medium text-ink">Last Name *</Label>
-          <Input required type="text" name="lastName" placeholder="Smith" className={inputStyles} />
+          <Label className="font-sans text-sm/5 font-medium text-ink">
+            Last Name *
+          </Label>
+          <Input
+            required
+            type="text"
+            name="lastName"
+            placeholder="Smith"
+            className={inputStyles}
+          />
         </Field>
       </div>
 
       {/* Email */}
       <Field className="mt-5 space-y-2">
-        <Label className="font-sans text-sm/5 font-medium text-ink">Business Email *</Label>
-        <Input required type="email" name="email" placeholder="john@company.com" className={inputStyles} />
+        <Label className="font-sans text-sm/5 font-medium text-ink">
+          Business Email *
+        </Label>
+        <Input
+          required
+          type="email"
+          name="email"
+          placeholder="john@company.com"
+          className={inputStyles}
+        />
       </Field>
 
       {/* Website URL */}
       <Field className="mt-5 space-y-2">
-        <Label className="font-sans text-sm/5 font-medium text-ink">Website URL {variant === 'compact' ? '*' : ''}</Label>
+        <Label className="font-sans text-sm/5 font-medium text-ink">
+          Website URL {variant === 'compact' ? '*' : ''}
+        </Label>
         <Input
           type="url"
           name="websiteUrl"
@@ -117,25 +231,40 @@ function LeadFormInner({
           {/* Company + Phone */}
           <div className="mt-5 grid grid-cols-1 gap-6 sm:grid-cols-2">
             <Field className="space-y-2">
-              <Label className="font-sans text-sm/5 font-medium text-ink">Company</Label>
+              <Label className="font-sans text-sm/5 font-medium text-ink">
+                Company
+              </Label>
               <Input type="text" name="company" className={inputStyles} />
             </Field>
             <Field className="space-y-2">
-              <Label className="font-sans text-sm/5 font-medium text-ink">Phone Number</Label>
+              <Label className="font-sans text-sm/5 font-medium text-ink">
+                Phone Number
+              </Label>
               <Input type="tel" name="phone" className={inputStyles} />
             </Field>
           </div>
 
           {/* Service Interest */}
           <Field className="mt-5 space-y-2">
-            <Label className="font-sans text-sm/5 font-medium text-ink">SEO Service Interest</Label>
+            <Label className="font-sans text-sm/5 font-medium text-ink">
+              SEO Service Interest
+            </Label>
             <div className="relative">
-              <Select name="serviceInterest" className={clsx(inputStyles, 'appearance-none pr-8')}>
+              <Select
+                name="serviceInterest"
+                className={clsx(inputStyles, 'appearance-none pr-8')}
+              >
                 <option value="">Select a service</option>
                 <option value="seo-audit">SEO Audit &amp; Analysis</option>
-                <option value="keyword-research">Keyword Research &amp; Strategy</option>
-                <option value="technical-seo">Technical SEO Optimization</option>
-                <option value="content-optimization">Content Optimization</option>
+                <option value="keyword-research">
+                  Keyword Research &amp; Strategy
+                </option>
+                <option value="technical-seo">
+                  Technical SEO Optimization
+                </option>
+                <option value="content-optimization">
+                  Content Optimization
+                </option>
                 <option value="local-seo">Local SEO</option>
                 <option value="full-service">Complete SEO Management</option>
                 <option value="aeo">AI Engine Optimization (AEO)</option>
@@ -143,7 +272,10 @@ function LeadFormInner({
                 <option value="enterprise-seo">Enterprise SEO</option>
                 <option value="other">Other / Not Sure</option>
               </Select>
-              <ChevronDownIcon className="pointer-events-none absolute right-2.5 top-2.5 size-4 fill-ash" aria-hidden="true" />
+              <ChevronDownIcon
+                className="pointer-events-none absolute right-2.5 top-2.5 size-4 fill-ash"
+                aria-hidden="true"
+              />
             </div>
           </Field>
         </>
@@ -151,9 +283,16 @@ function LeadFormInner({
 
       {/* Monthly Budget */}
       <Field className="mt-5 space-y-2">
-        <Label className="font-sans text-sm/5 font-medium text-ink">Monthly SEO Budget</Label>
+        <Label className="font-sans text-sm/5 font-medium text-ink">
+          Monthly SEO Budget
+        </Label>
         <div className="relative">
-          <Select name="monthlyBudget" className={clsx(inputStyles, 'appearance-none pr-8')}>
+          <Select
+            key={requestedTier?.monthlyBudgetValue || 'no-budget'}
+            name="monthlyBudget"
+            defaultValue={requestedTier?.monthlyBudgetValue || ''}
+            className={clsx(inputStyles, 'appearance-none pr-8')}
+          >
             <option value="">Select budget range</option>
             <option value="under-3500">Under $3,500/mo</option>
             <option value="3500-5500">$3,500 - $5,500/mo</option>
@@ -162,13 +301,18 @@ function LeadFormInner({
             <option value="25k+">$25,000+/mo</option>
             <option value="not-sure">Not sure yet</option>
           </Select>
-          <ChevronDownIcon className="pointer-events-none absolute right-2.5 top-2.5 size-4 fill-ash" aria-hidden="true" />
+          <ChevronDownIcon
+            className="pointer-events-none absolute right-2.5 top-2.5 size-4 fill-ash"
+            aria-hidden="true"
+          />
         </div>
       </Field>
 
       {variant === 'full' && (
         <Field className="mt-5 space-y-2">
-          <Label className="font-sans text-sm/5 font-medium text-ink">Project Details</Label>
+          <Label className="font-sans text-sm/5 font-medium text-ink">
+            Project Details
+          </Label>
           <Textarea
             name="message"
             rows={4}
@@ -190,11 +334,12 @@ function LeadFormInner({
         </Button>
         <p className="mt-3 font-sans text-xs text-ash text-center">
           By submitting this form, you agree to our{' '}
-          <Link href="/privacy" className="underline hover:text-slate">privacy policy</Link>.
-          We&apos;ll never spam you.
+          <Link href="/privacy" className="underline hover:text-slate">
+            privacy policy
+          </Link>
+          . We&apos;ll never spam you.
         </p>
       </div>
-
     </form>
   )
 }
