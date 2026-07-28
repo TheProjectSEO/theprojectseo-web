@@ -549,6 +549,7 @@ const aeo = createAiSearchDetailPage({
     { href: '/services/ai-search/entity-seo', label: 'Entity SEO', description: 'Clarify organizations, people, products, and relationships.' },
     { href: '/services/content', label: 'SEO content', description: 'Build expert-led search assets and governance.' },
     { href: '/services/ai-search/llm-visibility-tracking', label: 'LLM tracking', description: 'Measure prompts, mentions, sources, and accuracy.' },
+    { href: '/resources/glossary/people-also-ask', label: 'People Also Ask in SEO', description: 'Understand question expansion, result volatility, answer design, and responsible measurement.' },
   ],
 })
 

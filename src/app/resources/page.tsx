@@ -173,6 +173,16 @@ export default function ResourcesPage() {
                 so you can find the shortest useful route from the search problem to the next
                 action.
               </p>
+              <p className="mt-5 text-base leading-7 text-slate">
+                If the terminology is the blocker, start with the{' '}
+                <Link
+                  href="/resources/glossary"
+                  className="font-semibold text-accent underline decoration-accent/30 underline-offset-4"
+                >
+                  SEO terminology
+                </Link>{' '}
+                library before choosing the relevant implementation path.
+              </p>
             </div>
             <div className="mt-12 grid gap-5 md:grid-cols-2">
               {researchPaths.map((path, index) => (

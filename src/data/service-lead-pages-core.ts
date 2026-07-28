@@ -449,6 +449,96 @@ const seo: IndustryLeadPageData = {
       description: 'Prompts, sources, entities, citations, answer accuracy, and platform monitoring.',
     },
     {
+      href: '/industries/ai',
+      label: 'SEO for artificial intelligence companies',
+      description: 'Build category education, technical proof, entity clarity, and qualified AI-software demand.',
+    },
+    {
+      href: '/industries/automotive',
+      label: 'Automotive SEO services',
+      description: 'Connect vehicle, ownership, route, marketplace, publishing, and local search journeys.',
+    },
+    {
+      href: '/industries/cannabis',
+      label: 'Dispensary SEO agency',
+      description: 'Coordinate compliant discovery, product education, local eligibility, and policy-aware authority.',
+    },
+    {
+      href: '/industries/cybersecurity',
+      label: 'MSSP SEO agency',
+      description: 'Translate technical expertise, trust, use cases, and buying-stage evidence into search demand.',
+    },
+    {
+      href: '/industries/ecommerce',
+      label: 'SEO for online stores',
+      description: 'Improve category, product, catalog, merchandising, platform, and shopper discovery systems.',
+    },
+    {
+      href: '/industries/education',
+      label: 'Higher education SEO agency',
+      description: 'Support program discovery, admissions research, student questions, and institutional trust.',
+    },
+    {
+      href: '/industries/fashion',
+      label: 'Fashion SEO services',
+      description: 'Align collection, product, trend, brand, editorial, and visual-shopping discovery.',
+    },
+    {
+      href: '/industries/finance',
+      label: 'Finance SEO services',
+      description: 'Build accurate, reviewed, evidence-led search journeys for high-trust financial decisions.',
+    },
+    {
+      href: '/industries/food',
+      label: 'Food AI search optimization',
+      description: 'Connect products, recipes, menus, locations, distributors, and consumer questions.',
+    },
+    {
+      href: '/industries/healthcare',
+      label: 'Healthcare SEO services',
+      description: 'Coordinate medically reviewed content, service discovery, local journeys, and patient trust.',
+    },
+    {
+      href: '/industries/legal',
+      label: 'Legal SEO services',
+      description: 'Support practice-area, jurisdiction, local, informational, and consultation search journeys.',
+    },
+    {
+      href: '/industries/nonprofit',
+      label: 'Charity SEO agency',
+      description: 'Improve mission, program, donation, volunteer, beneficiary, and grant-related discovery.',
+    },
+    {
+      href: '/industries/realestate',
+      label: 'Property SEO agency',
+      description: 'Connect property, location, service, agent, developer, and high-intent local demand.',
+    },
+    {
+      href: '/industries/saas',
+      label: 'SaaS SEO services',
+      description: 'Build problem, solution, comparison, integration, use-case, and product-led search systems.',
+    },
+    {
+      href: '/industries/technology',
+      label: 'SEO for technology companies',
+      description: 'Turn complex products, services, documentation, expertise, and proof into qualified demand.',
+    },
+    {
+      href: '/industries/travel',
+      label: 'Travel AI search optimization',
+      description: 'Coordinate destination, route, property, itinerary, booking, and seasonal discovery.',
+    },
+    {
+      href: '/resources/glossary/seo',
+      label: 'How SEO works',
+      description: 'Use the practical definition of SEO, its operating layers, and its measurement boundaries.',
+    },
+    {
+      href: '/blog/google-algorithm-updates-2024',
+      label: 'Google core update recovery',
+      description: 'Understand how to investigate ranking movement without reducing every change to one update.',
+    },
+    {
       href: '/pricing',
       label: 'SEO pricing',
       description: 'Starting investment, scope variables, engagement models, and fit.',
@@ -914,6 +1004,11 @@ const technicalSeo: IndustryLeadPageData = {
       href: '/services/ai-search',
       label: 'AI search optimization',
       description: 'Crawler controls, retrievable answers, canonical sources, and AI visibility.',
+    },
+    {
+      href: '/resources/glossary/core-web-vitals',
+      label: 'Core Web Vitals meaning',
+      description: 'Review the field metrics, thresholds, measurement sources, and practical SEO boundaries.',
     },
   ],
   ctaEyebrow: 'Resolve technical search risk',

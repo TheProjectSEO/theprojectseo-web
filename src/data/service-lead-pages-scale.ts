@@ -446,6 +446,7 @@ const international = createSearchServicePage({
     { href: '/locations/philippines', label: 'SEO in the Philippines', description: 'Review the active Philippines market and city architecture.' },
     { href: '/services/local-seo', label: 'Local SEO', description: 'Align profiles, listings, location pages, and local demand.' },
     { href: '/services/technical-seo', label: 'Technical SEO', description: 'Implement hreflang, canonicals, sitemaps, and migration QA.' },
+    { href: '/resources/glossary/hreflang', label: 'Hreflang in SEO', description: 'Review hreflang purpose, implementation, validation, and common international SEO mistakes.' },
   ],
 })
 

@@ -915,6 +915,11 @@ const ecommerceSeo: IndustryLeadPageData = {
       label: 'AI search optimization',
       description: 'Product prompts, facts, entities, sources, citations, and accuracy monitoring.',
     },
+    {
+      href: '/blog/e-commerce-seo-strategy',
+      label: 'SEO strategy for ecommerce website',
+      description: 'Use the complete guide to category, product, technical, content, authority, and measurement priorities.',
+    },
   ],
   ctaEyebrow: 'Build profitable organic discovery',
   ctaTitle: 'Find where your catalog, products, and platform lose qualified shoppers.',
@@ -1376,6 +1381,11 @@ const localSeo: IndustryLeadPageData = {
       href: '/services/technical-seo',
       label: 'Technical SEO',
       description: 'Location templates, rendering, indexation, structured data, performance, and QA.',
+    },
+    {
+      href: '/blog/local-seo-complete-guide',
+      label: 'Local search optimization guide',
+      description: 'Review profiles, location pages, reviews, citations, local authority, and measurement in one workflow.',
     },
   ],
   ctaEyebrow: 'Build legitimate local discovery',

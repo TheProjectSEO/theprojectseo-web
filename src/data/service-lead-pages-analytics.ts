@@ -106,6 +106,7 @@ const analytics = page({
     { href: '/services/analytics/gsc-bigquery-setup', label: 'GSC + BigQuery', description: 'Retain and query bulk Search Console data.' },
     { href: '/services/analytics/seo-attribution', label: 'SEO attribution', description: 'Compare credit models and preserve uncertainty.' },
     { href: '/services/analytics/seo-forecasting', label: 'SEO forecasting', description: 'Plan scenarios without presenting a prediction as a promise.' },
+    { href: '/services/analytics/automated-technical-reporting', label: 'Technical SEO dashboard', description: 'Monitor crawl, render, index, sitemap, template, performance, and release regressions.' },
   ],
 })
 

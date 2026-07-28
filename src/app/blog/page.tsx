@@ -283,6 +283,30 @@ export default function BlogPage() {
               <h2 className="mt-4 font-heading text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
                 Research the problem. Then follow it into execution.
               </h2>
+              <p className="mt-6 text-lg leading-8 text-slate">
+                Popular starting points include our{' '}
+                <Link
+                  href="/blog/e-commerce-seo-strategy"
+                  className="font-semibold text-accent underline decoration-accent/30 underline-offset-4"
+                >
+                  ecommerce technical SEO guide
+                </Link>
+                ,{' '}
+                <Link
+                  href="/blog/google-algorithm-updates-2024"
+                  className="font-semibold text-accent underline decoration-accent/30 underline-offset-4"
+                >
+                  Google algorithm update recovery
+                </Link>
+                , and{' '}
+                <Link
+                  href="/blog/local-seo-complete-guide"
+                  className="font-semibold text-accent underline decoration-accent/30 underline-offset-4"
+                >
+                  Google Maps SEO guide
+                </Link>
+                .
+              </p>
             </div>
             <div className="mt-12 grid gap-5 md:grid-cols-2">
               {remaining.map((article) => (

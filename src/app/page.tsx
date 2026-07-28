@@ -1029,6 +1029,13 @@ function ServicesSection() {
             evidence-driven scope helps the team invest in the constraint that
             is actually limiting performance.
           </p>
+          <Link
+            href="/services"
+            className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-accent underline decoration-accent/30 underline-offset-4 hover:text-ink"
+          >
+            Search engine optimization services
+            <ArrowRight className="size-4" aria-hidden="true" />
+          </Link>
         </div>
 
         <div className="mt-14 grid grid-cols-1 gap-px bg-border-strong lg:grid-cols-2">
@@ -1840,6 +1847,24 @@ function CompanySection() {
                   local presence that does not exist. Industry pages follow the
                   same rule: a page needs a distinct search problem, useful
                   expertise, and enough depth to deserve its URL.
+                </p>
+                <p>
+                  Teams researching a problem before speaking with us can use
+                  our{" "}
+                  <Link
+                    href="/resources"
+                    className="font-semibold text-accent underline decoration-accent/30 underline-offset-4"
+                  >
+                    SEO research resources
+                  </Link>
+                  , including the sourced{" "}
+                  <Link
+                    href="/resources/glossary"
+                    className="font-semibold text-accent underline decoration-accent/30 underline-offset-4"
+                  >
+                    AI search glossary
+                  </Link>
+                  , practitioner guides, methodology, and approved case studies.
                 </p>
               </div>
             </div>

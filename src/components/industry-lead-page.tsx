@@ -540,21 +540,22 @@ function RelatedSection({ page }: { page: IndustryLeadPageData }) {
         <p className="font-mono text-xs font-semibold uppercase tracking-[0.12em] text-ash">
           Continue planning
         </p>
-        <div className="mt-6 grid gap-px bg-border-strong md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-6 grid border-l border-t border-border-strong md:grid-cols-2 lg:grid-cols-4">
           {page.relatedLinks.map((link) => (
-            <Link
+            <article
               key={link.href}
-              href={link.href}
-              className="group bg-paper p-6 transition-colors hover:bg-accent-soft"
+              className="group relative border-b border-r border-border-strong bg-paper p-6 transition-colors hover:bg-accent-soft"
             >
               <h3 className="font-heading text-base font-semibold text-ink group-hover:text-accent">
-                {link.label}
+                <Link href={link.href} className="after:absolute after:inset-0">
+                  {link.label}
+                </Link>
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-slate">{link.description}</p>
               <span className="mt-5 inline-block text-accent" aria-hidden="true">
                 →
               </span>
-            </Link>
+            </article>
           ))}
         </div>
       </Container>

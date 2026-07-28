@@ -121,6 +121,37 @@ export default function GlossaryHubPage() {
                 term applies, what it does not mean, how a practitioner implements it and
                 which evidence would show that the work succeeded.
               </p>
+              <p className="mt-5 text-base leading-7 text-slate">
+                Start with{' '}
+                <Link
+                  href="/resources/glossary/core-web-vitals"
+                  className="font-semibold text-accent underline decoration-accent/30 underline-offset-4"
+                >
+                  Core Web Vitals in SEO
+                </Link>
+                ,{' '}
+                <Link
+                  href="/resources/glossary/hreflang"
+                  className="font-semibold text-accent underline decoration-accent/30 underline-offset-4"
+                >
+                  hreflang meaning
+                </Link>
+                , the{' '}
+                <Link
+                  href="/resources/glossary/people-also-ask"
+                  className="font-semibold text-accent underline decoration-accent/30 underline-offset-4"
+                >
+                  People Also Ask definition
+                </Link>
+                , or the broader{' '}
+                <Link
+                  href="/resources/glossary/seo"
+                  className="font-semibold text-accent underline decoration-accent/30 underline-offset-4"
+                >
+                  search engine optimization meaning
+                </Link>
+                .
+              </p>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
               {[

@@ -443,18 +443,48 @@ const aiSearch: IndustryLeadPageData = {
   relatedLinks: [
     {
       href: '/services/ai-search/geo',
-      label: 'Generative engine optimization',
+      label: 'GEO agency',
       description: 'A focused explanation of GEO, retrieval, citations, sources, and execution.',
     },
     {
       href: '/services/ai-search/aeo',
-      label: 'Answer engine optimization',
+      label: 'AEO agency',
       description: 'Direct-answer architecture for search results and AI-generated responses.',
     },
     {
       href: '/services/ai-search/llm-visibility-tracking',
       label: 'LLM visibility tracking',
       description: 'Prompt cohorts, mentions, citations, sources, accuracy, and reporting.',
+    },
+    {
+      href: '/services/ai-search/chatgpt-seo',
+      label: 'SEO for ChatGPT',
+      description: 'Audit OpenAI search access, cited sources, brand representation, and referrals.',
+    },
+    {
+      href: '/services/ai-search/claude-seo',
+      label: 'SEO for Claude',
+      description: 'Test Claude discovery, selected sources, factual accuracy, and brand inclusion.',
+    },
+    {
+      href: '/services/ai-search/entity-seo',
+      label: 'Entity SEO agency',
+      description: 'Clarify organizations, people, products, relationships, and corroborating evidence.',
+    },
+    {
+      href: '/services/ai-search/gemini-seo',
+      label: 'SEO for Gemini',
+      description: 'Strengthen the entity and source foundation behind Gemini brand discovery.',
+    },
+    {
+      href: '/services/ai-search/google-ai-overviews-optimization',
+      label: 'AI Overview optimization services',
+      description: 'Apply Google’s published eligibility guidance to useful, extractable source pages.',
+    },
+    {
+      href: '/services/ai-search/perplexity-seo',
+      label: 'Perplexity SEO',
+      description: 'Improve crawler eligibility, source usefulness, citations, and prompt-level monitoring.',
     },
     {
       href: '/services/technical-seo',
