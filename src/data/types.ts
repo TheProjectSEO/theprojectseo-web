@@ -26,18 +26,14 @@ export type ServicePillarSlug =
   | 'seo'
   | 'technical-seo'
   | 'ai-search'
-  | 'paid-media'
   | 'analytics'
   | 'content'
   | 'serp-features'
   | 'visual-media-seo'
   | 'digital-pr'
-  | 'revops'
-  | 'abm'
   | 'cro'
   | 'local-at-scale'
   | 'automation'
-  | 'development'
   | 'ai-agents'
   | 'claude';
 
@@ -82,15 +78,4 @@ export type Country = {
   launchPhase: LaunchPhase;
   // Locale this country's content should be available in
   locales: Locale[];
-};
-
-export type ToolType = 'checker' | 'generator' | 'calculator';
-
-export type Tool = {
-  slug: string;
-  name: string;
-  type: ToolType;
-  shortDescription: string;
-  status: PageStatus;
-  launchPhase: LaunchPhase;
 };

@@ -32,7 +32,7 @@ export function LeadForm(props: LeadFormProps) {
 
 function LeadFormInner({
   variant = 'compact',
-  submitText = 'Get Your Free SEO Audit',
+  submitText = 'Share the project context',
   className,
 }: LeadFormProps) {
   const pathname = usePathname()
@@ -60,7 +60,7 @@ function LeadFormInner({
           Thank you!
         </h3>
         <p className="font-sans text-slate">
-          We&apos;ll review your details and get back to you within 2 hours with your free SEO audit.
+          We&apos;ll review the site, goal, and constraints you shared, then reply with the appropriate next step.
         </p>
       </div>
     )
@@ -155,10 +155,12 @@ function LeadFormInner({
         <div className="relative">
           <Select name="monthlyBudget" className={clsx(inputStyles, 'appearance-none pr-8')}>
             <option value="">Select budget range</option>
-            <option value="2500-5k">$2,500 - $5,000/mo</option>
-            <option value="5k-10k">$5,000 - $10,000/mo</option>
+            <option value="under-3500">Under $3,500/mo</option>
+            <option value="3500-5500">$3,500 - $5,500/mo</option>
+            <option value="5500-10k">$5,500 - $10,000/mo</option>
             <option value="10k-25k">$10,000 - $25,000/mo</option>
             <option value="25k+">$25,000+/mo</option>
+            <option value="not-sure">Not sure yet</option>
           </Select>
           <ChevronDownIcon className="pointer-events-none absolute right-2.5 top-2.5 size-4 fill-ash" aria-hidden="true" />
         </div>

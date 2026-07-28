@@ -36,7 +36,6 @@ export const ORGANIZATION_SCHEMA = {
   },
   description:
     'AI-native SEO agency specialising in technical SEO, AEO, content engineering, and automation for B2B SaaS, e-commerce, and marketplace businesses.',
-  foundingDate: '2023', // TODO: confirm exact founding date with Aditya
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Ranchi',
@@ -49,12 +48,8 @@ export const ORGANIZATION_SCHEMA = {
     email: 'hello@theprojectseo.com',
     url: `${SITE_URL}/contact`,
   },
-  // TODO: expand to 30+ verified profiles — see file-level TODO above
   sameAs: [
     'https://www.linkedin.com/company/theprojectseo',
-    'https://twitter.com/theprojectseo',
-    'https://github.com/TheProjectSEO',
-    // TODO: Clutch, G2, GoodFirms, Crunchbase, AngelList once claimed
   ],
 } as const
 

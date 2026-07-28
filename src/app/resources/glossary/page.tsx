@@ -1,58 +1,44 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { ArrowRight, BookOpenText, Check, FlaskConical, Network } from 'lucide-react'
 import { Container } from '@/components/container'
 import { Footer } from '@/components/footer'
-import { Heading, Lead, Subheading } from '@/components/text'
-import { JsonLd } from '@/components/json-ld'
-import { Navbar } from '@/components/navbar'
 import { HeroAnimation } from '@/components/hero-animation'
+import { JsonLd } from '@/components/json-ld'
+import { LeadForm } from '@/components/lead-form'
+import { Navbar } from '@/components/navbar'
 import { glossary } from '@/data/glossary'
-import type { GlossaryTerm } from '@/data/glossary'
+import type { GlossaryCategory, GlossaryTerm } from '@/data/glossary'
 
 export const metadata: Metadata = {
-  title: 'SEO Glossary — 30 SEO and AI Search Terms Defined | TheProjectSEO',
+  title: 'SEO Glossary: 30 Search & AI Terms Explained',
   description:
-    'Clear definitions for 30 SEO and AI search terms: backlinks, schema markup, Core Web Vitals, AEO, GEO, LLM visibility, topical authority, and more.',
-  alternates: {
-    canonical: '/resources/glossary',
-  },
+    'A research-led SEO glossary covering technical SEO, content, links, Google search and AI search terms—with examples, mistakes, implementation steps, sources and measurement.',
+  alternates: { canonical: '/resources/glossary' },
   openGraph: {
-    title: 'SEO Glossary | TheProjectSEO',
-    description:
-      '30 SEO and AI search terms defined clearly. From technical SEO basics to AEO and LLM visibility.',
+    title: 'SEO and AI Search Glossary | TheProjectSEO',
+    description: '30 practitioner definitions researched against live search results and primary sources.',
     url: 'https://theprojectseo.com/resources/glossary',
     siteName: 'TheProjectSEO',
-    locale: 'en_US',
     type: 'website',
   },
 }
 
-const CATEGORY_LABELS: Record<GlossaryTerm['category'], string> = {
-  'seo': 'SEO Fundamentals',
+const categoryLabels: Record<GlossaryCategory, string> = {
+  seo: 'SEO fundamentals and links',
   'technical-seo': 'Technical SEO',
-  'content': 'Content',
-  'ai-search': 'AI Search',
-  'analytics': 'Analytics',
-  'paid-media': 'Paid Media',
+  content: 'Content architecture',
+  'ai-search': 'AI search, GEO and entities',
 }
 
-const CATEGORY_ORDER: GlossaryTerm['category'][] = [
-  'seo',
-  'technical-seo',
-  'content',
-  'ai-search',
-  'analytics',
-  'paid-media',
-]
+const categoryOrder: GlossaryCategory[] = ['seo', 'technical-seo', 'content', 'ai-search']
 
 export default function GlossaryHubPage() {
-  const grouped = CATEGORY_ORDER.reduce<Record<string, GlossaryTerm[]>>((acc, cat) => {
-    const terms = glossary.filter((t) => t.category === cat)
-    if (terms.length > 0) acc[cat] = terms
-    return acc
-  }, {})
-
   const alphabetical = [...glossary].sort((a, b) => a.term.localeCompare(b.term))
+  const grouped = categoryOrder.map((category) => ({
+    category,
+    terms: glossary.filter((term) => term.category === category),
+  }))
 
   return (
     <main className="overflow-hidden">
@@ -60,9 +46,9 @@ export default function GlossaryHubPage() {
         data={{
           '@context': 'https://schema.org',
           '@type': 'DefinedTermSet',
-          '@id': 'https://theprojectseo.com/resources/glossary',
-          name: 'SEO Glossary',
-          description: '30 SEO and AI search terms defined clearly by TheProjectSEO.',
+          '@id': 'https://theprojectseo.com/resources/glossary#term-set',
+          name: 'TheProjectSEO SEO and AI Search Glossary',
+          description: metadata.description,
           url: 'https://theprojectseo.com/resources/glossary',
           hasDefinedTerm: glossary.map((term) => ({
             '@type': 'DefinedTerm',
@@ -73,114 +59,143 @@ export default function GlossaryHubPage() {
         }}
       />
 
-      {/* Hero */}
-      <div className="relative overflow-hidden">
+      <section className="relative border-b border-border">
         <HeroAnimation />
         <Container className="relative">
           <Navbar />
-          <div className="pt-16 pb-20 sm:pt-24 sm:pb-28">
-            <div className="flex items-center gap-2 mb-4">
-              <Link
-                href="/resources"
-                className="font-mono text-xs text-ash uppercase tracking-wider hover:text-accent"
-              >
-                Resources
-              </Link>
-              <span className="text-ash">/</span>
-              <span className="font-mono text-xs text-accent uppercase tracking-wider">
-                Glossary
-              </span>
-            </div>
-            <p className="font-mono text-sm font-semibold uppercase tracking-[0.15em] text-accent mb-6">
-              SEO Glossary
+          <div className="mx-auto max-w-6xl py-20 sm:py-28 lg:py-36">
+            <nav className="font-mono text-xs uppercase tracking-[0.12em] text-ash">
+              <Link href="/resources" className="hover:text-accent">Resources</Link>
+              <span aria-hidden="true" className="mx-2">/</span>
+              SEO glossary
+            </nav>
+            <p className="mt-10 font-mono text-xs font-semibold uppercase tracking-[0.15em] text-accent">
+              30 researched definitions
             </p>
-            <h1 className="font-display text-[clamp(48px,6vw,96px)] font-medium leading-[0.95] tracking-[-0.02em] text-ink">
-              30 SEO terms,{' '}
-              <em className="text-accent italic">defined clearly</em>
+            <h1 className="mt-6 max-w-5xl font-display text-[clamp(48px,7vw,100px)] font-medium leading-[0.94] tracking-[-0.03em] text-ink">
+              SEO terminology, explained for{' '}
+              <span className="text-accent">real decisions.</span>
             </h1>
-            <p className="mt-6 max-w-2xl text-xl leading-relaxed text-stone">
-              Technical SEO, content strategy, AI search, and analytics. Definitions written for
-              practitioners, not beginners. Expanding to 50 terms by next quarter.
+            <p className="mt-8 max-w-3xl text-xl leading-9 text-stone">
+              A practical glossary for Google, Bing and AI search. Every term includes a
+              direct definition, applied example, misconceptions, implementation steps,
+              measurement, primary references and the relevant TheProjectSEO service.
             </p>
+            <a href="#definitions" className="mt-10 inline-flex items-center gap-2 bg-accent px-7 py-4 text-sm font-semibold text-white">
+              Browse all definitions
+              <ArrowRight aria-hidden="true" className="size-4" />
+            </a>
           </div>
         </Container>
-      </div>
+      </section>
 
-      {/* A-Z index */}
-      <div className="bg-cream py-10 border-b border-border">
+      <section className="border-b border-border bg-cream py-10">
         <Container>
-          <p className="font-mono text-xs uppercase tracking-wider text-ash mb-4">A-Z index</p>
-          <div className="flex flex-wrap gap-2">
-            {alphabetical.map((term) => (
-              <Link
-                key={term.slug}
-                href={`/resources/glossary/${term.slug}`}
-                className="font-mono text-xs text-stone hover:text-accent underline-offset-2 hover:underline"
-              >
-                {term.term}
-              </Link>
-            ))}
-          </div>
-        </Container>
-      </div>
-
-      {/* Grouped by category */}
-      {Object.entries(grouped).map(([cat, terms]) => (
-        <div key={cat} className="bg-paper py-16 border-b border-border">
-          <Container>
-            <div className="mb-8">
-              <Subheading as="h2">{CATEGORY_LABELS[cat as GlossaryTerm['category']]}</Subheading>
-            </div>
-            <div className="grid grid-cols-1 gap-px bg-border-strong sm:grid-cols-2 lg:grid-cols-3">
-              {terms.map((term) => (
+          <div className="mx-auto max-w-6xl">
+            <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-ash">A–Z index</p>
+            <div className="mt-5 flex flex-wrap gap-2">
+              {alphabetical.map((term) => (
                 <Link
                   key={term.slug}
                   href={`/resources/glossary/${term.slug}`}
-                  className="group bg-paper p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
+                  className="border border-border-strong bg-paper px-3 py-2 text-xs font-medium text-slate hover:border-accent hover:text-accent"
                 >
-                  <h3 className="font-heading text-base font-semibold text-ink group-hover:text-accent mb-2">
-                    {term.term}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-slate line-clamp-2">
-                    {term.shortDefinition}
-                  </p>
+                  {term.term}
                 </Link>
               ))}
             </div>
-          </Container>
-        </div>
-      ))}
+          </div>
+        </Container>
+      </section>
 
-      {/* CTA */}
-      <div className="bg-cream py-20">
+      <section className="py-20 sm:py-24">
         <Container>
-          <div className="text-center max-w-2xl mx-auto">
-            <Subheading>Put the knowledge to work</Subheading>
-            <Heading as="h2" className="mt-2">
-              Understanding SEO is step one. Executing it is step two.
-            </Heading>
-            <Lead className="mt-6 mx-auto">
-              Our team handles execution across all 30+ dimensions covered in this glossary.
-              Get a free audit to see where your site currently stands.
-            </Lead>
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-md bg-accent text-white font-heading font-semibold text-base transition-all duration-200 hover:bg-accent/90"
-              >
-                Get a Free SEO Audit
-              </Link>
-              <Link
-                href="/tools"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-md border border-border-emphasis text-stone font-heading font-medium text-base transition-all duration-200 hover:bg-paper"
-              >
-                Try Our Free Tools
-              </Link>
+          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.14em] text-accent">Editorial standard</p>
+              <h2 className="mt-4 font-heading text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
+                More than a one-sentence dictionary.
+              </h2>
+              <p className="mt-6 text-lg leading-8 text-slate">
+                Short definitions are easy to generate. Useful definitions explain where the
+                term applies, what it does not mean, how a practitioner implements it and
+                which evidence would show that the work succeeded.
+              </p>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {[
+                { icon: FlaskConical, title: 'Live SERP research', detail: 'Each term has its own stored DataForSEO corpus and optimizer scorecard.' },
+                { icon: BookOpenText, title: 'Primary references', detail: 'Changing platform behavior is checked against official documentation.' },
+                { icon: Network, title: 'Connected concepts', detail: 'Related definitions, guides and services explain the term’s place in the system.' },
+                { icon: Check, title: 'Practitioner boundaries', detail: 'Tool metrics and emerging acronyms are not misrepresented as Google standards.' },
+              ].map(({ icon: Icon, title, detail }) => (
+                <div key={title} className="border border-border p-6">
+                  <Icon aria-hidden="true" className="size-5 text-accent" />
+                  <h3 className="mt-5 font-heading text-xl font-semibold text-ink">{title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-slate">{detail}</p>
+                </div>
+              ))}
             </div>
           </div>
         </Container>
-      </div>
+      </section>
 
+      <section id="definitions" className="border-t border-border">
+        {grouped.map(({ category, terms }, groupIndex) => (
+          <div key={category} className={groupIndex % 2 ? 'border-b border-border bg-cream py-20' : 'border-b border-border bg-paper py-20'}>
+            <Container>
+              <div className="mx-auto max-w-6xl">
+                <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+                  <div>
+                    <p className="font-mono text-xs font-semibold uppercase tracking-[0.12em] text-accent">
+                      {String(groupIndex + 1).padStart(2, '0')}
+                    </p>
+                    <h2 className="mt-3 font-heading text-3xl font-semibold text-ink sm:text-4xl">
+                      {categoryLabels[category]}
+                    </h2>
+                  </div>
+                  <p className="font-mono text-xs uppercase tracking-[0.1em] text-ash">{terms.length} definitions</p>
+                </div>
+                <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                  {terms.map((term: GlossaryTerm) => (
+                    <Link
+                      key={term.slug}
+                      href={`/resources/glossary/${term.slug}`}
+                      className="group border border-border-strong bg-paper p-6 hover:border-accent"
+                    >
+                      <h3 className="font-heading text-xl font-semibold text-ink group-hover:text-accent">{term.term}</h3>
+                      <p className="mt-3 text-sm leading-7 text-slate">{term.shortDefinition}</p>
+                      <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent">
+                        Definition and use
+                        <ArrowRight aria-hidden="true" className="size-4" />
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </Container>
+          </div>
+        ))}
+      </section>
+
+      <section className="py-20 sm:py-24">
+        <Container>
+          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1fr_460px] lg:items-start">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.14em] text-accent">From terminology to execution</p>
+              <h2 className="mt-4 font-heading text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
+                Tell us which SEO decision is stuck.
+              </h2>
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate">
+                We will determine whether the problem is technical eligibility, page
+                ownership, content evidence, internal architecture, authority, AI visibility
+                or measurement—and scope the work around the pages that matter commercially.
+              </p>
+            </div>
+            <LeadForm variant="compact" submitText="Request a scoped SEO review" />
+          </div>
+        </Container>
+      </section>
       <Footer />
     </main>
   )

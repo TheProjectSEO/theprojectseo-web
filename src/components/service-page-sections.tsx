@@ -744,11 +744,11 @@ export function CTAFormSection({
   heading = "Let\u2019s work with your most profitable channel.",
   lead,
   benefits = [
-    'Free comprehensive SEO audit',
+    'Initial fit and scope review',
     'Custom strategy roadmap',
     'Competitive analysis report',
   ],
-  submitText = 'Get Your Free SEO Audit',
+  submitText = 'Share the project context',
   formVariant = 'compact',
 }: CTAFormSectionProps) {
   return (

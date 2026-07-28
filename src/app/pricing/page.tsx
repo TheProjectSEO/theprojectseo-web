@@ -1,837 +1,698 @@
+import type { Metadata } from 'next'
+import Link from 'next/link'
 import { Button } from '@/components/button'
+import { CheckIcon } from '@/components/check-icon'
+import { Container } from '@/components/container'
+import { EvidencePlaceholder } from '@/components/evidence-placeholder'
+import { FAQAccordion } from '@/components/faq-accordion'
+import { Footer } from '@/components/footer'
 import { HeroAnimation } from '@/components/hero-animation'
 import { JsonLd } from '@/components/json-ld'
-import { Container } from '@/components/container'
-import { Footer } from '@/components/footer'
-import { Link } from '@/components/link'
 import { Navbar } from '@/components/navbar'
+import { CTAFormSection } from '@/components/service-page-sections'
 import { Heading, Lead, Subheading } from '@/components/text'
-import { FAQAccordion } from '@/components/faq-accordion'
-import { AIAgentsShowcase } from '@/components/ai-agents-showcase'
-import { TestimonialQuoteSection } from '@/components/testimonial-quote-section'
-import { CheckIcon } from '@heroicons/react/16/solid'
-import type { Metadata } from 'next'
+import { ORGANIZATION_REF, SITE_URL } from '@/lib/organization-schema'
+
+const pricingHeroLead =
+  'See how TheProjectSEO prices integrated SEO and AI-search engagements, what the $3,500 monthly starting point includes, and which scope factors change a proposal.'
+
+const pricingHeroDetail =
+  'That is the starting investment for ongoing work, not a pre-packed list of articles and links. We scope technical SEO, content, authority, analytics, implementation, and AI-search work around the customer decisions and business outcomes that matter.'
 
 export const metadata: Metadata = {
-  title: 'Pricing | SEO, Development & Automation Services | TheProjectSEO',
-  description:
-    'Transparent pricing for SEO, web development, AI solutions, and automation. Every project is custom-built. SEO from $2,500/mo, development from $3,000, content from $70/article.',
-  alternates: {
-    canonical: '/pricing',
-  },
+  title: 'SEO Agency Pricing: Retainers from $3,500/mo | TheProjectSEO',
+  description: pricingHeroLead,
+  alternates: { canonical: '/pricing' },
   openGraph: {
-    title: 'Pricing | SEO, Development & Automation Services | TheProjectSEO',
+    title: 'SEO Agency Pricing: Retainers from $3,500/mo',
     description:
-      'Transparent pricing for SEO, web development, AI solutions, and automation. Every project is custom-built.',
-    url: 'https://theprojectseo.com/pricing',
+      'Transparent pricing principles for technical SEO, content, authority, analytics, and AI-search work.',
+    url: `${SITE_URL}/pricing`,
+    type: 'website',
   },
   twitter: {
-    title: 'Pricing | SEO, Development & Automation Services | TheProjectSEO',
+    card: 'summary_large_image',
+    title: 'SEO Agency Pricing: Retainers from $3,500/mo',
     description:
-      'Transparent pricing for SEO, web development, AI solutions, and automation. Every project is custom-built.',
+      'Understand the starting investment, scope variables, delivery model, and measurement behind a TheProjectSEO proposal.',
   },
 }
 
-/* ─── SEO Retainer Tiers ─── */
-
-interface SEOTier {
-  name: string
-  price: string
-  period: string
-  description: string
-  featured: boolean
-  highlights: string[]
-}
-
-const seoTiers: SEOTier[] = [
+const scopeFactors = [
   {
-    name: 'Foundation',
-    price: '$2,500',
-    period: '/mo',
+    factor: 'Website and template scale',
+    why: 'A 40-page lead-generation site and a marketplace with millions of parameter combinations require different crawl analysis, governance, QA, and implementation capacity.',
+    evidence: 'Indexed URLs, crawlable templates, rendering paths, parameters, languages, properties, and release frequency.',
+  },
+  {
+    factor: 'Search market and competition',
+    why: 'The work changes when a site must displace established publishers, aggregators, marketplaces, or category leaders across several countries.',
+    evidence: 'Relevant competitors, result types, link and entity gaps, content depth, market count, and realistic opportunity bands.',
+  },
+  {
+    factor: 'Content and subject expertise',
+    why: 'Regulated, technical, or multi-product companies need interviews, evidence, specialist review, compliance ownership, and a more controlled publishing process.',
+    evidence: 'Page backlog, review steps, subject-matter access, research burden, update frequency, and approval turnaround.',
+  },
+  {
+    factor: 'Technical implementation',
+    why: 'Advice alone costs less than an engagement in which we write tickets, change templates, test releases, coordinate developers, and verify production outcomes.',
+    evidence: 'CMS, framework, developer access, backlog ownership, testing environments, deployment cadence, and migration risk.',
+  },
+  {
+    factor: 'Authority and digital PR',
+    why: 'Authority work is based on relevance, editorial merit, evidence, and outreach—not a fixed number of links bought according to a third-party score.',
+    evidence: 'Existing reputation, original data, expert access, publication fit, risk tolerance, and outreach or research scope.',
+  },
+  {
+    factor: 'Measurement and AI-search coverage',
+    why: 'Basic Search Console reporting is simpler than joining analytics, CRM, revenue, AI-answer samples, citations, prompts, and competitive share of voice.',
+    evidence: 'Data sources, event quality, CRM access, markets, prompts, platforms, reporting frequency, and attribution questions.',
+  },
+]
+
+const workstreams = [
+  {
+    name: 'Research and prioritization',
     description:
-      'For businesses building their organic presence from the ground up.',
-    featured: false,
-    highlights: [
-      'Comprehensive SEO audit',
-      'Keyword research (100+ keywords)',
-      'On-page optimization (10 pages/mo)',
-      'Technical SEO monitoring',
-      'Google Business Profile setup',
-      '2 blog articles/month',
-      'Monthly reporting dashboard',
-      'Email support',
-    ],
+      'Live SERPs, customer questions, competitors, existing performance, business economics, and implementation constraints become a ranked opportunity backlog.',
+  },
+  {
+    name: 'Technical and page systems',
+    description:
+      'Crawling, rendering, indexing, architecture, templates, structured data, internal links, performance, migrations, and release acceptance tests.',
+  },
+  {
+    name: 'Content and entity development',
+    description:
+      'Decision pages, supporting resources, expert inputs, citations, definitions, comparisons, refreshes, consolidation, and machine-readable context.',
+  },
+  {
+    name: 'Authority and source eligibility',
+    description:
+      'Editorially defensible research, digital PR, relevant links, citations, profiles, reviews, mentions, and entity consistency across independent sources.',
+  },
+  {
+    name: 'Google and AI-search measurement',
+    description:
+      'Queries, landing pages, conversions, revenue where available, prompt cohorts, source selection, citations, accuracy, visibility, and competitive movement.',
+  },
+  {
+    name: 'Implementation governance',
+    description:
+      'Briefs, tickets, owners, review gates, release QA, evidence capture, decision logs, stakeholder communication, and next-action reporting.',
+  },
+]
+
+const models = [
+  {
+    name: 'Initial',
+    price: '$3,500/month',
+    fit: 'For teams that need continuous research, implementation, content or page improvement, authority development, and measurement.',
+    scope:
+      'A custom mix of technical SEO, content and page architecture, AI-search optimization, analytics, authority, and delivery governance. The proposal states the monthly capacity, priority workstreams, owners, dependencies, and review cadence.',
   },
   {
     name: 'Growth',
-    price: '$3,500',
-    period: '/mo',
-    description:
-      'For businesses ready to scale organic traffic and dominate their niche.',
-    featured: true,
-    highlights: [
-      'Everything in Foundation',
-      'Advanced keyword strategy (300+ keywords)',
-      'On-page optimization (25 pages/mo)',
-      'Full technical SEO management',
-      'Content strategy & creation (4 articles/mo)',
-      'Link building (10 links/mo)',
-      'Competitor analysis & tracking',
-      'Real-time analytics dashboard',
-      'Bi-weekly strategy calls',
-      'Dedicated SEO manager',
-    ],
+    price: '$5,500/month',
+    fit: 'For teams that need several SEO, content, authority, analytics, and AI-search workstreams in parallel.',
+    scope:
+      'A custom mix of technical SEO, content and page architecture, AI-search optimization, analytics, authority, and delivery governance. The proposal states the monthly capacity, priority workstreams, owners, dependencies, and review cadence.',
   },
   {
     name: 'Enterprise',
     price: 'Custom',
-    period: '',
-    description:
-      'For organizations that need multi-brand, multi-region, or large-scale SEO.',
-    featured: false,
-    highlights: [
-      'Custom keyword universe',
-      'Unlimited page optimization',
-      'Custom content strategy',
-      'Advanced link building (25+ links/mo)',
-      'Multi-location & multi-brand SEO',
-      'Custom reporting & dashboards',
-      'Weekly strategy sessions',
-      'Priority support & SLA',
-      'Custom tool integrations',
-    ],
+    fit: 'For large sites, multiple business units, several markets, regulated review, high release volume, or significant analytics and governance requirements.',
+    scope:
+      'Capacity and decision rights are designed around the operating environment. The scope may include multiple specialists, workstream leads, developer collaboration, data engineering, executive reporting, and formal QA.',
   },
 ]
 
-/* ─── Development Services ─── */
-
-interface DevService {
-  name: string
-  price: string
-  description: string
-  highlights: string[]
-  note?: string
-  href: string
-}
-
-const devServices: DevService[] = [
+const quoteSteps = [
   {
-    name: 'MVP Development',
-    price: '$3,000',
-    description:
-      'Validate your idea fast with a production-ready minimum viable product.',
-    highlights: [
-      'Core feature set scoped to your goals',
-      'Responsive design across all devices',
-      'User authentication & database',
-      'Cloud deployment & CI/CD',
-    ],
-    note: 'Delivery in 8\u201312 weeks',
-    href: '/services/mvp-development',
+    number: '01',
+    title: 'Confirm the commercial problem',
+    body: 'We identify the products, services, markets, customer decisions, conversions, economics, and business constraint that organic discovery is expected to influence. “More traffic” is not a sufficient scope.',
   },
   {
-    name: 'Web Applications',
-    price: '$6,000',
-    description:
-      'Custom web applications built for scale, performance, and reliability.',
-    highlights: [
-      'Custom architecture & API design',
-      'Third-party integrations',
-      'Admin dashboard & analytics',
-      'Cloud infrastructure & deployment',
-    ],
-    href: '/services/web-app-development',
+    number: '02',
+    title: 'Inspect the current system',
+    body: 'We review the site, search footprint, technical shape, existing pages, data quality, competitors, authority, internal capacity, and current AI-answer visibility. Access improves precision but is not required for an initial conversation.',
   },
   {
-    name: 'E-commerce Development',
-    price: '$3,000',
-    description:
-      'Custom online stores built for conversion and growth.',
-    highlights: [
-      'Starter Store (up to 200 products) \u2014 $3,000',
-      'Growth Store (custom features) \u2014 $9,000',
-      'Enterprise Commerce (full custom) \u2014 $15,000',
-    ],
-    href: '/services/ecommerce-development',
+    number: '03',
+    title: 'Separate opportunity from maintenance',
+    body: 'The proposal distinguishes growth work from essential maintenance, measurement, governance, or risk control. This prevents a visible content calendar from hiding technical or operational work that the site actually needs.',
   },
   {
-    name: 'AI & LLM Integration',
-    price: '$3,000',
-    description:
-      'Integrate AI into your products, workflows, and customer experience.',
-    highlights: [
-      'AI Chatbot / Assistant \u2014 $3,000',
-      'Custom AI Application \u2014 $6,000',
-      'Enterprise AI Platform \u2014 $10,000',
-    ],
-    href: '/services/ai-development',
+    number: '04',
+    title: 'Set capacity and ownership',
+    body: 'We state what TheProjectSEO owns, what your team owns, which specialists or reviewers are required, how work enters production, and how monthly priorities may change when evidence changes.',
   },
   {
-    name: 'Data Engineering',
-    price: '$3,000',
-    description:
-      'Build the data infrastructure your business decisions depend on.',
-    highlights: [
-      'ETL pipeline design & implementation',
-      'Data warehousing & modeling',
-      'Real-time data processing',
-      'Analytics dashboards & reporting',
-    ],
-    href: '/services/data-engineering',
-  },
-  {
-    name: 'Data Visualization',
-    price: '$8,000',
-    description:
-      'Custom dashboards and reporting that turn your data into actionable insights.',
-    highlights: [
-      'Custom dashboard design & development',
-      'SEO & business intelligence reporting',
-      'Real-time analytics integration',
-      'Interactive data storytelling',
-    ],
-    href: '/services/data-visualization',
+    number: '05',
+    title: 'Define measurement and boundaries',
+    body: 'The scope names baselines, reporting cohorts, business outcomes, review cadence, exclusions, dependencies, and known attribution limits. It does not promise a ranking, citation, traffic number, or result date.',
   },
 ]
-
-/* ─── Automation Tiers ─── */
-
-interface AutomationTier {
-  name: string
-  price: string
-  period: string
-  description: string
-  highlights: string[]
-  maintenance?: string
-}
-
-const automationTiers: AutomationTier[] = [
-  {
-    name: 'Simple Workflow',
-    price: '$500',
-    period: 'one-time',
-    description:
-      'Single-system automation with basic triggers and actions.',
-    highlights: [
-      'One integration (e.g. form \u2192 CRM)',
-      'Basic triggers & actions',
-      'Documentation & handoff',
-      'One-time setup',
-    ],
-    maintenance: '$200/mo maintenance available',
-  },
-  {
-    name: 'Multi-System',
-    price: '$2,500',
-    period: 'one-time',
-    description:
-      'Connect 3\u20135 systems with conditional logic and error handling.',
-    highlights: [
-      '3\u20135 system integrations',
-      'Conditional logic & branching',
-      'Error handling & retry logic',
-      'Full testing & QA',
-    ],
-    maintenance: '$200/mo maintenance available',
-  },
-  {
-    name: 'AI-Powered',
-    price: '$5,000',
-    period: 'one-time',
-    description:
-      'Intelligent automation with AI/ML for smarter decision-making.',
-    highlights: [
-      'AI/ML model integration',
-      'Smart routing & classification',
-      'Natural language processing',
-      'Predictive automation',
-    ],
-    maintenance: '$200/mo maintenance available',
-  },
-  {
-    name: 'Enterprise Orchestration',
-    price: 'Custom',
-    period: '',
-    description:
-      'Full-scale automation with SSO, data pipelines, and containerized builds.',
-    highlights: [
-      'SSO integration (Okta, Azure AD)',
-      'Custom data pipelines',
-      'Containerized deployment',
-      'Custom orchestration logic',
-      '24/7 monitoring & alerting',
-    ],
-  },
-]
-
-/* ─── Content & Link Building ─── */
-
-const contentPricing = [
-  { item: 'SEO Blog Article (1,000\u20131,500 words)', price: '$70' },
-  { item: 'In-depth Guide (2,000+ words)', price: '$150' },
-  { item: 'Monthly Content Package (8 articles)', price: '$500' },
-]
-
-const backlinkPricing = [
-  {
-    tier: 'DR 10\u201320',
-    price: '$80',
-    description: 'Niche-relevant, quality sites',
-  },
-  {
-    tier: 'DR 30\u201340',
-    price: '$120',
-    description: 'Established authority sites',
-  },
-  {
-    tier: 'DR 50\u201360',
-    price: '$200',
-    description: 'High-authority publications',
-  },
-  {
-    tier: 'DR 70+',
-    price: '$350',
-    description: 'Premium, top-tier domains',
-  },
-]
-
-/* ─── FAQ ─── */
 
 const faqItems = [
   {
-    question: 'How is your pricing different from other agencies?',
+    question: 'How much do TheProjectSEO retainers cost?',
     answer:
-      "Every project we take on is custom-scoped. We don't use cookie-cutter packages or templates. Your pricing reflects your specific goals, timeline, and technical requirements\u2014not a generic tier that barely fits.",
+      'Ongoing integrated SEO and AI-search engagements start at USD $3,500 per month. A final proposal depends on site scale, markets, competition, implementation ownership, content and specialist-review needs, authority work, analytics, AI platforms, and delivery capacity. The starting figure is not a promise that every requirement fits inside that scope.',
   },
   {
-    question: 'Can I combine multiple services?',
+    question: 'Is AI-search optimization an extra add-on?',
     answer:
-      'Absolutely. Most clients bundle SEO with content marketing, or development with automation. We offer package discounts when you combine services\u2014reach out for a custom quote.',
+      'Not by default. We treat Google Search, Bing, AI Overviews, ChatGPT, Gemini, Claude, and Perplexity as connected discovery systems with different interfaces and evidence paths. The monthly work is scoped around the platforms and customer journeys that matter. Unusually large monitoring, research, or data requirements may change the price.',
   },
   {
-    question: 'How long does it take to see SEO results?',
+    question: 'What is included in a $3,500 monthly engagement?',
     answer:
-      'Most clients see measurable improvements within 60\u201390 days, with significant ranking gains in 4\u20136 months. We set realistic expectations during onboarding and provide transparent progress reports every month.',
+      'The exact mix is set after diagnosis. A focused engagement can include opportunity research, technical priorities, high-intent page improvement, internal linking, structured data, AI-answer sampling, analytics, implementation briefs, release QA, and reporting. It cannot responsibly include unlimited pages, unlimited development, a fixed link quota, or every possible workstream.',
   },
   {
-    question: "What's the typical timeline for development projects?",
+    question: 'Do you sell articles or backlinks individually?',
     answer:
-      'MVPs typically ship in 8\u201312 weeks. Web applications take 12\u201320 weeks depending on complexity. E-commerce stores range from 6\u201316 weeks based on customization level.',
+      'The pricing page does not sell commodity articles or links by word count or Domain Rating. Content is scoped around a customer decision, evidence burden, format, expert access, distribution, and maintenance need. Authority work is based on relevance and editorial merit. Any third-party cost is disclosed before approval.',
   },
   {
-    question: 'Do you offer ongoing maintenance after project delivery?',
+    question: 'Can TheProjectSEO guarantee rankings or AI citations?',
     answer:
-      'Yes. Development projects include a 30-day warranty period. After that, maintenance retainers start at $200/month for automation workflows and scale based on project complexity.',
+      'No. Search engines and AI platforms control crawling, indexing, ranking, source selection, answer generation, interfaces, and changes to their systems. We can diagnose, implement, measure, and improve eligible signals; we cannot guarantee a position, citation, traffic outcome, or timetable.',
   },
   {
-    question: 'How do backlink prices work?',
+    question: 'How long is the contract?',
     answer:
-      "Backlinks are priced by domain rating (DR)\u2014a measure of the linking site's authority. DR 10\u201320 links start at $80 each, DR 30\u201340 at $120, and higher DR domains are priced accordingly. Every link is manually vetted for relevance and quality.",
+      'Commercial terms are confirmed in the proposal and agreement. We do not use this page to claim that every engagement is month-to-month or cancellable under identical conditions. The appropriate term depends on scope, onboarding cost, capacity reservation, project risk, and procurement requirements.',
   },
   {
-    question: 'Can I cancel my SEO retainer anytime?',
+    question: 'What can make an SEO proposal more expensive?',
     answer:
-      'Yes. All SEO retainers are month-to-month with no long-term contracts. We believe in earning your business through results, not locking you into agreements.',
+      'Large or technically complex sites, multiple markets, migrations, weak analytics, regulated review, extensive content production, developer implementation, original research, digital PR, large prompt sets, multiple AI platforms, and frequent executive reporting all increase the work. Fast approvals and clear internal ownership often reduce wasted capacity.',
   },
   {
-    question: 'Do you work with startups on limited budgets?',
+    question: 'What should I compare between SEO agency proposals?',
     answer:
-      'We do. Our MVP development starts at $3,000 and blog content at $70 per article. We work with you to prioritize the highest-impact activities within your budget.',
-  },
-  {
-    question: "What's included in the full content marketing retainer?",
-    answer:
-      'The $2,000/month retainer covers 8 SEO-optimized articles, content strategy, Reddit and forum promotion, social distribution, and monthly performance reporting.',
-  },
-  {
-    question: 'How do I get started?',
-    answer:
-      'Book a free consultation through our contact page. We discuss your goals, audit your current setup, and provide a custom proposal within 48 hours\u2014no obligation.',
+      'Compare the diagnosis, assumptions, named workstreams, people and ownership, implementation depth, evidence standards, reporting cohorts, exclusions, third-party costs, change process, and claims the provider refuses to make. Deliverable counts alone do not show whether the work addresses the real constraint.',
   },
 ]
 
-/* ═══════════════════════════════════════════════════════════
-   Section Components
-   ═══════════════════════════════════════════════════════════ */
+const sources = [
+  {
+    label: 'Ahrefs SEO pricing survey',
+    href: 'https://ahrefs.com/blog/seo-pricing/',
+    note: 'A 2024 survey of 439 providers covering retainers, projects, hourly pricing, regions, and provider types. It supplies market context, not a rule for this proposal.',
+  },
+  {
+    label: 'Semrush: what affects SEO pricing',
+    href: 'https://www.semrush.com/blog/seo-pricing/',
+    note: 'An overview of provider models and variables that change the cost of external SEO work.',
+  },
+  {
+    label: 'Google Search Essentials',
+    href: 'https://developers.google.com/search/docs/essentials',
+    note: 'Google’s technical requirements, spam policies, and core Search practices, including the reminder that eligibility does not guarantee appearance.',
+  },
+  {
+    label: 'Google SEO Starter Guide',
+    href: 'https://developers.google.com/search/docs/fundamentals/seo-starter-guide',
+    note: 'Google’s explanation of SEO and its explicit statement that no method automatically guarantees first place.',
+  },
+  {
+    label: 'Google: AI features and your website',
+    href: 'https://developers.google.com/search/docs/appearance/ai-features',
+    note: 'Google’s published requirements and measurement guidance for AI Overviews and AI Mode.',
+  },
+]
 
-function Header() {
-  return (
-    <div className="relative">
-      <HeroAnimation />
-      <Container className="relative pt-16 pb-24">
-        <Heading as="h1">Pricing built around your project.</Heading>
-        <Lead className="mt-6 max-w-3xl">
-          Every engagement is custom. No cookie-cutter packages, no
-          one-size-fits-all plans. Just solutions designed for your specific
-          goals and budget.
-        </Lead>
-        <nav className="mt-10 flex flex-wrap gap-3" aria-label="Jump to pricing section">
-          {[
-            { label: 'SEO Retainers', href: '#seo' },
-            { label: 'Development', href: '#development' },
-            { label: 'Automation', href: '#automation' },
-            { label: 'Content & Links', href: '#content' },
-          ].map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="rounded-full border border-border-strong px-4 py-2 text-sm font-medium text-stone transition-colors hover:bg-cream"
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
-      </Container>
-    </div>
-  )
-}
-
-/* ─── SEO Retainers ─── */
-
-function SEOPricing() {
-  return (
-    <section id="seo" className="scroll-mt-8 bg-cream py-24">
-      <Container>
-        <div className="mb-16 text-center">
-          <Subheading>SEO Services</Subheading>
-          <Heading as="h2" className="mt-2">
-            Monthly SEO retainers
-          </Heading>
-          <p className="mx-auto mt-4 max-w-2xl text-stone">
-            Ongoing SEO management with transparent deliverables, monthly
-            reporting, and a dedicated team focused on your organic growth.
-          </p>
-        </div>
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-          {seoTiers.map((tier, i) => (
-            <div
-              key={i}
-              className={`rounded-none border border-border-strong bg-white ${
-                tier.featured
-                  ? 'relative border-t-[3px] border-t-accent shadow-lg lg:scale-105'
-                  : ''
-              }`}
-            >
-              {tier.featured && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <span className="whitespace-nowrap bg-accent px-4 py-1.5 font-mono text-xs font-medium uppercase tracking-[0.1em] text-white">
-                    Most Popular
-                  </span>
-                </div>
-              )}
-              <div className="p-8">
-                <Subheading as="h3">{tier.name}</Subheading>
-                <p className="mt-2 text-sm text-stone">{tier.description}</p>
-                <div className="mt-8 flex items-baseline gap-2">
-                  <span className="font-mono text-[40px] font-medium text-ink">
-                    {tier.price}
-                  </span>
-                  {tier.period && (
-                    <span className="text-sm text-stone">{tier.period}</span>
-                  )}
-                </div>
-                <div className="mt-8">
-                  <Button
-                    variant={tier.featured ? 'solid' : 'ghost'}
-                    href="/contact"
-                  >
-                    {tier.name === 'Enterprise' ? 'Contact us' : 'Get started'}
-                  </Button>
-                </div>
-                <ul className="mt-8 space-y-3">
-                  {tier.highlights.map((item, j) => (
-                    <li
-                      key={j}
-                      className="flex items-start gap-3 text-sm text-stone"
-                    >
-                      <CheckIcon className="mt-0.5 size-4 shrink-0 fill-accent" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="mt-16 text-center">
-          <p className="mb-3 text-sm text-ash">All SEO plans include:</p>
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-slate">
-            <span>&#10003; No setup fees</span>
-            <span>&#10003; Cancel anytime</span>
-            <span>&#10003; 30-day money-back guarantee</span>
-            <span>&#10003; Free consultation</span>
-          </div>
-        </div>
-      </Container>
-    </section>
-  )
-}
-
-/* ─── Development Services ─── */
-
-function DevelopmentPricing() {
-  return (
-    <section id="development" className="scroll-mt-8 py-24">
-      <Container>
-        <div className="mb-16 text-center">
-          <Subheading>Development</Subheading>
-          <Heading as="h2" className="mt-2">
-            Project-based development
-          </Heading>
-          <p className="mx-auto mt-4 max-w-2xl text-stone">
-            Custom-built applications, platforms, and AI solutions. Fixed-price
-            projects with clear scope, timelines, and deliverables.
-          </p>
-        </div>
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {devServices.map((service, i) => (
-            <div
-              key={i}
-              className="flex flex-col rounded-none border border-border-strong bg-white p-8"
-            >
-              <h3 className="font-heading text-lg font-semibold text-ink">
-                {service.name}
-              </h3>
-              <p className="mt-2 text-sm text-stone">{service.description}</p>
-              <div className="mt-6 flex items-baseline gap-2">
-                <span className="font-mono text-2xl font-medium text-ink">
-                  from {service.price}
-                </span>
-              </div>
-              <ul className="mt-6 flex-1 space-y-2">
-                {service.highlights.map((item, j) => (
-                  <li
-                    key={j}
-                    className="flex items-start gap-3 text-sm text-stone"
-                  >
-                    <CheckIcon className="mt-0.5 size-4 shrink-0 fill-accent" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              {service.note && (
-                <p className="mt-4 font-mono text-xs uppercase tracking-wide text-ash">
-                  {service.note}
-                </p>
-              )}
-              <Link
-                href={service.href}
-                className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:underline"
-              >
-                Learn more &rarr;
-              </Link>
-            </div>
-          ))}
-        </div>
-      </Container>
-    </section>
-  )
-}
-
-/* ─── Automation Services ─── */
-
-function AutomationPricing() {
-  return (
-    <section id="automation" className="scroll-mt-8 bg-cream py-24">
-      <Container>
-        <div className="mb-16 text-center">
-          <Subheading>Automation</Subheading>
-          <Heading as="h2" className="mt-2">
-            Workflow automation
-          </Heading>
-          <p className="mx-auto mt-4 max-w-2xl text-stone">
-            Eliminate manual work with n8n-powered automation. One-time build
-            with optional ongoing maintenance.
-          </p>
-        </div>
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {automationTiers.map((tier, i) => (
-            <div
-              key={i}
-              className="flex flex-col rounded-none border border-border-strong bg-white p-8"
-            >
-              <h3 className="font-heading text-lg font-semibold text-ink">
-                {tier.name}
-              </h3>
-              <p className="mt-2 text-sm text-stone">{tier.description}</p>
-              <div className="mt-6 flex items-baseline gap-2">
-                <span className="font-mono text-2xl font-medium text-ink">
-                  {tier.price}
-                </span>
-                {tier.period && (
-                  <span className="text-sm text-stone">{tier.period}</span>
-                )}
-              </div>
-              <ul className="mt-6 flex-1 space-y-2">
-                {tier.highlights.map((item, j) => (
-                  <li
-                    key={j}
-                    className="flex items-start gap-3 text-sm text-stone"
-                  >
-                    <CheckIcon className="mt-0.5 size-4 shrink-0 fill-accent" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              {tier.maintenance && (
-                <p className="mt-4 text-xs text-ash">{tier.maintenance}</p>
-              )}
-            </div>
-          ))}
-        </div>
-        <div className="mt-8 text-center">
-          <Link
-            href="/services/n8n-automation"
-            className="text-sm font-medium text-accent hover:underline"
-          >
-            Explore all automation services &rarr;
-          </Link>
-        </div>
-      </Container>
-    </section>
-  )
-}
-
-/* ─── Content & Link Building ─── */
-
-function ContentPricing() {
-  return (
-    <section id="content" className="scroll-mt-8 py-24">
-      <Container>
-        <div className="mb-16 text-center">
-          <Subheading>Content & Links</Subheading>
-          <Heading as="h2" className="mt-2">
-            Content marketing & link building
-          </Heading>
-          <p className="mx-auto mt-4 max-w-2xl text-stone">
-            SEO-optimized content and high-quality backlinks to build authority
-            and drive organic traffic.
-          </p>
-        </div>
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-          {/* Content Creation */}
-          <div className="rounded-none border border-border-strong bg-white">
-            <div className="border-b border-border-strong px-8 py-5">
-              <h3 className="font-heading text-lg font-semibold text-ink">
-                Content Creation
-              </h3>
-            </div>
-            <div className="p-8">
-              <div className="space-y-0">
-                {contentPricing.map((item, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center justify-between border-b border-border py-4 last:border-0"
-                  >
-                    <span className="text-sm text-stone">{item.item}</span>
-                    <span className="ml-4 whitespace-nowrap font-mono text-sm font-medium text-ink">
-                      {item.price}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Link Building */}
-          <div className="rounded-none border border-border-strong bg-white">
-            <div className="border-b border-border-strong px-8 py-5">
-              <h3 className="font-heading text-lg font-semibold text-ink">
-                Link Building{' '}
-                <span className="text-sm font-normal text-ash">per link</span>
-              </h3>
-            </div>
-            <div className="p-8">
-              <div className="space-y-0">
-                {backlinkPricing.map((item, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center justify-between border-b border-border py-4 last:border-0"
-                  >
-                    <div>
-                      <span className="text-sm font-medium text-ink">
-                        {item.tier}
-                      </span>
-                      <p className="text-xs text-ash">{item.description}</p>
-                    </div>
-                    <span className="ml-4 whitespace-nowrap font-mono text-sm font-medium text-ink">
-                      {item.price}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Full Content Marketing Retainer */}
-        <div className="mt-8 rounded-none border border-accent/30 bg-accent/5 p-8 text-center">
-          <h3 className="font-heading text-lg font-semibold text-ink">
-            Full Content Marketing
-          </h3>
-          <div className="mt-2 flex items-baseline justify-center gap-2">
-            <span className="font-mono text-[32px] font-medium text-ink">
-              $2,000
-            </span>
-            <span className="text-sm text-stone">/mo</span>
-          </div>
-          <p className="mx-auto mt-3 max-w-lg text-sm text-stone">
-            8 SEO articles, content strategy, Reddit &amp; forum promotion,
-            social distribution, and monthly performance reporting.
-          </p>
-          <div className="mt-6">
-            <Button variant="ghost" href="/contact">
-              Get started
-            </Button>
-          </div>
-        </div>
-      </Container>
-    </section>
-  )
-}
-
-/* ─── Custom Section (dark) ─── */
-
-function CustomSection() {
-  return (
-    <section className="bg-ink py-24">
-      <Container>
-        <div className="mx-auto max-w-3xl text-center">
-          <Subheading dark>Why Custom</Subheading>
-          <Heading as="h2" dark className="mt-2">
-            Every project starts with a conversation.
-          </Heading>
-          <p className="mt-6 text-lg leading-relaxed text-white/70">
-            We don&apos;t believe in cookie-cutter solutions. Your business is
-            unique, your challenges are specific, and your strategy should be
-            too. That&apos;s why every engagement begins with a deep-dive into
-            your goals, your market, and your competitive landscape.
-          </p>
-          <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-3">
-            <div>
-              <div className="font-mono text-3xl font-medium text-accent">
-                100%
-              </div>
-              <p className="mt-2 text-sm text-white/60">
-                Custom-scoped projects
-              </p>
-            </div>
-            <div>
-              <div className="font-mono text-3xl font-medium text-accent">
-                48hr
-              </div>
-              <p className="mt-2 text-sm text-white/60">
-                Custom proposal delivery
-              </p>
-            </div>
-            <div>
-              <div className="font-mono text-3xl font-medium text-accent">
-                0
-              </div>
-              <p className="mt-2 text-sm text-white/60">
-                Long-term contracts required
-              </p>
-            </div>
-          </div>
-          <div className="mt-12">
-            <Button variant="solid" href="/contact">
-              Book a free consultation
-            </Button>
-          </div>
-        </div>
-      </Container>
-    </section>
-  )
-}
-
-/* ─── FAQ ─── */
-
-function FAQ() {
-  return (
-    <section className="py-24">
-      <Container>
-        <FAQAccordion
-          items={faqItems}
-          title="Pricing questions answered"
-        />
-      </Container>
-    </section>
-  )
-}
-
-/* ─── CTA ─── */
-
-function CTASection() {
-  return (
-    <section className="bg-cream py-24">
-      <Container>
-        <div className="mx-auto max-w-2xl text-center">
-          <Subheading>Ready to start?</Subheading>
-          <Heading as="h2" className="mt-2">
-            Let&apos;s build something great together.
-          </Heading>
-          <p className="mt-6 text-stone">
-            Tell us about your project and we&apos;ll send you a custom proposal
-            within 48 hours. No commitment, no pressure.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Button variant="solid" href="/contact">
-              Get a custom proposal
-            </Button>
-            <Button variant="outline" href="/services">
-              Explore services
-            </Button>
-          </div>
-        </div>
-      </Container>
-    </section>
-  )
-}
-
-/* ═══════════════════════════════════════════════════════════
-   Page
-   ═══════════════════════════════════════════════════════════ */
-
-export default function Pricing() {
+export default function PricingPage() {
   return (
     <main className="overflow-hidden">
       <JsonLd
         data={{
           '@context': 'https://schema.org',
-          '@type': 'WebPage',
-          name: 'Pricing - SEO, Development & Automation Services',
-          description:
-            'Transparent pricing for SEO, web development, AI solutions, and automation services. Every project is custom-built.',
-          url: 'https://theprojectseo.com/pricing',
-          provider: {
-            '@type': 'Organization',
-            name: 'TheProjectSEO',
-            url: 'https://theprojectseo.com',
-          },
+          '@graph': [
+            {
+              '@type': 'WebPage',
+              '@id': `${SITE_URL}/pricing/#webpage`,
+              url: `${SITE_URL}/pricing`,
+              name: 'SEO Agency Pricing',
+              description: metadata.description,
+              dateModified: '2026-07-28',
+              author: ORGANIZATION_REF,
+              isPartOf: { '@id': `${SITE_URL}/#website` },
+            },
+            {
+              '@type': 'Service',
+              '@id': `${SITE_URL}/pricing/#service`,
+              name: 'Integrated SEO and AI-search services',
+              provider: ORGANIZATION_REF,
+              areaServed: [
+                { '@type': 'Country', name: 'India' },
+                { '@type': 'Country', name: 'Philippines' },
+              ],
+              offers: [
+                {
+                  '@type': 'Offer',
+                  name: 'Initial',
+                  price: '3500',
+                  priceCurrency: 'USD',
+                  priceSpecification: {
+                    '@type': 'UnitPriceSpecification',
+                    price: '3500',
+                    priceCurrency: 'USD',
+                    unitText: 'MONTH',
+                  },
+                  description: 'Initial monthly engagement.',
+                },
+                {
+                  '@type': 'Offer',
+                  name: 'Growth',
+                  price: '5500',
+                  priceCurrency: 'USD',
+                  priceSpecification: {
+                    '@type': 'UnitPriceSpecification',
+                    price: '5500',
+                    priceCurrency: 'USD',
+                    unitText: 'MONTH',
+                  },
+                  description: 'Growth monthly engagement.',
+                },
+                {
+                  '@type': 'Offer',
+                  name: 'Enterprise',
+                  priceCurrency: 'USD',
+                  description: 'Custom enterprise engagement.',
+                },
+              ],
+            },
+            {
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                {
+                  '@type': 'ListItem',
+                  position: 1,
+                  name: 'Home',
+                  item: SITE_URL,
+                },
+                {
+                  '@type': 'ListItem',
+                  position: 2,
+                  name: 'Pricing',
+                  item: `${SITE_URL}/pricing`,
+                },
+              ],
+            },
+            {
+              '@type': 'FAQPage',
+              mainEntity: faqItems.map((item) => ({
+                '@type': 'Question',
+                name: item.question,
+                acceptedAnswer: { '@type': 'Answer', text: item.answer },
+              })),
+            },
+          ],
         }}
       />
-      <Container>
-        <Navbar />
-      </Container>
-      <Header />
-      <SEOPricing />
-      <AIAgentsShowcase
-        subheading="Included in Every SEO Plan"
-        heading="8 AI agents powering your SEO — at no extra cost."
-        lead="Every SEO retainer includes our full AI agent fleet. They monitor rankings, optimize content, track competitors, and flag issues automatically — so your investment works harder around the clock."
+
+      <div className="relative overflow-hidden">
+        <HeroAnimation />
+        <Container className="relative">
+          <Navbar />
+          <div className="py-20 sm:py-28">
+            <p className="font-mono text-sm font-semibold uppercase tracking-[0.15em] text-accent">
+              SEO pricing · Updated July 28, 2026
+            </p>
+            <h1 className="mt-6 max-w-5xl font-display text-[clamp(48px,7vw,104px)] font-medium leading-[0.93] tracking-[-0.04em] text-ink">
+              SEO and AI-search retainers from{' '}
+              <em className="text-accent">$3,500/month.</em>
+            </h1>
+            <Lead className="mt-8 max-w-3xl">
+              {pricingHeroLead}
+            </Lead>
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+              <Button href="/contact">Request a scoped proposal</Button>
+              <Button href="/methodology" variant="outline">
+                Review the methodology
+              </Button>
+            </div>
+            <div className="mt-12 grid max-w-5xl gap-px bg-border-strong sm:grid-cols-3">
+              {[
+                ['Starting point', '$3,500 USD / month'],
+                ['AI-search scope', 'Integrated where relevant'],
+                ['Guarantees', 'No ranking or citation promises'],
+              ].map(([label, value]) => (
+                <div key={label} className="bg-paper p-6">
+                  <p className="font-mono text-xs uppercase tracking-[0.12em] text-ash">
+                    {label}
+                  </p>
+                  <p className="mt-3 font-heading text-lg font-semibold text-ink">
+                    {value}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </div>
+
+      <section className="border-y border-border bg-cream py-24">
+        <Container>
+          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+            <div>
+              <Subheading>Direct answer</Subheading>
+              <Heading as="h2" className="mt-3">
+                What does SEO cost?
+              </Heading>
+            </div>
+            <div className="space-y-6 text-base leading-8 text-slate">
+              <p>{pricingHeroDetail}</p>
+              <p>
+                There is no single responsible market price for SEO. A retainer
+                can mean monitoring one local site, rebuilding a large
+                ecommerce architecture, publishing expert-reviewed decision
+                pages, supporting a migration, or joining Search Console,
+                analytics, CRM, revenue, and AI-answer data. Comparing only the
+                monthly number hides the work.
+              </p>
+              <p>
+                Ahrefs’ 2024 survey of 439 providers reported an average monthly
+                cost of $2,917 and an agency average of $3,209. It also found
+                wide variation by provider type, region, experience, and market.
+                Those figures are useful context, but they do not determine what
+                your site requires or what TheProjectSEO will propose.
+              </p>
+              <p>
+                Our ongoing engagements start at $3,500 per month. We use an
+                initial diagnosis to choose the workstreams, capacity, owners,
+                evidence, and measurement model. A proposal should explain why
+                the scope costs what it costs—and what will not be attempted
+                inside it.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-paper py-24">
+        <Container>
+          <div className="max-w-3xl">
+            <Subheading>Engagement models</Subheading>
+            <Heading as="h2" className="mt-3">
+              Start with the operating problem, not a package name.
+            </Heading>
+            <Lead className="mt-6">
+              These models explain how we scope work. Initial and Growth rates
+              are published; Enterprise requirements are custom because they
+              can vary too widely for a credible fixed quote.
+            </Lead>
+          </div>
+          <div className="mt-14 grid gap-px bg-border-strong lg:grid-cols-3">
+            {models.map((model) => (
+              <article key={model.name} className="bg-paper p-8">
+                <p className="font-mono text-xs font-semibold uppercase tracking-[0.12em] text-accent">
+                  {model.price}
+                </p>
+                <h3 className="mt-4 font-heading text-2xl font-semibold text-ink">
+                  {model.name}
+                </h3>
+                <p className="mt-5 text-sm font-medium leading-6 text-ink">
+                  {model.fit}
+                </p>
+                <p className="mt-5 text-sm leading-7 text-slate">{model.scope}</p>
+              </article>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-ink py-24">
+        <Container>
+          <div className="max-w-3xl">
+            <Subheading dark>What the retainer funds</Subheading>
+            <Heading as="h2" dark className="mt-3">
+              Six connected workstreams, selected by evidence.
+            </Heading>
+            <p className="mt-6 text-lg leading-8 text-white/70">
+              A smaller engagement concentrates on the most consequential
+              constraint. A larger programme can run several streams in
+              parallel. Capacity is never described as unlimited.
+            </p>
+          </div>
+          <div className="mt-14 grid gap-px bg-white/15 md:grid-cols-2 lg:grid-cols-3">
+            {workstreams.map((stream, index) => (
+              <article key={stream.name} className="bg-ink p-8">
+                <p className="font-mono text-xs text-accent">
+                  {String(index + 1).padStart(2, '0')}
+                </p>
+                <h3 className="mt-4 font-heading text-xl font-semibold text-white">
+                  {stream.name}
+                </h3>
+                <p className="mt-4 text-sm leading-7 text-white/65">
+                  {stream.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-cream py-24">
+        <Container>
+          <div className="max-w-3xl">
+            <Subheading>Scope variables</Subheading>
+            <Heading as="h2" className="mt-3">
+              Why can two SEO proposals have different prices?
+            </Heading>
+            <Lead className="mt-6">
+              Price should change when the amount of research, implementation,
+              production, risk, review, measurement, or coordination changes.
+              These are the variables we inspect.
+            </Lead>
+          </div>
+          <div className="mt-14 overflow-x-auto border border-border-strong bg-paper">
+            <table className="w-full min-w-[900px] border-collapse text-left">
+              <thead>
+                <tr className="border-b border-border-strong bg-paper">
+                  <th className="p-5 font-mono text-xs uppercase tracking-[0.1em] text-ash">
+                    Factor
+                  </th>
+                  <th className="p-5 font-mono text-xs uppercase tracking-[0.1em] text-ash">
+                    Why it changes the work
+                  </th>
+                  <th className="p-5 font-mono text-xs uppercase tracking-[0.1em] text-ash">
+                    What we inspect
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {scopeFactors.map((item) => (
+                  <tr key={item.factor} className="border-b border-border last:border-0">
+                    <th className="p-5 align-top font-heading text-base font-semibold text-ink">
+                      {item.factor}
+                    </th>
+                    <td className="p-5 align-top text-sm leading-7 text-slate">
+                      {item.why}
+                    </td>
+                    <td className="p-5 align-top text-sm leading-7 text-slate">
+                      {item.evidence}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-paper py-24">
+        <Container>
+          <div className="max-w-3xl">
+            <Subheading>How a quote is built</Subheading>
+            <Heading as="h2" className="mt-3">
+              From business question to accountable scope.
+            </Heading>
+          </div>
+          <div className="mt-14 divide-y divide-border-strong border-y border-border-strong">
+            {quoteSteps.map((step) => (
+              <article
+                key={step.number}
+                className="grid gap-5 py-8 md:grid-cols-[90px_0.8fr_1.4fr]"
+              >
+                <p className="font-mono text-sm font-semibold text-accent">
+                  {step.number}
+                </p>
+                <h3 className="font-heading text-xl font-semibold text-ink">
+                  {step.title}
+                </h3>
+                <p className="text-sm leading-7 text-slate">{step.body}</p>
+              </article>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-cream py-24">
+        <Container>
+          <div className="grid gap-14 lg:grid-cols-2">
+            <div>
+              <Subheading>Commercial boundaries</Subheading>
+              <Heading as="h2" className="mt-3">
+                What we do not sell.
+              </Heading>
+              <p className="mt-6 text-base leading-8 text-slate">
+                A transparent price is incomplete without boundaries. We do not
+                price links by DR, sell bulk pages without a usefulness and
+                uniqueness case, disguise third-party media costs, promise
+                rankings, or present AI-answer monitoring as guaranteed
+                influence over a platform.
+              </p>
+              <ul className="mt-8 space-y-4">
+                {[
+                  'No guaranteed Google position, AI citation, traffic figure, lead volume, revenue, or result date.',
+                  'No unlimited page, article, revision, development, outreach, market, prompt, or platform promise.',
+                  'No fake office, review, author, expert, benchmark, award, partnership, case study, or customer result.',
+                  'No fixed backlink quota that rewards volume over relevance, editorial merit, and risk.',
+                  'No reporting that combines incompatible markets or hides measurement limitations.',
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-sm leading-7 text-slate">
+                    <CheckIcon className="mt-1 size-4 shrink-0 fill-accent" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <Subheading>Evidence to add</Subheading>
+              <Heading as="h2" className="mt-3">
+                Show how capacity becomes work.
+              </Heading>
+              <p className="mt-6 text-base leading-8 text-slate">
+                These slots are intentionally empty until the final,
+                non-confidential screenshots are supplied.
+              </p>
+              <div className="mt-8 space-y-6">
+                <EvidencePlaceholder
+                  label="Example scoped roadmap"
+                  description="Add an approved roadmap view showing priorities, owners, workstreams, and acceptance criteria without client-confidential data."
+                />
+                <EvidencePlaceholder
+                  label="Example measurement view"
+                  description="Add an approved reporting screenshot connecting search and AI visibility to the relevant conversion or business cohort."
+                />
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-paper py-24">
+        <Container>
+          <div className="max-w-3xl">
+            <Subheading>Evaluation guide</Subheading>
+            <Heading as="h2" className="mt-3">
+              How should you compare SEO pricing proposals?
+            </Heading>
+            <Lead className="mt-6">
+              Ask whether the proposal explains the operating model behind the
+              number. A long deliverable list can still omit the constraint that
+              controls growth.
+            </Lead>
+          </div>
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {[
+              ['Diagnosis', 'Does it name the customer decision, search opportunity, technical constraint, evidence, and assumptions?'],
+              ['People', 'Who makes decisions, researches, writes, reviews, implements, tests, reports, and speaks with your team?'],
+              ['Capacity', 'Which workstreams fit simultaneously, how are priorities changed, and what is explicitly outside scope?'],
+              ['Implementation', 'Does the provider stop at recommendations, or own tickets, changes, QA, and verification?'],
+              ['Measurement', 'Are baselines, conversion cohorts, AI samples, sources, limits, and business outcomes defined?'],
+              ['Risk', 'What does the provider refuse to guarantee, automate, publish, buy, or represent inaccurately?'],
+            ].map(([title, body]) => (
+              <article key={title} className="border border-border-strong p-6">
+                <h3 className="font-heading text-lg font-semibold text-ink">{title}</h3>
+                <p className="mt-3 text-sm leading-7 text-slate">{body}</p>
+              </article>
+            ))}
+          </div>
+          <p className="mt-10 text-sm leading-7 text-slate">
+            See our{' '}
+            <Link className="font-semibold text-accent underline" href="/methodology">
+              methodology
+            </Link>
+            , review the{' '}
+            <Link className="font-semibold text-accent underline" href="/services">
+              service architecture
+            </Link>
+            , or inspect the approved{' '}
+            <Link className="font-semibold text-accent underline" href="/case-studies">
+              case-study evidence
+            </Link>{' '}
+            before requesting a proposal.
+          </p>
+        </Container>
+      </section>
+
+      <section className="border-y border-border bg-cream py-24">
+        <Container>
+          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+            <div>
+              <Subheading>Frequently asked questions</Subheading>
+              <Heading as="h2" className="mt-3">
+                Questions buyers should ask before signing.
+              </Heading>
+            </div>
+            <FAQAccordion title="SEO agency pricing questions" items={faqItems} />
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-paper py-20">
+        <Container>
+          <div className="max-w-3xl">
+            <Subheading>Sources and update policy</Subheading>
+            <Heading as="h2" className="mt-3">
+              Pricing context you can inspect.
+            </Heading>
+            <p className="mt-5 text-sm leading-7 text-slate">
+              Market figures are dated and attributed. TheProjectSEO’s starting
+              price is first-party commercial information. This page was
+              reviewed by TheProjectSEO and updated July 28, 2026.
+            </p>
+          </div>
+          <div className="mt-10 grid gap-px bg-border-strong lg:grid-cols-2">
+            {sources.map((source) => (
+              <a
+                key={source.href}
+                href={source.href}
+                target="_blank"
+                rel="noreferrer"
+                className="bg-paper p-6 transition-colors hover:bg-cream"
+              >
+                <h3 className="font-heading text-base font-semibold text-ink">
+                  {source.label}
+                </h3>
+                <p className="mt-3 text-sm leading-7 text-slate">{source.note}</p>
+              </a>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <CTAFormSection
+        subheading="Request a scope"
+        heading="Find out what $3,500—or a larger programme—should fund."
+        lead="Share the site, markets, commercial goal, current team, and implementation constraints. We will identify the information needed for a responsible scope rather than sending a generic package."
+        benefits={[
+          'Opportunity and constraint review',
+          'Named workstreams, capacity, ownership, and exclusions',
+          'Google and AI-search measurement matched to the buying journey',
+        ]}
+        submitText="Request a scoped proposal"
+        formVariant="full"
       />
-      <DevelopmentPricing />
-      <AutomationPricing />
-      <ContentPricing />
-      <CustomSection />
-      <TestimonialQuoteSection
-        quote="We hit our KPIs in less than 3 months. Working with Aditya, we moved our key revenue-driving pages to positions #1 and #2, where we were previously ranking at #6 or #7."
-        author="James Lim"
-        role="CEO"
-        company="Helpling APAC"
-      />
-      <FAQ />
-      <CTASection />
+
       <Footer />
     </main>
   )

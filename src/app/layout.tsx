@@ -1,61 +1,53 @@
 import type { Metadata } from "next";
-import { Fraunces, Archivo, Inter, JetBrains_Mono } from "next/font/google";
+import { IBM_Plex_Mono, Manrope } from "next/font/google";
 import "./globals.css";
 import { SessionTrackerLoader } from "@/components/session-tracker-loader";
 
-const fraunces = Fraunces({
+const manrope = Manrope({
   subsets: ["latin"],
-  variable: "--font-fraunces",
+  variable: "--font-manrope",
   display: "swap",
 });
 
-const archivo = Archivo({
+const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
-  variable: "--font-archivo",
-  display: "swap",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
+  weight: ["400", "500", "600"],
+  variable: "--font-ibm-plex-mono",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "TheProjectSEO - Professional SEO Agency | Dominate Search Rankings",
-  description: "Leading SEO agency helping businesses achieve #1 rankings. Expert SEO audits, keyword research, technical SEO, and content optimization. Get results that drive revenue.",
-  keywords: "SEO agency, search engine optimization, SEO services, digital marketing, keyword research, technical SEO, local SEO",
-  metadataBase: new URL('https://theprojectseo.com'),
+  description:
+    "Leading SEO agency helping businesses achieve #1 rankings. Expert SEO audits, keyword research, technical SEO, and content optimization. Get results that drive revenue.",
+  keywords:
+    "SEO agency, search engine optimization, SEO services, digital marketing, keyword research, technical SEO, local SEO",
+  metadataBase: new URL("https://theprojectseo.com"),
   verification: {
-    google: '1kf0OJwcLdQ89CJbRqmFwE6YnUtHYLH4smj_N4HRY50',
+    google: "1kf0OJwcLdQ89CJbRqmFwE6YnUtHYLH4smj_N4HRY50",
   },
   openGraph: {
     title: "TheProjectSEO - Professional SEO Agency",
-    description: "Leading SEO agency helping businesses achieve #1 rankings. Expert SEO services that drive real results.",
-    url: 'https://theprojectseo.com',
-    siteName: 'TheProjectSEO',
+    description:
+      "Leading SEO agency helping businesses achieve #1 rankings. Expert SEO services that drive real results.",
+    url: "https://theprojectseo.com",
+    siteName: "TheProjectSEO",
     images: [
       {
-        url: '/og-image.jpg',
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: 'TheProjectSEO - Professional SEO Agency',
+        alt: "TheProjectSEO - Professional SEO Agency",
       },
     ],
-    locale: 'en_US',
-    type: 'website',
+    locale: "en_US",
+    type: "website",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'TheProjectSEO - Professional SEO Agency',
-    description: 'Leading SEO agency helping businesses achieve #1 rankings.',
-    images: ['/og-image.jpg'],
+    card: "summary_large_image",
+    title: "TheProjectSEO - Professional SEO Agency",
+    description: "Leading SEO agency helping businesses achieve #1 rankings.",
+    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,
@@ -63,19 +55,19 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
   icons: {
     icon: [
-      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/favicon-192x192.png', sizes: '192x192', type: 'image/png' },
-      { url: '/favicon-512x512.png', sizes: '512x512', type: 'image/png' },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/favicon-512x512.png", sizes: "512x512", type: "image/png" },
     ],
     apple: [
-      { url: '/apple-touch-icon.png', sizes: '192x192', type: 'image/png' },
+      { url: "/apple-touch-icon.png", sizes: "192x192", type: "image/png" },
     ],
   },
 };
@@ -88,7 +80,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fraunces.variable} ${archivo.variable} ${inter.variable} ${jetbrainsMono.variable}`}
+      className={`${manrope.variable} ${ibmPlexMono.variable}`}
     >
       <body className="font-sans antialiased bg-paper text-ink">
         {children}

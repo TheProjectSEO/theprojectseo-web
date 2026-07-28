@@ -1,7 +1,6 @@
 import type { Service } from './types';
 
-// Canonical service taxonomy. 15 pillars, ~110 sub-pages.
-// See IA plan: ~/.claude/plans/do-a-comprehensive-research-expressive-pebble.md
+// Canonical SEO-only service taxonomy.
 //
 // status: 'live'    = page.tsx already exists on main
 // status: 'planned' = scheduled per plan
@@ -46,24 +45,11 @@ export const services: Service[] = [
   { slug: 'claude-seo', pillar: 'ai-search', name: 'Claude SEO', shortDescription: 'Optimize for Claude citations.', status: 'planned', launchPhase: 'M2' },
   { slug: 'gemini-seo', pillar: 'ai-search', name: 'Gemini SEO', shortDescription: 'Optimize for Gemini citations.', status: 'planned', launchPhase: 'M2' },
 
-  // ============ PILLAR: PAID MEDIA ============
-  { slug: 'google-ads', pillar: 'paid-media', name: 'Google Ads Management', shortDescription: 'Search, Display, Performance Max campaigns.', status: 'planned', launchPhase: 'M2' },
-  { slug: 'linkedin-ads', pillar: 'paid-media', name: 'LinkedIn Ads', shortDescription: 'B2B account-based campaigns on LinkedIn.', status: 'planned', launchPhase: 'M2' },
-  { slug: 'meta-ads', pillar: 'paid-media', name: 'Meta Ads (Facebook + Instagram)', shortDescription: 'Full-funnel Meta campaigns.', status: 'planned', launchPhase: 'M2' },
-  { slug: 'youtube-ads', pillar: 'paid-media', name: 'YouTube Ads', shortDescription: 'In-stream and discovery ad campaigns.', status: 'planned', launchPhase: 'M2' },
-  { slug: 'bing-ads', pillar: 'paid-media', name: 'Microsoft Ads (Bing)', shortDescription: 'Bing/Microsoft Advertising management.', status: 'planned', launchPhase: 'M2' },
-  { slug: 'google-local-services-ads', pillar: 'paid-media', name: 'Google Local Services Ads', shortDescription: 'LSA setup and optimization for local businesses.', status: 'planned', launchPhase: 'M2' },
-  { slug: 'paid-search-seo-integration', pillar: 'paid-media', name: 'Paid + Organic Integration', shortDescription: 'Combined PPC + SEO strategy for SERP dominance.', status: 'planned', launchPhase: 'M2' },
-  { slug: 'ppc-audit', pillar: 'paid-media', name: 'PPC Account Audit', shortDescription: 'Wasted spend and opportunity analysis.', status: 'planned', launchPhase: 'M2' },
-
-  // ============ PILLAR: ANALYTICS ============
+  // ============ PILLAR: SEO ANALYTICS ============
   { slug: 'seo-forecasting', pillar: 'analytics', name: 'SEO Forecasting', shortDescription: 'Traffic and revenue forecasts tied to business outcomes.', status: 'planned', launchPhase: 'M2' },
   { slug: 'seo-reporting', pillar: 'analytics', name: 'SEO Reporting', shortDescription: 'Board-ready reports and executive dashboards.', status: 'planned', launchPhase: 'M2' },
   { slug: 'seo-attribution', pillar: 'analytics', name: 'SEO Attribution', shortDescription: 'Connect organic traffic to revenue.', status: 'planned', launchPhase: 'M2' },
   { slug: 'gsc-bigquery-setup', pillar: 'analytics', name: 'GSC + BigQuery Setup', shortDescription: 'Search Console warehousing for historical analysis.', status: 'planned', launchPhase: 'M2' },
-  { slug: 'ga4-migration', pillar: 'analytics', name: 'GA4 Migration', shortDescription: 'Universal Analytics to GA4 migration.', status: 'planned', launchPhase: 'M2' },
-  { slug: 'custom-dashboards', pillar: 'analytics', name: 'Custom Marketing Dashboards', shortDescription: 'Looker Studio, Power BI, custom dashboards.', status: 'live', launchPhase: 'M2', legacyUrl: '/services/data-visualization' },
-  { slug: 'data-engineering', pillar: 'analytics', name: 'Data Engineering', shortDescription: 'Pipelines, warehousing, data models.', status: 'live', launchPhase: 'M2', legacyUrl: '/services/data-engineering' },
   { slug: 'automated-technical-reporting', pillar: 'analytics', name: 'Automated Technical SEO Reporting', shortDescription: 'Weekly auto-generated tech SEO reports.', status: 'planned', launchPhase: 'M2' },
 
   // ============ PILLAR: CONTENT ============
@@ -95,24 +81,7 @@ export const services: Service[] = [
   { slug: 'e-e-a-t-audit', pillar: 'digital-pr', name: 'E-E-A-T Audit', shortDescription: 'Experience, Expertise, Authoritativeness, Trust review.', status: 'planned', launchPhase: 'M3' },
   { slug: 'pr-link-building', pillar: 'digital-pr', name: 'PR-Driven Link Building', shortDescription: 'Editorial links from journalism.', status: 'planned', launchPhase: 'M3' },
 
-  // ============ PILLAR: REVOPS ============
-  { slug: 'revops', pillar: 'revops', name: 'RevOps Consulting', shortDescription: 'Sales + marketing + CS ops alignment.', status: 'planned', launchPhase: 'M4' },
-  { slug: 'hubspot-implementation', pillar: 'revops', name: 'HubSpot Implementation', shortDescription: 'Full HubSpot setup + integrations.', status: 'planned', launchPhase: 'M4' },
-  { slug: 'salesforce-setup', pillar: 'revops', name: 'Salesforce Setup', shortDescription: 'Salesforce implementation for B2B pipelines.', status: 'planned', launchPhase: 'M4' },
-  { slug: 'crm-setup', pillar: 'revops', name: 'CRM Setup', shortDescription: 'CRM architecture, data model, adoption.', status: 'planned', launchPhase: 'M4' },
-  { slug: 'martech-audit', pillar: 'revops', name: 'Martech Stack Audit', shortDescription: 'Tool consolidation and ROI review.', status: 'planned', launchPhase: 'M4' },
-  { slug: 'marketing-automation', pillar: 'revops', name: 'Marketing Automation', shortDescription: 'Lifecycle campaigns, lead scoring, nurture.', status: 'planned', launchPhase: 'M4' },
-
-  // ============ PILLAR: ABM ============
-  { slug: 'abm', pillar: 'abm', name: 'Account-Based Marketing', shortDescription: 'Target-account-centric B2B campaigns.', status: 'planned', launchPhase: 'M4' },
-  { slug: 'abm-list-building', pillar: 'abm', name: 'ABM List Building', shortDescription: 'Target-account research and scoring.', status: 'planned', launchPhase: 'M4' },
-  { slug: 'one-to-one-abm', pillar: 'abm', name: '1:1 ABM Campaigns', shortDescription: 'Hyper-personalized strategic account programs.', status: 'planned', launchPhase: 'M4' },
-  { slug: 'abm-content', pillar: 'abm', name: 'ABM Content', shortDescription: 'Account-specific content and personalization.', status: 'planned', launchPhase: 'M4' },
-
-  // ============ PILLAR: CRO ============
-  { slug: 'cro', pillar: 'cro', name: 'Conversion Rate Optimization', shortDescription: 'Data-driven conversion testing and lifts.', status: 'planned', launchPhase: 'M4' },
-  { slug: 'landing-page-design', pillar: 'cro', name: 'Landing Page Design', shortDescription: 'High-converting landing pages for paid + organic.', status: 'planned', launchPhase: 'M4' },
-  { slug: 'ab-testing', pillar: 'cro', name: 'A/B Testing', shortDescription: 'Experimentation programs that move metrics.', status: 'planned', launchPhase: 'M4' },
+  // ============ PILLAR: SEO EXPERIMENTATION ============
   { slug: 'seo-split-testing', pillar: 'cro', name: 'SEO Split Testing', shortDescription: 'Template-level experiments on organic traffic.', status: 'planned', launchPhase: 'M4' },
 
   // ============ PILLAR: LOCAL AT SCALE ============
@@ -121,47 +90,13 @@ export const services: Service[] = [
   { slug: 'local-citations', pillar: 'local-at-scale', name: 'Local Citations Management', shortDescription: 'NAP consistency across directories.', status: 'planned', launchPhase: 'M5' },
   { slug: 'reputation-management', pillar: 'local-at-scale', name: 'Reputation Management', shortDescription: 'Review generation and response at scale.', status: 'planned', launchPhase: 'M5' },
 
-  // ============ PILLAR: AUTOMATION ============
+  // ============ PILLAR: SEO AUTOMATION ============
   { slug: 'seo-automation', pillar: 'automation', name: 'SEO Automation', shortDescription: 'Agentic systems for SEO workflows.', status: 'live', launchPhase: 'M1', legacyUrl: '/services/seo-automation' },
-  { slug: 'n8n-automation', pillar: 'automation', name: 'n8n Automation Services', shortDescription: 'Self-hosted workflow automations.', status: 'live', launchPhase: 'M1', legacyUrl: '/services/n8n-automation' },
-  { slug: 'n8n-marketing-automation', pillar: 'automation', name: 'Marketing Automation (n8n)', shortDescription: 'Lifecycle campaigns via n8n.', status: 'live', launchPhase: 'M1', legacyUrl: '/services/n8n-automation/marketing-automation' },
-  { slug: 'n8n-sales-automation', pillar: 'automation', name: 'Sales Automation (n8n)', shortDescription: 'Lead routing, enrichment, follow-ups.', status: 'live', launchPhase: 'M1', legacyUrl: '/services/n8n-automation/sales-automation' },
-  { slug: 'n8n-crm-automation', pillar: 'automation', name: 'CRM Automation (n8n)', shortDescription: 'Two-way sync + enrichment.', status: 'live', launchPhase: 'M1', legacyUrl: '/services/n8n-automation/crm-automation' },
-  { slug: 'n8n-reporting-automation', pillar: 'automation', name: 'Reporting Automation (n8n)', shortDescription: 'Auto-generated reports.', status: 'live', launchPhase: 'M1', legacyUrl: '/services/n8n-automation/reporting-automation' },
-  { slug: 'n8n-data-pipeline-automation', pillar: 'automation', name: 'Data Pipeline Automation (n8n)', shortDescription: 'ETL + data sync pipelines.', status: 'live', launchPhase: 'M1', legacyUrl: '/services/n8n-automation/data-pipeline-automation' },
-  { slug: 'n8n-customer-service-automation', pillar: 'automation', name: 'Customer Service Automation (n8n)', shortDescription: 'Support tickets, FAQ, escalations.', status: 'live', launchPhase: 'M1', legacyUrl: '/services/n8n-automation/customer-service-automation' },
-  { slug: 'workflow-subscription', pillar: 'automation', name: 'Workflow Subscription', shortDescription: 'Monthly retainer — bring us any automation idea.', status: 'planned', launchPhase: 'M2' },
-  { slug: 'agency-workflow-whitelabel', pillar: 'automation', name: 'Agency Workflow Whitelabel', shortDescription: 'Our workflow stack, whitelabeled for other agencies.', status: 'planned', launchPhase: 'M5' },
-  { slug: 'workflow-library', pillar: 'automation', name: 'Free Workflow Library', shortDescription: 'Open-source n8n + Claude blueprints.', status: 'planned', launchPhase: 'M5' },
 
-  // ============ PILLAR: DEVELOPMENT ============
-  { slug: 'web-app-development', pillar: 'development', name: 'Web App Development', shortDescription: 'Custom web applications.', status: 'live', launchPhase: 'M1' },
-  { slug: 'ecommerce-development', pillar: 'development', name: 'Ecommerce Development', shortDescription: 'Shopify, custom commerce builds.', status: 'live', launchPhase: 'M1' },
-  { slug: 'mvp-development', pillar: 'development', name: 'MVP Development', shortDescription: 'Startup MVPs in weeks, not months.', status: 'live', launchPhase: 'M1' },
-  { slug: 'ai-development', pillar: 'development', name: 'AI Development', shortDescription: 'Custom AI features and integrations.', status: 'live', launchPhase: 'M1' },
-
-  // ============ PILLAR: AI AGENTS ============
+  // ============ PILLAR: AI SEO AGENTS ============
   { slug: 'ai-seo-agent', pillar: 'ai-agents', name: 'AI SEO Agent', shortDescription: 'Autonomous SEO operator powered by Claude.', status: 'live', launchPhase: 'M2' },
-  { slug: 'ai-ppc-agent', pillar: 'ai-agents', name: 'AI PPC Agent', shortDescription: 'Automated bid + keyword + ad-copy optimization.', status: 'planned', launchPhase: 'M2' },
-  { slug: 'ai-content-agent', pillar: 'ai-agents', name: 'AI Content Agent', shortDescription: 'Brief-to-publish content production.', status: 'planned', launchPhase: 'M2' },
-  { slug: 'ai-revops-agent', pillar: 'ai-agents', name: 'AI RevOps Agent', shortDescription: 'Deal-stage analysis, pipeline hygiene.', status: 'planned', launchPhase: 'M2' },
-  { slug: 'ai-analytics-agent', pillar: 'ai-agents', name: 'AI Analytics Agent', shortDescription: 'Natural-language analytics on GA4 + BigQuery.', status: 'planned', launchPhase: 'M2' },
-  { slug: 'ai-reporting-agent', pillar: 'ai-agents', name: 'AI Reporting Agent', shortDescription: 'Auto-generated weekly client reports.', status: 'planned', launchPhase: 'M2' },
 
-  // ============ PILLAR: CLAUDE / ANTHROPIC (white-space positioning) ============
-  { slug: 'claude-agency', pillar: 'claude', name: 'Claude Agency', shortDescription: 'Your partner for Claude Code and Anthropic-powered systems.', status: 'planned', launchPhase: 'M2' },
-  { slug: 'claude-code-consulting', pillar: 'claude', name: 'Claude Code Consulting', shortDescription: 'Adopt Claude Code CLI across your engineering team.', status: 'planned', launchPhase: 'M2' },
-  { slug: 'claude-agent-sdk-development', pillar: 'claude', name: 'Claude Agent SDK Development', shortDescription: 'Production agents built on the Agent SDK.', status: 'planned', launchPhase: 'M2' },
-  { slug: 'claude-skills-development', pillar: 'claude', name: 'Claude Skills Development', shortDescription: 'Custom Skills for your team\'s workflows.', status: 'planned', launchPhase: 'M2' },
-  { slug: 'mcp-server-development', pillar: 'claude', name: 'MCP Server Development', shortDescription: 'Custom Model Context Protocol servers.', status: 'planned', launchPhase: 'M2' },
-  { slug: 'claude-hooks-development', pillar: 'claude', name: 'Claude Code Hooks Development', shortDescription: 'Pre/post-tool-use automation hooks.', status: 'planned', launchPhase: 'M3' },
-  { slug: 'claude-plugin-development', pillar: 'claude', name: 'Claude Code Plugin Development', shortDescription: 'Plugins that extend Claude Code.', status: 'planned', launchPhase: 'M3' },
-  { slug: 'anthropic-api-consulting', pillar: 'claude', name: 'Anthropic API Consulting', shortDescription: 'API integration, prompt caching, tool use, batch.', status: 'planned', launchPhase: 'M3' },
-  { slug: 'claude-prompt-engineering', pillar: 'claude', name: 'Claude Prompt Engineering', shortDescription: 'Production-grade prompt design and evals.', status: 'planned', launchPhase: 'M3' },
-  { slug: 'claude-workflows', pillar: 'claude', name: 'Claude Workflows', shortDescription: 'Productized agentic workflows.', status: 'planned', launchPhase: 'M3' },
-  { slug: 'anthropic-model-migration', pillar: 'claude', name: 'Anthropic Model Migration', shortDescription: 'Claude 3.5 to 4.x migration service.', status: 'planned', launchPhase: 'M3' },
-  { slug: 'claude-rag-systems', pillar: 'claude', name: 'Claude RAG Systems', shortDescription: 'RAG pipelines on the Anthropic stack.', status: 'planned', launchPhase: 'M3' },
-  { slug: 'claude-code-training', pillar: 'claude', name: 'Claude Code Training', shortDescription: 'Team enablement + onboarding programs.', status: 'planned', launchPhase: 'M3' },
+  // ============ PILLAR: AGENTIC SEO SYSTEMS ============
   { slug: 'agentic-seo-systems', pillar: 'claude', name: 'Agentic SEO Systems', shortDescription: 'Productized Claude-powered SEO operating systems.', status: 'planned', launchPhase: 'M3' },
 ];
 

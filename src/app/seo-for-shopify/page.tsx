@@ -6,11 +6,11 @@ import { Footer } from '@/components/footer'
 import { Button } from '@/components/button'
 import { Heading, Lead, Subheading } from '@/components/text'
 import { CheckIcon } from '@/components/check-icon'
+import { EvidencePlaceholder } from '@/components/evidence-placeholder'
 import { JsonLd } from '@/components/json-ld'
 import { FAQDarkSection } from '@/components/faq-dark-section'
 import { TestimonialQuoteSection } from '@/components/testimonial-quote-section'
 import { CTAFormSection } from '@/components/service-page-sections'
-import { CTRByPositionChart } from '@/components/ctr-by-position-chart'
 import { Search, Tag, Wrench, FileText, Link2, Sparkles } from 'lucide-react'
 
 /* -------------------------------------------------------------------------- */
@@ -105,12 +105,12 @@ const faqData = [
   {
     question: 'Which SEO tool is best for Shopify?',
     answer:
-      'There is no single best tool. The Shopify App Store lists 977 apps in its SEO category, and they automate the same narrow band: meta tags, alt text, broken-link scans. No app fixes strategy, site structure, or link acquisition. Pick one utility app, then spend the savings on the work apps cannot do.',
+      'There is no single best tool. SEO apps can help with tasks such as metadata, alt text, broken-link scans, structured data, or image workflows, but their features and prices change. No app can choose your commercial page architecture, validate product facts, secure editorial authority, or own implementation decisions. Audit the need before adding another app.',
   },
   {
     question: 'How much does Shopify SEO cost?',
     answer:
-      'Doing Shopify SEO yourself costs $0 to $50 per month in app fees plus your hours. Freelancer and agency pricing scales with scope: audit-only projects cost less than ongoing retainers that cover architecture, content, links, and AI search work. Get a scoped quote rather than trusting a generic rate card.',
+      'DIY cost includes the owner or team’s time plus any theme, development, research, content, data, or app expense. External pricing scales with site size, markets, competition, implementation, content, authority, analytics, and AI-search measurement. TheProjectSEO’s ongoing engagements start at $3,500 per month; final Shopify scope is custom.',
   },
   {
     question: 'Does Yoast SEO work on Shopify?',
@@ -120,7 +120,7 @@ const faqData = [
   {
     question: 'How do I make my Shopify store show up in ChatGPT and AI search?',
     answer:
-      'Give AI systems something to quote. That means complete Product schema with price and availability, entity-rich product and collection descriptions, direct 40-60 word answers under question-form headings, and crawl access for AI agents in robots.txt.liquid. Stores that stay invisible to AI crawlers lose the recommendation before the shopper ever reaches Google.',
+      'Publish accurate, useful product and collection information; keep Product and Offer structured data consistent with visible price and availability; establish clear brand and product entities; earn corroboration from relevant external sources; and measure representative prompts, citations, sources, factual accuracy, and referral traffic separately. Review Shopify Catalog and robots.txt.liquid controls before changing crawler access. No setting guarantees a ChatGPT mention or citation.',
   },
   {
     question: 'How long does Shopify SEO take to show results?',
@@ -294,11 +294,8 @@ function StepsSection() {
             </p>
             <p className="mt-4 leading-relaxed text-stone">
               Validate demand with volume data before building pages, favor high-intent terms over
-              big numbers, and{' '}
-              <Link href="/tools" className="font-medium text-accent underline-offset-4 hover:underline">
-                check margins before scaling a product category
-              </Link>{' '}
-              so the traffic you win is worth having. Build the keyword map before touching the store.
+              big numbers, and check margins before scaling a product category so the traffic you win
+              is worth having. Build the keyword map before touching the store.
             </p>
           </div>
 
@@ -307,11 +304,11 @@ function StepsSection() {
             <StepHead n={2} title="On-page SEO: products, collections, metadata" />
             <ul className="mt-4 space-y-3">
               {[
-                'Title tags under 60 characters, keyword first, brand last — edit the search-listing field, do not accept the product-name default.',
-                'Meta descriptions around 150 characters that state the offer, not the category. "Free shipping over $50" earns clicks; "Welcome to our store" does not.',
-                'Unique product descriptions. Manufacturer copy pasted across forty competitors ranks for nobody.',
+                'Descriptive, concise title tags that distinguish the product or collection and remain useful when Google rewrites a title link.',
+                'Specific meta descriptions that summarize the visible offer and help a shopper decide whether the page matches the query.',
+                'Useful product descriptions based on approved product facts, questions, differentiators, limitations, delivery, returns, and care—not undifferentiated manufacturer copy.',
                 'Alt text on every product image, written to describe the image for search engines and screen-reader users.',
-                'Keyword in the slug. Edit handles before launch; changing them later creates redirects.',
+                'Readable handles chosen before launch where practical; later changes require a tested redirect and internal-link update.',
               ].map((item) => (
                 <li key={item} className="flex gap-3">
                   <CheckIcon className="mt-1 size-4 shrink-0 text-accent" />
@@ -320,10 +317,10 @@ function StepsSection() {
               ))}
             </ul>
             <p className="mt-4 leading-relaxed text-stone">
-              Product JSON-LD carrying price, availability, and ratings is what earns rich snippets
-              and, increasingly, placement in AI-generated shopping answers. Schema is a core layer
-              of our service work; every deployment we run passes a structured validation gate before
-              it ships.
+              Accurate Product and Offer structured data can make a page eligible for supported
+              Google product experiences, but valid markup does not guarantee a rich result or
+              AI-generated placement. The visible page, feed, structured data, price, currency,
+              availability, shipping, returns, reviews, and variants should agree before release.
             </p>
           </div>
 
@@ -332,7 +329,8 @@ function StepsSection() {
             <StepHead n={3} title="Technical SEO on Shopify" />
             <p className="mt-4 leading-relaxed text-stone">
               Site architecture first. Home links to collections, collections link to products, and
-              no product sits more than three clicks from the homepage. Your navigation menus are your
+              important pages stay within a short, crawlable path from the homepage wherever
+              practical. Your navigation menus are your
               internal linking system on Shopify, so structure them around your keyword map, not your
               org chart. A product linked from a relevant, high-traffic collection carries more
               authority than the same product buried six clicks deep.
@@ -340,9 +338,9 @@ function StepsSection() {
             <p className="mt-4 leading-relaxed text-stone">
               Then the basics that still get skipped: submit sitemap.xml in Search Console and use the
               coverage report monthly; compress images before upload even though Shopify serves WebP;
-              and recheck the duplicate collection-URL issue after any theme change. Architecture is
-              where we see the largest wins in client work, because the results compound across every
-              page at once.
+              and verify canonical, pagination, filter, internal-link, and duplicate URL behavior
+              after theme or app changes. Architecture matters because one template or navigation
+              decision can affect a large product and collection cohort at once.
             </p>
           </div>
 
@@ -354,8 +352,8 @@ function StepsSection() {
               the store into every search a buyer runs before they know what to buy. Create posts from
               the informational queries in your Step 1 map, answer them better than the pages currently
               ranking, and let each post pass authority to the products it supports. Collection-page
-              descriptions are the most under-used ranking asset on Shopify: 150 to 300 words of
-              genuinely useful copy turns a thin category page into one that can rank for its head term.
+              descriptions are often underused. Add the amount of useful copy the shopper and
+              category require; a fixed word count does not make a collection page rank.
             </p>
           </div>
 
@@ -376,33 +374,38 @@ function StepsSection() {
           <div id="step-6" className="mt-14 scroll-mt-24">
             <StepHead n={6} title="Getting your store cited in AI search (AEO)" />
             <p className="mt-4 leading-relaxed text-stone">
-              Give AI systems something to quote: complete Product schema with price and availability,
-              entity-rich product and collection descriptions, direct 40-60 word answers under
-              question-form headings, and crawl access for AI agents in robots.txt.liquid. Test where
-              you stand with our free{' '}
+              Give answer systems accurate, useful sources to retrieve: consistent product facts,
+              complete visible descriptions, valid Product and Offer structured data, clear brand
+              and product entities, direct answers where a shopper genuinely asks a question, and
+              deliberate crawler or catalog controls. Benchmark
+              where you stand with a repeatable{' '}
               <Link
-                href="/tools/ai-visibility-checker"
+                href="/services/ai-search/llm-visibility-tracking"
                 className="font-medium text-accent underline-offset-4 hover:underline"
               >
-                AI search visibility checker
+                LLM visibility tracking programme
               </Link>
               .
             </p>
             <p className="mt-4 leading-relaxed text-stone">
-              This is the gap on this exact search results page. An AI Overview holds the top of
-              Google&apos;s results for &ldquo;seo for shopify&rdquo; and answers the basics before
-              anyone clicks. The click ceiling is falling everywhere — here is what that looks like in
-              our own client data:
+              AI answers can change the discovery journey without producing a conventional click.
+              Track Google performance, AI-answer observations, citations, source eligibility,
+              factual accuracy, recognized referral traffic, and commercial outcomes as separate
+              evidence layers. The evidence area below is reserved for an approved Shopify-specific
+              example rather than unpublished client data.
             </p>
 
-            <CTRByPositionChart />
+            <EvidencePlaceholder
+              label="Shopify search and AI visibility evidence"
+              description="Add an approved, privacy-safe view showing the Shopify store, reporting window, Google query or landing-page cohort, representative AI-answer cohort, and metric definitions."
+            />
 
             <p className="mt-4 leading-relaxed text-stone">
-              Shoppers ask ChatGPT &ldquo;what&apos;s the best ceramic mug for cold brew&rdquo; and buy
-              from whichever store the model can see and cite. Keep descriptions entity-rich, keep
-              Product schema complete, confirm robots.txt.liquid is not blocking the AI crawlers you
-              want, and publish answer-first content in the 40-60 word pattern this page uses. The full
-              methodology lives in our{' '}
+              Shopify documents that product data shared through activated agentic storefronts can
+              be distributed through Shopify Catalog independently of open-web robots.txt controls.
+              Review catalog settings and direct crawler access separately, keep visible and
+              machine-readable product facts aligned, and avoid treating a crawler rule as a
+              recommendation guarantee. The full methodology lives in our{' '}
               <Link
                 href="/services/ai-search"
                 className="font-medium text-accent underline-offset-4 hover:underline"
@@ -439,9 +442,10 @@ function AppsSection() {
             Which SEO apps are actually worth it?
           </Heading>
           <Lead className="mt-6">
-            The Shopify App Store lists 977 apps in its SEO category, and they automate the same
-            narrow band. No app fixes strategy, site structure, or link acquisition. Pick one utility
-            app, then spend the savings on the work apps cannot do.
+            App counts, features, and prices change. Use an app only when it solves a documented
+            requirement better than the theme, Shopify&apos;s native controls, or a maintainable
+            implementation. No app can own your commercial architecture, product truth, editorial
+            judgment, authority, or measurement decisions.
           </Lead>
         </div>
         <div className="mx-auto max-w-3xl">
@@ -467,10 +471,11 @@ function CostSection() {
             How much does Shopify SEO cost, and should you do it yourself?
           </Heading>
           <p className="mt-6 leading-relaxed text-white/70">
-            Doing Shopify SEO yourself costs $0 to $50 per month in app fees plus your hours. Paid
-            help prices by scope, from one-off audits to monthly retainers covering architecture,
-            content, links, and AI search. Three jobs usually justify hiring help: site architecture
-            at scale, link building, and AI search optimization.
+            DIY cost includes your team&apos;s time plus any theme, development, content, research,
+            data, or app expense. Paid help prices by scope, from a defined audit to an ongoing
+            engagement covering architecture, products and collections, technical systems, content,
+            authority, analytics, and AI-search measurement. TheProjectSEO&apos;s ongoing work starts
+            at $3,500 per month; a Shopify proposal states what fits within the agreed capacity.
           </p>
 
           <div className="mt-10 grid grid-cols-1 gap-px overflow-hidden border border-white/15 bg-white/15 md:grid-cols-2">
@@ -483,23 +488,17 @@ function CostSection() {
           </div>
 
           <p className="mt-8 leading-relaxed text-white/70">
-            Run the numbers before you decide either way:{' '}
-            <Link
-              href="/tools/seo-roi-calculator"
-              className="font-medium text-accent underline-offset-4 hover:underline"
-            >
-              model what SEO is worth for your store
-            </Link>{' '}
-            against your margins and traffic.
+            Before deciding either way, model the likely organic revenue against your margins,
+            conversion rate, and the time required to reach meaningful traffic.
           </p>
 
           <div className="mt-10 border-l-4 border-accent bg-white/5 p-6">
             <p className="leading-relaxed text-white/80">
               <span className="font-semibold text-white">TheProjectSEO&apos;s Shopify SEO service</span>{' '}
               covers the full stack this guide describes: technical audit, site architecture, content
-              engineering, AI search optimization, and link building, delivered by an AI-native team
-              that works on ecommerce and marketplace stores daily. Every engagement reports against
-              real Search Console and analytics data, never estimates.
+              and product information, AI-search optimization, authority, and implementation
+              governance. Measurement uses first-party Search Console, analytics, commerce, and CRM
+              data where access and data quality allow, with third-party estimates labeled separately.
             </p>
             <div className="mt-6">
               <Button href="/contact">Request a Shopify SEO proposal</Button>
@@ -508,6 +507,68 @@ function CostSection() {
         </div>
       </Container>
     </div>
+  )
+}
+
+const sources = [
+  {
+    label: 'Shopify SEO overview',
+    href: 'https://help.shopify.com/en/manual/promoting-marketing/seo/seo-overview',
+    note: 'Shopify’s current documentation for built-in canonical tags, sitemaps, robots.txt, SSL, editable metadata, URLs, and image alt text.',
+  },
+  {
+    label: 'Shopify: optimizing site structure',
+    href: 'https://help.shopify.com/en/manual/promoting-marketing/seo/optimize-site',
+    note: 'Shopify’s guidance for menus, descriptive links, image file names, hierarchy, and keeping important pages within a short click path where possible.',
+  },
+  {
+    label: 'Shopify: robots.txt and AI crawler access',
+    href: 'https://help.shopify.com/en/manual/promoting-marketing/seo/editing-robots-txt',
+    note: 'Shopify’s documentation for default rules, customization risk, AI crawler controls, and the distinction between open-web access and Shopify Catalog distribution.',
+  },
+  {
+    label: 'Google product structured data',
+    href: 'https://developers.google.com/search/docs/appearance/structured-data/product',
+    note: 'Google’s supported Product and Offer properties, merchant-listing requirements, eligibility language, and validation guidance.',
+  },
+  {
+    label: 'Google: AI features and your website',
+    href: 'https://developers.google.com/search/docs/appearance/ai-features',
+    note: 'Google’s published eligibility, content, crawler, preview-control, and measurement guidance for AI Overviews and AI Mode.',
+  },
+]
+
+function SourcesSection() {
+  return (
+    <section className="bg-paper py-20">
+      <Container>
+        <div className="max-w-3xl">
+          <Subheading>Sources and review</Subheading>
+          <Heading as="h2" className="mt-3">
+            Shopify and Google documentation behind the guide.
+          </Heading>
+          <p className="mt-5 text-sm leading-7 text-slate">
+            Platform behavior changes. This page was reviewed against the live SERP and official
+            documentation on July 28, 2026. Validate theme, app, catalog, market, and crawler behavior
+            on the actual store before implementation.
+          </p>
+        </div>
+        <div className="mt-10 grid gap-px bg-border-strong lg:grid-cols-2">
+          {sources.map((source) => (
+            <a
+              key={source.href}
+              href={source.href}
+              target="_blank"
+              rel="noreferrer"
+              className="bg-paper p-6 transition-colors hover:bg-cream"
+            >
+              <h3 className="font-heading text-base font-semibold text-ink">{source.label}</h3>
+              <p className="mt-3 text-sm leading-7 text-slate">{source.note}</p>
+            </a>
+          ))}
+        </div>
+      </Container>
+    </section>
   )
 }
 
@@ -532,7 +593,10 @@ export default function SEOForShopify() {
             name: 'TheProjectSEO',
             url: 'https://theprojectseo.com',
           },
-          areaServed: 'Worldwide',
+          areaServed: [
+            { '@type': 'Country', name: 'India' },
+            { '@type': 'Country', name: 'Philippines' },
+          ],
           hasOfferCatalog: {
             '@type': 'OfferCatalog',
             name: 'Shopify SEO service scope',
@@ -579,6 +643,7 @@ export default function SEOForShopify() {
       <StepsSection />
       <AppsSection />
       <CostSection />
+      <SourcesSection />
 
       <TestimonialQuoteSection
         quote="We hit our KPIs in less than 3 months. Moved key pages to #1 and #2."

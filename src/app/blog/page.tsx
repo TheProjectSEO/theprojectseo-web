@@ -1,646 +1,372 @@
-import { Button } from '@/components/button'
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import {
+  ArrowRight,
+  BookOpenText,
+  Check,
+  FlaskConical,
+  Search,
+  Workflow,
+} from 'lucide-react'
+import { Container } from '@/components/container'
+import { EvidencePlaceholder } from '@/components/evidence-placeholder'
+import { Footer } from '@/components/footer'
 import { HeroAnimation } from '@/components/hero-animation'
 import { JsonLd } from '@/components/json-ld'
-import { Container } from '@/components/container'
-import { Footer } from '@/components/footer'
-import { Link } from '@/components/link'
+import { LeadForm } from '@/components/lead-form'
 import { Navbar } from '@/components/navbar'
-import { Heading, Subheading } from '@/components/text'
-import {
-  ChevronRightIcon,
-  Calendar,
-  User,
-  Rss,
-  TrendingUp,
-  Search,
-  FileText,
-  BarChart3,
-  ArrowRight,
-  Star,
-  CheckCircle,
-} from 'lucide-react'
-import dayjs from 'dayjs'
-import type { Metadata } from 'next'
+import { editorialArticles } from '@/data/editorial-articles'
 
 export const metadata: Metadata = {
-  title: 'SEO Blog | TheProjectSEO',
+  title: 'SEO Blog: Practitioner Guides for Google & AI Search',
   description:
-    'Expert SEO insights, algorithm updates, ranking strategies, and digital marketing tips to help your business dominate search results.',
-  alternates: {
-    canonical: '/blog',
+    'Research-led SEO guides for Google, Bing and AI search covering technical SEO, content, ecommerce, local search, algorithms and measurement—with practical routes to implementation.',
+  alternates: { canonical: '/blog' },
+  openGraph: {
+    title: 'TheProjectSEO Research Library',
+    description:
+      'Practitioner guides that connect search research to implementation and qualified growth.',
+    url: 'https://theprojectseo.com/blog',
+    siteName: 'TheProjectSEO',
+    type: 'website',
   },
 }
 
-// Sample blog posts - this would typically come from a CMS
-const featuredPosts = [
-  {
-    slug: 'dominate-search-rankings-2025',
-    title: 'How to Dominate Search Rankings in 2025: The Complete Guide',
-    excerpt:
-      'Discover the latest SEO strategies and algorithm updates that will help your website rank #1 on Google in 2025.',
-    publishedAt: '2024-12-15',
-    category: 'SEO Strategy',
-    author: {
-      name: 'Aditya Aman',
-      image: 'bg-cream',
-    },
-    featured: true,
-  },
-  {
-    slug: 'core-web-vitals-optimization',
-    title: 'Core Web Vitals Optimization: Boost Your Page Speed & Rankings',
-    excerpt:
-      'Learn how to optimize your Core Web Vitals to improve user experience and search rankings.',
-    publishedAt: '2024-12-10',
-    category: 'Technical SEO',
-    author: {
-      name: 'Aditya Aman',
-      image: 'bg-cream',
-    },
-    featured: true,
-  },
-  {
-    slug: 'local-seo-complete-guide',
-    title: 'Local SEO Complete Guide: Dominate Local Search Results',
-    excerpt:
-      'Everything you need to know about local SEO to attract more customers to your business.',
-    publishedAt: '2024-12-05',
-    category: 'Local SEO',
-    author: {
-      name: 'Aditya Aman',
-      image: 'bg-cream',
-    },
-    featured: true,
-  },
+const featuredSlugs = [
+  'dominate-search-rankings-2025',
+  'technical-seo-audit',
+  'content-optimization-checklist',
 ]
 
-const allPosts = [
-  ...featuredPosts,
-  {
-    slug: 'keyword-research-tools-2025',
-    title: 'Best Keyword Research Tools for 2025: Complete Comparison',
-    excerpt:
-      'Compare the top keyword research tools and find the perfect one for your SEO strategy.',
-    publishedAt: '2024-11-28',
-    category: 'SEO Tools',
-    author: {
-      name: 'Aditya Aman',
-      image: 'bg-cream',
-    },
-  },
-  {
-    slug: 'e-commerce-seo-strategy',
-    title: 'E-commerce SEO Strategy: Increase Online Store Traffic by 300%',
-    excerpt:
-      'Proven e-commerce SEO tactics to drive more organic traffic and increase sales.',
-    publishedAt: '2024-11-20',
-    category: 'E-commerce SEO',
-    author: {
-      name: 'Aditya Aman',
-      image: 'bg-cream',
-    },
-  },
-  {
-    slug: 'google-algorithm-updates-2024',
-    title: 'Google Algorithm Updates 2024: What You Need to Know',
-    excerpt:
-      'Stay ahead of the latest Google algorithm changes and how they affect your rankings.',
-    publishedAt: '2024-11-15',
-    category: 'Algorithm Updates',
-    author: {
-      name: 'Aditya Aman',
-      image: 'bg-cream',
-    },
-  },
-  {
-    slug: 'content-optimization-checklist',
-    title: 'SEO Content Optimization Checklist: Rank Higher in 2025',
-    excerpt:
-      'A comprehensive checklist to optimize your content for better search engine rankings.',
-    publishedAt: '2024-11-10',
-    category: 'Content SEO',
-    author: {
-      name: 'Aditya Aman',
-      image: 'bg-cream',
-    },
-  },
-  {
-    slug: 'technical-seo-audit',
-    title: 'Technical SEO Audit: Find & Fix Issues Hurting Your Rankings',
-    excerpt:
-      'Step-by-step guide to conducting a technical SEO audit and fixing common issues.',
-    publishedAt: '2024-11-01',
-    category: 'Technical SEO',
-    author: {
-      name: 'Aditya Aman',
-      image: 'bg-cream',
-    },
-  },
-]
+const categories = [...new Set(editorialArticles.map((article) => article.category))]
 
-const categories = [
-  'SEO Strategy',
-  'Technical SEO',
-  'Local SEO',
-  'Content SEO',
-  'E-commerce SEO',
-  'SEO Tools',
-  'Algorithm Updates',
-]
-
-function Hero() {
+function ArticleCard({
+  article,
+  featured = false,
+}: {
+  article: (typeof editorialArticles)[number]
+  featured?: boolean
+}) {
   return (
-    <div className="relative">
-        <HeroAnimation />
-      <Container className="relative">
-        <Navbar
-          banner={
-            <Link
-              href="/blog/dominate-search-rankings-2025"
-              className="flex items-center gap-2 rounded-none bg-accent-soft px-4 py-1.5 font-mono text-xs font-medium uppercase tracking-[0.1em] text-accent transition-all data-hover:bg-accent data-hover:text-white"
-            >
-              New: Advanced SEO Strategies for 2025
-              <ChevronRightIcon className="size-3.5" />
-            </Link>
-          }
-        />
-        <div className="pt-16 pb-24 sm:pt-24 sm:pb-32 md:pt-32 md:pb-48">
-          <div className="max-w-4xl">
-            <h1 className="font-display text-[clamp(48px,6vw,96px)] font-medium leading-[0.95] tracking-[-0.02em] text-ink">
-              Master SEO.
-              <span className="text-accent">
-                {' '}
-                Dominate search.
-              </span>
-            </h1>
-            <p className="mt-8 max-w-2xl text-xl leading-relaxed text-stone">
-              Get the latest SEO insights, proven strategies, and algorithm
-              updates that help businesses achieve #1 rankings and drive
-              explosive organic growth.
-            </p>
-            <div className="mt-12 flex flex-col gap-x-6 gap-y-4 sm:flex-row">
-              <Button href="#featured-posts">Explore insights</Button>
-              <Button variant="ghost" href="/contact">
-                Get expert help
-              </Button>
-            </div>
-          </div>
-
-          {/* Stats Section */}
-          <div className="mt-20 grid grid-cols-2 gap-8 md:grid-cols-4">
-            <div className="text-center">
-              <div className="font-heading text-3xl font-bold text-ink mb-2">
-                500+
-              </div>
-              <div className="font-mono text-xs uppercase tracking-[0.1em] text-ash">
-                SEO Articles Published
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="font-heading text-3xl font-bold text-ink mb-2">
-                2M+
-              </div>
-              <div className="font-mono text-xs uppercase tracking-[0.1em] text-ash">
-                Monthly Readers
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="font-heading text-3xl font-bold text-ink mb-2">
-                95%
-              </div>
-              <div className="font-mono text-xs uppercase tracking-[0.1em] text-ash">
-                Accuracy Rate
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="font-heading text-3xl font-bold text-ink mb-2">
-                Weekly
-              </div>
-              <div className="font-mono text-xs uppercase tracking-[0.1em] text-ash">
-                Fresh Content
-              </div>
-            </div>
-          </div>
-        </div>
-      </Container>
-    </div>
-  )
-}
-
-function FeaturedPost() {
-  const mainPost = featuredPosts[0]
-
-  return (
-    <Container className="py-24" id="featured-posts">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        {/* Left side - Content */}
-        <div>
-          <Subheading className="text-accent">Featured Article</Subheading>
-          <Heading as="h2" className="mt-2">
-            {mainPost.title}
-          </Heading>
-          <p className="mt-6 font-sans text-xl text-slate leading-relaxed">
-            {mainPost.excerpt}
-          </p>
-
-          <div className="mt-8 flex items-center gap-6">
-            <div className="flex items-center gap-3">
-              <div className="size-12 rounded-full bg-cream border border-border-strong flex items-center justify-center">
-                <User className="size-6 text-accent" />
-              </div>
-              <div>
-                <div className="font-heading font-medium text-ink">
-                  {mainPost.author.name}
-                </div>
-                <div className="font-mono text-xs uppercase tracking-[0.1em] text-ash">
-                  SEO Expert
-                </div>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-2 font-sans text-sm text-ash">
-              <Calendar className="size-4" />
-              {dayjs(mainPost.publishedAt).format('MMMM D, YYYY')}
-            </div>
-          </div>
-
-          <div className="mt-8">
-            <Button href={`/blog/${mainPost.slug}`} className="group">
-              Read full article
-              <ArrowRight className="size-4 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </div>
-        </div>
-
-        {/* Right side - Image */}
-        <div className="relative">
-          <div className="aspect-[4/3] w-full rounded-none bg-accent flex items-center justify-center border border-border-strong">
-            <div className="text-center text-white">
-              <BarChart3 className="size-16 mx-auto mb-4 opacity-80" />
-              <p className="font-heading text-lg font-semibold">
-                SEO Success Story
-              </p>
-              <p className="font-sans text-sm opacity-80">
-                340% Traffic Increase
-              </p>
-            </div>
-          </div>
-
-          {/* Floating stats cards */}
-          <div className="absolute -bottom-6 -left-6 bg-white rounded-none p-4 shadow-lg border border-border-strong">
-            <div className="flex items-center gap-3">
-              <TrendingUp className="size-5 text-accent" />
-              <div>
-                <div className="font-heading text-sm font-medium text-ink">
-                  Ranking Boost
-                </div>
-                <div className="font-mono text-xs text-ash">
-                  Page 3 &rarr; #1
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="absolute -top-6 -right-6 bg-white rounded-none p-4 shadow-lg border border-border-strong">
-            <div className="flex items-center gap-3">
-              <Star className="size-5 text-accent" />
-              <div>
-                <div className="font-heading text-sm font-medium text-ink">
-                  Expert Tips
-                </div>
-                <div className="font-mono text-xs text-ash">
-                  Proven Results
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <article
+      className={`group relative flex h-full flex-col border border-border bg-paper transition-colors hover:border-accent ${
+        featured ? 'p-7 sm:p-9' : 'p-6'
+      }`}
+    >
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-accent">
+          {article.category}
+        </p>
+        <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-ash">
+          {article.readTime}
+        </p>
       </div>
-    </Container>
-  )
-}
-
-function LatestArticles() {
-  return (
-    <div className="bg-cream py-24">
-      <Container>
-        <div className="text-center mb-16">
-          <Subheading className="text-accent">Latest Articles</Subheading>
-          <Heading as="h2" className="mt-2">
-            Stay ahead with cutting-edge SEO insights.
-          </Heading>
-          <p className="mt-6 font-sans text-xl text-slate max-w-3xl mx-auto">
-            Discover the latest strategies, algorithm updates, and proven
-            tactics that top SEO professionals use to dominate search rankings.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {featuredPosts.slice(1).map((post, index) => (
-            <div
-              key={post.slug}
-              className="group relative bg-white rounded-none shadow-sm border border-border-strong hover:shadow-md transition-all duration-300"
-            >
-              <div className="aspect-[4/3] w-full bg-cream flex items-center justify-center relative overflow-hidden">
-                <div className="text-center text-accent">
-                  {index === 0 && (
-                    <Search className="size-12 mx-auto mb-2 opacity-60" />
-                  )}
-                  {index === 1 && (
-                    <FileText className="size-12 mx-auto mb-2 opacity-60" />
-                  )}
-                  <p className="font-mono text-xs font-semibold uppercase tracking-[0.1em]">
-                    {post.category}
-                  </p>
-                </div>
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors" />
-              </div>
-
-              <div className="flex flex-1 flex-col p-8">
-                <div className="flex items-center justify-between mb-4">
-                  <span className="inline-flex items-center bg-accent-soft px-3 py-1 font-mono text-xs font-medium uppercase tracking-[0.1em] text-accent">
-                    {post.category}
-                  </span>
-                  <div className="flex items-center gap-1 font-mono text-xs text-ash">
-                    <Calendar className="size-3" />
-                    {dayjs(post.publishedAt).format('MMM D')}
-                  </div>
-                </div>
-
-                <h3 className="font-heading text-xl font-semibold text-ink group-hover:text-accent transition-colors line-clamp-3">
-                  <Link href={`/blog/${post.slug}`}>
-                    <span className="absolute inset-0" />
-                    {post.title}
-                  </Link>
-                </h3>
-
-                <p className="mt-3 flex-1 font-sans text-slate text-sm leading-relaxed line-clamp-3">
-                  {post.excerpt}
-                </p>
-
-                <div className="mt-6 flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="size-8 rounded-full bg-cream border border-border flex items-center justify-center">
-                      <User className="size-4 text-accent" />
-                    </div>
-                    <div className="font-sans text-sm text-ash">
-                      {post.author.name}
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-1 text-sm text-accent group-hover:gap-2 transition-all">
-                    <span className="font-heading font-medium">Read more</span>
-                    <ArrowRight className="size-4" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </Container>
-    </div>
-  )
-}
-
-function Categories() {
-  return (
-    <Container className="py-16">
-      <div className="text-center mb-12">
-        <Subheading className="text-accent">Explore by Topic</Subheading>
-        <Heading as="h2" className="mt-2">
-          Find exactly what you&apos;re looking for.
-        </Heading>
-      </div>
-
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
-        <Link
-          href="/blog"
-          className="group relative bg-white rounded-none p-6 text-center hover:shadow-md transition-all duration-300 border border-border-strong"
-        >
-          <div className="size-12 bg-cream border border-border rounded-none mx-auto mb-4 flex items-center justify-center">
-            <BarChart3 className="size-6 text-accent" />
-          </div>
-          <h3 className="font-heading font-semibold text-ink group-hover:text-accent transition-colors">
-            All Posts
-          </h3>
-          <p className="font-sans text-sm text-ash mt-1">
-            Complete collection
-          </p>
+      <h2
+        className={`mt-5 font-heading font-semibold tracking-tight text-ink group-hover:text-accent ${
+          featured ? 'text-2xl sm:text-3xl' : 'text-xl'
+        }`}
+      >
+        <Link href={`/blog/${article.slug}`} className="after:absolute after:inset-0">
+          {article.title}
         </Link>
-
-        {categories.map((category, index) => (
-          <Link
-            key={category}
-            href={`/blog?category=${category.toLowerCase().replace(' ', '-')}`}
-            className="group relative bg-white rounded-none p-6 text-center hover:shadow-md transition-all duration-300 border border-border-strong"
-          >
-            <div className="size-12 bg-cream border border-border rounded-none mx-auto mb-4 flex items-center justify-center">
-              {index % 3 === 0 && <Search className="size-6 text-accent" />}
-              {index % 3 === 1 && <FileText className="size-6 text-accent" />}
-              {index % 3 === 2 && (
-                <TrendingUp className="size-6 text-accent" />
-              )}
-            </div>
-            <h3 className="font-heading font-semibold text-ink group-hover:text-accent transition-colors">
-              {category}
-            </h3>
-            <p className="font-sans text-sm text-ash mt-1">Latest insights</p>
-          </Link>
-        ))}
+      </h2>
+      <p className="mt-4 flex-1 text-[15px] leading-7 text-slate">{article.description}</p>
+      <div className="mt-7 flex items-center justify-between border-t border-border pt-5">
+        <span className="text-xs text-ash">Updated {article.updatedAt}</span>
+        <span className="inline-flex items-center gap-2 text-sm font-semibold text-accent">
+          Read the guide
+          <ArrowRight aria-hidden="true" className="size-4" />
+        </span>
       </div>
-
-      <div className="mt-12 text-center">
-        <Button variant="outline" href="/blog/feed.xml" className="gap-2">
-          <Rss className="size-4" />
-          Subscribe to RSS Feed
-        </Button>
-      </div>
-    </Container>
+    </article>
   )
 }
 
-function RecentPosts() {
-  return (
-    <Container className="py-24">
-      <div className="mb-16">
-        <Subheading className="text-accent">Recent Articles</Subheading>
-        <Heading as="h2" className="mt-2">
-          More insights to fuel your SEO success.
-        </Heading>
-      </div>
+export default function BlogPage() {
+  const featured = featuredSlugs
+    .map((slug) => editorialArticles.find((article) => article.slug === slug))
+    .filter((article): article is (typeof editorialArticles)[number] => Boolean(article))
+  const remaining = editorialArticles.filter((article) => !featuredSlugs.includes(article.slug))
 
-      <div className="space-y-8">
-        {allPosts.slice(3).map((post, index) => (
-          <div
-            key={post.slug}
-            className="group relative bg-white rounded-none p-8 shadow-sm border border-border-strong hover:shadow-md transition-all duration-300"
-          >
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-center">
-              {/* Image */}
-              <div className="lg:col-span-1">
-                <div className="aspect-square w-full rounded-none bg-cream flex items-center justify-center border border-border">
-                  <div className="text-center text-accent">
-                    {index % 3 === 0 && (
-                      <Search className="size-8 mx-auto mb-2 opacity-60" />
-                    )}
-                    {index % 3 === 1 && (
-                      <FileText className="size-8 mx-auto mb-2 opacity-60" />
-                    )}
-                    {index % 3 === 2 && (
-                      <BarChart3 className="size-8 mx-auto mb-2 opacity-60" />
-                    )}
-                    <p className="font-mono text-xs font-semibold uppercase tracking-[0.1em]">
-                      {post.category}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="lg:col-span-3">
-                <div className="flex items-center gap-4 mb-4">
-                  <span className="inline-flex items-center bg-accent-soft px-3 py-1 font-mono text-xs font-medium uppercase tracking-[0.1em] text-accent">
-                    {post.category}
-                  </span>
-                  <div className="flex items-center gap-2 font-sans text-sm text-ash">
-                    <Calendar className="size-4" />
-                    {dayjs(post.publishedAt).format('MMMM D, YYYY')}
-                  </div>
-                </div>
-
-                <h3 className="font-heading text-2xl font-semibold text-ink group-hover:text-accent transition-colors mb-3">
-                  <Link href={`/blog/${post.slug}`}>
-                    <span className="absolute inset-0" />
-                    {post.title}
-                  </Link>
-                </h3>
-
-                <p className="font-sans text-slate leading-relaxed mb-6">
-                  {post.excerpt}
-                </p>
-
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="size-10 rounded-full bg-cream border border-border flex items-center justify-center">
-                      <User className="size-5 text-accent" />
-                    </div>
-                    <div>
-                      <div className="font-heading font-medium text-ink">
-                        {post.author.name}
-                      </div>
-                      <div className="font-mono text-xs uppercase tracking-[0.1em] text-ash">
-                        SEO Expert
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-2 text-accent font-heading font-medium group-hover:gap-3 transition-all">
-                    <span>Read article</span>
-                    <ArrowRight className="size-4" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </Container>
-  )
-}
-
-function Newsletter() {
-  return (
-    <div className="mx-2 my-24 bg-ink pt-72 pb-24 lg:pt-36">
-      <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-[384px_1fr_1fr]">
-          <div className="-mt-96 lg:-mt-52">
-            <div className="-m-2 border border-border-strong/20 bg-white/10 max-lg:mx-auto max-lg:max-w-xs">
-              <div className="p-2">
-                <div className="overflow-hidden border border-white/10">
-                  <div className="aspect-3/4 w-full bg-cream flex items-center justify-center">
-                    <div className="text-center text-accent">
-                      <Rss className="size-16 mx-auto mb-4" />
-                      <p className="font-heading text-lg font-semibold">
-                        SEO Newsletter
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="flex max-lg:mt-16 lg:col-span-2 lg:px-16">
-            <div className="mx-auto flex max-w-xl flex-col gap-16 max-lg:text-center">
-              <div>
-                <Subheading dark>
-                  Stay Ahead of the Competition
-                </Subheading>
-                <Heading as="h2" dark className="mt-2">
-                  Get the latest SEO insights delivered weekly.
-                </Heading>
-                <p className="mt-6 font-sans text-xl text-white/60 leading-relaxed">
-                  Join 12,000+ SEO professionals who trust our weekly newsletter
-                  for the latest algorithm updates, ranking strategies, and
-                  proven tactics that drive results.
-                </p>
-              </div>
-
-              <div className="space-y-6">
-                <div className="flex max-w-md mx-auto lg:mx-0">
-                  <input
-                    type="email"
-                    placeholder="Enter your email address"
-                    className="flex-1 border border-border-strong/20 bg-white/90 px-6 py-4 font-sans text-ink placeholder:text-ash focus:outline-none focus:ring-2 focus:ring-accent focus:bg-white"
-                  />
-                  <Button className="rounded-none">Subscribe</Button>
-                </div>
-
-                <div className="max-lg:text-center lg:text-left">
-                  <div className="flex items-center gap-4 font-sans text-sm text-white/60 mb-3 max-lg:justify-center">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="size-4 text-accent" />
-                      <span>Weekly insights</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="size-4 text-accent" />
-                      <span>No spam ever</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="size-4 text-accent" />
-                      <span>Free forever</span>
-                    </div>
-                  </div>
-                  <p className="font-sans text-sm text-white/40">
-                    Join 12,000+ SEO professionals. Unsubscribe at any time.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Container>
-    </div>
-  )
-}
-
-export default function Blog() {
   return (
     <main className="overflow-hidden">
       <JsonLd
         data={{
           '@context': 'https://schema.org',
           '@type': 'CollectionPage',
-          name: 'SEO Blog',
-          description: 'SEO insights and strategies...',
+          '@id': 'https://theprojectseo.com/blog#collection',
+          name: 'TheProjectSEO Research Library',
+          description: metadata.description,
           url: 'https://theprojectseo.com/blog',
+          isPartOf: { '@id': 'https://theprojectseo.com/#website' },
+          about: [
+            { '@type': 'Thing', name: 'Search engine optimization' },
+            { '@type': 'Thing', name: 'AI search optimization' },
+          ],
+          hasPart: editorialArticles.map((article) => ({
+            '@type': 'Article',
+            headline: article.title,
+            url: `https://theprojectseo.com/blog/${article.slug}`,
+            dateModified: article.updatedAt,
+          })),
         }}
       />
-      <Hero />
-      <FeaturedPost />
-      <LatestArticles />
-      <Categories />
-      <RecentPosts />
-      <Newsletter />
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'Home',
+              item: 'https://theprojectseo.com',
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: 'SEO Blog',
+              item: 'https://theprojectseo.com/blog',
+            },
+          ],
+        }}
+      />
+
+      <section className="relative border-b border-border">
+        <HeroAnimation />
+        <Container className="relative">
+          <Navbar />
+          <div className="mx-auto max-w-6xl py-20 sm:py-28 lg:py-36">
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.15em] text-accent">
+              TheProjectSEO research library
+            </p>
+            <h1 className="mt-6 max-w-5xl font-display text-[clamp(48px,7vw,100px)] font-medium leading-[0.94] tracking-[-0.03em] text-ink">
+              SEO guidance built to be{' '}
+              <span className="text-accent">implemented.</span>
+            </h1>
+            <p className="mt-8 max-w-3xl text-xl leading-9 text-stone">
+              In-depth, practitioner-led guides for Google, Bing, AI Overviews, ChatGPT,
+              Gemini, Claude and Perplexity. Every article starts with live search research,
+              cites the sources behind material claims and connects the answer to a useful
+              next step.
+            </p>
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="#guides"
+                className="inline-flex items-center justify-center gap-2 bg-accent px-7 py-4 font-heading text-sm font-semibold text-white hover:bg-accent/90"
+              >
+                Explore the guides
+                <ArrowRight aria-hidden="true" className="size-4" />
+              </a>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center border border-border-strong bg-paper px-7 py-4 font-heading text-sm font-semibold text-ink hover:border-accent hover:text-accent"
+              >
+                Bring us your search problem
+              </Link>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-b border-border bg-cream py-10">
+        <Container>
+          <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-3">
+            <span className="mr-2 font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-ash">
+              Current topics
+            </span>
+            {categories.map((category) => (
+              <span
+                key={category}
+                className="border border-border-strong bg-paper px-3 py-2 text-xs font-medium text-slate"
+              >
+                {category}
+              </span>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section id="guides" className="py-20 sm:py-28">
+        <Container>
+          <div className="mx-auto max-w-6xl">
+            <div className="max-w-3xl">
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.14em] text-accent">
+                Start with the operating system
+              </p>
+              <h2 className="mt-4 font-heading text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
+                Three guides that change what you work on next
+              </h2>
+              <p className="mt-6 text-lg leading-8 text-slate">
+                Diagnose the ranking system, examine the technical foundation and turn the
+                chosen page into a researched conversion asset. These are the core workflows
+                behind the rest of the library.
+              </p>
+            </div>
+            <div className="mt-12 grid gap-5 lg:grid-cols-3">
+              {featured.map((article) => (
+                <ArticleCard key={article.slug} article={article} featured />
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-y border-border bg-ink py-20 text-white sm:py-24">
+        <Container>
+          <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.14em] text-accent">
+                How the content is made
+              </p>
+              <h2 className="mt-4 font-heading text-4xl font-semibold tracking-tight sm:text-5xl">
+                Search evidence before prose.
+              </h2>
+              <p className="mt-6 text-lg leading-8 text-white/65">
+                The library is not produced from generic prompts. Each priority guide has a
+                stored live result corpus, a content-optimizer scorecard, primary-source
+                references and an editorial decision about what the page should own.
+              </p>
+              <Link
+                href="/methodology"
+                className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-accent"
+              >
+                Review our SEO methodology
+                <ArrowRight aria-hidden="true" className="size-4" />
+              </Link>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {[
+                {
+                  icon: Search,
+                  title: 'Live SERP corpus',
+                  detail:
+                    'We inspect current result types, coverage, entities, evidence and offers for the target query.',
+                },
+                {
+                  icon: FlaskConical,
+                  title: 'Primary-source review',
+                  detail:
+                    'Platform behavior and changing claims are checked against current official documentation.',
+                },
+                {
+                  icon: Workflow,
+                  title: 'Python content scoring',
+                  detail:
+                    'A local optimizer compares the rendered draft with the competitor corpus to reveal semantic gaps.',
+                },
+                {
+                  icon: BookOpenText,
+                  title: 'Practitioner editing',
+                  detail:
+                    'Scores guide review; a human decides what is accurate, useful, distinctive and appropriate to publish.',
+                },
+              ].map(({ icon: Icon, title, detail }) => (
+                <div key={title} className="border border-white/15 p-6">
+                  <Icon aria-hidden="true" className="size-5 text-accent" />
+                  <h3 className="mt-5 font-heading text-xl font-semibold">{title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-white/60">{detail}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-20 sm:py-28">
+        <Container>
+          <div className="mx-auto max-w-6xl">
+            <div className="max-w-3xl">
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.14em] text-accent">
+                Complete guide library
+              </p>
+              <h2 className="mt-4 font-heading text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
+                Research the problem. Then follow it into execution.
+              </h2>
+            </div>
+            <div className="mt-12 grid gap-5 md:grid-cols-2">
+              {remaining.map((article) => (
+                <ArticleCard key={article.slug} article={article} />
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-y border-border bg-cream py-20 sm:py-24">
+        <Container>
+          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1fr_0.9fr]">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.14em] text-accent">
+                A library that qualifies the next conversation
+              </p>
+              <h2 className="mt-4 font-heading text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
+                Reading should lead to a better SEO decision.
+              </h2>
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate">
+                Some problems can be solved with the guide. Others expose a cross-team
+                constraint involving engineering, content, authority or measurement. Those
+                pages explain when TheProjectSEO is relevant and what the first scoped
+                engagement would need to produce.
+              </p>
+              <ul className="mt-8 grid gap-3">
+                {[
+                  'No guaranteed rankings or fabricated performance claims.',
+                  'No generic city, industry or glossary pages without distinct intent.',
+                  'No topical score treated as a substitute for editorial judgment.',
+                  'No lead form detached from the problem the reader is solving.',
+                ].map((item) => (
+                  <li key={item} className="flex gap-3 text-[15px] leading-7 text-slate">
+                    <Check aria-hidden="true" className="mt-1 size-4 shrink-0 text-accent" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <EvidencePlaceholder
+              label="Editorial evidence board"
+              description="Reserved for the final visual showing an approved SERP corpus, optimizer scorecard, source set and page-to-service conversion map."
+              aspect="wide"
+            />
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-20 sm:py-28">
+        <Container>
+          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1fr_460px] lg:items-start">
+            <div>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.14em] text-accent">
+                From research to a scoped plan
+              </p>
+              <h2 className="mt-4 max-w-3xl font-heading text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
+                Tell us which page or search problem matters commercially.
+              </h2>
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate">
+                Share the site, market and outcome. We will use the same research discipline
+                to determine whether the constraint is technical eligibility, page ownership,
+                content evidence, internal architecture, external authority or measurement.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-5">
+                <Link
+                  href="/services"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-accent underline decoration-accent/30 underline-offset-4"
+                >
+                  Explore SEO services
+                  <ArrowRight aria-hidden="true" className="size-4" />
+                </Link>
+                <Link
+                  href="/resources/glossary"
+                  className="text-sm font-semibold text-ink underline decoration-border-emphasis underline-offset-4"
+                >
+                  Use the SEO glossary
+                </Link>
+              </div>
+            </div>
+            <LeadForm variant="compact" submitText="Request a scoped SEO review" />
+          </div>
+        </Container>
+      </section>
       <Footer />
     </main>
   )

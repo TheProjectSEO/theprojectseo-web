@@ -1,8 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 import type { MetadataRoute } from 'next';
-import { prefixedLocales } from '@/lib/i18n';
 import { redirects } from '@/data/redirects';
+import { caseStudies } from '@/data/case-studies';
+import { glossary } from '@/data/glossary';
 
 const BASE_URL = 'https://theprojectseo.com';
 const APP_DIR = path.join(process.cwd(), 'src', 'app');
@@ -106,22 +107,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
-  // 2. Locale stub homepages (from [lang]/page.tsx — excluded by static scan)
-  //    These ARE in sitemap so Google discovers them and sees the hreflang.
-  //    robots: noindex is set on the page itself so they won't rank yet.
-  for (const locale of prefixedLocales) {
+  // 2. Data-driven SEO case studies
+  for (const caseStudy of caseStudies) {
     entries.push({
-      url: `${BASE_URL}/${locale}`,
+      url: `${BASE_URL}/case-studies/${caseStudy.slug}`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.5,
+      priority: 0.7,
     });
   }
 
-  // NOTE: /methodology and /case-studies/* URLs were previously declared here
-  // but no page.tsx files exist — Google was crawling 404s. Stripped 2026-04-19
-  // per IA redesign plan. Will be re-added once pages are built in Phase 1.
-  // See ~/.claude/plans/do-a-comprehensive-research-expressive-pebble.md §A7
+  // 3. Data-driven SEO and AI search glossary definitions
+  for (const term of glossary) {
+    entries.push({
+      url: `${BASE_URL}/resources/glossary/${term.slug}`,
+      lastModified: new Date(term.updatedAt),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    });
+  }
 
   return entries;
 }
