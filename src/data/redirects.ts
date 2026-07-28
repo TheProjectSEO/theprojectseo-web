@@ -103,6 +103,11 @@ const retiredCaseStudyPaths = [
 ];
 
 export const redirects: Redirect[] = [
+  // Common misspellings of the standard AI-discovery filenames.
+  { source: '/lms.txt', destination: '/llms.txt', permanent: true },
+  { source: '/lmsful.txt', destination: '/llms-full.txt', permanent: true },
+  { source: '/llmsful.txt', destination: '/llms-full.txt', permanent: true },
+
   // Retired locale prefixes: consolidate any stale translated URL into its
   // canonical English equivalent. The site is English-only.
   { source: '/en', destination: '/', permanent: true },
