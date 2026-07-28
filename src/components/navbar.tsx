@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import { Link } from "./link";
 import { Logo } from "./logo";
+import { trackConversionEvent } from "@/lib/conversion-analytics";
 
 const coreSEOServices = [
   {
@@ -316,7 +317,9 @@ function DesktopNav() {
 
       {/* CTA Button */}
       <Link
-        href="/contact"
+        href="/contact?cta_source=header_cta"
+        data-analytics-placement="header"
+        data-analytics-label="Request SEO Review"
         className="ml-4 inline-flex items-center rounded-md border border-ink bg-ink px-5 py-2.5 font-heading text-sm font-semibold text-white shadow-sm transition-all hover:border-accent hover:bg-accent hover:shadow-md hover:-translate-y-px"
       >
         Request SEO Review
@@ -330,9 +333,17 @@ export function Navbar({ banner }: { banner?: React.ReactNode }) {
 
   const closeMenu = () => setMobileMenuOpen(false);
 
+  useEffect(() => {
+    trackConversionEvent("cta_impression", {
+      placement: "header",
+      label: "Request SEO Review",
+      variant: "persistent_header_v1",
+    });
+  }, []);
+
   return (
     <>
-      <header className="sticky top-0 z-50 h-[76px] border-b border-border bg-paper/90 backdrop-blur-[22px]">
+      <header className="fixed inset-x-0 top-0 z-[80] h-[76px] border-b border-border bg-paper/95 shadow-sm backdrop-blur-[22px]">
         <div className="mx-auto flex h-full max-w-[1380px] items-center justify-between px-5 sm:px-6 lg:px-10">
           <div className="flex items-center gap-6">
             <Link href="/" title="Home">
@@ -366,6 +377,7 @@ export function Navbar({ banner }: { banner?: React.ReactNode }) {
           </button>
         </div>
       </header>
+      <div className="h-[76px]" aria-hidden="true" />
 
       {/* Mobile Menu Backdrop - outside header to avoid backdrop-filter containing block */}
       <div
@@ -558,11 +570,13 @@ export function Navbar({ banner }: { banner?: React.ReactNode }) {
           {/* Mobile CTA */}
           <div className="mt-6">
             <Link
-              href="/contact"
+              href="/contact?cta_source=mobile_navigation"
               onClick={closeMenu}
+              data-analytics-placement="mobile_navigation"
+              data-analytics-label="Request SEO Review"
               className="block w-full rounded-md bg-accent px-5 py-3 text-center font-heading text-sm font-semibold text-white transition-colors hover:bg-accent-hover"
             >
-              Contact Us
+              Request SEO Review
             </Link>
           </div>
         </div>

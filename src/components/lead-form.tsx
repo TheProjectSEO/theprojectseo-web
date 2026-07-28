@@ -1,30 +1,35 @@
-'use client'
+"use client";
 
-import { Suspense, useActionState, useEffect, useRef } from 'react'
-import { usePathname, useSearchParams } from 'next/navigation'
-import Link from 'next/link'
-import { submitLead, type LeadFormState } from '@/app/actions/submit-lead'
-import { Button } from '@/components/button'
+import { Suspense, useActionState, useEffect, useRef } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
+import Link from "next/link";
+import { submitLead, type LeadFormState } from "@/app/actions/submit-lead";
+import { Button } from "@/components/button";
 import {
   getSeoTierByFormValue,
   getSeoTierFormLabel,
   seoTiers,
-} from '@/data/pricing'
-import { Field, Input, Label, Select, Textarea } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/16/solid'
-import { CheckCircleIcon } from '@heroicons/react/24/outline'
-import { clsx } from 'clsx'
+} from "@/data/pricing";
+import { Field, Input, Label, Select, Textarea } from "@headlessui/react";
+import { ChevronDownIcon } from "@heroicons/react/16/solid";
+import { CheckCircleIcon } from "@heroicons/react/24/outline";
+import { clsx } from "clsx";
+import {
+  getLandingPage,
+  getOrCreateAnalyticsSessionId,
+  trackConversionEvent,
+} from "@/lib/conversion-analytics";
 
 const inputStyles = clsx(
-  'block w-full rounded-md border border-border-emphasis bg-paper shadow-sm',
-  'px-[calc(--spacing(3)-1px)] py-[calc(--spacing(2)-1px)] text-base/6 sm:text-sm/6',
-  'data-focus:outline-2 data-focus:-outline-offset-1 data-focus:outline-accent',
-)
+  "block w-full rounded-md border border-border-emphasis bg-paper shadow-sm",
+  "px-[calc(--spacing(3)-1px)] py-[calc(--spacing(2)-1px)] text-base/6 sm:text-sm/6",
+  "data-focus:outline-2 data-focus:-outline-offset-1 data-focus:outline-accent",
+);
 
 interface LeadFormProps {
-  variant?: 'compact' | 'full'
-  submitText?: string
-  className?: string
+  variant?: "compact" | "full";
+  submitText?: string;
+  className?: string;
 }
 
 export function LeadForm(props: LeadFormProps) {
@@ -33,7 +38,7 @@ export function LeadForm(props: LeadFormProps) {
       fallback={
         <div
           className={clsx(
-            'rounded-lg bg-paper p-8 border border-border-strong animate-pulse h-96',
+            "rounded-lg bg-paper p-8 border border-border-strong animate-pulse h-96",
             props.className,
           )}
         />
@@ -41,35 +46,78 @@ export function LeadForm(props: LeadFormProps) {
     >
       <LeadFormInner {...props} />
     </Suspense>
-  )
+  );
 }
 
 function LeadFormInner({
-  variant = 'compact',
-  submitText = 'Share the project context',
+  variant = "compact",
+  submitText = "Share the project context",
   className,
 }: LeadFormProps) {
-  const pathname = usePathname()
-  const searchParams = useSearchParams()
-  const formRef = useRef<HTMLFormElement>(null)
-  const requestedTier = getSeoTierByFormValue(searchParams.get('plan'))
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const formRef = useRef<HTMLFormElement>(null);
+  const formStartedRef = useRef(false);
+  const formViewTrackedRef = useRef(false);
+  const successfulLeadTrackedRef = useRef(false);
+  const submissionMetadataRef = useRef<Record<string, string>>({});
+  const requestedTier = getSeoTierByFormValue(searchParams.get("plan"));
 
   const [state, formAction, isPending] = useActionState<
     LeadFormState,
     FormData
-  >(submitLead, { success: false })
+  >(submitLead, { success: false });
 
   useEffect(() => {
-    if (state.success && formRef.current) {
-      formRef.current.reset()
+    const form = formRef.current;
+    if (!form || formViewTrackedRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting && !formViewTrackedRef.current) {
+          formViewTrackedRef.current = true;
+          trackConversionEvent("form_view", {
+            placement: "lead_form",
+            variant,
+          });
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.35 },
+    );
+
+    observer.observe(form);
+    return () => observer.disconnect();
+  }, [variant]);
+
+  useEffect(() => {
+    if (state.error) {
+      trackConversionEvent("form_error", {
+        placement: "lead_form",
+        variant,
+        metadata: { error_type: state.error },
+      });
     }
-  }, [state.success])
+  }, [state.error, variant]);
+
+  useEffect(() => {
+    if (state.success && !successfulLeadTrackedRef.current) {
+      successfulLeadTrackedRef.current = true;
+      trackConversionEvent("generate_lead", {
+        placement: "lead_form",
+        variant,
+        metadata: submissionMetadataRef.current,
+      });
+      window.dispatchEvent(new Event("tps:lead-submitted"));
+      formRef.current?.reset();
+    }
+  }, [state.success, variant]);
 
   if (state.success) {
     return (
       <div
         className={clsx(
-          'rounded-lg bg-paper p-8 border border-border-strong text-center',
+          "rounded-lg bg-paper p-8 border border-border-strong text-center",
           className,
         )}
       >
@@ -84,15 +132,45 @@ function LeadFormInner({
           reply with the appropriate next step.
         </p>
       </div>
-    )
+    );
   }
 
   return (
     <form
       ref={formRef}
       action={formAction}
+      data-lead-form
+      onFocusCapture={() => {
+        if (formStartedRef.current) return;
+        formStartedRef.current = true;
+        trackConversionEvent("form_start", {
+          placement: "lead_form",
+          variant,
+        });
+      }}
+      onSubmit={() => {
+        const form = formRef.current;
+        const data = form ? new FormData(form) : null;
+        const selectedPlan = data?.get("selectedPlan");
+        const serviceInterest = data?.get("serviceInterest");
+        const discoverySource = data?.get("discoverySource");
+
+        submissionMetadataRef.current = Object.fromEntries(
+          [
+            ["selected_plan", selectedPlan],
+            ["service_interest", serviceInterest],
+            ["discovery_source", discoverySource],
+          ].filter((entry): entry is [string, string] => Boolean(entry[1])),
+        );
+
+        trackConversionEvent("form_submit", {
+          placement: "lead_form",
+          variant,
+          metadata: submissionMetadataRef.current,
+        });
+      }}
       className={clsx(
-        'rounded-lg bg-paper p-8 border border-border-strong',
+        "rounded-lg bg-paper p-8 border border-border-strong",
         className,
       )}
     >
@@ -101,37 +179,54 @@ function LeadFormInner({
       <input
         type="hidden"
         name="sourceUrl"
-        value={typeof window !== 'undefined' ? window.location.href : ''}
+        value={typeof window !== "undefined" ? window.location.href : ""}
       />
       <input
         type="hidden"
         name="utmSource"
-        value={searchParams.get('utm_source') || ''}
+        value={searchParams.get("utm_source") || ""}
       />
       <input
         type="hidden"
         name="utmMedium"
-        value={searchParams.get('utm_medium') || ''}
+        value={searchParams.get("utm_medium") || ""}
       />
       <input
         type="hidden"
         name="utmCampaign"
-        value={searchParams.get('utm_campaign') || ''}
+        value={searchParams.get("utm_campaign") || ""}
       />
       <input
         type="hidden"
         name="utmTerm"
-        value={searchParams.get('utm_term') || ''}
+        value={searchParams.get("utm_term") || ""}
       />
       <input
         type="hidden"
         name="utmContent"
-        value={searchParams.get('utm_content') || ''}
+        value={searchParams.get("utm_content") || ""}
       />
       <input
         type="hidden"
         name="referrer"
-        value={typeof document !== 'undefined' ? document.referrer : ''}
+        value={typeof document !== "undefined" ? document.referrer : ""}
+      />
+      <input
+        type="hidden"
+        name="ctaSource"
+        value={searchParams.get("cta_source") || ""}
+      />
+      <input
+        type="hidden"
+        name="landingPage"
+        value={typeof window !== "undefined" ? getLandingPage() : ""}
+      />
+      <input
+        type="hidden"
+        name="sessionId"
+        value={
+          typeof window !== "undefined" ? getOrCreateAnalyticsSessionId() : ""
+        }
       />
 
       {requestedTier && (
@@ -151,10 +246,18 @@ function LeadFormInner({
         </Label>
         <div className="relative">
           <Select
-            key={requestedTier?.formValue || 'no-plan'}
+            key={requestedTier?.formValue || "no-plan"}
             name="selectedPlan"
-            defaultValue={requestedTier?.formValue || ''}
-            className={clsx(inputStyles, 'appearance-none pr-8')}
+            defaultValue={requestedTier?.formValue || ""}
+            onChange={(event) => {
+              if (!event.target.value) return;
+              trackConversionEvent("pricing_plan_select", {
+                placement: "lead_form",
+                variant,
+                metadata: { selected_plan: event.target.value },
+              });
+            }}
+            className={clsx(inputStyles, "appearance-none pr-8")}
           >
             <option value="">No plan selected yet</option>
             {seoTiers.map((tier) => (
@@ -215,18 +318,18 @@ function LeadFormInner({
       {/* Website URL */}
       <Field className="mt-5 space-y-2">
         <Label className="font-sans text-sm/5 font-medium text-ink">
-          Website URL {variant === 'compact' ? '*' : ''}
+          Website URL {variant === "compact" ? "*" : ""}
         </Label>
         <Input
           type="url"
           name="websiteUrl"
-          required={variant === 'compact'}
+          required={variant === "compact"}
           placeholder="https://yourwebsite.com"
           className={inputStyles}
         />
       </Field>
 
-      {variant === 'full' && (
+      {variant === "full" && (
         <>
           {/* Company + Phone */}
           <div className="mt-5 grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -252,7 +355,7 @@ function LeadFormInner({
             <div className="relative">
               <Select
                 name="serviceInterest"
-                className={clsx(inputStyles, 'appearance-none pr-8')}
+                className={clsx(inputStyles, "appearance-none pr-8")}
               >
                 <option value="">Select a service</option>
                 <option value="seo-audit">SEO Audit &amp; Analysis</option>
@@ -281,7 +384,7 @@ function LeadFormInner({
         </>
       )}
 
-      {variant === 'full' && (
+      {variant === "full" && (
         <Field className="mt-5 space-y-2">
           <Label className="font-sans text-sm/5 font-medium text-ink">
             Project Details
@@ -290,7 +393,7 @@ function LeadFormInner({
             name="message"
             rows={4}
             placeholder="Tell us about your SEO goals, current challenges, or any specific questions you have..."
-            className={clsx(inputStyles, 'resize-none')}
+            className={clsx(inputStyles, "resize-none")}
           />
         </Field>
       )}
@@ -303,7 +406,7 @@ function LeadFormInner({
           <Select
             name="discoverySource"
             defaultValue=""
-            className={clsx(inputStyles, 'appearance-none pr-8')}
+            className={clsx(inputStyles, "appearance-none pr-8")}
           >
             <option value="">Select a source</option>
             <option value="chatgpt">ChatGPT</option>
@@ -343,10 +446,10 @@ function LeadFormInner({
       {/* Submit */}
       <div className="mt-6">
         <Button type="submit" className="w-full" disabled={isPending}>
-          {isPending ? 'Submitting...' : submitText}
+          {isPending ? "Submitting..." : submitText}
         </Button>
         <p className="mt-3 font-sans text-xs text-ash text-center">
-          By submitting this form, you agree to our{' '}
+          By submitting this form, you agree to our{" "}
           <Link href="/privacy" className="underline hover:text-slate">
             privacy policy
           </Link>
@@ -354,5 +457,5 @@ function LeadFormInner({
         </p>
       </div>
     </form>
-  )
+  );
 }

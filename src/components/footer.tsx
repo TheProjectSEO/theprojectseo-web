@@ -1,7 +1,10 @@
 "use client";
 
+import { useEffect, useRef } from "react";
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import { Link } from "./link";
 import { Logo } from "./logo";
+import { trackConversionEvent } from "@/lib/conversion-analytics";
 
 function SocialIconFacebook(props: React.ComponentPropsWithoutRef<"svg">) {
   return (
@@ -24,9 +27,73 @@ function SocialIconLinkedIn(props: React.ComponentPropsWithoutRef<"svg">) {
 }
 
 export function Footer() {
+  const conversionBlockRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const block = conversionBlockRef.current;
+    if (!block) return;
+
+    let tracked = false;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting && !tracked) {
+          tracked = true;
+          trackConversionEvent("cta_impression", {
+            placement: "footer_cta",
+            label: "Request Your SEO Review",
+            variant: "footer_conversion_block_v1",
+          });
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.35 },
+    );
+
+    observer.observe(block);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <footer className="border-t-4 border-signal bg-ink">
+    <footer data-site-footer className="border-t-4 border-signal bg-ink">
       <div className="mx-auto max-w-[1380px] px-6 lg:px-10">
+        <div
+          ref={conversionBlockRef}
+          className="grid gap-8 border-b border-white/[0.1] py-12 sm:py-16 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end"
+        >
+          <div className="max-w-3xl">
+            <p className="mb-3 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-signal">
+              Turn search visibility into pipeline
+            </p>
+            <h2 className="font-heading text-3xl font-semibold tracking-[-0.025em] text-white sm:text-4xl">
+              Tell us where search is failing to create qualified demand.
+            </h2>
+            <p className="mt-4 max-w-2xl text-base leading-7 text-white/60">
+              Share your site and growth target. We&apos;ll review how buyers
+              find you across Google and AI search, then recommend the clearest
+              next move.
+            </p>
+          </div>
+          <div className="flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
+            <Link
+              href="/contact?cta_source=footer_cta"
+              data-analytics-placement="footer_cta"
+              data-analytics-label="Request Your SEO Review"
+              className="inline-flex items-center justify-center gap-2 rounded-md bg-accent px-6 py-3.5 font-heading text-sm font-semibold text-white transition-colors hover:bg-accent-hover"
+            >
+              Request your SEO review
+              <ArrowRightIcon className="size-4" aria-hidden="true" />
+            </Link>
+            <Link
+              href="/pricing"
+              data-analytics-placement="footer_cta"
+              data-analytics-label="Review SEO Pricing"
+              className="inline-flex items-center justify-center rounded-md border border-white/20 px-6 py-3.5 font-heading text-sm font-semibold text-white transition-colors hover:border-white/40 hover:bg-white/[0.06]"
+            >
+              Review pricing
+            </Link>
+          </div>
+        </div>
+
         {/* Main grid */}
         <div className="footer-grid grid grid-cols-2 gap-8 py-16 lg:gap-8 lg:py-24">
           {/* Brand + Social */}
@@ -268,39 +335,24 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Newsletter */}
+          {/* Contact */}
           <div className="col-span-2 lg:col-span-1">
             <h3 className="mb-4 font-heading text-xs font-semibold uppercase tracking-[0.08em] text-white/90">
-              Newsletter
+              Ready to grow?
             </h3>
             <p className="text-sm text-white/50 mb-4">
-              Get SEO insights delivered to your inbox.
+              Start with a practical review of your current search visibility,
+              competitors, and lead opportunity.
             </p>
-            <form onSubmit={(e) => e.preventDefault()} className="flex gap-2">
-              <input
-                type="email"
-                placeholder="Email address"
-                className="flex-1 rounded-md border border-white/10 bg-white/5 px-3 py-2 text-sm text-white placeholder:text-white/30 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent/30"
-              />
-              <button
-                type="submit"
-                className="flex items-center justify-center rounded-md bg-accent px-3 py-2 text-white transition-colors hover:bg-accent-hover"
-              >
-                <svg
-                  className="h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M14 5l7 7m0 0l-7 7m7-7H3"
-                  />
-                </svg>
-              </button>
-            </form>
+            <Link
+              href="/contact?cta_source=footer_contact_link"
+              data-analytics-placement="footer_contact"
+              data-analytics-label="Share Your Project"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-white transition-colors hover:text-signal"
+            >
+              Share your project
+              <ArrowRightIcon className="size-4" aria-hidden="true" />
+            </Link>
           </div>
         </div>
 

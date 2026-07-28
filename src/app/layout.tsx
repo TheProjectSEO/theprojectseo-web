@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, Manrope } from "next/font/google";
 import "./globals.css";
+import { ConversionExperience } from "@/components/conversion-experience";
+import { GoogleAnalytics } from "@/components/google-analytics";
 import { SessionTrackerLoader } from "@/components/session-tracker-loader";
 
 const manrope = Manrope({
@@ -78,12 +80,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${manrope.variable} ${ibmPlexMono.variable}`}
-    >
+    <html lang="en" className={`${manrope.variable} ${ibmPlexMono.variable}`}>
       <body className="font-sans antialiased bg-paper text-ink">
         {children}
+        <ConversionExperience />
+        <GoogleAnalytics />
         <SessionTrackerLoader />
       </body>
     </html>
