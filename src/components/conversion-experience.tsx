@@ -15,6 +15,7 @@ import {
   trackConversionEvent,
   type ConversionEventName,
 } from "@/lib/conversion-analytics";
+import { useTrackingConsent } from "@/lib/tracking-consent";
 
 const POPUP_SEEN_KEY = "tps_popup_seen";
 const POPUP_DISMISSED_UNTIL_KEY = "tps_popup_dismissed_until";
@@ -35,12 +36,14 @@ const popupSuppressedPaths = [
 
 export function ConversionExperience() {
   const [popupOpen, setPopupOpen] = useState(false);
+  const consent = useTrackingConsent();
+  const consentDecided = consent !== undefined && consent !== null;
 
   return (
     <>
-      <GlobalConversionTracker />
-      <StickyContactBar suppressed={popupOpen} />
-      <LeadCapturePopup onOpenChange={setPopupOpen} />
+      {consent?.analytics && <GlobalConversionTracker />}
+      {consentDecided && <StickyContactBar suppressed={popupOpen} />}
+      {consentDecided && <LeadCapturePopup onOpenChange={setPopupOpen} />}
     </>
   );
 }
@@ -306,7 +309,8 @@ function LeadCapturePopup({
       if (
         isPopupFrequencyBlocked() ||
         document.visibilityState !== "visible" ||
-        isLeadFormVisible()
+        isLeadFormVisible() ||
+        document.querySelector("[data-cookie-consent]")
       ) {
         return;
       }

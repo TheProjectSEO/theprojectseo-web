@@ -19,6 +19,7 @@ import {
   getOrCreateAnalyticsSessionId,
   trackConversionEvent,
 } from "@/lib/conversion-analytics";
+import { useTrackingConsent } from "@/lib/tracking-consent";
 
 const inputStyles = clsx(
   "block w-full rounded-md border border-border-emphasis bg-paper shadow-sm",
@@ -56,6 +57,7 @@ function LeadFormInner({
 }: LeadFormProps) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const consent = useTrackingConsent();
   const formRef = useRef<HTMLFormElement>(null);
   const formStartedRef = useRef(false);
   const formViewTrackedRef = useRef(false);
@@ -69,6 +71,8 @@ function LeadFormInner({
   >(submitLead, { success: false });
 
   useEffect(() => {
+    if (!consent?.analytics) return;
+
     const form = formRef.current;
     if (!form || formViewTrackedRef.current) return;
 
@@ -88,7 +92,7 @@ function LeadFormInner({
 
     observer.observe(form);
     return () => observer.disconnect();
-  }, [variant]);
+  }, [consent?.analytics, variant]);
 
   useEffect(() => {
     if (state.error) {

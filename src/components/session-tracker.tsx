@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { supabase } from "@/lib/supabase";
+import { useTrackingConsent } from "@/lib/tracking-consent";
 import { getPageType, getDeviceType } from "@/lib/page-utils";
 
 const SESSION_KEY = "st_session_id";
@@ -169,8 +170,11 @@ function flushPageView(
 export function SessionTracker() {
   const flushedRef = useRef(false);
   const pagePath = usePathname();
+  const consent = useTrackingConsent();
 
   useEffect(() => {
+    if (!consent?.analytics) return;
+
     // Don't track admin pages
     if (pagePath.startsWith("/admin")) return;
 
@@ -230,7 +234,7 @@ export function SessionTracker() {
       window.removeEventListener("beforeunload", flush);
       document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
-  }, [pagePath]);
+  }, [consent?.analytics, pagePath]);
 
   return null;
 }

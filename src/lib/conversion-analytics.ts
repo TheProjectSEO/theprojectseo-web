@@ -1,6 +1,7 @@
 "use client";
 
 import { getPageType } from "@/lib/page-utils";
+import { hasAnalyticsConsent } from "@/lib/tracking-consent";
 
 export const SESSION_KEY = "st_session_id";
 export const LANDING_PAGE_KEY = "tps_landing_page";
@@ -70,7 +71,7 @@ export function trackConversionEvent(
   eventName: ConversionEventName,
   params: ConversionEventParams = {},
 ) {
-  if (typeof window === "undefined") return;
+  if (typeof window === "undefined" || !hasAnalyticsConsent()) return;
 
   const metadata = compactMetadata({
     ...getCampaignMetadata(),

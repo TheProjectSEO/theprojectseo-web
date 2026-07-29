@@ -5,6 +5,7 @@ import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import { Link } from "./link";
 import { Logo } from "./logo";
 import { trackConversionEvent } from "@/lib/conversion-analytics";
+import { openTrackingPreferences } from "@/lib/tracking-consent";
 
 function SocialIconFacebook(props: React.ComponentPropsWithoutRef<"svg">) {
   return (
@@ -378,6 +379,13 @@ export function Footer() {
             >
               Terms of Service
             </Link>
+            <button
+              type="button"
+              onClick={openTrackingPreferences}
+              className="text-xs text-white/40 transition-colors hover:text-white/60"
+            >
+              Cookie Preferences
+            </button>
           </div>
         </div>
       </div>

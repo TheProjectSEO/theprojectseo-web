@@ -4,6 +4,7 @@ import "./globals.css";
 import { ConversionExperience } from "@/components/conversion-experience";
 import { GoogleAnalytics } from "@/components/google-analytics";
 import { SessionTrackerLoader } from "@/components/session-tracker-loader";
+import { TrackingConsentManager } from "@/components/tracking-consent-manager";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -83,6 +84,7 @@ export default function RootLayout({
     <html lang="en" className={`${manrope.variable} ${ibmPlexMono.variable}`}>
       <body className="font-sans antialiased bg-paper text-ink">
         {children}
+        <TrackingConsentManager />
         <ConversionExperience />
         <GoogleAnalytics />
         <SessionTrackerLoader />

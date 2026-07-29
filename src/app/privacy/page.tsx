@@ -45,7 +45,7 @@ export default function PrivacyPolicy() {
               website and use our services.
             </p>
             <p className="mt-4 text-ash text-sm">
-              Last updated: February 9, 2026
+              Last updated: July 29, 2026
             </p>
           </div>
         </Container>
@@ -297,10 +297,20 @@ export default function PrivacyPolicy() {
               </li>
               <li>
                 <strong>Marketing Cookies:</strong> These cookies are used to track visitors across
-                websites to display relevant advertisements. They are set by our advertising partners
-                with our permission.
+                websites, understand relevant business interest, and support sales and advertising
+                activity. They are activated only after you provide marketing consent.
               </li>
             </ul>
+
+            <h3>RB2B Visitor Identification</h3>
+
+            <p>
+              With your marketing consent, we use RB2B to identify business-level website interest.
+              Depending on visitor location and available professional data, RB2B may provide company
+              information and, primarily for eligible United States visitors, professional contact
+              information such as a name, job title, business email address, or LinkedIn profile.
+              RB2B does not load when marketing consent is declined.
+            </p>
 
             <h3>How to Manage Cookies</h3>
 

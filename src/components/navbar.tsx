@@ -5,6 +5,7 @@ import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import { Link } from "./link";
 import { Logo } from "./logo";
 import { trackConversionEvent } from "@/lib/conversion-analytics";
+import { useTrackingConsent } from "@/lib/tracking-consent";
 
 const coreSEOServices = [
   {
@@ -330,16 +331,19 @@ function DesktopNav() {
 
 export function Navbar({ banner }: { banner?: React.ReactNode }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const consent = useTrackingConsent();
 
   const closeMenu = () => setMobileMenuOpen(false);
 
   useEffect(() => {
+    if (!consent?.analytics) return;
+
     trackConversionEvent("cta_impression", {
       placement: "header",
       label: "Request SEO Review",
       variant: "persistent_header_v1",
     });
-  }, []);
+  }, [consent?.analytics]);
 
   return (
     <>
