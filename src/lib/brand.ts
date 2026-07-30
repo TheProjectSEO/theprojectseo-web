@@ -5,10 +5,12 @@
  *
  * Grounded in the brand voice guide (SEO/GEO/AI-search agency led by Aditya Aman;
  * complex technical migrations without ranking loss; revenue over vanity metrics).
- * No unverified tenure or award claims (data discipline is part of the product).
+ * Tenure is founder-attributed and verified (Aditya's own decade of SEO practice),
+ * distinct from the OPC company registration (2025); never imply the company
+ * itself is a decade old.
  */
 export const BRAND_DESCRIPTION =
-  'TheProjectSEO is an SEO, GEO, and AI-search agency built for companies that need organic and AI search to produce pipeline and revenue, not vanity metrics. From complex technical migrations to AI Overview and ChatGPT visibility, we keep brands found as search shifts from blue links to AI answers.'
+  'TheProjectSEO is an SEO, GEO, and AI-search agency led by Aditya Aman, who brings a decade of hands-on SEO experience. From complex technical migrations to AI Overview and ChatGPT visibility, we turn organic and AI search into pipeline and revenue, not vanity metrics, keeping brands found as search shifts from blue links to AI answers.'
 
 /** Short one-line variant for tight spaces (nav, cards, OG fallbacks). */
 export const BRAND_TAGLINE =

@@ -97,7 +97,7 @@ export function buildLlmsTxt() {
   return [
     '# TheProjectSEO',
     '',
-    '> TheProjectSEO is an SEO, GEO, and AI-search agency led by Aditya Aman, headquartered in Ranchi, India, and built to turn organic and AI search into pipeline and revenue rather than vanity metrics. It connects conventional SEO with generative engine optimization (GEO), answer engine optimization (AEO), complex technical migrations without ranking loss, content, entity development, authority, analytics, and prompt-level AI-search measurement across Google, Bing, AI Overviews, ChatGPT, Claude, Gemini, and Perplexity.',
+    '> TheProjectSEO is an SEO, GEO, and AI-search agency led by Aditya Aman, who brings a decade of hands-on SEO experience, headquartered in Ranchi, India, and built to turn organic and AI search into pipeline and revenue rather than vanity metrics. It connects conventional SEO with generative engine optimization (GEO), answer engine optimization (AEO), complex technical migrations without ranking loss, content, entity development, authority, analytics, and prompt-level AI-search measurement across Google, Bing, AI Overviews, ChatGPT, Claude, Gemini, and Perplexity.',
     '',
     '## Important facts',
     '',
