@@ -6,6 +6,7 @@ import { Link } from "./link";
 import { Logo } from "./logo";
 import { trackConversionEvent } from "@/lib/conversion-analytics";
 import { openTrackingPreferences } from "@/lib/tracking-consent";
+import { BRAND_DESCRIPTION } from "@/lib/brand";
 
 function SocialIconFacebook(props: React.ComponentPropsWithoutRef<"svg">) {
   return (
@@ -100,8 +101,8 @@ export function Footer() {
           {/* Brand + Social */}
           <div className="col-span-2 lg:col-span-1">
             <Logo variant="reversed" className="mb-4" />
-            <p className="text-sm leading-relaxed text-white/50 mb-6">
-              Data-driven SEO strategies that deliver measurable growth.
+            <p className="max-w-sm text-sm leading-relaxed text-white/50 mb-6">
+              {BRAND_DESCRIPTION}
             </p>
             <div className="flex items-center gap-4">
               <Link
@@ -166,7 +167,7 @@ export function Footer() {
                   href="/services"
                   className="text-sm text-white/50 transition-colors hover:text-white/70"
                 >
-                  All Services →
+                  All SEO Services →
                 </Link>
               </li>
             </ul>
@@ -210,21 +211,69 @@ export function Footer() {
                   Enterprise SEO
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/services/international-seo"
+                  className="text-sm text-white/50 transition-colors hover:text-white/70"
+                >
+                  International SEO
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/on-page-seo"
+                  className="text-sm text-white/50 transition-colors hover:text-white/70"
+                >
+                  On-Page SEO
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/off-page-seo"
+                  className="text-sm text-white/50 transition-colors hover:text-white/70"
+                >
+                  Off-Page SEO
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/link-building"
+                  className="text-sm text-white/50 transition-colors hover:text-white/70"
+                >
+                  Link Building
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/seo-audit"
+                  className="text-sm text-white/50 transition-colors hover:text-white/70"
+                >
+                  SEO Audit
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Industries */}
+          {/* Who We Serve (industries), keyword-optimized anchors */}
           <div>
             <h3 className="mb-4 font-heading text-xs font-semibold uppercase tracking-[0.08em] text-white/90">
-              Industries
+              Who We Serve
             </h3>
             <ul className="space-y-3">
               <li>
                 <Link
-                  href="/industries/ai"
+                  href="/industries/saas"
                   className="text-sm text-white/50 transition-colors hover:text-white/70"
                 >
-                  AI & Machine Learning
+                  SaaS SEO
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/industries/startups"
+                  className="text-sm text-white/50 transition-colors hover:text-white/70"
+                >
+                  Startup SEO
                 </Link>
               </li>
               <li>
@@ -232,15 +281,7 @@ export function Footer() {
                   href="/industries/ecommerce"
                   className="text-sm text-white/50 transition-colors hover:text-white/70"
                 >
-                  E-commerce
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/industries/healthcare"
-                  className="text-sm text-white/50 transition-colors hover:text-white/70"
-                >
-                  Healthcare
+                  Ecommerce SEO
                 </Link>
               </li>
               <li>
@@ -248,16 +289,48 @@ export function Footer() {
                   href="/industries/finance"
                   className="text-sm text-white/50 transition-colors hover:text-white/70"
                 >
-                  Finance
+                  Finance SEO
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/industries/healthcare"
+                  className="text-sm text-white/50 transition-colors hover:text-white/70"
+                >
+                  Healthcare SEO
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/industries/legal"
+                  className="text-sm text-white/50 transition-colors hover:text-white/70"
+                >
+                  Legal & Law Firm SEO
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/industries/technology"
+                  className="text-sm text-white/50 transition-colors hover:text-white/70"
+                >
+                  Technology SEO
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/industries/ai"
+                  className="text-sm text-white/50 transition-colors hover:text-white/70"
+                >
+                  AI & Machine Learning SEO
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Locations */}
+          {/* Where We Are (locations), keyword-optimized anchors */}
           <div>
             <h3 className="mb-4 font-heading text-xs font-semibold uppercase tracking-[0.08em] text-white/90">
-              Locations
+              Where We Are
             </h3>
             <ul className="space-y-3">
               <li>
@@ -265,7 +338,7 @@ export function Footer() {
                   href="/locations/india"
                   className="text-sm text-white/50 transition-colors hover:text-white/70"
                 >
-                  India
+                  India SEO Agency
                 </Link>
               </li>
               <li>
@@ -273,7 +346,7 @@ export function Footer() {
                   href="/locations/philippines"
                   className="text-sm text-white/50 transition-colors hover:text-white/70"
                 >
-                  Philippines
+                  Philippines SEO Agency
                 </Link>
               </li>
             </ul>
