@@ -576,15 +576,15 @@ const ecommerce: IndustryLeadPageData = {
   name: 'Ecommerce',
   serviceType: 'Ecommerce SEO and AI shopping discovery optimization',
   schemaAudience: 'Ecommerce founders, merchandising leaders, growth teams, and online retailers',
-  metaTitle: 'Ecommerce SEO Agency for Revenue & AI Discovery | TheProjectSEO',
+  metaTitle: 'SEO for Ecommerce Websites: The Playbook + Real Results | TheProjectSEO',
   metaDescription:
-    'Ecommerce SEO for category, collection and product visibility across Google, Bing and AI search. See technical scope, content systems, revenue measurement and pricing.',
-  eyebrow: 'Ecommerce SEO agency · Revenue-led organic growth',
-  title: 'Make your catalog',
-  titleAccent: 'easier to find and buy.',
+    'How SEO works for online stores: the systems that make categories, collections and products rank across Google, Bing and AI search, and the results ecommerce brands see when they run them.',
+  eyebrow: 'SEO for online stores · Playbook and proven results',
+  title: 'The SEO playbook behind',
+  titleAccent: 'stores that rank and sell.',
   directAnswer:
-    'TheProjectSEO helps ecommerce teams turn product catalogs into a discoverable, crawlable, and commercially useful search system. We optimize category and collection architecture, product templates, structured product data, faceted navigation, internal links, editorial buying guidance, merchant feeds, and AI-search evidence. Performance is measured against organic revenue, new customers, assisted conversions, margin-aware priorities, and search visibility—not a larger index for its own sake.',
-  primaryCta: 'Request an ecommerce SEO assessment',
+    'If you run an online store, SEO is a system, not a checklist. This is the playbook we use to make categories, collections, products, brands, and buying guides discoverable across Google, Bing, shopping surfaces, and AI-assisted product research, plus the results ecommerce brands see once the system is in place. It covers catalog architecture, product templates, structured product data, faceted navigation, internal links, editorial guidance, and merchant feeds, and it ties each to organic revenue, new customers, and margin-aware priorities rather than a bigger index for its own sake.',
+  primaryCta: 'See the ecommerce SEO playbook',
   bestFit:
     'Stores with product-market fit, reliable catalog and revenue data, implementation support, and a need to grow non-paid discovery without sacrificing merchandising control.',
   heroChecks: [
@@ -1915,8 +1915,452 @@ const healthcare: IndustryLeadPageData = {
   ],
 }
 
+const startups: IndustryLeadPageData = {
+  slug: 'startups',
+  name: 'Startups',
+  serviceType: 'Startup SEO and AI search foundations for early-stage companies',
+  schemaAudience: 'Startup founders, first marketing hires, growth leads, and early-stage operators',
+  metaTitle: 'SEO for Startups: Build a Compounding Channel Early | TheProjectSEO',
+  metaDescription:
+    'SEO for startups that need a durable, low-CAC channel: foundational technical setup, category education, and AI-search visibility scoped to an early-stage budget and team.',
+  eyebrow: 'Startup SEO · Foundations before scale',
+  title: 'Make search a channel',
+  titleAccent: 'you own before you scale.',
+  directAnswer:
+    'TheProjectSEO helps early-stage startups build organic search into a compounding, low-cost acquisition channel instead of a task that waits until after the next raise. We focus on the foundations that decide whether SEO ever works: a crawlable and fast site, a clear category and positioning that people and AI systems can understand, a small set of pages that match real buyer questions, and honest measurement. The work is scoped to an early-stage budget and team, and it is sequenced so a founder can see leading signals before committing to scale.',
+  primaryCta: 'Request a startup SEO assessment',
+  bestFit:
+    'Startups with a live product, a defined first customer, someone who can ship site and content changes, and a reason to build organic demand rather than rent every visit through ads.',
+  heroChecks: [
+    'Pre-seed to Series B startups building a first durable channel',
+    'Founders and first marketers who need scope matched to budget and time',
+    'Google, Bing, AI Overviews, ChatGPT, Gemini, and Perplexity',
+    'Measurement tied to signups, qualified conversations, and payback, not vanity traffic',
+  ],
+  journeyTitle: 'How do buyers find a startup they have never heard of?',
+  journeyLead:
+    'Early-stage companies rarely have brand demand yet. The first customers arrive by searching the problem, discovering a new category, checking whether the product is real, and asking other people or an AI assistant for a recommendation. Each of those moments needs one clear, trustworthy page.',
+  searchJourneys: [
+    {
+      stage: 'Problem',
+      intent: 'Describe a painful problem in plain words',
+      explanation:
+        'Before anyone knows your product exists, they search the problem itself. A startup wins here by answering the question better and more honestly than incumbents who stopped trying.',
+      examples: ['how to speed up a slow manual process', 'why does our current workflow keep breaking'],
+      conversion: 'email capture, useful template, or a short product-aware explainer',
+    },
+    {
+      stage: 'Category',
+      intent: 'Understand a new or renamed category',
+      explanation:
+        'Many startups create or rename a category. Buyers need to learn what it is, when it applies, and how it differs from the tool they use today before they will consider switching.',
+      examples: ['what is a new category term', 'new approach versus the old way'],
+      conversion: 'category explainer to product, or a trial exploration',
+    },
+    {
+      stage: 'Validation',
+      intent: 'Confirm a small company is safe to trust',
+      explanation:
+        'Evaluators check that the product is real, maintained, and safe: pricing, security basics, documentation, founders, and whether anyone credible references it.',
+      examples: ['product pricing', 'is this product legit', 'product reviews'],
+      conversion: 'pricing view, documentation visit, or signup',
+    },
+    {
+      stage: 'Decision',
+      intent: 'Choose between a startup and a known name',
+      explanation:
+        'The buyer weighs a nimble newcomer against an established vendor. Fair comparison and clear positioning decide whether an unknown brand makes the shortlist.',
+      examples: ['startup product versus incumbent', 'best option in the category for small teams'],
+      conversion: 'signup, demo, or sales conversation',
+    },
+  ],
+  obstaclesTitle: 'Why does SEO stall at most startups?',
+  obstaclesLead:
+    'The problem is rarely effort. It is usually sequence, scope, and patience colliding with a runway clock.',
+  obstacles: [
+    {
+      title: 'SEO is treated as a later problem',
+      problem:
+        'Founders often postpone SEO until after product-market fit, then discover that a channel which compounds over months cannot be switched on the quarter a raise runs low.',
+      response:
+        'We start the foundations early and cheaply: clean technical setup, a defensible category story, and a handful of pages tied to real demand, so the compounding clock starts before you urgently need results.',
+    },
+    {
+      title: 'The scope copies a late-stage company',
+      problem:
+        'A startup with one marketer cannot run the same forty-page-a-month program as a funded competitor, and copying it burns runway on content no one links to or reads.',
+      response:
+        'We size the program to the team and budget, prioritize the few pages that can actually rank and convert now, and defer scale until a repeatable pattern is proven.',
+    },
+    {
+      title: 'A new category has no existing search demand',
+      problem:
+        'If you invented the category, few people search for it yet, so ranking for your own term brings little traffic while the real buyers search the old problem.',
+      response:
+        'We map demand to the problem and adjacent categories buyers already search, then use those pages to introduce the new category and route interest toward the product.',
+    },
+    {
+      title: 'Founders cannot tell signal from noise',
+      problem:
+        'Early traffic is small and volatile, so a good month and a lucky month look identical, and it is easy to kill a working channel too soon or scale a fluke.',
+      response:
+        'We set a baseline, separate leading indicators from revenue, and report ranges and uncertainty so a founder can make a calm keep-or-cut decision instead of reacting to a single spike.',
+    },
+  ],
+  deliverablesTitle: 'What does an early-stage SEO engagement include?',
+  deliverablesLead:
+    'Scope is set by evidence and runway, not a fixed checklist. These workstreams build a foundation a small team can maintain and a later hire can scale.',
+  deliverables: [
+    {
+      title: 'Foundation and technical setup',
+      description:
+        'The unglamorous work that decides whether anything you publish can rank at all.',
+      items: [
+        'Indexation, canonical, sitemap, and robots setup',
+        'Rendering, speed, and Core Web Vitals on the marketing site',
+        'Analytics and Search Console configured with clean events',
+        'A simple, extensible URL and internal-link structure',
+      ],
+    },
+    {
+      title: 'Category and positioning clarity',
+      description:
+        'A story that people and AI systems can repeat accurately about who you are and when to use you.',
+      items: [
+        'Category definition and plain-language positioning',
+        'Entity setup: consistent name, founders, and profiles',
+        'Messaging that separates your product from the old approach',
+        'Homepage and core-page narrative aligned to search demand',
+      ],
+    },
+    {
+      title: 'A small, high-intent page set',
+      description:
+        'A short list of pages that match real questions and can realistically rank on a startup timeline.',
+      items: [
+        'Problem-aware explainers that route to the product',
+        'Pricing, security-basics, and trust pages evaluators need',
+        'One or two honest comparison or alternative pages',
+        'A repeatable brief a founder or writer can reuse',
+      ],
+    },
+    {
+      title: 'AI-search readiness',
+      description:
+        'Making the few facts about your product easy for answer engines to find, quote, and get right.',
+      items: [
+        'Clear answer passages for what the product is and is not',
+        'Structured data where eligible',
+        'Consistent third-party mentions and profiles',
+        'A small versioned prompt set to watch how AI describes you',
+      ],
+    },
+    {
+      title: 'Early authority',
+      description:
+        'A lightweight way to earn references without a full PR budget.',
+      items: [
+        'One or two linkable assets built from real founder knowledge',
+        'Relevant directory, review-site, and profile consistency',
+        'Founder-led mention and relationship prospecting',
+        'Cleanup of inaccurate or missing brand information',
+      ],
+    },
+    {
+      title: 'Measurement and honest reporting',
+      description:
+        'A simple decision system a founder can read in five minutes.',
+      items: [
+        'Baseline and leading-indicator tracking',
+        'Signup and qualified-conversation events by landing page',
+        'AI answer sampling for a core prompt set',
+        'Monthly keep, refine, or cut recommendations',
+      ],
+    },
+  ],
+  aiVisibility: {
+    title: 'How do we make a startup visible in AI answers?',
+    lead:
+      'AI Overviews, ChatGPT, Gemini, Claude, and Perplexity increasingly stand between an unknown startup and its first customers. We improve the evidence each system can find and interpret, then watch each surface separately.',
+    platforms: ['Google', 'Bing', 'AI Overviews', 'ChatGPT', 'Gemini', 'Claude', 'Perplexity'],
+    boundary:
+      'No agency can guarantee that an AI system will mention a young brand. Outputs vary by prompt, location, freshness, and retrieval index, and new companies have little corroborating data yet. Our work raises eligibility and accuracy; it does not manufacture a citation.',
+    workstreams: [
+      {
+        title: 'Answer-ready product facts',
+        description:
+          'We turn the core claims about a young product into explicit, supportable passages: what it does, who it is for, how it differs, and when it is not the right choice.',
+        output: 'answer blocks, definitions, honest limitations, and reviewed claims',
+      },
+      {
+        title: 'Entity consistency',
+        description:
+          'A new company must describe itself the same way across its site, profiles, and directories so systems can connect the dots into one trustworthy entity.',
+        output: 'entity map, schema plan, and profile cleanup',
+      },
+      {
+        title: 'Retrieval access',
+        description:
+          'The few important answers must live in rendered HTML, be linked, and be indexable rather than trapped in a client-side app, a video, or a gated PDF.',
+        output: 'crawl and rendered-content checks and internal-link fixes',
+      },
+      {
+        title: 'Prompt-set monitoring',
+        description:
+          'We track a small set of prompts a real buyer would ask and record whether the startup appears, is described correctly, and improves over time.',
+        output: 'versioned prompts, stored responses, and accuracy notes',
+      },
+    ],
+  },
+  architectureTitle: 'Which pages should a startup build first?',
+  architectureLead:
+    'Resist the urge to launch a large blog. Early on, a few pages that match real intent beat a content calendar no one asked for.',
+  architecture: [
+    {
+      pageType: 'Problem explainers',
+      intent: 'Answer the problem buyers search before they know your category.',
+      examples: 'how-to and why guides tied to the job your product does',
+      signal: 'email capture and product-aware sessions',
+    },
+    {
+      pageType: 'Category and positioning',
+      intent: 'Teach a new or renamed category and connect it to the product.',
+      examples: 'category explainer, new-vs-old approach, use-case pages',
+      signal: 'category-to-product visits and trial starts',
+    },
+    {
+      pageType: 'Trust and evaluation',
+      intent: 'Give evaluators the proof a small company is safe to adopt.',
+      examples: 'pricing, security basics, documentation, about and founders',
+      signal: 'signup, documentation, and pricing engagement',
+    },
+    {
+      pageType: 'Comparison',
+      intent: 'Help a buyer weigh a startup against a known incumbent, fairly.',
+      examples: 'product vs incumbent, best options for small teams',
+      signal: 'high-intent signups and sales conversations',
+    },
+    {
+      pageType: 'One original asset',
+      intent: 'Earn a few early links and citations from real founder knowledge.',
+      examples: 'a benchmark, template, calculator, or small data study',
+      signal: 'links, citations, and returning visitors',
+    },
+  ],
+  processTitle: 'How do we start SEO at an early-stage company?',
+  processLead:
+    'The sequence protects runway: prove the foundations and a repeatable page before spending on scale.',
+  process: [
+    {
+      number: '01',
+      cadence: 'Discovery',
+      title: 'Agree the first customer and the honest goal',
+      description:
+        'We define who the first buyers are, the problem they search, and what a meaningful result looks like on your timeline and budget before any production begins.',
+      output: 'positioning brief, KPI definitions, and a runway-aware scope',
+    },
+    {
+      number: '02',
+      cadence: 'Baseline',
+      title: 'Fix the foundations and set a baseline',
+      description:
+        'We audit technical access, rendering, and existing coverage, clean up analytics, and record where you start so future change is provable.',
+      output: 'technical fixes, tracking setup, and a measurement baseline',
+    },
+    {
+      number: '03',
+      cadence: 'Roadmap',
+      title: 'Pick the few pages that can win now',
+      description:
+        'We prioritize a small page set by demand, intent, and feasibility, with briefs a founder or a junior writer can execute without guesswork.',
+      output: 'short prioritized roadmap, page briefs, and acceptance criteria',
+    },
+    {
+      number: '04',
+      cadence: 'Execution',
+      title: 'Ship, connect, and QA the first pages',
+      description:
+        'Content, technical fixes, schema, and internal links go live with checks in rendered HTML, each page routed to a clear next step.',
+      output: 'live pages, QA evidence, and updated sitemaps',
+    },
+    {
+      number: '05',
+      cadence: 'Learning',
+      title: 'Read the signal and decide',
+      description:
+        'We evaluate the page set against leading indicators and conversions, separate luck from pattern, and recommend what to keep, refine, or cut.',
+      output: 'monthly decision memo and a refined next step',
+    },
+    {
+      number: '06',
+      cadence: 'Scale',
+      title: 'Scale only a proven pattern',
+      description:
+        'Once a page type reliably ranks and converts, we extend it to adjacent problems and categories, and hand a repeatable system to your growing team.',
+      output: 'a scalable template, simple governance, and a hiring-ready playbook',
+    },
+  ],
+  measurementTitle: 'How should startup SEO be measured?',
+  measurementLead:
+    'At small volumes, the wrong metric misleads. We track signals that map to survival and payback, not raw sessions.',
+  measurementBoundary:
+    'Early traffic is small and noisy, buying journeys cross many touches, and privacy controls limit attribution. We report observed data, agreed rules, and uncertainty rather than presenting an estimated pipeline number as fact.',
+  measurement: [
+    {
+      name: 'Foundation health',
+      definition: 'Indexation, rendering, speed, and coverage for the pages that matter.',
+      source: 'Search Console, crawl data, and Core Web Vitals',
+    },
+    {
+      name: 'Qualified visibility',
+      definition: 'Impressions and rankings for the specific problem, category, and comparison queries you chose.',
+      source: 'Google Search Console and a small stable rank set',
+    },
+    {
+      name: 'Activation signals',
+      definition: 'Signups, trials, and qualified conversations by landing page and intent.',
+      source: 'analytics events and your signup or CRM system',
+    },
+    {
+      name: 'Payback view',
+      definition: 'Organic acquisition cost and payback compared with paid, under a documented rule.',
+      source: 'analytics, finance inputs, and agreed attribution',
+    },
+    {
+      name: 'AI answer presence',
+      definition: 'Whether and how the startup appears and is described across a versioned prompt set.',
+      source: 'stored responses with model, date, prompt, and citation evidence',
+    },
+  ],
+  evidence: {
+    title: 'What proof will you be able to inspect?',
+    lead:
+      'We use screenshots and source-linked reporting to show what moved. The examples below demonstrate our ability to grow search visibility and earn inclusion in AI-answer datasets; they are not presented as a startup-specific case study.',
+    ...sharedIndustryEvidence,
+    slots: [
+      {
+        label: 'Expressway.PH · organic traffic and keyword trend',
+        description:
+          'Add the Ahrefs two-year organic traffic and organic keyword trend with the current metric selected, visible date range, domain, and legend.',
+      },
+      {
+        label: 'Expressway.PH · AI response visibility',
+        description:
+          'Add the Ahrefs AI responses panel showing AI Overviews, ChatGPT, platforms, response counts, page counts, and capture date.',
+      },
+    ],
+  },
+  fitTitle: 'Is TheProjectSEO the right SEO partner for your startup?',
+  fitLead:
+    'The engagement works when a founder wants a durable channel and someone can ship changes. We make that requirement explicit before any retainer.',
+  goodFit: [
+    'You have a live product and a defined first customer',
+    'Someone can implement site and content changes without long delays',
+    'You want a compounding channel, not only short-term paid spikes',
+    'You will share signup and conversion data under appropriate access',
+  ],
+  notFit: [
+    'You need guaranteed rankings or revenue by a fixed fundraising date.',
+    'You want hundreds of unreviewed AI articles with no founder input.',
+    'The product and audience change completely every few weeks.',
+    'No one has time to publish or approve anything for months.',
+  ],
+  sources: [
+    {
+      label: 'Google Search Central: SEO Starter Guide',
+      url: 'https://developers.google.com/search/docs/fundamentals/seo-starter-guide',
+      description: 'Primary guidance on the fundamentals every new site should get right first.',
+    },
+    {
+      label: 'Google Search Central: Creating helpful, reliable content',
+      url: 'https://developers.google.com/search/docs/fundamentals/creating-helpful-content',
+      description: 'Google guidance on content quality, expertise, and helpfulness signals.',
+    },
+    {
+      label: 'Google Search Central: Page experience',
+      url: 'https://developers.google.com/search/docs/appearance/page-experience',
+      description: 'Reference for speed and experience signals that early sites often fail.',
+    },
+    {
+      label: 'OpenAI crawler documentation',
+      url: 'https://platform.openai.com/docs/bots',
+      description: 'Official distinctions between OpenAI user, search, and training crawlers and the relevant controls.',
+    },
+  ],
+  faqTitle: 'Questions founders ask before investing in SEO',
+  faqs: [
+    {
+      question: 'Is it too early for my startup to do SEO?',
+      answer:
+        'Usually the opposite. SEO compounds over months, so the cheapest time to start the foundations is before you urgently need the channel. Early on this does not mean a large content program. It means a fast, crawlable site, a clear category story, correct tracking, and a few pages tied to real demand. That work protects you from having to switch on a slow channel in the quarter your runway gets tight.',
+    },
+    {
+      question: 'Should we do SEO or just run paid ads?',
+      answer:
+        'Most startups need both, for different reasons. Paid buys immediate, rented traffic you can test with. SEO builds an owned channel whose cost per visit falls over time. The honest answer depends on your margins, sales cycle, and runway. We help you set a baseline and a payback view so the decision is based on your numbers rather than a general rule.',
+    },
+    {
+      question: 'How long until SEO works for a startup?',
+      answer:
+        'There is no honest universal timeline. It depends on your existing authority, technical health, competition, and how quickly you can publish and implement. Foundational fixes and existing-page improvements can move first, while a new category or competitive term can take sustained work. We establish a baseline, separate leading indicators from revenue, and only forecast ranges after the audit.',
+    },
+    {
+      question: 'We created a new category that no one searches for yet. Can SEO help?',
+      answer:
+        'Yes, but not by ranking only for your invented term. We map the demand that already exists around the problem and adjacent categories buyers search today, rank for those, and use those pages to teach the new category and route interest to your product. As real demand for the category grows, you are already the reference for it.',
+    },
+    {
+      question: 'Do we need a big content team?',
+      answer:
+        'No. Early-stage SEO is about a small number of correct pages, not volume. We can own research, technical direction, briefs, and QA while a founder or one writer supplies product truth and approves claims. The goal is a repeatable brief and template a small team can maintain, and that a later hire can scale.',
+    },
+    {
+      question: 'Do you optimize for ChatGPT, AI Overviews, and Perplexity?',
+      answer:
+        'Yes. We make the core facts about your product easy for answer engines to find and quote, keep your entity consistent across the web, and monitor a small prompt set by platform. We do not claim to control any model or guarantee a mention, because answer generation varies by retrieval source, prompt, model, location, and time, and new companies start with little corroborating data.',
+    },
+    {
+      question: 'What does startup SEO cost at TheProjectSEO?',
+      answer:
+        'TheProjectSEO engagements currently start from $3,500 per month. For early-stage companies we scope a focused foundational engagement rather than a large content program, and expand only once a repeatable pattern is proven. The assessment defines the work and dependencies before a proposal is issued.',
+    },
+  ],
+  relatedLinks: [
+    {
+      href: '/industries/saas',
+      label: 'SaaS SEO',
+      description: 'For product-led and B2B SaaS teams focused on demos, trials, and pipeline.',
+    },
+    {
+      href: '/services/technical-seo',
+      label: 'Technical SEO',
+      description: 'Rendering, indexation, speed, and the foundations new sites often miss.',
+    },
+    {
+      href: '/services/ai-search',
+      label: 'AI search optimization',
+      description: 'Answer visibility, entity clarity, and prompt-set monitoring.',
+    },
+    {
+      href: '/services/content',
+      label: 'SEO content systems',
+      description: 'Research, briefs, expert input, and a repeatable production model.',
+    },
+  ],
+  ctaEyebrow: 'Start the channel early',
+  ctaTitle: 'Find the few SEO moves that matter for your startup now.',
+  ctaLead:
+    'Share your site, your first customer, and your current tracking. We will identify the foundational technical, positioning, and AI-search steps to take first, scoped to your stage.',
+  ctaBenefits: [
+    'Initial technical and foundation assessment',
+    'The few priority pages worth building first',
+    'Google and AI-search measurement recommendations',
+  ],
+}
+
 export const industryLeadPages = {
   saas,
+  startups,
   ecommerce,
   finance,
   healthcare,

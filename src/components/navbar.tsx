@@ -144,6 +144,7 @@ const industryLinks = [
   { href: "/industries/nonprofit", label: "Nonprofit" },
   { href: "/industries/realestate", label: "Real Estate" },
   { href: "/industries/saas", label: "SaaS" },
+  { href: "/industries/startups", label: "Startups" },
   { href: "/industries/technology", label: "Technology" },
   { href: "/industries/travel", label: "Travel & Tourism" },
 ];
