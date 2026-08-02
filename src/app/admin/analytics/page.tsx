@@ -103,7 +103,10 @@ async function getTopPages(): Promise<TopPage[]> {
 
   if (!data) return []
 
-  const map: Record<string, { views: number; totalTime: number; totalScroll: number }> = {}
+  const map: Record<
+    string,
+    { views: number; totalTime: number; totalScroll: number }
+  > = {}
   for (const row of data) {
     const p = row.page_path
     if (!map[p]) map[p] = { views: 0, totalTime: 0, totalScroll: 0 }
@@ -157,11 +160,54 @@ interface RecentSession {
 async function getRecentSessions(): Promise<RecentSession[]> {
   const { data } = await getSupabaseAdmin()
     .from('tps_sessions')
-    .select('session_id, landing_page, referrer_source, device_type, created_at')
+    .select(
+      'session_id, landing_page, referrer_source, device_type, created_at',
+    )
     .order('created_at', { ascending: false })
     .limit(20)
 
   return (data as RecentSession[]) ?? []
+}
+
+interface LeadRow {
+  status: string
+  created_at: string
+}
+
+interface LeadStats {
+  total: number
+  last30Days: number
+  qualified30Days: number
+  newLeads: number
+}
+
+const qualifiedLeadStatuses = new Set([
+  'qualified',
+  'sales-qualified',
+  'opportunity',
+  'proposal',
+  'won',
+])
+
+async function getLeadStats(): Promise<LeadStats> {
+  const { data } = await getSupabaseAdmin()
+    .from('leads')
+    .select('status, created_at')
+    .order('created_at', { ascending: false })
+
+  const rows = (data as LeadRow[] | null) ?? []
+  const since = new Date()
+  since.setDate(since.getDate() - 30)
+  const last30Days = rows.filter((lead) => new Date(lead.created_at) >= since)
+
+  return {
+    total: rows.length,
+    last30Days: last30Days.length,
+    qualified30Days: last30Days.filter((lead) =>
+      qualifiedLeadStatuses.has(lead.status),
+    ).length,
+    newLeads: rows.filter((lead) => lead.status === 'new').length,
+  }
 }
 
 // ── components ───────────────────────────────────────────────────────────
@@ -186,7 +232,7 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
 // ── page ─────────────────────────────────────────────────────────────────
 
 export default async function AnalyticsPage() {
-  const [today, week, month, sources, topPages, devices, recent] =
+  const [today, week, month, sources, topPages, devices, recent, leads] =
     await Promise.all([
       getStats(1),
       getStats(7),
@@ -195,6 +241,7 @@ export default async function AnalyticsPage() {
       getTopPages(),
       getDeviceBreakdown(),
       getRecentSessions(),
+      getLeadStats(),
     ])
 
   const totalDevices = devices.reduce((s, d) => s + d.count, 0)
@@ -209,9 +256,9 @@ export default async function AnalyticsPage() {
             Analytics Dashboard
           </h1>
           <p className="mt-1 text-sm text-slate">
-            Data from <span className="font-mono">tps_sessions</span> &amp;{' '}
-            <span className="font-mono">tps_page_views</span> &mdash;
-            server-rendered at{' '}
+            Data from <span className="font-mono">tps_sessions</span>,{' '}
+            <span className="font-mono">tps_page_views</span> &amp;{' '}
+            <span className="font-mono">leads</span> &mdash; server-rendered at{' '}
             <span className="font-mono">
               {new Date().toISOString().slice(0, 19).replace('T', ' ')} UTC
             </span>
@@ -241,6 +288,32 @@ export default async function AnalyticsPage() {
             </div>
           </div>
         ))}
+
+        {/* ── Qualified demand ── */}
+        <div className="mb-8">
+          <SectionTitle>Qualified Demand</SectionTitle>
+          <div className="grid grid-cols-2 gap-px bg-border-strong lg:grid-cols-4">
+            <Card label="All leads" value={leads.total.toLocaleString()} />
+            <Card
+              label="Last 30 days"
+              value={leads.last30Days.toLocaleString()}
+            />
+            <Card
+              label="Qualified · 30 days"
+              value={leads.qualified30Days.toLocaleString()}
+            />
+            <Card
+              label="Awaiting review"
+              value={leads.newLeads.toLocaleString()}
+            />
+          </div>
+          <p className="mt-3 text-xs leading-5 text-ash">
+            The monthly target is 5–10 qualified companies. Mark accepted leads
+            as qualified, sales-qualified, opportunity, proposal or won so the
+            dashboard measures quality rather than form volume. Lead identities
+            remain in the lead system and are not rendered on this dashboard.
+          </p>
+        </div>
 
         {/* ── Traffic Sources ── */}
         <div className="mb-8">
@@ -427,7 +500,9 @@ export default async function AnalyticsPage() {
                     <td className="max-w-[200px] truncate px-4 py-2 font-mono text-ink">
                       {row.landing_page}
                     </td>
-                    <td className="px-4 py-2 font-mono">{row.referrer_source}</td>
+                    <td className="px-4 py-2 font-mono">
+                      {row.referrer_source}
+                    </td>
                     <td className="px-4 py-2 font-mono capitalize">
                       {row.device_type}
                     </td>

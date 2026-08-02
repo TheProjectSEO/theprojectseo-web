@@ -11,6 +11,7 @@ export function getPageType(path: string): string {
   if (path === '/services') return 'service'
   if (path.startsWith('/industries/')) return 'industry'
   if (path.startsWith('/locations/')) return 'location'
+  if (path.startsWith('/research/')) return 'research'
   if (path.endsWith('-seo-services')) return 'country-seo'
   if (path === '/pricing') return 'pricing'
   if (path === '/contact') return 'contact'

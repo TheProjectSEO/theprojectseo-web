@@ -1,0 +1,134 @@
+{
+  "article_title": "Where Hotel Websites Lose Direct Bookings Before Checkout",
+  "reader": {
+    "job_to_be_done": "Trace a hotel guest from organic landing to a reconciled direct booking and prioritize the first verified leak.",
+    "assumed_level": "intermediate"
+  },
+  "steps": [
+    { "id": "three-leakage-zones", "visual_need": "required" },
+    { "id": "search-demand-inventory", "visual_need": "useful" },
+    { "id": "cross-domain-handoff", "visual_need": "required" },
+    { "id": "booking-event-contract", "visual_need": "required" },
+    { "id": "build-search-to-booking-cohort", "visual_need": "required" },
+    { "id": "modeled-hotel-example", "visual_need": "required" },
+    { "id": "audit-page-and-rate-continuity", "visual_need": "useful" },
+    { "id": "verification-and-priority", "visual_need": "required" }
+  ],
+  "visuals": [
+    {
+      "id": "hotel-guest-journey",
+      "step_ids": ["three-leakage-zones", "search-demand-inventory"],
+      "reader_question": "Where can the direct-booking journey leak?",
+      "teaches": "Three leakage zones across search, property evaluation, handoff and checkout.",
+      "exact_state": "Four-stage journey with leakage-zone labels.",
+      "placement": "After direct answer and reader contract.",
+      "alt": "Hotel direct-booking journey connecting search, property evaluation, availability and payment.",
+      "caption": "End-to-end direct-booking audit model.",
+      "rubric": {
+        "problem_fit": true,
+        "step_alignment": true,
+        "action_clarity": true,
+        "state_change": true,
+        "learning_specificity": true,
+        "focus_legibility": true,
+        "fidelity_currency": true,
+        "accessibility": true,
+        "privacy_rights": true,
+        "non_duplication": true
+      },
+      "fatal_flags": []
+    },
+    {
+      "id": "hotel-cross-domain",
+      "step_ids": ["cross-domain-handoff"],
+      "reader_question": "What must remain intact between the hotel domain and booking engine?",
+      "teaches": "Same stream, retained linker and no acquisition overwrite.",
+      "exact_state": "Two domains connected with _gl and three verification checks.",
+      "placement": "After the cross-domain section.",
+      "alt": "Hotel site and external booking engine connected with GA4 cross-domain measurement.",
+      "caption": "Simplified architecture based on current Google documentation.",
+      "rubric": {
+        "problem_fit": true,
+        "step_alignment": true,
+        "action_clarity": true,
+        "state_change": true,
+        "learning_specificity": true,
+        "focus_legibility": true,
+        "fidelity_currency": true,
+        "accessibility": true,
+        "privacy_rights": true,
+        "non_duplication": true
+      },
+      "fatal_flags": []
+    },
+    {
+      "id": "hotel-event-funnel",
+      "step_ids": ["booking-event-contract"],
+      "reader_question": "Which event proves a booking rather than an attempted checkout?",
+      "teaches": "Selection, checkout, payment and purchase event separation.",
+      "exact_state": "Four-event GA4 hotel booking contract.",
+      "placement": "After the booking-event section.",
+      "alt": "Four GA4 hotel events from room selection to confirmed purchase.",
+      "caption": "Recommended ecommerce vocabulary adapted to a hotel flow.",
+      "rubric": {
+        "problem_fit": true,
+        "step_alignment": true,
+        "action_clarity": true,
+        "state_change": true,
+        "learning_specificity": true,
+        "focus_legibility": true,
+        "fidelity_currency": true,
+        "accessibility": true,
+        "privacy_rights": true,
+        "non_duplication": true
+      },
+      "fatal_flags": []
+    },
+    {
+      "id": "hotel-leakage-cohort",
+      "step_ids": ["build-search-to-booking-cohort", "modeled-hotel-example"],
+      "reader_question": "Which device cohort has the largest verified booking opportunity?",
+      "teaches": "Segmented cohort analysis with explicit fictional-data disclosure.",
+      "exact_state": "Mobile, desktop and tablet landings through purchase.",
+      "placement": "After the complete modeled hotel example.",
+      "alt": "Modeled hotel booking cohort segmented by device.",
+      "caption": "Fictional training data, not a benchmark or client claim.",
+      "rubric": {
+        "problem_fit": true,
+        "step_alignment": true,
+        "action_clarity": true,
+        "state_change": true,
+        "learning_specificity": true,
+        "focus_legibility": true,
+        "fidelity_currency": true,
+        "accessibility": true,
+        "privacy_rights": true,
+        "non_duplication": true
+      },
+      "fatal_flags": []
+    },
+    {
+      "id": "hotel-verification-board",
+      "step_ids": ["audit-page-and-rate-continuity", "verification-and-priority"],
+      "reader_question": "What must be true before the hotel accepts the audit result?",
+      "teaches": "Six acceptance checks ending in revenue-team reconciliation.",
+      "exact_state": "Completed acceptance board for search, page, handoff, rate, booking and human review.",
+      "placement": "After the verification section.",
+      "alt": "Hotel direct-booking acceptance board with six verification checks.",
+      "caption": "Publication and implementation QA board.",
+      "rubric": {
+        "problem_fit": true,
+        "step_alignment": true,
+        "action_clarity": true,
+        "state_change": true,
+        "learning_specificity": true,
+        "focus_legibility": true,
+        "fidelity_currency": true,
+        "accessibility": true,
+        "privacy_rights": true,
+        "non_duplication": true
+      },
+      "fatal_flags": []
+    }
+  ]
+}

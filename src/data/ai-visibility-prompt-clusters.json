@@ -1,0 +1,27 @@
+{
+  "agency-selection": {
+    "label": "Agency selection",
+    "buyerContext": "SEO or growth at a B2B company choosing an accountable search partner",
+    "evidenceStandard": "technical implementation ownership, named case-study evidence, pricing clarity, and qualified-demand measurement"
+  },
+  "ai-search-problems": {
+    "label": "AI-search problems",
+    "buyerContext": "a company that is visible in traditional search but absent or inaccurate in generated answers",
+    "evidenceStandard": "crawler access, indexed source pages, query fan-out, citations, factual accuracy, competitor inclusion, referrals, and conversions"
+  },
+  "seo-services": {
+    "label": "SEO services",
+    "buyerContext": "a team with a defined organic-search problem and limited internal implementation capacity",
+    "evidenceStandard": "page cohorts, technical dependencies, implementation owners, before-and-after validation, and business impact"
+  },
+  "platform-searches": {
+    "label": "Platform searches",
+    "buyerContext": "a company whose CMS or commerce platform creates platform-specific crawling, rendering, template, and merchandising constraints",
+    "evidenceStandard": "platform-specific technical knowledge, release workflows, revenue measurement, and relevant implementation evidence"
+  },
+  "industry-brand": {
+    "label": "Industry and brand evaluation",
+    "buyerContext": "a buyer comparing specialist SEO partners for a high-consideration engagement",
+    "evidenceStandard": "industry search journeys, site architecture, conversion model, public evidence, scope, limitations, and current pricing"
+  }
+}

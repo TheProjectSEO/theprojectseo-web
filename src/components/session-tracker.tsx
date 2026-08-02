@@ -125,33 +125,19 @@ function getMaxScrollDepth(): () => number {
 function flushPageView(
   sessionId: string,
   pagePath: string,
-  pageType: string,
   enteredAt: number,
   getScrollDepth: () => number,
 ) {
   const timeOnPage = Date.now() - enteredAt;
   if (timeOnPage < MIN_PAGE_TIME_MS) return;
 
-  const scrollDepth = getScrollDepth();
-
-  const payload = {
-    session_id: sessionId,
-    page_path: pagePath,
-    page_type: pageType,
-    time_on_page_ms: timeOnPage,
-    scroll_depth: scrollDepth,
-  };
-
   // Use fetch + keepalive for reliability during page unload
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
   if (!supabaseUrl || !anonKey) return;
 
-  const url = `${supabaseUrl}/rest/v1/tps_page_views`;
-  const body = JSON.stringify(payload);
-
   try {
-    fetch(url, {
+    fetch(`${supabaseUrl}/rest/v1/tps_page_views`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -159,11 +145,17 @@ function flushPageView(
         Authorization: `Bearer ${anonKey}`,
         Prefer: "return=minimal",
       },
-      body,
+      body: JSON.stringify({
+        session_id: sessionId,
+        page_path: pagePath,
+        page_type: getPageType(pagePath),
+        time_on_page_ms: timeOnPage,
+        scroll_depth: getScrollDepth(),
+      }),
       keepalive: true,
     });
   } catch {
-    // Silently fail — tracking should never break the site
+    // Measurement failures must never interfere with the website.
   }
 }
 
@@ -179,7 +171,6 @@ export function SessionTracker() {
     if (pagePath.startsWith("/admin")) return;
 
     const sessionId = getOrCreateSessionId();
-    const pageType = getPageType(pagePath);
     const enteredAt = Date.now();
     const cleanupScrollDepth = getMaxScrollDepth();
 
@@ -216,7 +207,6 @@ export function SessionTracker() {
       flushPageView(
         sessionId,
         pagePath,
-        pageType,
         enteredAt,
         cleanupScrollDepth,
       );

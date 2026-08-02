@@ -310,6 +310,8 @@ async function sendEmailNotification(
     ? getSeoTierFormLabel(selectedTier)
     : "No plan selected";
   const discoveryLabel = formatDiscoverySource(lead.discoverySource);
+  const html = (value: string | undefined, fallback = "-") =>
+    escapeHtml(value || fallback);
 
   await resend.emails.send({
     from: "TheProjectSEO Leads <leads@theprojectseo.com>",
@@ -318,23 +320,23 @@ async function sendEmailNotification(
     html: `
       <h2>New Lead from TheProjectSEO</h2>
       <table style="border-collapse:collapse;width:100%;max-width:600px;">
-        <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Name</td><td style="padding:8px;border-bottom:1px solid #eee;">${fullName}</td></tr>
-        <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Email</td><td style="padding:8px;border-bottom:1px solid #eee;"><a href="mailto:${lead.email}">${lead.email}</a></td></tr>
-        <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Company</td><td style="padding:8px;border-bottom:1px solid #eee;">${lead.company || "-"}</td></tr>
-        <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Phone</td><td style="padding:8px;border-bottom:1px solid #eee;">${lead.phone || "-"}</td></tr>
-        <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Website</td><td style="padding:8px;border-bottom:1px solid #eee;">${lead.websiteUrl || "-"}</td></tr>
-        <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Selected SEO Plan</td><td style="padding:8px;border-bottom:1px solid #eee;">${selectedPlanLabel}</td></tr>
-        <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Service</td><td style="padding:8px;border-bottom:1px solid #eee;">${lead.serviceInterest || "Not specified"}</td></tr>
-        <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Found us via</td><td style="padding:8px;border-bottom:1px solid #eee;">${discoveryLabel}</td></tr>
-        <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Search / prompt</td><td style="padding:8px;border-bottom:1px solid #eee;">${lead.discoveryDetail || "-"}</td></tr>
-        <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Source Page</td><td style="padding:8px;border-bottom:1px solid #eee;">${lead.sourcePage}</td></tr>
-        <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">CTA Source</td><td style="padding:8px;border-bottom:1px solid #eee;">${lead.ctaSource || "Unattributed"}</td></tr>
-        <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Landing Page</td><td style="padding:8px;border-bottom:1px solid #eee;">${lead.landingPage || "Unknown"}</td></tr>
-        ${lead.utmSource ? `<tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">UTM Source</td><td style="padding:8px;border-bottom:1px solid #eee;">${lead.utmSource}</td></tr>` : ""}
-        ${lead.utmCampaign ? `<tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">UTM Campaign</td><td style="padding:8px;border-bottom:1px solid #eee;">${lead.utmCampaign}</td></tr>` : ""}
-        ${lead.message ? `<tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Message</td><td style="padding:8px;border-bottom:1px solid #eee;">${lead.message}</td></tr>` : ""}
+        <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Name</td><td style="padding:8px;border-bottom:1px solid #eee;">${html(fullName)}</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Email</td><td style="padding:8px;border-bottom:1px solid #eee;">${html(lead.email)}</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Company</td><td style="padding:8px;border-bottom:1px solid #eee;">${html(lead.company)}</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Phone</td><td style="padding:8px;border-bottom:1px solid #eee;">${html(lead.phone)}</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Website</td><td style="padding:8px;border-bottom:1px solid #eee;">${html(lead.websiteUrl)}</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Selected SEO Plan</td><td style="padding:8px;border-bottom:1px solid #eee;">${html(selectedPlanLabel)}</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Service</td><td style="padding:8px;border-bottom:1px solid #eee;">${html(lead.serviceInterest, "Not specified")}</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Found us via</td><td style="padding:8px;border-bottom:1px solid #eee;">${html(discoveryLabel)}</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Search / prompt</td><td style="padding:8px;border-bottom:1px solid #eee;">${html(lead.discoveryDetail)}</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Source Page</td><td style="padding:8px;border-bottom:1px solid #eee;">${html(lead.sourcePage)}</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">CTA Source</td><td style="padding:8px;border-bottom:1px solid #eee;">${html(lead.ctaSource, "Unattributed")}</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Landing Page</td><td style="padding:8px;border-bottom:1px solid #eee;">${html(lead.landingPage, "Unknown")}</td></tr>
+        ${lead.utmSource ? `<tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">UTM Source</td><td style="padding:8px;border-bottom:1px solid #eee;">${html(lead.utmSource)}</td></tr>` : ""}
+        ${lead.utmCampaign ? `<tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">UTM Campaign</td><td style="padding:8px;border-bottom:1px solid #eee;">${html(lead.utmCampaign)}</td></tr>` : ""}
+        ${lead.message ? `<tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Message</td><td style="padding:8px;border-bottom:1px solid #eee;">${html(lead.message)}</td></tr>` : ""}
       </table>
-      <p style="margin-top:16px;color:#666;font-size:12px;">This lead was submitted from <strong>${lead.sourcePage}</strong> on theprojectseo.com</p>
+      <p style="margin-top:16px;color:#666;font-size:12px;">This lead was submitted from <strong>${html(lead.sourcePage)}</strong> on theprojectseo.com</p>
     `,
   });
 }
@@ -365,4 +367,13 @@ function escapeSlackText(value: string, maxLength = 900) {
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;");
+}
+
+function escapeHtml(value: string) {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
 }

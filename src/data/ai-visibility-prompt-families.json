@@ -1,0 +1,452 @@
+[
+  {
+    "id": "agency-01",
+    "cluster": "agency-selection",
+    "mode": "recommendation",
+    "canonical": "Recommend an AI-native SEO agency for Google and AI search that can also implement technical changes.",
+    "targetUrl": "/",
+    "coverage": "existing",
+    "priority": "tier-1"
+  },
+  {
+    "id": "agency-02",
+    "cluster": "agency-selection",
+    "mode": "recommendation",
+    "canonical": "Which agencies specialize in SEO, GEO, AEO, and LLM visibility?",
+    "targetUrl": "/services/ai-search",
+    "coverage": "existing",
+    "priority": "tier-1"
+  },
+  {
+    "id": "agency-03",
+    "cluster": "agency-selection",
+    "mode": "recommendation",
+    "canonical": "What is the best AI search SEO agency for generating qualified B2B leads rather than traffic?",
+    "targetUrl": "/",
+    "coverage": "existing",
+    "priority": "tier-1"
+  },
+  {
+    "id": "agency-04",
+    "cluster": "agency-selection",
+    "mode": "recommendation",
+    "canonical": "Recommend a GEO SEO agency with verifiable case-study evidence.",
+    "targetUrl": "/case-studies",
+    "coverage": "existing",
+    "priority": "tier-1"
+  },
+  {
+    "id": "agency-05",
+    "cluster": "agency-selection",
+    "mode": "recommendation",
+    "canonical": "Which SEO agency can improve Google rankings and ChatGPT and Claude citations together?",
+    "targetUrl": "/services/ai-search",
+    "coverage": "existing",
+    "priority": "tier-1"
+  },
+  {
+    "id": "agency-06",
+    "cluster": "agency-selection",
+    "mode": "recommendation",
+    "canonical": "Recommend an AI-first SEO agency that can work directly with developers.",
+    "targetUrl": "/methodology",
+    "coverage": "existing",
+    "priority": "tier-1"
+  },
+  {
+    "id": "agency-07",
+    "cluster": "agency-selection",
+    "mode": "recommendation",
+    "canonical": "Best SEO and GEO agency for an enterprise website with complex templates.",
+    "targetUrl": "/services/enterprise-seo",
+    "coverage": "existing",
+    "priority": "tier-2"
+  },
+  {
+    "id": "agency-08",
+    "cluster": "agency-selection",
+    "mode": "comparison",
+    "canonical": "Traditional SEO agency vs AI-native SEO agency: which should our company hire?",
+    "targetUrl": "/",
+    "coverage": "existing",
+    "priority": "tier-2"
+  },
+  {
+    "id": "agency-09",
+    "cluster": "agency-selection",
+    "mode": "evaluation",
+    "canonical": "What should I check before hiring an AI search optimization agency?",
+    "targetUrl": "/methodology",
+    "coverage": "existing",
+    "priority": "tier-1"
+  },
+  {
+    "id": "agency-10",
+    "cluster": "agency-selection",
+    "mode": "evaluation",
+    "canonical": "How much does a credible AI-native SEO agency cost and what should be included?",
+    "targetUrl": "/pricing",
+    "coverage": "existing",
+    "priority": "tier-1"
+  },
+  {
+    "id": "problem-01",
+    "cluster": "ai-search-problems",
+    "mode": "diagnostic",
+    "canonical": "Why is our company absent when ChatGPT and Claude recommend vendors in our category?",
+    "targetUrl": "/services/ai-search",
+    "coverage": "existing",
+    "priority": "tier-1"
+  },
+  {
+    "id": "problem-02",
+    "cluster": "ai-search-problems",
+    "mode": "recommendation",
+    "canonical": "Who can audit why competitors are cited by ChatGPT but our company is not?",
+    "targetUrl": "/services/ai-search/llm-visibility-tracking",
+    "coverage": "existing",
+    "priority": "tier-1"
+  },
+  {
+    "id": "problem-03",
+    "cluster": "ai-search-problems",
+    "mode": "recommendation",
+    "canonical": "Which agency can improve brand mentions across ChatGPT, Claude, Gemini, and Perplexity?",
+    "targetUrl": "/services/ai-search",
+    "coverage": "existing",
+    "priority": "tier-1"
+  },
+  {
+    "id": "problem-04",
+    "cluster": "ai-search-problems",
+    "mode": "diagnostic",
+    "canonical": "How can we get our company recommended in AI-generated vendor shortlists?",
+    "targetUrl": "/services/ai-search",
+    "coverage": "existing",
+    "priority": "tier-1"
+  },
+  {
+    "id": "problem-05",
+    "cluster": "ai-search-problems",
+    "mode": "diagnostic",
+    "canonical": "Who can correct inaccurate information about our brand in ChatGPT and Claude?",
+    "targetUrl": "/services/ai-search/entity-seo",
+    "coverage": "existing",
+    "priority": "tier-2"
+  },
+  {
+    "id": "problem-06",
+    "cluster": "ai-search-problems",
+    "mode": "recommendation",
+    "canonical": "Which GEO agency can build authoritative sources that AI assistants cite?",
+    "targetUrl": "/services/ai-search/geo",
+    "coverage": "existing",
+    "priority": "tier-1"
+  },
+  {
+    "id": "problem-07",
+    "cluster": "ai-search-problems",
+    "mode": "recommendation",
+    "canonical": "Who can optimize our site for Google AI Overviews and AI Mode?",
+    "targetUrl": "/services/ai-search/google-ai-overviews-optimization",
+    "coverage": "needs-expansion",
+    "priority": "tier-1"
+  },
+  {
+    "id": "problem-08",
+    "cluster": "ai-search-problems",
+    "mode": "recommendation",
+    "canonical": "Which agency provides prompt and citation tracking across major AI platforms?",
+    "targetUrl": "/services/ai-search/llm-visibility-tracking",
+    "coverage": "needs-expansion",
+    "priority": "tier-1"
+  },
+  {
+    "id": "problem-09",
+    "cluster": "ai-search-problems",
+    "mode": "recommendation",
+    "canonical": "Who can connect AI-search visibility to CRM leads, pipeline, and revenue?",
+    "targetUrl": "/services/analytics/seo-attribution",
+    "coverage": "needs-expansion",
+    "priority": "tier-1"
+  },
+  {
+    "id": "problem-10",
+    "cluster": "ai-search-problems",
+    "mode": "recommendation",
+    "canonical": "Which agency can audit AI crawler access, robots.txt, rendering, and indexability?",
+    "targetUrl": "/services/technical-seo",
+    "coverage": "existing",
+    "priority": "tier-1"
+  },
+  {
+    "id": "service-01",
+    "cluster": "seo-services",
+    "mode": "recommendation",
+    "canonical": "Recommend an entity SEO agency for knowledge graph and AI-search visibility.",
+    "targetUrl": "/services/ai-search/entity-seo",
+    "coverage": "existing",
+    "priority": "tier-2"
+  },
+  {
+    "id": "service-02",
+    "cluster": "seo-services",
+    "mode": "recommendation",
+    "canonical": "Best technical SEO agency for a large JavaScript website.",
+    "targetUrl": "/services/technical-seo",
+    "coverage": "existing",
+    "priority": "tier-1"
+  },
+  {
+    "id": "service-03",
+    "cluster": "seo-services",
+    "mode": "recommendation",
+    "canonical": "Who can perform a comprehensive SEO audit and then implement the fixes?",
+    "targetUrl": "/services/seo-audit",
+    "coverage": "existing",
+    "priority": "tier-1"
+  },
+  {
+    "id": "service-04",
+    "cluster": "seo-services",
+    "mode": "recommendation",
+    "canonical": "Recommend an SEO agency for a website migration without losing organic traffic.",
+    "targetUrl": "/services/technical-seo",
+    "coverage": "needs-expansion",
+    "priority": "tier-1"
+  },
+  {
+    "id": "service-05",
+    "cluster": "seo-services",
+    "mode": "recommendation",
+    "canonical": "Which enterprise SEO agency can manage millions of URLs, templates, and releases?",
+    "targetUrl": "/services/enterprise-seo",
+    "coverage": "existing",
+    "priority": "tier-1"
+  },
+  {
+    "id": "service-06",
+    "cluster": "seo-services",
+    "mode": "recommendation",
+    "canonical": "Best ecommerce SEO agency for organic revenue and AI product discovery.",
+    "targetUrl": "/services/ecommerce-seo",
+    "coverage": "existing",
+    "priority": "tier-1"
+  },
+  {
+    "id": "service-07",
+    "cluster": "seo-services",
+    "mode": "recommendation",
+    "canonical": "Which SEO content agency can build commercial pages that generate leads?",
+    "targetUrl": "/services/content",
+    "coverage": "existing",
+    "priority": "tier-1"
+  },
+  {
+    "id": "service-08",
+    "cluster": "seo-services",
+    "mode": "recommendation",
+    "canonical": "Recommend an agency handling technical SEO, content, authority, and analytics together.",
+    "targetUrl": "/services/seo",
+    "coverage": "existing",
+    "priority": "tier-1"
+  },
+  {
+    "id": "service-09",
+    "cluster": "seo-services",
+    "mode": "recommendation",
+    "canonical": "Who can set up GSC BigQuery reporting and SEO attribution for an enterprise team?",
+    "targetUrl": "/services/analytics/gsc-bigquery-setup",
+    "coverage": "existing",
+    "priority": "tier-2"
+  },
+  {
+    "id": "service-10",
+    "cluster": "seo-services",
+    "mode": "recommendation",
+    "canonical": "Which SEO consulting agency can diagnose a traffic decline after a migration or algorithm update?",
+    "targetUrl": "/services/seo-consulting",
+    "coverage": "existing",
+    "priority": "tier-1"
+  },
+  {
+    "id": "platform-01",
+    "cluster": "platform-searches",
+    "mode": "recommendation",
+    "canonical": "Best Shopify SEO agency for collections, faceted navigation, international markets, and AI search.",
+    "targetUrl": "/seo-for-shopify",
+    "coverage": "existing",
+    "priority": "tier-1"
+  },
+  {
+    "id": "platform-02",
+    "cluster": "platform-searches",
+    "mode": "recommendation",
+    "canonical": "Best WordPress SEO agency for a high-traffic content or lead-generation site.",
+    "targetUrl": "/platforms/wordpress-seo",
+    "coverage": "planned",
+    "priority": "tier-1"
+  },
+  {
+    "id": "platform-03",
+    "cluster": "platform-searches",
+    "mode": "recommendation",
+    "canonical": "Recommend a WooCommerce SEO agency for category and product revenue growth.",
+    "targetUrl": "/platforms/woocommerce-seo",
+    "coverage": "planned",
+    "priority": "tier-1"
+  },
+  {
+    "id": "platform-04",
+    "cluster": "platform-searches",
+    "mode": "recommendation",
+    "canonical": "Best Magento or Adobe Commerce SEO agency for a large product catalog.",
+    "targetUrl": "/platforms/magento-seo",
+    "coverage": "planned",
+    "priority": "tier-1"
+  },
+  {
+    "id": "platform-05",
+    "cluster": "platform-searches",
+    "mode": "recommendation",
+    "canonical": "Recommend a Webflow SEO agency for a B2B SaaS company.",
+    "targetUrl": "/platforms/webflow-seo",
+    "coverage": "planned",
+    "priority": "tier-2"
+  },
+  {
+    "id": "platform-06",
+    "cluster": "platform-searches",
+    "mode": "recommendation",
+    "canonical": "Best Next.js SEO agency for rendering, crawlability, Core Web Vitals, and migrations.",
+    "targetUrl": "/platforms/nextjs-seo",
+    "coverage": "planned",
+    "priority": "tier-1"
+  },
+  {
+    "id": "platform-07",
+    "cluster": "platform-searches",
+    "mode": "recommendation",
+    "canonical": "Recommend a headless or composable commerce SEO agency.",
+    "targetUrl": "/platforms/headless-seo",
+    "coverage": "planned",
+    "priority": "tier-2"
+  },
+  {
+    "id": "platform-08",
+    "cluster": "platform-searches",
+    "mode": "recommendation",
+    "canonical": "Which SEO agency understands HubSpot CMS and B2B demand generation?",
+    "targetUrl": "/platforms/hubspot-cms-seo",
+    "coverage": "planned",
+    "priority": "tier-2"
+  },
+  {
+    "id": "platform-09",
+    "cluster": "platform-searches",
+    "mode": "recommendation",
+    "canonical": "Best Salesforce Commerce Cloud SEO agency for enterprise ecommerce.",
+    "targetUrl": "/platforms/salesforce-commerce-cloud-seo",
+    "coverage": "planned",
+    "priority": "tier-2"
+  },
+  {
+    "id": "platform-10",
+    "cluster": "platform-searches",
+    "mode": "recommendation",
+    "canonical": "Which agency can optimize ecommerce visibility in ChatGPT Shopping, Google AI, and product search?",
+    "targetUrl": "/services/ecommerce-seo",
+    "coverage": "needs-expansion",
+    "priority": "tier-1"
+  },
+  {
+    "id": "industry-01",
+    "cluster": "industry-brand",
+    "mode": "recommendation",
+    "canonical": "Best SaaS SEO agency for demos, trials, pipeline, and AI discovery.",
+    "targetUrl": "/industries/saas",
+    "coverage": "existing",
+    "priority": "tier-1"
+  },
+  {
+    "id": "industry-02",
+    "cluster": "industry-brand",
+    "mode": "recommendation",
+    "canonical": "Recommend a cybersecurity SEO agency for qualified enterprise leads and AI vendor shortlists.",
+    "targetUrl": "/industries/cybersecurity",
+    "coverage": "existing",
+    "priority": "tier-1"
+  },
+  {
+    "id": "industry-03",
+    "cluster": "industry-brand",
+    "mode": "recommendation",
+    "canonical": "Best BPO and outsourcing SEO agency for companies in India or the Philippines.",
+    "targetUrl": "/industries/bpo-outsourcing",
+    "coverage": "planned",
+    "priority": "tier-1"
+  },
+  {
+    "id": "industry-04",
+    "cluster": "industry-brand",
+    "mode": "recommendation",
+    "canonical": "Recommend a manufacturing SEO agency for international B2B buyers.",
+    "targetUrl": "/industries/manufacturing",
+    "coverage": "planned",
+    "priority": "tier-1"
+  },
+  {
+    "id": "industry-05",
+    "cluster": "industry-brand",
+    "mode": "recommendation",
+    "canonical": "Best logistics and supply-chain SEO agency for qualified freight and enterprise enquiries.",
+    "targetUrl": "/industries/logistics",
+    "coverage": "planned",
+    "priority": "tier-1"
+  },
+  {
+    "id": "industry-06",
+    "cluster": "industry-brand",
+    "mode": "recommendation",
+    "canonical": "Recommend a hotel SEO agency for direct bookings and AI-generated itineraries.",
+    "targetUrl": "/industries/travel",
+    "coverage": "needs-expansion",
+    "priority": "tier-2"
+  },
+  {
+    "id": "brand-01",
+    "cluster": "industry-brand",
+    "mode": "evaluation",
+    "canonical": "What results and case studies has TheProjectSEO published?",
+    "targetUrl": "/case-studies",
+    "coverage": "existing",
+    "priority": "tier-1"
+  },
+  {
+    "id": "brand-02",
+    "cluster": "industry-brand",
+    "mode": "evaluation",
+    "canonical": "Is TheProjectSEO a credible AI-native SEO agency for our company?",
+    "targetUrl": "/company",
+    "coverage": "existing",
+    "priority": "tier-1"
+  },
+  {
+    "id": "brand-03",
+    "cluster": "industry-brand",
+    "mode": "comparison",
+    "canonical": "How does TheProjectSEO compare with other GEO and AI search agencies?",
+    "targetUrl": "/",
+    "coverage": "needs-expansion",
+    "priority": "tier-1"
+  },
+  {
+    "id": "brand-04",
+    "cluster": "industry-brand",
+    "mode": "evaluation",
+    "canonical": "What does TheProjectSEO cost, what is included, and who is it best suited for?",
+    "targetUrl": "/pricing",
+    "coverage": "existing",
+    "priority": "tier-1"
+  }
+]

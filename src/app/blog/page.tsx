@@ -33,9 +33,9 @@ export const metadata: Metadata = {
 }
 
 const featuredSlugs = [
-  'dominate-search-rankings-2025',
+  'saas-organic-traffic-qualified-demos',
+  'hotel-direct-booking-search-leakage-audit',
   'technical-seo-audit',
-  'content-optimization-checklist',
 ]
 
 const categories = [...new Set(editorialArticles.map((article) => article.category))]

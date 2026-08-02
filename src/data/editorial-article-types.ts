@@ -34,6 +34,16 @@ export type EditorialVisual = {
   label: string
   description: string
   aspect?: 'landscape' | 'wide'
+  graphicKey?: string
+  image?: {
+    src: string
+    alt: string
+    width: number
+    height: number
+  }
+  lookFor?: string
+  caption?: string
+  sourceNote?: string
 }
 
 export type EditorialArticle = {
@@ -59,6 +69,13 @@ export type EditorialArticle = {
   conversionTitle: string
   conversionBody: string
   visuals: EditorialVisual[]
+  heroVisual?: EditorialVisual
+  heroImage?: {
+    src: string
+    alt: string
+    width: number
+    height: number
+  }
 }
 
 export function buildEditorialMetadata(article: EditorialArticle): Metadata {
@@ -78,7 +95,24 @@ export function buildEditorialMetadata(article: EditorialArticle): Metadata {
       publishedTime: `${article.publishedAt}T00:00:00.000Z`,
       modifiedTime: `${article.updatedAt}T00:00:00.000Z`,
       authors: ['Aditya Aman'],
+      images: article.heroImage
+        ? [
+            {
+              url: article.heroImage.src,
+              width: article.heroImage.width,
+              height: article.heroImage.height,
+              alt: article.heroImage.alt,
+            },
+          ]
+        : undefined,
     },
+    twitter: article.heroImage
+      ? {
+          card: 'summary_large_image',
+          title: article.title,
+          description: article.description,
+          images: [article.heroImage.src],
+        }
+      : undefined,
   }
 }
-

@@ -1,0 +1,134 @@
+{
+  "article_title": "Why SaaS Organic Traffic Does Not Become Qualified Demos",
+  "reader": {
+    "job_to_be_done": "Trace organic search demand to a sales-accepted SaaS opportunity and decide what to fix first.",
+    "assumed_level": "intermediate"
+  },
+  "steps": [
+    { "id": "traffic-is-not-the-commercial-cohort", "visual_need": "required" },
+    { "id": "define-qualified-demo", "visual_need": "useful" },
+    { "id": "query-to-page-ownership", "visual_need": "required" },
+    { "id": "join-gsc-ga4-crm", "visual_need": "required" },
+    { "id": "diagnose-the-first-break", "visual_need": "required" },
+    { "id": "modeled-saas-example", "visual_need": "required" },
+    { "id": "build-90-day-backlog", "visual_need": "required" },
+    { "id": "verify-and-govern", "visual_need": "text-only", "no_visual_reason": "The acceptance checklist is more usable as accessible HTML beside the prose." }
+  ],
+  "visuals": [
+    {
+      "id": "saas-pipeline-map",
+      "step_ids": ["traffic-is-not-the-commercial-cohort", "define-qualified-demo"],
+      "reader_question": "Which system owns each stage between search demand and accepted opportunity?",
+      "teaches": "Search Console, GA4 and CRM ownership boundaries.",
+      "exact_state": "Five-stage operating chain with system ownership labels.",
+      "placement": "After direct answer and reader contract.",
+      "alt": "SaaS organic pipeline connecting search demand, landing page, form start, qualified lead and accepted opportunity.",
+      "caption": "Minimum measurement chain for a demo-led SaaS business.",
+      "rubric": {
+        "problem_fit": true,
+        "step_alignment": true,
+        "action_clarity": true,
+        "state_change": true,
+        "learning_specificity": true,
+        "focus_legibility": true,
+        "fidelity_currency": true,
+        "accessibility": true,
+        "privacy_rights": true,
+        "non_duplication": true
+      },
+      "fatal_flags": []
+    },
+    {
+      "id": "saas-query-page-matrix",
+      "step_ids": ["query-to-page-ownership"],
+      "reader_question": "Which page should own each SaaS buying question?",
+      "teaches": "Intent-family to page-owner mapping.",
+      "exact_state": "Completed matrix with problem, use-case, integration, comparison and trust rows.",
+      "placement": "After the query-to-page ownership section.",
+      "alt": "Matrix mapping five SaaS query families to page owners and buyer decisions.",
+      "caption": "Example taxonomy for a demo-led B2B SaaS site.",
+      "rubric": {
+        "problem_fit": true,
+        "step_alignment": true,
+        "action_clarity": true,
+        "state_change": true,
+        "learning_specificity": true,
+        "focus_legibility": true,
+        "fidelity_currency": true,
+        "accessibility": true,
+        "privacy_rights": true,
+        "non_duplication": true
+      },
+      "fatal_flags": []
+    },
+    {
+      "id": "saas-event-chain",
+      "step_ids": ["join-gsc-ga4-crm"],
+      "reader_question": "How are form, qualification and conversion states named and owned?",
+      "teaches": "A five-state GA4/CRM lead measurement contract.",
+      "exact_state": "Completed event contract using current Google event names.",
+      "placement": "After the cross-system join section.",
+      "alt": "Five lead events from page view to converted lead with system owner.",
+      "caption": "Google event vocabulary with implementation-specific triggers.",
+      "rubric": {
+        "problem_fit": true,
+        "step_alignment": true,
+        "action_clarity": true,
+        "state_change": true,
+        "learning_specificity": true,
+        "focus_legibility": true,
+        "fidelity_currency": true,
+        "accessibility": true,
+        "privacy_rights": true,
+        "non_duplication": true
+      },
+      "fatal_flags": []
+    },
+    {
+      "id": "saas-cohort-diagnostic",
+      "step_ids": ["diagnose-the-first-break", "modeled-saas-example"],
+      "reader_question": "Where does the modeled organic cohort first break?",
+      "teaches": "Consecutive stage comparison with explicit fictional-data disclosure.",
+      "exact_state": "Six-stage cohort from 1,000 GSC clicks to three accepted opportunities.",
+      "placement": "After the complete modeled example.",
+      "alt": "Modeled SaaS cohort from one thousand clicks to three accepted opportunities.",
+      "caption": "Fictional training data, not a benchmark or client claim.",
+      "rubric": {
+        "problem_fit": true,
+        "step_alignment": true,
+        "action_clarity": true,
+        "state_change": true,
+        "learning_specificity": true,
+        "focus_legibility": true,
+        "fidelity_currency": true,
+        "accessibility": true,
+        "privacy_rights": true,
+        "non_duplication": true
+      },
+      "fatal_flags": []
+    },
+    {
+      "id": "saas-priority-board",
+      "step_ids": ["build-90-day-backlog"],
+      "reader_question": "Which page cohort should enter the first 90-day backlog?",
+      "teaches": "Intent-versus-proof prioritization.",
+      "exact_state": "Four completed priority cells with recommended action.",
+      "placement": "After the 90-day backlog section.",
+      "alt": "SaaS SEO priority matrix comparing buyer intent and product proof.",
+      "caption": "Prioritization model; add cohort size and effort during planning.",
+      "rubric": {
+        "problem_fit": true,
+        "step_alignment": true,
+        "action_clarity": true,
+        "state_change": true,
+        "learning_specificity": true,
+        "focus_legibility": true,
+        "fidelity_currency": true,
+        "accessibility": true,
+        "privacy_rights": true,
+        "non_duplication": true
+      },
+      "fatal_flags": []
+    }
+  ]
+}

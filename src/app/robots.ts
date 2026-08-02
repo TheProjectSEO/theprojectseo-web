@@ -9,7 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: [
           '/admin/',
           '/api/',
-          '/_next/',
           '/output/',
           '/scripts/',
           '/new design system/',
@@ -17,39 +16,36 @@ export default function robots(): MetadataRoute.Robots {
           '/.claude/',
         ],
       },
-      // Explicitly allow AI training bots
+      // AI search discovery and user-requested fetches
       {
         userAgent: [
-          'GPTBot', // OpenAI ChatGPT
-          'ChatGPT-User', // ChatGPT browsing
-          'Google-Extended', // Google Bard/Gemini training
-          'GoogleOther', // Google other services
-          'anthropic-ai', // Claude training
-          'Claude-Web', // Claude web browsing
-          'PerplexityBot', // Perplexity AI
-          'Bytespider', // TikTok (optional)
-          'CCBot', // Common Crawl
+          'OAI-SearchBot',
+          'ChatGPT-User',
+          'Claude-SearchBot',
+          'Claude-User',
+          'PerplexityBot',
+          'Perplexity-User',
         ],
         allow: '/',
-        disallow: [
-          '/admin/',
-          '/api/',
-          '/_next/',
-          '/output/',
-          '/scripts/',
+        disallow: ['/admin/', '/api/', '/output/', '/scripts/'],
+      },
+      // Optional model-development crawlers. Search access is controlled above.
+      {
+        userAgent: [
+          'GPTBot',
+          'Google-Extended',
+          'ClaudeBot',
+          'CCBot',
+          'Bytespider',
         ],
+        allow: '/',
+        disallow: ['/admin/', '/api/', '/output/', '/scripts/'],
       },
       // Google and Bing crawlers
       {
         userAgent: ['Googlebot', 'Bingbot'],
         allow: '/',
-        disallow: [
-          '/admin/',
-          '/api/',
-          '/_next/',
-          '/output/',
-          '/scripts/',
-        ],
+        disallow: ['/admin/', '/api/', '/output/', '/scripts/'],
       },
     ],
     sitemap: 'https://theprojectseo.com/sitemap.xml',

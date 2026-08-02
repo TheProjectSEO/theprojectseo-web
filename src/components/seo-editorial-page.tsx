@@ -1,8 +1,10 @@
 import Link from 'next/link'
 import { ArrowRight, CalendarDays, Check, Clock3, UserRound } from 'lucide-react'
 import { Container } from '@/components/container'
+import { EditorialFigure } from '@/components/editorial-figure'
 import { EvidencePlaceholder } from '@/components/evidence-placeholder'
 import { FAQAccordion } from '@/components/faq-accordion'
+import { getFlagshipArticleGraphic } from '@/components/flagship-article-visuals'
 import { Footer } from '@/components/footer'
 import { HeroAnimation } from '@/components/hero-animation'
 import { JsonLd } from '@/components/json-ld'
@@ -12,6 +14,7 @@ import type {
   EditorialArticle,
   EditorialListItem,
   EditorialSection,
+  EditorialVisual,
 } from '@/data/editorial-article-types'
 
 const author = {
@@ -20,7 +23,13 @@ const author = {
   url: 'https://theprojectseo.com/company',
 }
 
-function ReadingList({ items, ordered = false }: { items: EditorialListItem[]; ordered?: boolean }) {
+function ReadingList({
+  items,
+  ordered = false,
+}: {
+  items: EditorialListItem[]
+  ordered?: boolean
+}) {
   const Tag = ordered ? 'ol' : 'ul'
   return (
     <Tag className="mt-7 grid gap-3">
@@ -93,12 +102,12 @@ function ConversionPanel({
       <p className="font-mono text-xs font-semibold uppercase tracking-[0.13em] text-accent">
         Apply this to a real site
       </p>
-      <h2 className={`${compact ? 'mt-3 text-2xl' : 'mt-4 text-3xl sm:text-4xl'} font-heading font-semibold`}>
+      <h2
+        className={`${compact ? 'mt-3 text-2xl' : 'mt-4 text-3xl sm:text-4xl'} font-heading font-semibold`}
+      >
         {article.conversionTitle}
       </h2>
-      <p className="mt-4 max-w-3xl text-base leading-8 text-white/70">
-        {article.conversionBody}
-      </p>
+      <p className="mt-4 max-w-3xl text-base leading-8 text-white/70">{article.conversionBody}</p>
       <div className="mt-7 flex flex-col gap-3 sm:flex-row">
         <Link
           href={article.primaryService.href}
@@ -115,6 +124,43 @@ function ConversionPanel({
         </Link>
       </div>
     </aside>
+  )
+}
+
+function ArticleFigure({
+  visual,
+  number,
+  hero = false,
+}: {
+  visual: EditorialVisual
+  number: number
+  hero?: boolean
+}) {
+  const graphic = visual.graphicKey ? getFlagshipArticleGraphic(visual.graphicKey) : undefined
+
+  if (!graphic) {
+    return (
+      <EvidencePlaceholder
+        label={visual.label}
+        description={visual.description}
+        aspect={visual.aspect}
+        className={hero ? 'mt-12' : 'my-12'}
+      />
+    )
+  }
+
+  return (
+    <EditorialFigure
+      number={number}
+      title={visual.label}
+      description={visual.description}
+      lookFor={visual.lookFor ?? visual.description}
+      caption={visual.caption ?? visual.description}
+      sourceNote={visual.sourceNote ?? 'TheProjectSEO visual model'}
+      hero={hero}
+    >
+      {graphic}
+    </EditorialFigure>
   )
 }
 
@@ -157,6 +203,9 @@ export function SeoEditorialPage({ article }: { article: EditorialArticle }) {
             name: article.targetKeyword,
           },
           citation: article.sources.map((source) => source.url),
+          image: article.heroImage
+            ? `https://theprojectseo.com${article.heroImage.src}`
+            : undefined,
           inLanguage: 'en',
         }}
       />
@@ -203,11 +252,16 @@ export function SeoEditorialPage({ article }: { article: EditorialArticle }) {
         <Container className="relative">
           <Navbar />
           <div className="mx-auto max-w-5xl py-16 sm:py-24">
-            <nav aria-label="Breadcrumb" className="font-mono text-xs uppercase tracking-[0.12em] text-ash">
+            <nav
+              aria-label="Breadcrumb"
+              className="font-mono text-xs uppercase tracking-[0.12em] text-ash"
+            >
               <Link href="/blog" className="hover:text-accent">
                 SEO Library
               </Link>
-              <span aria-hidden="true" className="mx-2">/</span>
+              <span aria-hidden="true" className="mx-2">
+                /
+              </span>
               <span>{article.category}</span>
             </nav>
             <p className="mt-10 font-mono text-xs font-semibold uppercase tracking-[0.15em] text-accent">
@@ -258,7 +312,9 @@ export function SeoEditorialPage({ article }: { article: EditorialArticle }) {
                 </ul>
               </div>
               <div>
-                <h2 className="font-heading text-xl font-semibold text-ink">Who this guide is for</h2>
+                <h2 className="font-heading text-xl font-semibold text-ink">
+                  Who this guide is for
+                </h2>
                 <ul className="mt-5 space-y-3">
                   {article.audience.map((item) => (
                     <li key={item} className="flex gap-3 text-[15px] leading-7 text-slate">
@@ -269,6 +325,8 @@ export function SeoEditorialPage({ article }: { article: EditorialArticle }) {
                 </ul>
               </div>
             </section>
+
+            {article.heroVisual && <ArticleFigure visual={article.heroVisual} number={1} hero />}
 
             <nav aria-label="Article contents" className="mt-12 border-y border-border py-8">
               <p className="font-mono text-xs font-semibold uppercase tracking-[0.12em] text-ash">
@@ -295,7 +353,12 @@ export function SeoEditorialPage({ article }: { article: EditorialArticle }) {
               const visual = article.visuals.find((item) => item.afterSection === index)
               return (
                 <div key={section.id}>
-                  <section id={section.id} className="scroll-mt-24 border-b border-border py-14">
+                  <section
+                    id={section.id}
+                    className={`scroll-mt-24 py-14 ${
+                      article.heroVisual ? '' : 'border-b border-border'
+                    }`}
+                  >
                     <p className="font-mono text-xs font-semibold uppercase tracking-[0.12em] text-ash">
                       {String(index + 1).padStart(2, '0')}
                     </p>
@@ -316,7 +379,10 @@ export function SeoEditorialPage({ article }: { article: EditorialArticle }) {
                           <thead className="bg-ink text-white">
                             <tr>
                               {section.table.headers.map((header) => (
-                                <th key={header} className="px-5 py-4 font-heading text-sm font-semibold">
+                                <th
+                                  key={header}
+                                  className="px-5 py-4 font-heading text-sm font-semibold"
+                                >
                                   {header}
                                 </th>
                               ))}
@@ -324,9 +390,15 @@ export function SeoEditorialPage({ article }: { article: EditorialArticle }) {
                           </thead>
                           <tbody>
                             {section.table.rows.map((row, rowIndex) => (
-                              <tr key={`${section.id}-${rowIndex}`} className="border-t border-border">
+                              <tr
+                                key={`${section.id}-${rowIndex}`}
+                                className="border-t border-border"
+                              >
                                 {row.map((cell, cellIndex) => (
-                                  <td key={`${cell}-${cellIndex}`} className="px-5 py-4 align-top text-sm leading-6 text-slate">
+                                  <td
+                                    key={`${cell}-${cellIndex}`}
+                                    className="px-5 py-4 align-top text-sm leading-6 text-slate"
+                                  >
                                     {cell}
                                   </td>
                                 ))}
@@ -339,11 +411,9 @@ export function SeoEditorialPage({ article }: { article: EditorialArticle }) {
                     <SourceLinks section={section} article={article} />
                   </section>
                   {visual && (
-                    <EvidencePlaceholder
-                      label={visual.label}
-                      description={visual.description}
-                      aspect={visual.aspect}
-                      className="my-12"
+                    <ArticleFigure
+                      visual={visual}
+                      number={article.visuals.indexOf(visual) + (article.heroVisual ? 2 : 1)}
                     />
                   )}
                   {(index === 2 || index === 6) && <ConversionPanel article={article} compact />}
@@ -448,7 +518,9 @@ export function SeoEditorialPage({ article }: { article: EditorialArticle }) {
               <h2 className="mt-4 max-w-3xl font-heading text-3xl font-semibold tracking-tight text-ink sm:text-5xl">
                 {article.conversionTitle}
               </h2>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate">{article.conversionBody}</p>
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate">
+                {article.conversionBody}
+              </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
                   href={article.primaryService.href}
@@ -497,4 +569,3 @@ export function SeoEditorialPage({ article }: { article: EditorialArticle }) {
     </main>
   )
 }
-
