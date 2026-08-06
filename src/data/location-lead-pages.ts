@@ -42,7 +42,7 @@ const india = createSearchServicePage({
     'SEO services in India covering technical SEO, content, ecommerce, local and enterprise search, analytics, authority, and AI search',
   metaTitle: 'SEO Agency in India for Google & AI Search',
   metaDescription:
-    'India-based SEO agency for technical SEO, content, ecommerce, local and enterprise search, analytics, authority and AI search.',
+    'India-based SEO agency and SEO company for technical SEO, content, ecommerce, local and enterprise search, analytics, authority, AI SEO and AI search.',
   eyebrow: 'SEO agency in India · Headquartered in Ranchi',
   title: 'SEO Agency India: build search demand.',
   titleAccent: 'Compete wherever your buyers are.',
@@ -63,7 +63,7 @@ const india = createSearchServicePage({
     'Technical, content, ecommerce, local, enterprise, authority, analytics, and AI search',
     'No claim of an office in Bangalore, Mumbai, Delhi, Hyderabad, Pune, or Chennai',
   ],
-  examples: ['SEO agency in India for AI search', 'technical SEO company for an Indian ecommerce site', 'India SEO agency for global SaaS buyers', 'how to choose an SEO company in India'],
+  examples: ['SEO agency in India for AI search', 'SEO company in India for ecommerce and enterprise search', 'AI SEO agency and AI SEO services for Indian businesses', 'how to choose an SEO company in India'],
   pageAssets: ['India service, industry, solution, product, ecommerce, and country-market pages', 'city and service pages only where the business can provide distinct, useful market information', 'buyer guides, comparisons, tools, definitions, documentation, and expert resources', 'approved India project evidence, research methods, datasets, and visual proof', 'organization, Ranchi headquarters, people, services, policies, contact, and verified profile pages'],
   technicalFocus:
     'A review of crawl, rendering, indexation, architecture, templates, ecommerce parameters, performance, structured data, internal links, analytics, migrations, and language or market variants.',
@@ -89,6 +89,16 @@ const india = createSearchServicePage({
       answer:
         'Target the markets where qualified buyers search and the business can sell, support, price, and comply. Headquarters does not determine search intent. We separate country, language, product, industry, and buyer-stage research before choosing architecture or content.',
     },
+    {
+      question: 'Are you an SEO company or an SEO agency in India?',
+      answer:
+        'Both. TheProjectSEO is an India-headquartered SEO company and SEO agency in Ranchi, delivering the same technical SEO, content, local, and AI-search scope regardless of which term you search.',
+    },
+    {
+      question: 'Do you offer AI SEO services in India?',
+      answer:
+        'Yes. AI SEO services and AI SEO agency work, generative engine optimization (GEO), answer engine optimization (AEO), and AI Overviews visibility sit alongside the core Google program rather than replacing it. This is one of the fastest-growing search categories in the Indian market, and we hold it to the same evidence standard as traditional rankings.',
+    },
   ],
   relatedLinks: [
     { href: '/services/local-seo', label: 'Local SEO', description: 'Build eligible local discovery without invented offices or profiles.' },
@@ -107,7 +117,7 @@ const philippines = createSearchServicePage({
     'SEO services for Philippine organizations covering technical SEO, content, ecommerce, local search, analytics, authority, and AI search',
   metaTitle: 'SEO Agency Philippines for Google & AI Search',
   metaDescription:
-    'SEO services for Philippine businesses across technical SEO, content, ecommerce, local search, analytics, authority and AI search.',
+    'SEO Philippines services for Philippine businesses: technical SEO, content, ecommerce, local search, analytics, authority and AI search from an SEO company and agency built for the market.',
   eyebrow: 'SEO agency for Philippine businesses · Remote specialist delivery',
   title: 'SEO Agency Philippines: turn search demand into action.',
   titleAccent: 'Build sources AI can verify.',
@@ -124,11 +134,11 @@ const philippines = createSearchServicePage({
     'Philippine businesses with a proven offer, access to local customer and subject expertise, implementation ownership, and outcomes such as qualified enquiries, bookings, orders, pipeline, or revenue.',
   heroChecks: [
     'Philippine SERP, customer, language, city, industry, platform, and competitor research',
-    'Technical, content, ecommerce, local, authority, analytics, and AI-search work',
+    'Technical, content, ecommerce, local, authority, analytics, generative engine optimization (GEO), answer engine optimization (AEO), and AI-search work',
     'Remote delivery from India with accountable local fact and market review',
     'No invented Manila or Cebu office, project metric, citation rate, or result timetable',
   ],
-  examples: ['SEO agency Philippines for Google and ChatGPT', 'ecommerce SEO company for a Philippine store', 'local SEO services for Manila businesses', 'how to choose an SEO agency in the Philippines'],
+  examples: ['SEO Philippines for Google and AI search', 'SEO company Philippines for ecommerce and local businesses', 'SEO services Philippines for growing brands', 'local SEO Philippines for Manila and Cebu businesses'],
   pageAssets: ['Philippines service, industry, ecommerce, solution, and country-market pages', 'Manila and Cebu pages only with distinct customer, service, and market value', 'local guides, comparisons, tools, definitions, documentation, and customer resources', 'approved Philippine project evidence, methods, screenshots, data, and expert commentary', 'organization, people, remote-delivery facts, services, policies, contact, and verified profiles'],
   technicalFocus:
     'A review of crawl, rendering, indexation, architecture, templates, ecommerce and marketplace relationships, performance, structured data, internal links, analytics, migrations, and local or international variants.',
@@ -153,6 +163,16 @@ const philippines = createSearchServicePage({
       question: 'What Philippine projects can TheProjectSEO show?',
       answer:
         'The project owner has supplied point-in-time evidence for Expressway.PH and TaxCalculator.com.ph. Expressway.PH showed 49.2K estimated monthly organic traffic, 6.8K organic keywords, 3.4K AI Overview responses, and 2.4K ChatGPT responses in a July 2026 Ahrefs snapshot. TaxCalculator.com.ph showed 32.3K Search impressions over a supplied three-month Search Console view. These are project-specific observations, not promised client averages.',
+    },
+    {
+      question: 'Is TheProjectSEO an SEO company in the Philippines or an SEO agency?',
+      answer:
+        'Both terms are used interchangeably by Philippine buyers, and we answer to either. We are an SEO company and SEO agency serving the Philippines remotely from our India headquarters, covering the same technical SEO, content, local search, and AI-search scope regardless of which term you search.',
+    },
+    {
+      question: 'Do you offer local SEO for Philippine businesses?',
+      answer:
+        'Yes. Local SEO Philippines work covers Google Business Profile eligibility, city and service-area pages only where the business has a genuine footprint, and local citation and review signals, without inventing an office or profile that does not exist.',
     },
   ],
   relatedLinks: [

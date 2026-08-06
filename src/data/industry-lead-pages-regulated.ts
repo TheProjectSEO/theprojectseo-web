@@ -459,7 +459,7 @@ const legal: IndustryLeadPageData = {
   schemaAudience: 'Law firms, legal practices, attorneys, advocates, solicitors, and legal service teams',
   metaTitle: 'Law Firm SEO Agency for Qualified Matters & AI Search | TheProjectSEO',
   metaDescription:
-    'Law firm SEO for practice areas, lawyers and real offices across Google, local and AI search. See ethics-aware content, qualified-matter reporting and pricing.',
+    'SEO for law firms: practice areas, lawyers and real offices across Google, local and AI search. See ethics-aware content, qualified-matter reporting and pricing.',
   eyebrow: 'Law firm SEO agency · Google, local + AI search',
   title: 'Law Firm SEO Agency: be found for the matters',
   titleAccent: 'your firm is equipped to handle.',
@@ -476,9 +476,10 @@ const legal: IndustryLeadPageData = {
   bestFit:
     'Firms with defined practices and jurisdictions, real lawyers and offices, an ethics review path, and intake data that can distinguish a qualified matter from a raw inquiry.',
   heroChecks: [
-    'Practice-area, lawyer, office, jurisdiction, and legal-information discovery',
+    'SEO for law firms across every practice area the firm actually operates in',
     'Google Search, Maps, Bing, AI Overviews, ChatGPT, Gemini, and Perplexity',
     'Named legal reviewers, sources, jurisdiction, reviewed dates, and claim controls',
+    'Direct access to the law firm SEO expert running your account, not a rotating account manager',
     'Reporting tied to qualified matters, consultations, retained clients, and case-type fit',
   ],
   journeyTitle: 'How does a prospective client search for legal help?',
@@ -551,7 +552,7 @@ const legal: IndustryLeadPageData = {
         'Reporting follows non-confidential marketing fields from inquiry through qualification, consultation, and retained-client stages under the firm’s privacy and ethics controls.',
     },
   ],
-  deliverablesTitle: 'What does law firm SEO include?',
+  deliverablesTitle: 'What do law firm SEO services include?',
   deliverablesLead:
     'The program covers the website, real-world lawyer and office entities, legal review, local search, authority, and qualified-matter measurement.',
   deliverables: [
@@ -872,6 +873,21 @@ const legal: IndustryLeadPageData = {
       question: 'What does law firm SEO cost?',
       answer:
         'TheProjectSEO engagements currently start from $3,500 per month. Scope depends on practices, jurisdictions, lawyers, offices, technical platform, review workflow, content ownership, local profile work, authority development, and intake measurement.',
+    },
+    {
+      question: 'Do you offer SEO for law firms in every practice area?',
+      answer:
+        'We offer SEO for law firms across the practice areas a firm actually operates in and can accept new matters for, not a generic template applied to every case type. Scope, jurisdiction, and lawyer availability determine which practice pages we build. As a law firm SEO company, we run this end to end rather than splitting technical, content, and local work across separate vendors.',
+    },
+    {
+      question: 'Do you offer local SEO for law firms?',
+      answer:
+        'Yes. Law firm local SEO covers Google Business Profile eligibility, city and office pages tied to a real location, and local citation and review signals. We do not build doorway pages for cities where the firm has no genuine presence.',
+    },
+    {
+      question: 'Do you handle SEO for personal injury law firms specifically?',
+      answer:
+        'Personal injury law firm SEO follows the same ethics-aware process as every other practice area: real lawyer and case-type scope, jurisdiction-correct content, and reporting tied to qualified matters rather than raw call volume. We do not promise settlement outcomes or case values.',
     },
   ],
   relatedLinks: [
