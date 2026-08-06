@@ -461,8 +461,15 @@ const legal: IndustryLeadPageData = {
   metaDescription:
     'Law firm SEO for practice areas, lawyers and real offices across Google, local and AI search. See ethics-aware content, qualified-matter reporting and pricing.',
   eyebrow: 'Law firm SEO agency · Google, local + AI search',
-  title: 'Be found for the matters',
+  title: 'Law Firm SEO Agency: be found for the matters',
   titleAccent: 'your firm is equipped to handle.',
+  entityMentions: [
+    { name: 'Search engine optimization', sameAs: ['https://www.wikidata.org/wiki/Q180711', 'https://en.wikipedia.org/wiki/Search_engine_optimization'] },
+    { name: 'Google Search', sameAs: ['https://www.wikidata.org/wiki/Q9366', 'https://en.wikipedia.org/wiki/Google_Search'] },
+    { name: 'Link building', sameAs: ['https://www.wikidata.org/wiki/Q1569371', 'https://en.wikipedia.org/wiki/Link_building'] },
+    { name: 'Content marketing', sameAs: ['https://www.wikidata.org/wiki/Q558685', 'https://en.wikipedia.org/wiki/Content_marketing'] },
+    { name: 'Keyword research', sameAs: ['https://www.wikidata.org/wiki/Q6398555', 'https://en.wikipedia.org/wiki/Keyword_research'] },
+  ],
   directAnswer:
     'TheProjectSEO helps law firms become discoverable when a prospective client researches a legal problem, compares options, validates a lawyer, and decides whether to make contact. We connect technical SEO, real practice-area and location architecture, lawyer entities, source-backed education, local profiles, digital authority, conversion design, and AI-answer monitoring. Legal claims, jurisdiction, professional-conduct requirements, confidentiality, outcomes, testimonials, and advice remain subject to the firm’s qualified legal and ethics review.',
   primaryCta: 'Request a law firm SEO assessment',
@@ -1357,8 +1364,15 @@ const realestate: IndustryLeadPageData = {
   metaDescription:
     'Real estate SEO for projects, properties, locations and agents across Google, local and AI search. See listing architecture, qualified-lead reporting and pricing.',
   eyebrow: 'Real estate SEO agency · Property demand + AI search',
-  title: 'Turn property search into',
+  title: 'Real Estate SEO Agency: turn property search into',
   titleAccent: 'qualified conversations.',
+  entityMentions: [
+    { name: 'Search engine optimization', sameAs: ['https://www.wikidata.org/wiki/Q180711', 'https://en.wikipedia.org/wiki/Search_engine_optimization'] },
+    { name: 'Real estate', sameAs: ['https://www.wikidata.org/wiki/Q684740', 'https://en.wikipedia.org/wiki/Real_estate'] },
+    { name: 'Google Search', sameAs: ['https://www.wikidata.org/wiki/Q9366', 'https://en.wikipedia.org/wiki/Google_Search'] },
+    { name: 'Real estate agent', sameAs: ['https://www.wikidata.org/wiki/Q519076', 'https://en.wikipedia.org/wiki/Real_estate_agent'] },
+    { name: 'Local search engine optimisation', sameAs: ['https://www.wikidata.org/wiki/Q30324357', 'https://en.wikipedia.org/wiki/Local_search_engine_optimisation'] },
+  ],
   directAnswer:
     'TheProjectSEO helps real estate agencies, developers, brokerages, property platforms, managers, and investment firms become discoverable across property type, project, location, budget, amenity, buyer, seller, and investment journeys. We combine technical listing SEO, location and project architecture, agent and business entities, market education, local profiles, authority, and AI-answer monitoring. Performance is measured against qualified inquiries, viewings, seller or landlord leads, bookings, and CRM progression—not listing impressions alone.',
   primaryCta: 'Request a real estate SEO assessment',

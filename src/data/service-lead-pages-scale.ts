@@ -29,6 +29,7 @@ export type SearchServiceSpec = {
   relatedLinks: Array<{ href: string; label: string; description: string }>;
   path?: string;
   parentBreadcrumb?: { name: string; href: string };
+  entityMentions?: Array<{ name: string; sameAs: string[] }>;
 };
 
 const googleSources = {
@@ -126,6 +127,7 @@ export function createSearchServicePage(
     eyebrow: spec.eyebrow,
     title: spec.title,
     titleAccent: spec.titleAccent,
+    entityMentions: spec.entityMentions,
     directAnswer: `${spec.definition} TheProjectSEO connects the work to Google, Bing, AI-assisted search, and measurable customer decisions. Each recommendation receives evidence, an owner, implementation requirements, QA conditions, and an outcome definition; we do not sell isolated checklists or unsupported ranking promises.`,
     primaryCta: `Request a ${spec.name} assessment`,
     bestFit: spec.bestFit,

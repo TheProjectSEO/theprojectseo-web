@@ -927,8 +927,15 @@ const technology: IndustryLeadPageData = {
   metaDescription:
     'Technology SEO for B2B software, hardware, cloud, IT and developer platforms. Improve Google and AI-search visibility with technical content and pipeline measurement.',
   eyebrow: 'Technology SEO agency · B2B buyers + AI search',
-  title: 'Make complex technology',
+  title: 'Technology SEO Agency: make complex technology',
   titleAccent: 'easier to discover and buy.',
+  entityMentions: [
+    { name: 'Search engine optimization', sameAs: ['https://www.wikidata.org/wiki/Q180711', 'https://en.wikipedia.org/wiki/Search_engine_optimization'] },
+    { name: 'Google Search', sameAs: ['https://www.wikidata.org/wiki/Q9366', 'https://en.wikipedia.org/wiki/Google_Search'] },
+    { name: 'JavaScript', sameAs: ['https://www.wikidata.org/wiki/Q2005', 'https://en.wikipedia.org/wiki/JavaScript'] },
+    { name: 'Software as a service', sameAs: ['https://www.wikidata.org/wiki/Q1254596', 'https://en.wikipedia.org/wiki/Software_as_a_service'] },
+    { name: 'Content strategy', sameAs: ['https://www.wikidata.org/wiki/Q4353935', 'https://en.wikipedia.org/wiki/Content_strategy'] },
+  ],
   directAnswer:
     'TheProjectSEO helps B2B technology companies become discoverable when practitioners define a problem, buying committees compare solutions, developers validate implementation, and AI systems assemble vendor shortlists. We connect technical SEO, product and solution architecture, documentation, expert content, entity clarity, digital authority, and AI-answer monitoring to qualified demos, evaluations, opportunities, and pipeline.',
   primaryCta: 'Request a technology SEO assessment',

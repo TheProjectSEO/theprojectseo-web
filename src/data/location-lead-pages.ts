@@ -44,8 +44,15 @@ const india = createSearchServicePage({
   metaDescription:
     'India-based SEO agency for technical SEO, content, ecommerce, local and enterprise search, analytics, authority and AI search.',
   eyebrow: 'SEO agency in India · Headquartered in Ranchi',
-  title: 'Build search demand from India.',
+  title: 'SEO Agency India: build search demand.',
   titleAccent: 'Compete wherever your buyers are.',
+  entityMentions: [
+    { name: 'India', sameAs: ['https://www.wikidata.org/wiki/Q668', 'https://en.wikipedia.org/wiki/India'] },
+    { name: 'Search engine optimization', sameAs: ['https://www.wikidata.org/wiki/Q180711', 'https://en.wikipedia.org/wiki/Search_engine_optimization'] },
+    { name: 'Google', sameAs: ['https://www.wikidata.org/wiki/Q95', 'https://en.wikipedia.org/wiki/Google'] },
+    { name: 'Digital marketing', sameAs: ['https://www.wikidata.org/wiki/Q1323528', 'https://en.wikipedia.org/wiki/Digital_marketing'] },
+    { name: 'E-commerce', sameAs: ['https://www.wikidata.org/wiki/Q484847', 'https://en.wikipedia.org/wiki/E-commerce'] },
+  ],
   definition:
     'TheProjectSEO is an India-based SEO agency headquartered in Ranchi, Jharkhand. We help Indian organizations and India-based teams improve qualified discovery across Google, Bing, AI Overviews, ChatGPT, Gemini, Claude, and Perplexity using technical SEO, content and page architecture, entities, authority, analytics, and implementation governance.',
   bestFit:
@@ -102,8 +109,15 @@ const philippines = createSearchServicePage({
   metaDescription:
     'SEO services for Philippine businesses across technical SEO, content, ecommerce, local search, analytics, authority and AI search.',
   eyebrow: 'SEO agency for Philippine businesses · Remote specialist delivery',
-  title: 'Turn Philippine search demand into action.',
+  title: 'SEO Agency Philippines: turn search demand into action.',
   titleAccent: 'Build sources AI can verify.',
+  entityMentions: [
+    { name: 'Philippines', sameAs: ['https://www.wikidata.org/wiki/Q928', 'https://en.wikipedia.org/wiki/Philippines'] },
+    { name: 'Search engine optimization', sameAs: ['https://www.wikidata.org/wiki/Q180711', 'https://en.wikipedia.org/wiki/Search_engine_optimization'] },
+    { name: 'Google', sameAs: ['https://www.wikidata.org/wiki/Q95', 'https://en.wikipedia.org/wiki/Google'] },
+    { name: 'Digital marketing', sameAs: ['https://www.wikidata.org/wiki/Q1323528', 'https://en.wikipedia.org/wiki/Digital_marketing'] },
+    { name: 'Content marketing', sameAs: ['https://www.wikidata.org/wiki/Q558685', 'https://en.wikipedia.org/wiki/Content_marketing'] },
+  ],
   definition:
     'TheProjectSEO helps Philippine businesses improve qualified discovery across Google, Bing, AI Overviews, ChatGPT, Gemini, Claude, and Perplexity. Delivery is remote from our India headquarters and combines Philippine SERP and customer research with technical SEO, content and page architecture, local and ecommerce systems, authority, analytics, and transparent AI-search measurement.',
   bestFit:

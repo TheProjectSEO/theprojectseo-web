@@ -94,6 +94,10 @@ export type IndustryLeadPageData = {
   faqTitle: string
   faqs: Array<{ question: string; answer: string }>
   relatedLinks: Array<{ href: string; label: string; description: string }>
+  /** Real, Wikidata/Wikipedia-linked entities mentioned on the page, surfaced in schema
+   * as `mentions` with `sameAs`. Optional -- only populate with entities actually grounded
+   * against verified data (e.g. TextRazor wikidataId), never invented. */
+  entityMentions?: Array<{ name: string; sameAs: string[] }>
   ctaEyebrow: string
   ctaTitle: string
   ctaLead: string
@@ -132,8 +136,15 @@ const saas: IndustryLeadPageData = {
   metaDescription:
     'SaaS SEO services for qualified demos, trials, pipeline, Google visibility, AI Overviews, ChatGPT, Gemini and Perplexity. See the strategy, deliverables and measurement model.',
   eyebrow: 'SaaS SEO agency · Google + AI search',
-  title: 'Turn product expertise into',
+  title: 'SaaS SEO Agency: turn product expertise into',
   titleAccent: 'qualified SaaS demand.',
+  entityMentions: [
+    { name: 'Search engine optimization', sameAs: ['https://www.wikidata.org/wiki/Q180711', 'https://en.wikipedia.org/wiki/Search_engine_optimization'] },
+    { name: 'Software as a service', sameAs: ['https://www.wikidata.org/wiki/Q1254596', 'https://en.wikipedia.org/wiki/Software_as_a_service'] },
+    { name: 'Content marketing', sameAs: ['https://www.wikidata.org/wiki/Q558685', 'https://en.wikipedia.org/wiki/Content_marketing'] },
+    { name: 'Google', sameAs: ['https://www.wikidata.org/wiki/Q95', 'https://en.wikipedia.org/wiki/Google'] },
+    { name: 'Link building', sameAs: ['https://www.wikidata.org/wiki/Q1569371', 'https://en.wikipedia.org/wiki/Link_building'] },
+  ],
   directAnswer:
     'TheProjectSEO helps B2B and product-led SaaS companies become discoverable when buyers define a problem, compare solutions, validate technical requirements, and ask AI systems for a shortlist. We connect technical SEO, product-led content, comparison and integration pages, digital authority, structured data, and AI-search monitoring to commercial outcomes such as qualified demos, trials, pipeline, and assisted revenue—not traffic in isolation.',
   primaryCta: 'Request a SaaS SEO assessment',
@@ -580,8 +591,15 @@ const ecommerce: IndustryLeadPageData = {
   metaDescription:
     'How SEO works for online stores: the systems that make categories, collections and products rank across Google, Bing and AI search, and the results ecommerce brands see when they run them.',
   eyebrow: 'SEO for online stores · Playbook and proven results',
-  title: 'The SEO playbook behind',
+  title: 'Ecommerce SEO Agency: the playbook behind',
   titleAccent: 'stores that rank and sell.',
+  entityMentions: [
+    { name: 'Search engine optimization', sameAs: ['https://www.wikidata.org/wiki/Q180711', 'https://en.wikipedia.org/wiki/Search_engine_optimization'] },
+    { name: 'E-commerce', sameAs: ['https://www.wikidata.org/wiki/Q484847', 'https://en.wikipedia.org/wiki/E-commerce'] },
+    { name: 'Google Search', sameAs: ['https://www.wikidata.org/wiki/Q9366', 'https://en.wikipedia.org/wiki/Google_Search'] },
+    { name: 'Shopify', sameAs: ['https://www.wikidata.org/wiki/Q7501150', 'https://en.wikipedia.org/wiki/Shopify'] },
+    { name: 'Keyword research', sameAs: ['https://www.wikidata.org/wiki/Q6398555', 'https://en.wikipedia.org/wiki/Keyword_research'] },
+  ],
   directAnswer:
     'If you run an online store, SEO is a system, not a checklist. This is the playbook we use to make categories, collections, products, brands, and buying guides discoverable across Google, Bing, shopping surfaces, and AI-assisted product research, plus the results ecommerce brands see once the system is in place. It covers catalog architecture, product templates, structured product data, faceted navigation, internal links, editorial guidance, and merchant feeds, and it ties each to organic revenue, new customers, and margin-aware priorities rather than a bigger index for its own sake.',
   primaryCta: 'See the ecommerce SEO playbook',
@@ -1028,8 +1046,15 @@ const finance: IndustryLeadPageData = {
   metaDescription:
     'SEO for financial services, fintech and tax brands across Google and AI search. See the compliance-aware content, technical, entity and qualified-lead framework.',
   eyebrow: 'Financial services SEO agency · Trust before traffic',
-  title: 'Earn visibility where financial decisions',
+  title: 'Finance SEO Agency: earn visibility where financial decisions',
   titleAccent: 'need evidence.',
+  entityMentions: [
+    { name: 'Search engine optimization', sameAs: ['https://www.wikidata.org/wiki/Q180711', 'https://en.wikipedia.org/wiki/Search_engine_optimization'] },
+    { name: 'Financial services', sameAs: ['https://www.wikidata.org/wiki/Q837171', 'https://en.wikipedia.org/wiki/Financial_services'] },
+    { name: 'Google', sameAs: ['https://www.wikidata.org/wiki/Q95', 'https://en.wikipedia.org/wiki/Google'] },
+    { name: 'Financial technology', sameAs: ['https://www.wikidata.org/wiki/Q16319025', 'https://en.wikipedia.org/wiki/Financial_technology'] },
+    { name: 'Link building', sameAs: ['https://www.wikidata.org/wiki/Q1569371', 'https://en.wikipedia.org/wiki/Link_building'] },
+  ],
   directAnswer:
     'TheProjectSEO helps financial services, fintech, tax, accounting, lending, insurance, and investment brands build discoverability without separating growth from trust. We combine technical SEO, intent-led service and product pages, expert-reviewed education, transparent authorship, structured entities, digital authority, and AI-answer monitoring. Claims, rates, eligibility, tax rules, and regulated language remain subject to client compliance review; our role is to make approved expertise findable, understandable, and measurable.',
   primaryCta: 'Request a financial SEO assessment',
@@ -1476,8 +1501,15 @@ const healthcare: IndustryLeadPageData = {
   metaDescription:
     'Healthcare SEO for providers, treatments, locations and trusted education across Google and AI search. See the medical review, local, technical and lead framework.',
   eyebrow: 'Healthcare SEO agency · Patient discovery with safeguards',
-  title: 'Help the right patients find',
+  title: 'Healthcare SEO Agency: help the right patients find',
   titleAccent: 'credible care information.',
+  entityMentions: [
+    { name: 'Google Search', sameAs: ['https://www.wikidata.org/wiki/Q9366', 'https://en.wikipedia.org/wiki/Google_Search'] },
+    { name: 'Search engine optimization', sameAs: ['https://www.wikidata.org/wiki/Q180711', 'https://en.wikipedia.org/wiki/Search_engine_optimization'] },
+    { name: 'Health care', sameAs: ['https://www.wikidata.org/wiki/Q31207', 'https://en.wikipedia.org/wiki/Health_care'] },
+    { name: 'Link building', sameAs: ['https://www.wikidata.org/wiki/Q1569371', 'https://en.wikipedia.org/wiki/Link_building'] },
+    { name: 'Local search (Internet)', sameAs: ['https://www.wikidata.org/wiki/Q616553', 'https://en.wikipedia.org/wiki/Local_search_(Internet)'] },
+  ],
   directAnswer:
     'TheProjectSEO helps healthcare providers, clinics, medical groups, and health platforms improve discovery across Google, local search, Bing, AI Overviews, ChatGPT, Gemini, and Perplexity. The work connects provider, treatment, condition, location, and patient-education pages with technical access, medical review, explicit authorship, structured entities, local profiles, and privacy-conscious measurement. Clinical claims and patient guidance remain owned and approved by qualified healthcare professionals.',
   primaryCta: 'Request a healthcare SEO assessment',
@@ -1924,8 +1956,15 @@ const startups: IndustryLeadPageData = {
   metaDescription:
     'SEO for startups that need a durable, low-CAC channel: foundational technical setup, category education, and AI-search visibility scoped to an early-stage budget and team.',
   eyebrow: 'Startup SEO · Foundations before scale',
-  title: 'Make search a channel',
+  title: 'Startup SEO Agency: make search a channel',
   titleAccent: 'you own before you scale.',
+  entityMentions: [
+    { name: 'Search engine optimization', sameAs: ['https://www.wikidata.org/wiki/Q180711', 'https://en.wikipedia.org/wiki/Search_engine_optimization'] },
+    { name: 'Startup company', sameAs: ['https://www.wikidata.org/wiki/Q129238', 'https://en.wikipedia.org/wiki/Startup_company'] },
+    { name: 'Google', sameAs: ['https://www.wikidata.org/wiki/Q95', 'https://en.wikipedia.org/wiki/Google'] },
+    { name: 'Content strategy', sameAs: ['https://www.wikidata.org/wiki/Q4353935', 'https://en.wikipedia.org/wiki/Content_strategy'] },
+    { name: 'Link building', sameAs: ['https://www.wikidata.org/wiki/Q1569371', 'https://en.wikipedia.org/wiki/Link_building'] },
+  ],
   directAnswer:
     'TheProjectSEO helps early-stage startups build organic search into a compounding, low-cost acquisition channel instead of a task that waits until after the next raise. We focus on the foundations that decide whether SEO ever works: a crawlable and fast site, a clear category and positioning that people and AI systems can understand, a small set of pages that match real buyer questions, and honest measurement. The work is scoped to an early-stage budget and team, and it is sequenced so a founder can see leading signals before committing to scale.',
   primaryCta: 'Request a startup SEO assessment',

@@ -709,6 +709,15 @@ function buildSchema(page: IndustryLeadPageData): Record<string, unknown> {
           "@type": "BusinessAudience",
           audienceType: page.schemaAudience,
         },
+        ...(page.entityMentions && page.entityMentions.length > 0
+          ? {
+              mentions: page.entityMentions.map((entity) => ({
+                '@type': 'Thing',
+                name: entity.name,
+                sameAs: entity.sameAs,
+              })),
+            }
+          : {}),
       },
       {
         "@type": "BreadcrumbList",
