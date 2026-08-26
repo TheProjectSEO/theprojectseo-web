@@ -33,9 +33,9 @@ export const metadata: Metadata = {
 }
 
 const featuredSlugs = [
-  'saas-organic-traffic-qualified-demos',
-  'hotel-direct-booking-search-leakage-audit',
-  'technical-seo-audit',
+  'how-to-choose-seo-company',
+  'tracking-seo-conversions',
+  'seo-cost-2026',
 ]
 
 const categories = [...new Set(editorialArticles.map((article) => article.category))]
@@ -223,9 +223,9 @@ export default function BlogPage() {
                 Search evidence before prose.
               </h2>
               <p className="mt-6 text-lg leading-8 text-white/65">
-                The library is not produced from generic prompts. Each priority guide has a
-                stored live result corpus, a content-optimizer scorecard, primary-source
-                references and an editorial decision about what the page should own.
+                Each priority guide starts with the current search landscape,
+                customer questions, primary references, and a clear editorial
+                decision about the problem the page should solve.
               </p>
               <Link
                 href="/methodology"
@@ -239,7 +239,7 @@ export default function BlogPage() {
               {[
                 {
                   icon: Search,
-                  title: 'Live SERP corpus',
+                  title: 'Current search research',
                   detail:
                     'We inspect current result types, coverage, entities, evidence and offers for the target query.',
                 },
@@ -251,9 +251,9 @@ export default function BlogPage() {
                 },
                 {
                   icon: Workflow,
-                  title: 'Python content scoring',
+                  title: 'Coverage and quality review',
                   detail:
-                    'A local optimizer compares the rendered draft with the competitor corpus to reveal semantic gaps.',
+                    'The finished guide is checked for missing topics, unsupported claims, clarity and a useful next step.',
                 },
                 {
                   icon: BookOpenText,
@@ -349,7 +349,7 @@ export default function BlogPage() {
             </div>
             <EvidencePlaceholder
               label="Editorial evidence board"
-              description="Reserved for the final visual showing an approved SERP corpus, optimizer scorecard, source set and page-to-service conversion map."
+              description="A visual showing how search research, source review, editorial judgment and a relevant service path fit together."
               aspect="wide"
             />
           </div>

@@ -59,7 +59,7 @@ export const contentEditorialArticles: EditorialArticle[] = [
         paragraphs: [
           'Collect the leading organic results, result features, People Also Ask questions, discussions, videos, local or product modules and AI-answer patterns where available. Record titles, page types, section themes, named entities, update dates, distinctive evidence and commercial offers.',
           'Treat the result set as a current sample of what search systems are testing. Do not copy the consensus blindly. Identify what competitors leave unresolved: outdated platform behavior, missing decision criteria, weak examples, absent implementation detail or no connection to the user’s next action.',
-          'Use first-party documentation for product and platform claims. Competitor articles can reveal coverage, but they are not authoritative evidence simply because they rank. Date the research and preserve the corpus so future refreshes can explain what changed.',
+          'Use first-party documentation for product and platform claims. Competitor articles can reveal coverage, but they are not authoritative evidence simply because they rank. Date the research and record the result landscape so future refreshes can explain what changed.',
         ],
         steps: [
           { title: 'Define the query set', detail: 'Choose the primary keyword, close variants, modifiers and questions that share the task.' },
@@ -105,7 +105,7 @@ export const contentEditorialArticles: EditorialArticle[] = [
         answer:
           'Cover the concepts, entities, relationships and decisions necessary for the task, then use language naturally and score the finished draft for omissions.',
         paragraphs: [
-          'A topical optimizer can compare the draft with a live competitor corpus and identify underrepresented terms or entities. Use that signal to ask whether a concept is missing. Do not insert a phrase repeatedly just to enter a target range; the page should remain clear when read aloud.',
+          'A coverage review can compare the draft with current results and identify underrepresented concepts or entities. Use that signal to ask whether a meaningful idea is missing. Do not insert a phrase repeatedly just to enter a target range; the page should remain clear when read aloud.',
           'Name entities precisely: Google Search Console rather than “the tool,” Largest Contentful Paint before LCP, and the exact service or platform when relevant. Explain relationships, such as which dataset answers which question and which owner implements the change.',
           'Semantic completeness is bounded by intent. A local SEO guide can mention technical SEO, but it does not need to become a full JavaScript rendering tutorial. Link to the stronger owner for adjacent depth.',
         ],
@@ -202,7 +202,7 @@ export const contentEditorialArticles: EditorialArticle[] = [
         paragraphs: [
           'Monitor impressions, query mix, clicks, position distributions, conversions, citations, broken references and assisted journeys. A decline can come from demand, result features, technical changes or competition; diagnose before rewriting.',
           'Preserve what still works. Update dated claims and examples, add missing evidence, clarify sections with weak engagement and consolidate overlap. Change the publication or modification date only when the content has been materially reviewed.',
-          'After release, record the changed sections and expected signal. Re-score the rendered copy against a current SERP corpus as a quality-control input, then have a human editor review every suggested term in context.',
+          'After release, record the changed sections and expected signal. Review the rendered copy against current result research as a quality-control input, then have a human editor assess every suggested change in context.',
         ],
         sourceIds: ['performance-report'],
       },
@@ -213,14 +213,14 @@ export const contentEditorialArticles: EditorialArticle[] = [
           'Use specialist support when research, subject-matter review, page ownership, technical QA and conversion measurement cannot be coordinated through the current workflow.',
         paragraphs: [
           'Ask to see the research inputs, brief, source policy, review process, internal-link plan and measurement definition. A provider who sells a word count without understanding the page owner or offer is producing inventory, not an organic-growth asset.',
-          'TheProjectSEO combines live SERP research, a Python-based content optimizer, primary-source review and practitioner editing. The output is connected to service architecture and conversion so important pages can earn visibility and create a next step.',
+          'TheProjectSEO combines current search research, primary-source review, practitioner editing and implementation support. The output is connected to service architecture and conversion so important pages can earn visibility and create a next step.',
         ],
       },
     ],
     faqs: [
       { question: 'How many words should SEO content contain?', answer: 'There is no universal word count. Cover the task completely enough for the intended audience and stop when additional text no longer improves the decision. Use competitor depth as research context, not a mandatory length.' },
       { question: 'How often should SEO content be updated?', answer: 'Update when material facts, intent, platform behavior, evidence, links, performance or the offer changes. Review high-risk and high-value pages more frequently than stable definitions. Do not change dates without a substantive review.' },
-      { question: 'Does keyword density matter?', answer: 'Natural use of the topic and related concepts helps clarity, but a fixed density target is not a quality standard. Use topical scoring to identify possible gaps, then edit for meaning and readability rather than repetition.' },
+      { question: 'Does keyword density matter?', answer: 'Natural use of the topic and related concepts helps clarity, but a fixed density target is not a quality standard. Use a coverage review to identify possible gaps, then edit for meaning and readability rather than repetition.' },
       { question: 'Can one article target several keywords?', answer: 'Yes, when those phrases express the same search task and require the same answer. Assign a separate page only when audience, intent, evidence or conversion path is materially different.' },
       { question: 'Should every blog article sell a service?', answer: 'Every article should have a useful next step. For commercially relevant topics, that can include a service after the page has delivered the answer and explained fit. The CTA should continue the reader’s task rather than turning every paragraph into an advertisement.' },
     ],
@@ -238,10 +238,10 @@ export const contentEditorialArticles: EditorialArticle[] = [
     secondaryService: { href: '/services/on-page-seo', label: 'On-page SEO services' },
     conversionTitle: 'Turn your priority pages into researched conversion assets',
     conversionBody:
-      'TheProjectSEO can map page ownership, collect a live SERP corpus, score the draft with the content optimizer, add primary-source and practitioner evidence, and connect the finished page to qualified service demand.',
+      'TheProjectSEO can map page ownership, research the current search landscape, add primary-source and practitioner evidence, implement quality controls, and connect the finished page to qualified service demand.',
     visuals: [
-      { afterSection: 1, label: 'SEO content research workflow', description: 'Reserved for a visual connecting query intent, live SERP corpus, primary sources, brief, optimizer score and editorial QA.', aspect: 'wide' },
-      { afterSection: 9, label: 'Article-to-service conversion path', description: 'Reserved for a journey diagram showing informational, diagnostic and commercial next steps.' },
+      { afterSection: 1, label: 'SEO content research workflow', description: 'A workflow connecting search intent, current result research, primary sources, a clear brief and editorial quality assurance.', aspect: 'wide' },
+      { afterSection: 9, label: 'Article-to-service conversion path', description: 'A journey diagram showing informational, diagnostic and commercial next steps.' },
     ],
   },
   {
@@ -380,7 +380,7 @@ export const contentEditorialArticles: EditorialArticle[] = [
         paragraphs: [
           'Instead of working mainly through a web interface, analysts and developers can request SERPs, keyword data and other datasets programmatically. This enables scheduled corpus collection, consistent location settings, automated briefs and stored evidence across many pages.',
           'API access introduces engineering responsibility. Define request parameters, cost controls, retries, data storage, versioning and human review. An automated keyword list can scale mistakes as easily as insights.',
-          'TheProjectSEO’s content workflow uses live DataForSEO result collection with a local Python optimizer. The optimizer measures competitor term and entity coverage, but the editorial decision still uses primary sources, page ownership and a human review.',
+          'TheProjectSEO’s content workflow combines current search-result research, primary references, page ownership, coverage review and practitioner editing. Tools support the research; they do not replace editorial judgment.',
         ],
         sourceIds: ['dataforseo-docs'],
       },

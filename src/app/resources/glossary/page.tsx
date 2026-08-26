@@ -155,7 +155,7 @@ export default function GlossaryHubPage() {
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
               {[
-                { icon: FlaskConical, title: 'Live SERP research', detail: 'Each term has its own stored DataForSEO corpus and optimizer scorecard.' },
+                { icon: FlaskConical, title: 'Current search research', detail: 'Definitions are checked against how the term is used in current search results and primary references.' },
                 { icon: BookOpenText, title: 'Primary references', detail: 'Changing platform behavior is checked against official documentation.' },
                 { icon: Network, title: 'Connected concepts', detail: 'Related definitions, guides and services explain the term’s place in the system.' },
                 { icon: Check, title: 'Practitioner boundaries', detail: 'Tool metrics and emerging acronyms are not misrepresented as Google standards.' },

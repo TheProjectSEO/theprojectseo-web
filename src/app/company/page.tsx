@@ -79,11 +79,11 @@ const principles = [
   },
   {
     title: 'Research before page production',
-    body: 'Customer decisions, live SERPs, competitors, existing performance, source patterns, platform outputs, and implementation constraints establish what deserves a page or change.',
+    body: 'Customer needs, current search results, competitors, performance, and business priorities establish what deserves a page or change.',
   },
   {
     title: 'Implementation is part of the method',
-    body: 'A recommendation becomes useful when it has an owner, affected cohort, requirements, dependencies, acceptance criteria, release QA, evidence, and measurement annotation.',
+    body: 'Our team can take work from research and strategy through content, technical implementation, quality assurance, and measurement.',
   },
   {
     title: 'Claims need provenance',
@@ -150,12 +150,12 @@ const faqItems = [
   {
     question: 'Where is TheProjectSEO based?',
     answer:
-      'The legal company is headquartered in Ranchi, Jharkhand, India. Work is delivered remotely. Dedicated location pages are limited to India and the Philippines. The company page does not claim offices in the United States, Hong Kong, Singapore, Australia, other countries, or cities where no staffed office exists.',
+      'The legal company is headquartered in Ranchi, Jharkhand, India. We work remotely with organizations in India, the Philippines, and international markets.',
   },
   {
     question: 'Who works on TheProjectSEO engagements?',
     answer:
-      'The public team includes Aditya Aman, Shiraz Akmal, Akash, Smit Dholakiya, and Mohd. Rushan. The precise people, responsibilities, capacity, specialist review, and client-side owners are defined by the engagement rather than implied through an unsupported team-size or seniority statistic.',
+      'The public team includes Aditya Aman, Shiraz Akmal, Akash, Smit Dholakiya, and Mohd. Rushan. Each proposal identifies the people and responsibilities relevant to the engagement.',
   },
   {
     question: 'Why does TheProjectSEO call itself AI-native?',
@@ -292,8 +292,8 @@ export default function CompanyPage() {
               <p>
                 TheProjectSEO is the trading brand of TheProjectSEO Digital
                 (OPC) Private Limited, an SEO company headquartered in Ranchi,
-                Jharkhand, India. The agency’s public location strategy is
-                limited to India and the Philippines.
+                Jharkhand, India. We deliver full-service SEO and AI-search
+                programs for growth companies and established brands.
               </p>
               <p>
                 We help organizations improve how useful sources are discovered,
@@ -304,11 +304,10 @@ export default function CompanyPage() {
                 accuracy, referrals, and limitations separate.
               </p>
               <p>
-                The company does not claim hundreds of number-one rankings,
-                a fixed average traffic increase, thousands of completed
-                projects, twelve years of agency history, a global office
-                network, or a guaranteed result. Public claims are restricted
-                to facts and evidence that can be approved and contextualized.
+                Our team has worked with respected brands including Helpling
+                APAC, Goodnotes, OFFEO, Workhap, Adapt.io, and GoTeamUp. Public
+                results and testimonials are used only when they can be
+                attributed and presented with appropriate context.
               </p>
             </div>
           </div>
@@ -456,12 +455,10 @@ export default function CompanyPage() {
                 Where does AI assist the agency?
               </Heading>
               <p className="mt-6 text-base leading-8 text-slate">
-                The toolchain can assist research collection, corpus analysis,
-                classification, entity and topic comparison, draft evaluation,
-                repetitive QA, monitoring, and reporting preparation. The local
-                Python content optimizer used on this site compares rendered
-                pages with live competitor corpora and produces a scorecard and
-                brief.
+                Technology assists research, analysis, quality control,
+                monitoring, and reporting. It helps the team work across large
+                sites and datasets without giving up accuracy, judgment, or
+                accountability.
               </p>
               <p className="mt-5 text-base leading-8 text-slate">
                 Scores do not override truth, natural language, user value,

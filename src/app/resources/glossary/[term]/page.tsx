@@ -300,11 +300,10 @@ export default async function GlossaryTermPage({
                 </p>
               </div>
               <p className="mt-5 text-[16px] leading-8 text-slate">
-                This definition was checked against a live DataForSEO result corpus for its
-                target query and scored with TheProjectSEO’s local Python content optimizer.
-                Material behavior is supported with the primary references below. Tool metrics
-                and emerging industry terms are labelled as such rather than presented as
-                official Google systems.
+                This definition was checked against current search results and
+                the primary references below. Tool metrics and emerging industry
+                terms are labelled as such rather than presented as official
+                Google systems.
               </p>
               <ul className="mt-7 space-y-5">
                 {entry.sources.map((source) => (

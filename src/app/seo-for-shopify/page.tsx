@@ -391,8 +391,8 @@ function StepsSection() {
               AI answers can change the discovery journey without producing a conventional click.
               Track Google performance, AI-answer observations, citations, source eligibility,
               factual accuracy, recognized referral traffic, and commercial outcomes as separate
-              evidence layers. The evidence area below is reserved for an approved Shopify-specific
-              example rather than unpublished client data.
+              evidence layers. The example below explains the measurement framework without exposing
+              unpublished client data.
             </p>
 
             <EvidencePlaceholder

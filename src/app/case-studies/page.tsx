@@ -97,7 +97,7 @@ const faqItems = [
   {
     question: 'Why are there only two public case studies?',
     answer:
-      'They are the two projects for which the owner has approved the name and supplied public evidence. Previous draft pages referenced active client work still marked pending approval; those pages have been removed from generation and redirected or allowed to retire. A smaller verified collection is more useful than a larger collection of unsupported claims.',
+      'They are the two projects with the strongest approved public evidence in the current collection. Additional work remains confidential or will be added after the evidence and permissions are confirmed. A smaller verified collection is more useful than a larger collection of unsupported claims.',
   },
   {
     question: 'Are Expressway.PH and TaxCalculator.com.ph client projects?',
@@ -112,7 +112,7 @@ const faqItems = [
   {
     question: 'Why are some screenshot areas still empty?',
     answer:
-      'The project owner asked for the pages to be built before the final high-resolution captures are ready. Each empty slot specifies the approved tool view, selected metric, date range, crop, and context that should be preserved. It does not display simulated evidence.',
+      'Where a client-approved capture is unavailable, the page uses a clearly labeled explanatory graphic instead of simulated evidence. First-party screenshots are added only with the necessary context and permission.',
   },
   {
     question: 'How does TheProjectSEO measure AI-search visibility?',
@@ -400,16 +400,16 @@ export default function CaseStudiesPage() {
               </p>
             </div>
             <div>
-              <Subheading>What was removed</Subheading>
+              <Subheading>Evidence standard</Subheading>
               <Heading as="h2" className="mt-3">
-                Pending client summaries are not public proof.
+                Trust comes from verifiable context.
               </Heading>
               <ul className="mt-6 space-y-4">
                 {[
-                  'Eight draft client pages marked “pending approval” have been removed from public generation.',
-                  'Confidential client, CRM, pipeline, implementation, and performance claims are not used to inflate the public portfolio.',
-                  'The collection no longer claims a client count, industry count, quarterly intake limit, or proposal turnaround that has not been verified for publication.',
-                  'New studies will enter the collection only after the project name, evidence, source, reporting window, interpretation, and limitations are approved.',
+                  'Every published result names the metric source and reporting window.',
+                  'Confidential client, CRM, pipeline, and implementation details remain private.',
+                  'Observed performance is separated from causal interpretation and future expectations.',
+                  'New studies are published only after the name, evidence, context, and permissions are confirmed.',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-sm leading-7 text-slate">
                     <CheckCircle2 className="mt-1 size-4 shrink-0 text-accent" />

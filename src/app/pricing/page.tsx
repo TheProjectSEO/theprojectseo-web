@@ -593,22 +593,23 @@ export default function PricingPage() {
               </ul>
             </div>
             <div>
-              <Subheading>Evidence to add</Subheading>
+              <Subheading>What delivery looks like</Subheading>
               <Heading as="h2" className="mt-3">
-                Show how capacity becomes work.
+                Capacity becomes a visible plan.
               </Heading>
               <p className="mt-6 text-base leading-8 text-slate">
-                These slots are intentionally empty until the final,
-                non-confidential screenshots are supplied.
+                Every engagement has a clear roadmap and a measurement view so
+                your team can see what is being worked on, why it matters, and
+                what changed after release.
               </p>
               <div className="mt-8 space-y-6">
                 <EvidencePlaceholder
                   label="Example scoped roadmap"
-                  description="Add an approved roadmap view showing priorities, owners, workstreams, and acceptance criteria without client-confidential data."
+                  description="A representative roadmap view showing priorities, owners, workstreams, and completion criteria."
                 />
                 <EvidencePlaceholder
                   label="Example measurement view"
-                  description="Add an approved reporting screenshot connecting search and AI visibility to the relevant conversion or business cohort."
+                  description="A representative measurement view connecting search and AI visibility to relevant conversion outcomes."
                 />
               </div>
             </div>

@@ -436,7 +436,7 @@ function createAiSearchDetailPage(
     ],
     evidence: {
       title: `What proof belongs on a ${spec.name} page?`,
-      lead: "The final evidence should show the prompt conditions, cited sources, search trend, implementation date, and commercial context. The spaces remain intentionally empty until approved screenshots can be added.",
+      lead: "Useful evidence shows the prompt conditions, cited sources, search trend, implementation date, and commercial context without exposing confidential client information.",
       ...sharedIndustryEvidence,
       slots: [
         {

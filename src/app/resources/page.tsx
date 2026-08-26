@@ -45,7 +45,7 @@ const libraries = [
     title: 'Case studies',
     count: '2 approved project records',
     description:
-      'Evidence from Expressway.PH and TaxCalculator.com.ph, with screenshot locations reserved for approved source visuals.',
+      'Evidence from Expressway.PH and TaxCalculator.com.ph, presented with source context and clear measurement limitations.',
   },
   {
     href: '/methodology',
@@ -160,7 +160,7 @@ export default function ResourcesPage() {
                 Five live libraries
               </p>
               <h2 className="mt-4 font-heading text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
-                No placeholder tools or invented resource counts.
+                Practical resources for better search decisions.
               </h2>
               <p className="mt-6 text-lg leading-8 text-slate">
                 The resource hub lists what is actually available today. Tool
@@ -269,14 +269,13 @@ export default function ResourcesPage() {
             </div>
             <div className="space-y-5 text-[16px] leading-8 text-white/65">
               <p>
-                Priority pages use live DataForSEO result collection and the
-                local Python content optimizer supplied for this project.
+                Priority pages start with current search results, customer
+                intent, connected topics, and relevant primary references.
               </p>
               <p>
                 Official documentation supports changing platform claims.
-                Approved project evidence is separated from general advice, and
-                image locations remain empty until the final screenshots are
-                supplied.
+                Approved project evidence is separated from general advice so
+                readers can see what is observed and what is recommended.
               </p>
               <p>
                 No resource promises a ranking, hides an affiliate comparison or

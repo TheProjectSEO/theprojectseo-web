@@ -34,10 +34,19 @@ import { seoTiers } from "@/data/pricing";
 import { testimonials } from "@/data/testimonials";
 
 const homeHeroLead =
-  "One evidence-led program for organic rankings, AI citations, brand recommendations, and measurable demand.";
+  "Full-service SEO and AI search, delivered end to end to improve visibility, trust, and qualified demand.";
 
 const homeHeroDetail =
-  "TheProjectSEO is an AI-native SEO agency for companies that need one accountable program across Google, Bing, AI Overviews, ChatGPT, Perplexity, Gemini, Claude, and other generative engines. We combine technical search engine optimization, content, authority, GEO, AEO, entity work, and measurement to improve organic rankings, AI citations, brand recommendations, and qualified demand.";
+  "TheProjectSEO brings technical SEO, content, digital authority, analytics, implementation, GEO, AEO, and AI-search measurement into one accountable program. Our team has supported established global brands and ambitious growth companies across SaaS, ecommerce, marketplaces, travel, home services, and other competitive categories.";
+
+const trustedOrganizations = [
+  "Helpling APAC",
+  "Goodnotes",
+  "OFFEO",
+  "Workhap",
+  "Adapt.io",
+  "GoTeamUp",
+];
 
 export const metadata: Metadata = {
   title: "AI-Native SEO Agency for Google & AI Search | TheProjectSEO",
@@ -171,7 +180,7 @@ const disciplines = [
     includes: [
       "Search-demand and intent map",
       "Buyer-prompt library",
-      "SERP and citation-source corpus",
+      "Current result and citation analysis",
       "Prioritized opportunity model",
     ],
     href: "/services/seo-consulting",
@@ -211,7 +220,7 @@ const disciplines = [
     description:
       "We create or improve commercial pages, supporting guides, comparisons, tools, and original research. A page is judged on whether it resolves the task, adds defensible information, and earns a place in the wider topic—not on word count alone.",
     includes: [
-      "SERP-corpus content briefs",
+      "Evidence-led content briefs",
       "Entity and subtopic coverage",
       "Expert interview integration",
       "Editorial review and refresh cycles",
@@ -283,7 +292,7 @@ const phases = [
     title: "Baseline and diagnosis",
     text: "We connect the available data, crawl the site, inspect templates, inventory current pages, map entities, research priority result sets, and build the first controlled prompt panel. The month ends with an evidence-backed backlog—not a generic audit checklist.",
     output:
-      "Technical findings, organic baseline, AI-answer baseline, competitor corpus, page inventory, quick wins, and a sequenced implementation plan.",
+      "Technical findings, organic baseline, AI-answer baseline, competitive landscape, page inventory, quick wins, and a sequenced implementation plan.",
   },
   {
     range: "Days 31–60",
@@ -349,7 +358,7 @@ const faqItems = [
   {
     question: "Do you create large volumes of AI-written articles?",
     answer:
-      "No. AI can accelerate corpus analysis, clustering, brief construction, internal-link discovery, QA, and drafting support. It does not establish facts or decide what should be published. Every release should have a user task, source context, useful information, an accountable reviewer, and a place in the site architecture. Pages without those conditions are consolidated, improved, or not created.",
+      "No. AI can accelerate research synthesis, clustering, brief construction, internal-link discovery, QA, and drafting support. It does not establish facts or decide what should be published. Every release should have a user task, source context, useful information, an accountable reviewer, and a place in the site architecture. Pages without those conditions are consolidated, improved, or not created.",
   },
   {
     question: "How long does SEO and GEO take?",
@@ -423,6 +432,14 @@ function Hero() {
               Engagements from $3,500/month · India and Philippines · Strategy,
               implementation, and measurement
             </p>
+            <div className="mt-8 border-t border-border pt-6">
+              <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-ash">
+                Experience trusted by teams at
+              </p>
+              <p className="mt-3 text-sm font-semibold leading-7 text-stone">
+                {trustedOrganizations.join(" · ")}
+              </p>
+            </div>
           </div>
 
           <div className="home-surface-panel border border-border-strong bg-paper p-5 shadow-sm sm:p-7">
@@ -618,13 +635,10 @@ function ExecutiveAnswer() {
               <p>
                 The phrase <strong className="text-ink">AI-native</strong>{" "}
                 should describe the delivery model, not a fashionable service
-                label. We use automation where it improves coverage and
-                consistency: processing crawl data, clustering large query sets,
-                finding internal-link opportunities, comparing a draft with a
-                live competitor corpus, checking structured information, and
-                detecting performance changes. Human practitioners still choose
-                the strategy, validate the evidence, edit the work, and own the
-                release decision.
+                label. We use technology to improve research coverage, quality
+                control, and delivery speed. Experienced practitioners still
+                choose the strategy, validate the evidence, edit the work, and
+                remain accountable for every release.
               </p>
               <p>
                 The phrase{" "}
@@ -1202,16 +1216,16 @@ function OperatingSystemSection() {
       text: "Search Console, analytics, rank data, crawl output, CRM definitions, existing pages, product facts, and expert input establish what is known.",
     },
     {
-      title: "2. Build the live corpus",
-      text: "We study the pages, result features, cited sources, headings, entities, questions, and content formats already competing for the target task.",
+      title: "2. Research the search landscape",
+      text: "We examine current results, cited sources, customer questions, competing offers, and the evidence needed to earn attention.",
     },
     {
-      title: "3. Score the opportunity",
-      text: "A local Python-based content optimizer measures topic and entity coverage against the live corpus. Its score informs editing; it never overrides accuracy or user value.",
+      title: "3. Prioritize the opportunity",
+      text: "We compare commercial value, search demand, customer intent, existing assets, effort, and risk before recommending a page or change.",
     },
     {
       title: "4. Add practitioner judgment",
-      text: "A specialist chooses the page type, argument, evidence, internal relationships, and commercial action. Generic term recommendations are rejected when they add no meaning.",
+      text: "A specialist chooses the page type, evidence, internal relationships, and commercial action. Accuracy and usefulness remain the publishing standard.",
     },
     {
       title: "5. Implement and verify",
@@ -1237,16 +1251,9 @@ function OperatingSystemSection() {
               How do we use AI without producing generic content?
             </Heading>
             <p className="mt-6 text-lg leading-relaxed text-white/65">
-              AI is most valuable when it operates inside a controlled chain of
-              context, constraints, checks, and accountable decisions. The
-              objective is better analysis and faster implementation—not maximum
-              output.
-            </p>
-            <p className="mt-5 text-sm leading-relaxed text-white/50">
-              This homepage itself was rebuilt through that process: a live
-              eight-page competitor corpus, deterministic term scoring, entity
-              extraction, a consolidated brief, editorial judgment, and a second
-              scoring pass.
+              AI is most valuable when it improves analysis, consistency, and
+              implementation while experienced people remain accountable for
+              strategy, evidence, and quality.
             </p>
             <Button
               variant="ghost"
@@ -1349,7 +1356,7 @@ function DeliverablesSection() {
     ],
     [
       "Content brief and QA record",
-      "SERP corpus, entity coverage, outline, sources, claims, reviewer, change notes",
+      "Search intent, topic coverage, outline, sources, claims, reviewer, change notes",
       "Per priority page",
     ],
     [

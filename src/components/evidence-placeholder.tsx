@@ -15,15 +15,10 @@ type EvidencePlaceholderProps = {
 }
 
 /**
- * A deliberately empty slot for first-party screenshots and diagrams.
- *
- * Keep these slots visible in preview builds so the final crop, caption, and
- * surrounding layout can be approved before an image is supplied. Replace the
- * inner content with next/image when the approved asset is available.
+ * Renders an approved evidence asset or a client-ready explanatory graphic.
  */
 export function EvidencePlaceholder({
   label,
-  description,
   className = '',
   asset,
   graphic,
@@ -41,7 +36,7 @@ export function EvidencePlaceholder({
       data-evidence-ready="true"
       className={`group relative isolate overflow-hidden border border-border-strong bg-paper shadow-md ${className}`}
     >
-      <p className="sr-only">{description}</p>
+      <p className="sr-only">{asset?.alt ?? label}</p>
       <div className="flex items-center justify-between gap-3 border-b border-border bg-paper px-4 py-3 sm:px-5">
         <div className="flex min-w-0 items-center gap-2.5">
           <span

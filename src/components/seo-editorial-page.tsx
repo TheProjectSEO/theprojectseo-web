@@ -433,8 +433,8 @@ export function SeoEditorialPage({ article }: { article: EditorialArticle }) {
                 Sources and editorial method
               </p>
               <p className="mt-4 max-w-3xl text-[15px] leading-7 text-slate">
-                This guide combines the live competitor corpus collected for its target query with
-                current primary documentation. TheProjectSEO separates documented platform behavior
+                This guide combines current search-landscape research with primary documentation.
+                TheProjectSEO separates documented platform behavior
                 from practitioner judgment, dates material revisions, and does not convert a
                 correlation, tool score, or isolated result into a ranking guarantee.
               </p>

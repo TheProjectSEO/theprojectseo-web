@@ -8,6 +8,8 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
         disallow: [
           '/admin/',
+          '/animation-demo/',
+          '/demo/',
           '/api/',
           '/output/',
           '/scripts/',
@@ -27,7 +29,7 @@ export default function robots(): MetadataRoute.Robots {
           'Perplexity-User',
         ],
         allow: '/',
-        disallow: ['/admin/', '/api/', '/output/', '/scripts/'],
+        disallow: ['/admin/', '/animation-demo/', '/demo/', '/api/', '/output/', '/scripts/'],
       },
       // Optional model-development crawlers. Search access is controlled above.
       {
@@ -39,13 +41,13 @@ export default function robots(): MetadataRoute.Robots {
           'Bytespider',
         ],
         allow: '/',
-        disallow: ['/admin/', '/api/', '/output/', '/scripts/'],
+        disallow: ['/admin/', '/animation-demo/', '/demo/', '/api/', '/output/', '/scripts/'],
       },
       // Google and Bing crawlers
       {
         userAgent: ['Googlebot', 'Bingbot'],
         allow: '/',
-        disallow: ['/admin/', '/api/', '/output/', '/scripts/'],
+        disallow: ['/admin/', '/animation-demo/', '/demo/', '/api/', '/output/', '/scripts/'],
       },
     ],
     sitemap: 'https://theprojectseo.com/sitemap.xml',
