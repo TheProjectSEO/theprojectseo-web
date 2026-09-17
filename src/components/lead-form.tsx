@@ -132,9 +132,10 @@ function LeadFormInner({
           Thank you!
         </h3>
         <p className="font-sans text-slate">
-          We&apos;ll review the site, goal, and constraints you shared, then
-          reply with the appropriate next step.
+          Your enquiry has been saved. Choose a time to discuss the site, goals, and constraints you shared.
         </p>
+        <a href="/book/" className="mt-6 inline-flex rounded-md bg-ink px-6 py-3 font-semibold text-white">Choose a meeting time</a>
+        <p className="mt-3 text-sm text-slate">Booking opens our shared calendar, hosted by SEO Company Philippines. If you cannot find a time, email <a href="mailto:aditya@theprojectseo.com" className="underline">aditya@theprojectseo.com</a>.</p>
       </div>
     );
   }
@@ -460,6 +461,7 @@ function LeadFormInner({
           . We&apos;ll never spam you.
         </p>
       </div>
+      <p className="mt-4 text-center text-sm">Prefer to talk? <a href="/book/" className="font-semibold underline">Book a meeting directly</a>.</p>
     </form>
   );
 }
