@@ -3,6 +3,7 @@ import { IBM_Plex_Mono, Manrope } from "next/font/google";
 import "./globals.css";
 import { ConversionExperience } from "@/components/conversion-experience";
 import { GoogleAnalytics } from "@/components/google-analytics";
+import { BookingPrivacyBoundary } from "@/components/booking-privacy-boundary";
 import { SessionTrackerLoader } from "@/components/session-tracker-loader";
 import { TrackingConsentManager } from "@/components/tracking-consent-manager";
 
@@ -86,8 +87,10 @@ export default function RootLayout({
         {children}
         <TrackingConsentManager />
         <ConversionExperience />
-        <GoogleAnalytics />
-        <SessionTrackerLoader />
+        <BookingPrivacyBoundary>
+          <GoogleAnalytics />
+          <SessionTrackerLoader />
+        </BookingPrivacyBoundary>
       </body>
     </html>
   );

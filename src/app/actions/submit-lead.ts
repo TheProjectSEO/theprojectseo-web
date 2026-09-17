@@ -47,6 +47,7 @@ const leadSchema = z.object({
 
 export type LeadFormState = {
   success: boolean;
+  bookingIdentity?: { name: string; email: string; websiteUrl?: string; summary?: string };
   error?: string;
 };
 
@@ -160,7 +161,7 @@ export async function submitLead(
     }
   }
 
-  return { success: true };
+  return { success: true, bookingIdentity: { name: fullName, email: lead.email, websiteUrl: lead.websiteUrl, summary: [lead.company, storedServiceInterest, lead.message].filter(Boolean).join("\n") } };
 }
 
 async function sendSlackNotification(
@@ -200,7 +201,7 @@ async function sendSlackNotification(
   const blocks = [
     {
       type: "header",
-      text: { type: "plain_text", text: "New Lead from TheProjectSEO" },
+      text: { type: "plain_text", text: "Enquiry received — meeting not booked yet · TheProjectSEO" },
     },
     {
       type: "section",
@@ -316,9 +317,9 @@ async function sendEmailNotification(
   await resend.emails.send({
     from: "TheProjectSEO Leads <leads@theprojectseo.com>",
     to: "aditya@theprojectseo.com",
-    subject: `New Lead: ${fullName} — ${lead.sourcePage}`,
+    subject: `Enquiry received — scheduling pending: ${fullName} — ${lead.sourcePage}`,
     html: `
-      <h2>New Lead from TheProjectSEO</h2>
+      <h2>Enquiry received — meeting not booked yet · TheProjectSEO</h2>
       <table style="border-collapse:collapse;width:100%;max-width:600px;">
         <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Name</td><td style="padding:8px;border-bottom:1px solid #eee;">${html(fullName)}</td></tr>
         <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold;">Email</td><td style="padding:8px;border-bottom:1px solid #eee;">${html(lead.email)}</td></tr>

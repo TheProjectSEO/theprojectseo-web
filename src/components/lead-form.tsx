@@ -3,6 +3,7 @@
 import { Suspense, useActionState, useEffect, useRef } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import Link from "next/link";
+import { NativeScheduler } from "@/components/native-scheduler";
 import { submitLead, type LeadFormState } from "@/app/actions/submit-lead";
 import { Button } from "@/components/button";
 import {
@@ -12,7 +13,6 @@ import {
 } from "@/data/pricing";
 import { Field, Input, Label, Select, Textarea } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/16/solid";
-import { CheckCircleIcon } from "@heroicons/react/24/outline";
 import { clsx } from "clsx";
 import {
   getLandingPage,
@@ -52,7 +52,6 @@ export function LeadForm(props: LeadFormProps) {
 
 function LeadFormInner({
   variant = "compact",
-  submitText = "Share the project context",
   className,
 }: LeadFormProps) {
   const pathname = usePathname();
@@ -112,32 +111,13 @@ function LeadFormInner({
         variant,
         metadata: submissionMetadataRef.current,
       });
-      window.dispatchEvent(new Event("tps:lead-submitted"));
+      // Keep the enquiry panel open until the visitor finishes scheduling.
       formRef.current?.reset();
     }
   }, [state.success, variant]);
 
-  if (state.success) {
-    return (
-      <div
-        className={clsx(
-          "rounded-lg bg-paper p-8 border border-border-strong text-center",
-          className,
-        )}
-      >
-        <div className="mx-auto size-16 rounded-full bg-green-50 flex items-center justify-center mb-4">
-          <CheckCircleIcon className="size-8 text-green-600" />
-        </div>
-        <h3 className="font-heading text-xl font-semibold text-ink mb-2">
-          Thank you!
-        </h3>
-        <p className="font-sans text-slate">
-          Your enquiry has been saved. Choose a time to discuss the site, goals, and constraints you shared.
-        </p>
-        <a href="/book/" className="mt-6 inline-flex rounded-md bg-ink px-6 py-3 font-semibold text-white">Choose a meeting time</a>
-        <p className="mt-3 text-sm text-slate">Booking opens our shared calendar, hosted by SEO Company Philippines. If you cannot find a time, email <a href="mailto:aditya@theprojectseo.com" className="underline">aditya@theprojectseo.com</a>.</p>
-      </div>
-    );
+  if (state.success && state.bookingIdentity) {
+    return <div className={className}><p className="mb-4 font-semibold" role="status">Step 2 of 2 — your enquiry is saved. Choose a time below to complete your booking.</p><NativeScheduler directBooking identity={state.bookingIdentity} /></div>;
   }
 
   return (
@@ -451,7 +431,7 @@ function LeadFormInner({
       {/* Submit */}
       <div className="mt-6">
         <Button type="submit" className="w-full" disabled={isPending}>
-          {isPending ? "Submitting..." : submitText}
+          {isPending ? "Saving your details..." : "Continue to choose a time"}
         </Button>
         <p className="mt-3 font-sans text-xs text-ash text-center">
           By submitting this form, you agree to our{" "}
@@ -461,7 +441,6 @@ function LeadFormInner({
           . We&apos;ll never spam you.
         </p>
       </div>
-      <p className="mt-4 text-center text-sm">Prefer to talk? <a href="/book/" className="font-semibold underline">Book a meeting directly</a>.</p>
     </form>
   );
 }

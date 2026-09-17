@@ -25,6 +25,8 @@ const POPUP_DISMISSAL_MS = 7 * 24 * 60 * 60 * 1000;
 const LEAD_SUPPRESSION_MS = 30 * 24 * 60 * 60 * 1000;
 
 const popupSuppressedPaths = [
+  "/book",
+  "/meeting",
   "/contact",
   "/pricing",
   "/privacy",
